@@ -1,0 +1,94 @@
+[INFO] [1775785334.241963402] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775785334.254895175] [planner_server]: Creating
+[INFO] [1775785334.321479826] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775785334.323224965] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1775785337.645076898] [planner_server]: Configuring
+[INFO] [1775785337.645171306] [global_costmap.global_costmap]: Configuring
+[INFO] [1775785337.738249412] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1775785337.768080368] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1775785337.778781184] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1775785337.778846258] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1775785337.791656808] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1775785337.831219222] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1775785337.831435520] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1775785337.859121945] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1775785338.129908647] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 548 X 491 at 0.050000 m/pix
+[INFO] [1775785338.130325241] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1775785338.130525020] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1775785338.138757416] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1775785340.694483750] [planner_server]: Activating
+[INFO] [1775785340.694561713] [global_costmap.global_costmap]: Activating
+[INFO] [1775785340.694585547] [global_costmap.global_costmap]: Checking transform
+[INFO] [1775785340.694804455] [global_costmap.global_costmap]: start
+[INFO] [1775785341.750151798] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1775785341.757434874] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1775785343.927521747] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1775785343.621 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775785513.292806922] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1775785512.980 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775785522.929715082] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1775785522.621 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1775785707.520379545] [planner_server]: GridBased plugin failed to plan from (11.44, 1.29) to (13.95, 2.02): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775785707.520748251] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775785707.537244577] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775785707.713089815] [planner_server]: GridBased plugin failed to plan from (11.38, 1.25) to (13.95, 2.02): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775785707.713321520] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775785707.751670717] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775785708.711861065] [planner_server]: GridBased plugin failed to plan from (11.43, 1.19) to (13.95, 2.02): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775785708.712007825] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775785708.724676631] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775785709.709170844] [planner_server]: GridBased plugin failed to plan from (11.48, 1.23) to (13.95, 2.02): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775785709.709398438] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775785728.546847937] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.9812 Hz
+[WARN] [1775785731.735719455] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.0380 Hz
+[WARN] [1775785732.867291389] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.7729 Hz
+[WARN] [1775785733.979524130] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.7533 Hz
+[WARN] [1775785735.118289100] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.8815 Hz
+[WARN] [1775785736.251636302] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.3396 Hz
+[WARN] [1775785737.376224126] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.1793 Hz
+[WARN] [1775785738.489234389] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.6598 Hz
+[WARN] [1775785739.592683937] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.4872 Hz
+[WARN] [1775785740.726631272] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.0036 Hz
+[WARN] [1775785745.695081151] [global_costmap.global_costmap]: Sensor origin at (15.45, 9.20) is out of map bounds (0.27, -18.97) to (27.64, 5.56). The costmap cannot raytrace for it.
+[WARN] [1775785747.695148590] [nav2_costmap_2d]: Robot is out of bounds of the costmap!
+[WARN] [1775785776.705148873] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.5267 Hz
+[WARN] [1775785777.837000179] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.3585 Hz
+[WARN] [1775785778.951939897] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.6793 Hz
+[WARN] [1775785780.073050925] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.5626 Hz
+[WARN] [1775785781.197459414] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0836 Hz
+[WARN] [1775785782.311523924] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.7346 Hz
+[WARN] [1775785783.436833788] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.3039 Hz
+[WARN] [1775785784.553231328] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.5506 Hz
+[WARN] [1775785785.686066157] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.2785 Hz
+[WARN] [1775785786.783238302] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.7859 Hz
+[WARN] [1775785787.911944851] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.6483 Hz
+[WARN] [1775785789.035673947] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.7410 Hz
+[WARN] [1775785790.133443299] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.7681 Hz
+[WARN] [1775785791.259361981] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.8851 Hz
+[WARN] [1775785792.380692506] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.8915 Hz
+[WARN] [1775785793.520211766] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.9344 Hz
+[WARN] [1775785794.649239563] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.9427 Hz
+[WARN] [1775785795.791559412] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.1815 Hz
+[WARN] [1775785796.929663886] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.9774 Hz
+[WARN] [1775785798.045674615] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.5582 Hz
+[WARN] [1775785799.144875014] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.0097 Hz
+[WARN] [1775785805.301502386] [planner_server]: GridBased plugin failed to plan from (12.43, 1.31) to (12.95, 1.63): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775785805.301760832] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775785805.318142382] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775785805.823840405] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 1.9816 Hz
+[WARN] [1775785806.954294598] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.8255 Hz
+[WARN] [1775785812.153278098] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.7670 Hz
+[INFO] [1775786026.185456909] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1775786026.185715818] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1775786026.185829930] [planner_server]: Deactivating
+[INFO] [1775786026.185897189] [global_costmap.global_costmap]: Deactivating
+[INFO] [1775786026.701224615] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1775786026.701360449] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1775786026.718983820] [planner_server]: Cleaning up
+[INFO] [1775786027.199166097] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1775786027.320791388] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1775786027.321078260] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1775786027.652854494] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

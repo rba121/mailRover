@@ -1,0 +1,32 @@
+[INFO] [1775784111.698777835] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775784111.720245238] [controller_server]: Creating controller server
+[INFO] [1775784112.011008284] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775784112.012009437] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1775784113.329626797] [controller_server]: Configuring controller interface
+[INFO] [1775784113.329683594] [controller_server]: getting progress checker plugins..
+[INFO] [1775784113.330627172] [controller_server]: getting goal checker plugins..
+[INFO] [1775784113.332297070] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1775784113.332447644] [local_costmap.local_costmap]: Configuring
+[INFO] [1775784113.549399802] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1775784113.635634733] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1775784113.742692287] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1775784113.742802769] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1775784113.749220097] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1775784113.970739981] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1775784113.973582996] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1775784113.977132458] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1775784113.980800865] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1775784113.992984389] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[ERROR] [1775784114.021168863] [controller_server]: Caught exception in callback for transition 10
+[ERROR] [1775784114.021282586] [controller_server]: Original error: Controller period more then model dt, set it equal to model dt
+[WARN] [1775784114.021329993] [controller_server]: Callback returned ERROR during the transition: configure
+[FATAL] [1775784114.021348864] [controller_server]: Lifecycle node controller_server does not have error state implemented
+[INFO] [1775784420.735941098] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1775784420.736089876] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1775784420.736178340] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

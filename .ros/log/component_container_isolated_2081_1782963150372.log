@@ -1,0 +1,437 @@
+[INFO] [1782963153.072240382] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libamcl_core.so
+[INFO] [1782963153.210043413] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_amcl::AmclNode>
+[INFO] [1782963153.210145338] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_amcl::AmclNode>
+[INFO] [1782963153.259165770] [amcl]: 
+	amcl lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963153.263663274] [amcl]: Creating
+[INFO] [1782963153.271042676] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libcontroller_server_core.so
+[INFO] [1782963153.319378888] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[INFO] [1782963153.319464351] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[INFO] [1782963153.360016329] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963153.400882769] [controller_server]: Creating controller server
+[INFO] [1782963153.432391759] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963153.438509331] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1782963153.446979193] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libnav2_lifecycle_manager_core.so
+[INFO] [1782963153.470782781] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[INFO] [1782963153.470875244] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[INFO] [1782963153.503515063] [lifecycle_manager_localization]: Creating
+[INFO] [1782963153.549530672] [lifecycle_manager_localization]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[INFO] [1782963153.550990370] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libmap_server_core.so
+[INFO] [1782963153.730550968] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::CostmapFilterInfoServer>
+[INFO] [1782963153.730651838] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapSaver>
+[INFO] [1782963153.730669393] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapServer>
+[INFO] [1782963153.730690004] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapServer>
+[INFO] [1782963153.764666578] [lifecycle_manager_localization]: [34m[1mStarting managed nodes bringup...[0m[0m
+[INFO] [1782963153.764784208] [lifecycle_manager_localization]: [34m[1mConfiguring map_server[0m[0m
+[INFO] [1782963153.768966620] [map_server]: 
+	map_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963153.769073342] [map_server]: Creating
+[INFO] [1782963153.770319245] [map_server]: Configuring
+[INFO] [1782963153.770480430] [map_io]: Loading yaml file: /home/mypi/ros2_ws_simon/install/mailrover_urdf/share/mailrover_urdf/maps/floor.yaml
+[INFO] [1782963153.771123928] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libsmoother_server_core.so
+[INFO] [1782963153.772077073] [map_io]: resolution: 0.05
+[INFO] [1782963153.772115221] [map_io]: origin[0]: -45.125
+[INFO] [1782963153.772124128] [map_io]: origin[1]: -14.725
+[INFO] [1782963153.772129739] [map_io]: origin[2]: 0
+[INFO] [1782963153.772135665] [map_io]: free_thresh: 0.196
+[INFO] [1782963153.772141406] [map_io]: occupied_thresh: 0.65
+[INFO] [1782963153.772151313] [map_io]: mode: trinary
+[INFO] [1782963153.772159628] [map_io]: negate: 0
+[INFO] [1782963153.817166888] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_smoother::SmootherServer>
+[INFO] [1782963153.817253814] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_smoother::SmootherServer>
+[INFO] [1782963153.822806203] [map_io]: Loading image_file: /home/mypi/ros2_ws_simon/install/mailrover_urdf/share/mailrover_urdf/maps/floor.pgm
+[INFO] [1782963153.877200284] [smoother_server]: 
+	smoother_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963153.881079364] [smoother_server]: Creating smoother server
+[INFO] [1782963153.884142891] [map_io]: Read map /home/mypi/ros2_ws_simon/install/mailrover_urdf/share/mailrover_urdf/maps/floor.pgm: 1805 X 589 map @ 0.05 m/cell
+[INFO] [1782963153.894473209] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libplanner_server_core.so
+[INFO] [1782963153.912064133] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_planner::PlannerServer>
+[INFO] [1782963153.912171243] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_planner::PlannerServer>
+[INFO] [1782963153.916068694] [lifecycle_manager_localization]: [34m[1mConfiguring amcl[0m[0m
+[INFO] [1782963153.917241357] [amcl]: Configuring
+[INFO] [1782963153.917529893] [amcl]: initTransforms
+[INFO] [1782963153.950805710] [amcl]: initPubSub
+[INFO] [1782963153.990307636] [amcl]: Subscribed to map topic.
+[INFO] [1782963154.007585468] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963154.009425944] [lifecycle_manager_localization]: [34m[1mActivating map_server[0m[0m
+[INFO] [1782963154.009693165] [map_server]: Activating
+[INFO] [1782963154.010783458] [planner_server]: Creating
+[INFO] [1782963154.016501735] [amcl]: Received a 1805 X 589 map @ 0.050 m/pix
+[INFO] [1782963154.258342462] [map_server]: Creating bond (map_server) to lifecycle manager.
+[INFO] [1782963154.572362119] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963154.573707226] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1782963154.586297147] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libroute_server_core.so
+[INFO] [1782963154.611526954] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_route::RouteServer>
+[INFO] [1782963154.611634676] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_route::RouteServer>
+[INFO] [1782963154.639274233] [lifecycle_manager_localization]: Server map_server connected with bond.
+[INFO] [1782963154.639364029] [lifecycle_manager_localization]: [34m[1mActivating amcl[0m[0m
+[INFO] [1782963154.640983746] [amcl]: Activating
+[INFO] [1782963154.641124375] [amcl]: Creating bond (amcl) to lifecycle manager.
+[INFO] [1782963154.675013505] [route_server]: 
+	route_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963154.721443668] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libbehavior_server_core.so
+[INFO] [1782963154.735366437] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<behavior_server::BehaviorServer>
+[INFO] [1782963154.735434678] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<behavior_server::BehaviorServer>
+[INFO] [1782963154.762384312] [lifecycle_manager_localization]: Server amcl connected with bond.
+[INFO] [1782963154.762530107] [lifecycle_manager_localization]: [34m[1mManaged nodes are active[0m[0m
+[INFO] [1782963154.762583033] [lifecycle_manager_localization]: [34m[1mCreating bond timer...[0m[0m
+[INFO] [1782963154.790447794] [behavior_server]: 
+	behavior_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963154.800912056] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libbt_navigator_core.so
+[INFO] [1782963154.866113342] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_bt_navigator::BtNavigator>
+[INFO] [1782963154.866199379] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_bt_navigator::BtNavigator>
+[INFO] [1782963154.927673863] [bt_navigator]: 
+	bt_navigator lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963154.930318762] [bt_navigator]: Creating
+[INFO] [1782963154.936207687] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libwaypoint_follower_core.so
+[INFO] [1782963154.960032831] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_waypoint_follower::WaypointFollower>
+[INFO] [1782963154.960108368] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_waypoint_follower::WaypointFollower>
+[INFO] [1782963155.018421214] [waypoint_follower]: 
+	waypoint_follower lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963155.022371294] [waypoint_follower]: Creating
+[INFO] [1782963155.029254771] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libvelocity_smoother_core.so
+[INFO] [1782963155.043638243] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_velocity_smoother::VelocitySmoother>
+[INFO] [1782963155.043745131] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_velocity_smoother::VelocitySmoother>
+[INFO] [1782963155.101346517] [velocity_smoother]: 
+	velocity_smoother lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963155.106545981] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libcollision_monitor_core.so
+[INFO] [1782963155.141201794] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_collision_monitor::CollisionMonitor>
+[INFO] [1782963155.141292293] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_collision_monitor::CollisionMonitor>
+[INFO] [1782963155.206528728] [collision_monitor]: 
+	collision_monitor lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963155.212134913] [nav2_container]: Load Library: /opt/ros/jazzy/lib/libopennav_docking_core.so
+[INFO] [1782963155.238716808] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<opennav_docking::DockingServer>
+[INFO] [1782963155.238788418] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<opennav_docking::DockingServer>
+[INFO] [1782963155.300836215] [docking_server]: 
+	docking_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782963155.300965919] [docking_server]: Creating docking_server
+[INFO] [1782963155.310521091] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[INFO] [1782963155.310587332] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[INFO] [1782963155.355703239] [lifecycle_manager_navigation]: Creating
+[INFO] [1782963155.366141631] [lifecycle_manager_navigation]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[INFO] [1782963155.452451034] [lifecycle_manager_navigation]: [34m[1mStarting managed nodes bringup...[0m[0m
+[INFO] [1782963155.452571644] [lifecycle_manager_navigation]: [34m[1mConfiguring controller_server[0m[0m
+[INFO] [1782963155.452984569] [controller_server]: Configuring controller interface
+[INFO] [1782963155.453046439] [controller_server]: getting progress checker plugins..
+[INFO] [1782963155.454172824] [controller_server]: getting goal checker plugins..
+[INFO] [1782963155.455212710] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1782963155.455378450] [local_costmap.local_costmap]: Configuring
+[INFO] [1782963155.478107505] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1782963155.521697085] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1782963155.553887720] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1782963155.553972220] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1782963155.559069796] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1782963155.646575120] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1782963155.649016538] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1782963155.653800208] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1782963155.657989027] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1782963155.666718351] [controller_server]: Created controller : FollowPath of type nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1782963155.724973641] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1782963155.768145852] [lifecycle_manager_navigation]: [34m[1mConfiguring smoother_server[0m[0m
+[INFO] [1782963155.768460629] [smoother_server]: Configuring smoother server
+[INFO] [1782963155.804166364] [smoother_server]: Created smoother : simple_smoother of type nav2_smoother::SimpleSmoother
+[INFO] [1782963155.811453784] [smoother_server]: Smoother Server has simple_smoother  smoothers available.
+[INFO] [1782963155.832349827] [lifecycle_manager_navigation]: [34m[1mConfiguring planner_server[0m[0m
+[INFO] [1782963155.832593937] [planner_server]: Configuring
+[INFO] [1782963155.832742807] [global_costmap.global_costmap]: Configuring
+[INFO] [1782963155.856316600] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1782963155.861503805] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1782963155.866149124] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1782963155.866256197] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1782963155.873234786] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1782963155.895307806] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1782963155.895380806] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1782963155.898505295] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1782963156.006979125] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 1805 X 589 at 0.050000 m/pix
+[INFO] [1782963156.013211327] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1782963156.013336753] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1782963156.017848442] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1782963156.066921726] [lifecycle_manager_navigation]: [34m[1mConfiguring route_server[0m[0m
+[INFO] [1782963156.067205058] [route_server]: Configuring
+[INFO] [1782963156.176434108] [route_server]: Created GraphFileLoader GeoJsonGraphFileLoader of type nav2_route::GeoJsonGraphFileLoader
+[INFO] [1782963156.176508756] [route_server]: Configuring geojson graph file loader
+[INFO] [1782963156.176581552] [route_server]: No graph file provided to load yet.
+[INFO] [1782963156.195007028] [route_server]: Created edge cost function plugin DistanceScorer of type nav2_route::DistanceScorer
+[INFO] [1782963156.195108843] [route_server]: Configuring distance scorer.
+[INFO] [1782963156.198158055] [route_server]: Created edge cost function plugin CostmapScorer of type nav2_route::CostmapScorer
+[INFO] [1782963156.198249907] [route_server]: Configuring costmap scorer.
+[INFO] [1782963156.218990839] [route_server]: Created route operation AdjustSpeedLimit of type nav2_route::AdjustSpeedLimit
+[INFO] [1782963156.219075950] [route_server]: Configuring Adjust speed limit operation.
+[INFO] [1782963156.225117837] [route_server]: Created route operation ReroutingService of type nav2_route::ReroutingService
+[INFO] [1782963156.225217374] [route_server]: Configuring Rerouting service operation.
+[INFO] [1782963156.231423242] [route_server]: Created route operation CollisionMonitor of type nav2_route::CollisionMonitor
+[INFO] [1782963156.232420739] [route_server]: Using costmap topic: local_costmap/costmap_raw instead of server costmap topic: global_costmap/costmap_raw for CollisionMonitor.
+[INFO] [1782963156.248851204] [lifecycle_manager_navigation]: [34m[1mConfiguring behavior_server[0m[0m
+[INFO] [1782963156.249227240] [behavior_server]: Configuring
+[INFO] [1782963156.265105503] [behavior_server]: Creating behavior plugin spin of type nav2_behaviors::Spin
+[INFO] [1782963156.274701453] [behavior_server]: Creating behavior plugin backup of type nav2_behaviors::BackUp
+[INFO] [1782963156.284960567] [behavior_server]: Creating behavior plugin drive_on_heading of type nav2_behaviors::DriveOnHeading
+[INFO] [1782963156.294148167] [behavior_server]: Creating behavior plugin assisted_teleop of type nav2_behaviors::AssistedTeleop
+[INFO] [1782963156.314403582] [behavior_server]: Creating behavior plugin wait of type nav2_behaviors::Wait
+[INFO] [1782963156.331004787] [behavior_server]: Configuring spin
+[INFO] [1782963156.362956090] [behavior_server]: Configuring backup
+[INFO] [1782963156.396322480] [behavior_server]: Configuring drive_on_heading
+[INFO] [1782963156.433463766] [behavior_server]: Configuring assisted_teleop
+[INFO] [1782963156.472349861] [behavior_server]: Configuring wait
+[INFO] [1782963156.506786767] [lifecycle_manager_navigation]: [34m[1mConfiguring velocity_smoother[0m[0m
+[INFO] [1782963156.507323006] [velocity_smoother]: Configuring velocity smoother
+[INFO] [1782963156.530482911] [lifecycle_manager_navigation]: [34m[1mConfiguring collision_monitor[0m[0m
+[INFO] [1782963156.530909780] [collision_monitor]: Configuring
+[INFO] [1782963156.564038024] [collision_monitor]: [scan]: Creating Scan
+[INFO] [1782963156.574077121] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[INFO] [1782963156.580305230] [collision_monitor]: [FootprintApproach]: Polygon points are not defined. Using dynamic subscription instead.
+[INFO] [1782963156.588592462] [collision_monitor]: [FootprintApproach]: Making footprint subscriber on /local_costmap/published_footprint topic
+[INFO] [1782963156.613584158] [lifecycle_manager_navigation]: [34m[1mConfiguring bt_navigator[0m[0m
+[INFO] [1782963156.613926786] [bt_navigator]: Configuring
+[INFO] [1782963156.631485451] [bt_navigator]: Creating navigator id navigate_to_pose of type nav2_bt_navigator::NavigateToPoseNavigator
+[INFO] [1782963157.223827438] [bt_navigator]: Creating navigator id navigate_through_poses of type nav2_bt_navigator::NavigateThroughPosesNavigator
+[INFO] [1782963157.362602335] [lifecycle_manager_navigation]: [34m[1mConfiguring waypoint_follower[0m[0m
+[INFO] [1782963157.363120463] [waypoint_follower]: Configuring
+[INFO] [1782963157.469147079] [waypoint_follower]: Created waypoint_task_executor : wait_at_waypoint of type nav2_waypoint_follower::WaitAtWaypoint
+[INFO] [1782963157.472766123] [lifecycle_manager_navigation]: [34m[1mConfiguring docking_server[0m[0m
+[INFO] [1782963157.473130473] [docking_server]: Configuring docking_server
+[INFO] [1782963157.473312639] [docking_server]: Controller frequency set to 50.0000Hz
+[INFO] [1782963157.607452848] [docking_server]: Created charging dock plugin simple_charging_dock of type opennav_docking::SimpleChargingDock
+[WARN] [1782963157.640182982] [docking_server]: Dock database filepath nor dock parameters set. Docking actions can only be executed specifying the dock pose via the action request. Or update the dock database via the reload_database service.
+[INFO] [1782963157.640470870] [docking_server]: Docking Server has 1 dock types and 0 dock instances available.
+[INFO] [1782963157.646340480] [lifecycle_manager_navigation]: [34m[1mActivating controller_server[0m[0m
+[INFO] [1782963157.647721735] [controller_server]: Activating
+[INFO] [1782963157.647842586] [local_costmap.local_costmap]: Activating
+[INFO] [1782963157.647867512] [local_costmap.local_costmap]: Checking transform
+[INFO] [1782963157.648419529] [local_costmap.local_costmap]: start
+[INFO] [1782963157.852741360] [controller_server]: Activating controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1782963157.852821156] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1782963157.968344352] [lifecycle_manager_navigation]: Server controller_server connected with bond.
+[INFO] [1782963157.968416092] [lifecycle_manager_navigation]: [34m[1mActivating smoother_server[0m[0m
+[INFO] [1782963157.968919072] [smoother_server]: Activating
+[INFO] [1782963157.969034053] [smoother_server]: Creating bond (smoother_server) to lifecycle manager.
+[INFO] [1782963158.086901260] [lifecycle_manager_navigation]: Server smoother_server connected with bond.
+[INFO] [1782963158.087013778] [lifecycle_manager_navigation]: [34m[1mActivating planner_server[0m[0m
+[INFO] [1782963158.087704461] [planner_server]: Activating
+[INFO] [1782963158.087901108] [global_costmap.global_costmap]: Activating
+[INFO] [1782963158.087955497] [global_costmap.global_costmap]: Checking transform
+[INFO] [1782963158.088008090] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963158.588061693] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963159.088058334] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963159.588060567] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963160.088097578] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963160.588067497] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963161.088080693] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963161.588087537] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963162.088212270] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963162.588182652] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963163.088078182] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963163.588126378] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963164.088255703] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963164.588061159] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963165.088058948] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963165.588621698] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963166.088062563] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963166.588065000] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963167.088087640] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963167.588064152] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963168.088057126] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963168.588018674] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963169.088092981] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963169.588056844] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963170.088065948] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963170.588062773] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963171.088059451] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963171.588063240] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963172.088061751] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963172.588065096] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963173.088057384] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963173.588059099] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963174.088062166] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963174.588059158] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963175.088060873] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963175.588064995] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963176.088063543] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963176.588058036] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963177.088060732] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963177.588060910] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963178.088063347] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963178.588064654] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963179.088064036] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963179.588061473] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963180.088075224] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963180.588098439] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963181.088060821] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963181.588064998] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963182.088062546] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963182.588063576] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963183.088061587] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963183.588066320] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963184.088057498] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963184.588059454] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963185.088058928] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963185.588062513] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963186.088061876] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963186.588060072] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963187.088060046] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963187.588062853] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963188.088063161] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963188.588066061] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963189.088066072] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963189.588067916] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963190.088059242] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963190.588059846] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963191.088061116] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963191.588062034] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963192.088058175] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963192.588059723] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963193.088061623] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963193.588067727] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963194.088059219] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963194.588059990] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963195.088064427] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963195.588072456] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963196.088062930] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963196.588068201] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963197.088079193] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963197.588059334] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963198.088059752] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963198.588060782] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963199.088060367] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963199.588060934] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963200.088060797] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963200.588061697] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963201.088060245] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963201.588064663] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963202.088060878] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963202.588063482] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963203.088059011] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963203.588062115] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963204.088060737] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963204.588061730] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963205.088061426] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963205.588058826] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963206.088061059] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963206.588058848] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963207.088065855] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963207.588062140] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963208.088061685] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963208.588064377] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963209.088060199] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963209.588065318] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963210.088059473] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963210.588058517] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963211.088062506] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963211.588061402] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963212.088120761] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963212.588068695] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963213.088446072] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963213.588413838] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963214.088062346] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963214.588056983] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963215.088062268] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963215.588062961] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963216.088062246] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963216.588067253] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963216.740664090] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1782963216.740822349] [amcl]: Running Nav2 LifecycleNode rcl preshutdown (amcl)
+[INFO] [1782963216.741053756] [amcl]: Deactivating
+[INFO] [1782963216.741152570] [amcl]: Destroying bond (amcl) to lifecycle manager.
+[INFO] [1782963216.753820603] [amcl]: Cleaning up
+[INFO] [1782963216.763748808] [lifecycle_manager_localization]: [34m[1mHave not received a heartbeat from amcl.[0m[0m
+[ERROR] [1782963216.764113177] [lifecycle_manager_localization]: CRITICAL FAILURE: SERVER amcl IS DOWN after not receiving a heartbeat for 4000 ms. Shutting down related nodes.
+[INFO] [1782963216.764397862] [lifecycle_manager_localization]: [34m[1mTerminating bond timer...[0m[0m
+[INFO] [1782963216.764482084] [lifecycle_manager_localization]: [34m[1mResetting managed nodes...[0m[0m
+[INFO] [1782963216.764507899] [lifecycle_manager_localization]: [34m[1mDeactivating amcl[0m[0m
+[INFO] [1782963217.007619628] [amcl]: Destroying bond (amcl) to lifecycle manager.
+[INFO] [1782963217.007697924] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1782963217.007793239] [controller_server]: Deactivating
+[INFO] [1782963217.007826831] [controller_server]: Deactivating controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1782963217.007896924] [local_costmap.local_costmap]: Deactivating
+[INFO] [1782963217.055045376] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1782963217.066289874] [controller_server]: Cleaning up
+[INFO] [1782963217.066396207] [controller_server]: Cleaning up controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1782963217.066612744] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1782963217.090024442] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[WARN] [1782963217.092290827] [rcl_lifecycle]: No transition matching 4 found for current state unconfigured
+[WARN] [1782963217.092341790] [rcl_lifecycle]: No transition matching 4 found for current state unconfigured
+[ERROR] [1782963217.092364660] [amcl]: Unable to start transition 4 from current state unconfigured: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[ERROR] [1782963217.097891576] [lifecycle_manager_localization]: Failed to change state for node: amcl
+[INFO] [1782963217.098039391] [lifecycle_manager_localization]: [34m[1mDeactivating map_server[0m[0m
+[INFO] [1782963217.100896719] [map_server]: Deactivating
+[INFO] [1782963217.101116700] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[INFO] [1782963217.259715859] [lifecycle_manager_localization]: [34m[1mCleaning up amcl[0m[0m
+[WARN] [1782963217.261267838] [rcl_lifecycle]: No transition matching 2 found for current state unconfigured
+[WARN] [1782963217.261449097] [rcl_lifecycle]: No transition matching 2 found for current state unconfigured
+[ERROR] [1782963217.261470060] [amcl]: Unable to start transition 2 from current state unconfigured: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[INFO] [1782963217.266462495] [lifecycle_manager_localization]: [34m[1mCleaning up map_server[0m[0m
+[INFO] [1782963217.269047546] [map_server]: Cleaning up
+[INFO] [1782963217.320567120] [lifecycle_manager_localization]: [34m[1mManaged nodes have been reset[0m[0m
+[INFO] [1782963217.469902166] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1782963217.470038332] [lifecycle_manager_localization]: Running Nav2 LifecycleManager rcl preshutdown (lifecycle_manager_localization)
+[INFO] [1782963217.494886899] [map_server]: Running Nav2 LifecycleNode rcl preshutdown (map_server)
+[INFO] [1782963217.495011158] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[INFO] [1782963217.495028028] [smoother_server]: Running Nav2 LifecycleNode rcl preshutdown (smoother_server)
+[INFO] [1782963217.495152009] [smoother_server]: Deactivating
+[INFO] [1782963217.495232028] [smoother_server]: Destroying bond (smoother_server) to lifecycle manager.
+[INFO] [1782963217.505716972] [smoother_server]: Cleaning up
+[INFO] [1782963217.542908312] [smoother_server]: Destroying bond (smoother_server) to lifecycle manager.
+[INFO] [1782963217.543021868] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1782963217.543068571] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1782963217.543088942] [route_server]: Running Nav2 LifecycleNode rcl preshutdown (route_server)
+[INFO] [1782963217.543133793] [route_server]: Cleaning up
+[INFO] [1782963217.588076361] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1782963217.653308817] [route_server]: Destroying bond (route_server) to lifecycle manager.
+[INFO] [1782963217.653370539] [behavior_server]: Running Nav2 LifecycleNode rcl preshutdown (behavior_server)
+[INFO] [1782963217.653414336] [behavior_server]: Cleaning up
+[INFO] [1782963217.664809389] [behavior_server]: Destroying bond (behavior_server) to lifecycle manager.
+[INFO] [1782963217.664912685] [bt_navigator]: Running Nav2 LifecycleNode rcl preshutdown (bt_navigator)
+[INFO] [1782963217.664981907] [bt_navigator]: Cleaning up
+[INFO] [1782963217.802489049] [bt_navigator]: Completed Cleaning up
+[INFO] [1782963217.802589215] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.
+[INFO] [1782963217.802608308] [waypoint_follower]: Running Nav2 LifecycleNode rcl preshutdown (waypoint_follower)
+[INFO] [1782963217.802653937] [waypoint_follower]: Cleaning up
+[INFO] [1782963217.844086715] [waypoint_follower]: Destroying bond (waypoint_follower) to lifecycle manager.
+[INFO] [1782963217.844145492] [velocity_smoother]: Running Nav2 LifecycleNode rcl preshutdown (velocity_smoother)
+[INFO] [1782963217.844192640] [velocity_smoother]: Cleaning up
+[INFO] [1782963217.844224714] [velocity_smoother]: Destroying bond (velocity_smoother) to lifecycle manager.
+[INFO] [1782963217.844298936] [collision_monitor]: Running Nav2 LifecycleNode rcl preshutdown (collision_monitor)
+[INFO] [1782963217.844340584] [collision_monitor]: Cleaning up
+[INFO] [1782963217.844370010] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[INFO] [1782963217.844389529] [collision_monitor]: [scan]: Destroying Scan
+[INFO] [1782963217.854925899] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.
+[INFO] [1782963217.855062861] [docking_server]: Running Nav2 LifecycleNode rcl preshutdown (docking_server)
+[INFO] [1782963217.855106269] [docking_server]: Cleaning up docking_server
+[INFO] [1782963217.904958679] [docking_server]: Destroying bond (docking_server) to lifecycle manager.
+[INFO] [1782963217.905033272] [lifecycle_manager_navigation]: Running Nav2 LifecycleManager rcl preshutdown (lifecycle_manager_navigation)
+[INFO] [1782963218.088077349] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[ERROR] [1782963218.088256775] [global_costmap.global_costmap]: Failed to activate global_costmap because transform from base_footprint to map did not become available before timeout
+[ERROR] [1782963218.088973126] [lifecycle_manager_navigation]: Failed to change state for node: planner_server
+[ERROR] [1782963218.089047811] [lifecycle_manager_navigation]: Failed to bring up all requested nodes. Aborting bringup.

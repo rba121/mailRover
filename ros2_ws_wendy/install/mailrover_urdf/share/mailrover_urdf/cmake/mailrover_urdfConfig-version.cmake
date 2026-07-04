@@ -1,0 +1,1 @@
+/home/mypi/ros2_ws_wendy/build/mailrover_urdf/ament_cmake_core/mailrover_urdfConfig-version.cmake

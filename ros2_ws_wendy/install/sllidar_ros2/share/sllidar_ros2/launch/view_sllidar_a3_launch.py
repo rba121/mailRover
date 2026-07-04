@@ -1,0 +1,1 @@
+/home/mypi/ros2_ws_wendy/src/sllidar_ros2/launch/view_sllidar_a3_launch.py

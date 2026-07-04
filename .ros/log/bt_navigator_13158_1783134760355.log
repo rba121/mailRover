@@ -1,0 +1,30 @@
+[INFO] [1783134762.369811129] [bt_navigator]: 
+	bt_navigator lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1783134762.412255996] [bt_navigator]: Creating
+[INFO] [1783134766.006724082] [bt_navigator]: Configuring
+[INFO] [1783134766.043653770] [bt_navigator]: Creating navigator id navigate_to_pose of type nav2_bt_navigator::NavigateToPoseNavigator
+[INFO] [1783134766.282417366] [bt_navigator]: Creating navigator id navigate_through_poses of type nav2_bt_navigator::NavigateThroughPosesNavigator
+[INFO] [1783134769.739417460] [bt_navigator]: Activating
+[INFO] [1783134770.191718251] [bt_navigator]: Creating bond (bt_navigator) to lifecycle manager.
+[INFO] [1783134788.577049252] [bt_navigator]: Begin navigating from current location (0.63, 1.70) to (-0.76, -0.15)
+[WARN] [1783134937.210237529] [bt_navigator_navigate_to_pose_rclcpp_node]: Timed out while waiting for action server to acknowledge goal request for compute_path_to_pose
+[ERROR] [1783134937.241136684] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to cancel action server for follow_path
+[ERROR] [1783134937.268595097] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!
+[WARN] [1783134937.281770837] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.
+[ERROR] [1783134937.291433577] [bt_navigator]: Goal failed
+[INFO] [1783135029.055661022] [bt_navigator]: Begin navigating from current location (0.63, 1.70) to (-0.37, -0.08)
+[INFO] [1783135052.799972079] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1783135052.800137580] [bt_navigator]: Running Nav2 LifecycleNode rcl preshutdown (bt_navigator)
+[INFO] [1783135052.800249062] [bt_navigator]: Deactivating
+[WARN] [1783135052.800288544] [bt_navigator]: [navigate_to_pose] [ActionServer] Requested to deactivate server but goal is still executing. Should check if action server is running before deactivating.
+[ERROR] [1783135052.833150080] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to cancel action server for follow_path
+[ERROR] [1783135052.854882683] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!
+[WARN] [1783135052.855134610] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.
+[INFO] [1783135052.868504685] [bt_navigator]: Goal canceled
+[WARN] [1783135052.868588297] [bt_navigator]: [navigate_to_pose] [ActionServer] Stopping the thread per request.
+[INFO] [1783135052.869287634] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.
+[INFO] [1783135052.929851103] [bt_navigator]: Cleaning up
+[INFO] [1783135054.706327937] [bt_navigator]: Completed Cleaning up
+[INFO] [1783135054.706428956] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.

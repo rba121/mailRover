@@ -1,0 +1,28 @@
+[INFO] [1775784065.411919133] [map_server]: 
+	map_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775784065.412165690] [map_server]: Creating
+[INFO] [1775784065.585004099] [map_server]: Configuring
+[INFO] [1775784065.585117989] [map_io]: Loading yaml file: /home/mypi/pitlabmap.yaml
+[INFO] [1775784065.586201291] [map_io]: resolution: 0.05
+[INFO] [1775784065.586231865] [map_io]: origin[0]: 0.269
+[INFO] [1775784065.586240235] [map_io]: origin[1]: -18.967
+[INFO] [1775784065.586245532] [map_io]: origin[2]: 0
+[INFO] [1775784065.586251569] [map_io]: free_thresh: 0.196
+[INFO] [1775784065.586256698] [map_io]: occupied_thresh: 0.65
+[INFO] [1775784065.586263513] [map_io]: mode: trinary
+[INFO] [1775784065.586270384] [map_io]: negate: 0
+[INFO] [1775784065.586628608] [map_io]: Loading image_file: /home/mypi/pitlabmap.pgm
+[INFO] [1775784065.600488955] [map_io]: Read map /home/mypi/pitlabmap.pgm: 548 X 491 map @ 0.05 m/cell
+[INFO] [1775784065.689917592] [map_server]: Activating
+[INFO] [1775784065.864460270] [map_server]: Creating bond (map_server) to lifecycle manager.
+[WARN] [1775785848.971485562] [rcl_lifecycle]: No transition matching 1 found for current state active
+[WARN] [1775785848.971524396] [rcl_lifecycle]: No transition matching 1 found for current state active
+[ERROR] [1775785848.971556229] [map_server]: Unable to start transition 1 from current state active: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[INFO] [1775793033.848216284] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1775793033.848371340] [map_server]: Running Nav2 LifecycleNode rcl preshutdown (map_server)
+[INFO] [1775793033.848505933] [map_server]: Deactivating
+[INFO] [1775793033.848556471] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[INFO] [1775793033.859305067] [map_server]: Cleaning up
+[INFO] [1775793033.859897829] [map_server]: Destroying bond (map_server) to lifecycle manager.

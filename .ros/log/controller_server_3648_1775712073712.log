@@ -1,0 +1,1032 @@
+[INFO] [1775712075.172531697] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775712075.500295751] [controller_server]: Creating controller server
+[INFO] [1775712076.358151186] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775712076.359842859] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1775712076.967391028] [controller_server]: Configuring controller interface
+[INFO] [1775712076.967440806] [controller_server]: getting progress checker plugins..
+[INFO] [1775712076.980786930] [controller_server]: getting goal checker plugins..
+[INFO] [1775712076.987273251] [controller_server]: Controller frequency set to 20.0000Hz
+[INFO] [1775712076.989601481] [local_costmap.local_costmap]: Configuring
+[INFO] [1775712077.089847392] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1775712077.103777944] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1775712077.246098751] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1775712077.246174640] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1775712077.279537005] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1775712077.475911681] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1775712077.505823774] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1775712077.513831507] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1775712077.517857189] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1775712077.532997505] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1775712077.654255197] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1775712077.719333847] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1775712077.719422532] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[INFO] [1775712077.771247373] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.015000 weights. Critic will collision check based on circular cost.
+[INFO] [1775712077.773435919] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1775712077.789017217] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1775712077.789241459] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1775712077.803491012] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, and 0.500000 angular threshold.
+[INFO] [1775712077.804200255] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1775712077.825195741] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 14.000000 weight
+[INFO] [1775712077.826353801] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1775712077.840099148] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1775712077.861660192] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1775712077.862802177] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1775712077.878451847] [controller_server]: PreferForwardCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1775712077.878557329] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1775712077.891298432] [controller_server]: Optimizer reset
+[INFO] [1775712077.934416796] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1775712077.934531389] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1775712081.459576348] [controller_server]: Activating
+[INFO] [1775712081.459676774] [local_costmap.local_costmap]: Activating
+[INFO] [1775712081.459704293] [local_costmap.local_costmap]: Checking transform
+[INFO] [1775712081.459943460] [local_costmap.local_costmap]: start
+[WARN] [1775712081.682902198] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1775712081.688814405] [controller_server]: Optimizer reset
+[INFO] [1775712081.691222470] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1775712081.691298711] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1775712127.247324303] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712127.247406877] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1775712127.247429692] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1775712128.298140660] [controller_server]: Passing new path to controller.
+[INFO] [1775712129.297683567] [controller_server]: Passing new path to controller.
+[INFO] [1775712130.347576735] [controller_server]: Passing new path to controller.
+[WARN] [1775712130.700608272] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.8945 Hz.
+[INFO] [1775712131.348267665] [controller_server]: Passing new path to controller.
+[INFO] [1775712132.397628147] [controller_server]: Passing new path to controller.
+[INFO] [1775712133.397673092] [controller_server]: Passing new path to controller.
+[INFO] [1775712134.447571724] [controller_server]: Passing new path to controller.
+[INFO] [1775712135.447570985] [controller_server]: Passing new path to controller.
+[INFO] [1775712136.497601654] [controller_server]: Passing new path to controller.
+[ERROR] [1775712137.249599287] [controller_server]: Failed to make progress
+[INFO] [1775712137.252694502] [controller_server]: Optimizer reset
+[WARN] [1775712137.252859484] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712137.268611469] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712137.269571676] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712137.494103623] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.4559 Hz.
+[INFO] [1775712137.494190513] [controller_server]: Passing new path to controller.
+[INFO] [1775712138.544184441] [controller_server]: Passing new path to controller.
+[INFO] [1775712139.544181887] [controller_server]: Passing new path to controller.
+[INFO] [1775712140.544184555] [controller_server]: Passing new path to controller.
+[INFO] [1775712141.594188390] [controller_server]: Passing new path to controller.
+[INFO] [1775712142.594187336] [controller_server]: Passing new path to controller.
+[INFO] [1775712143.644190283] [controller_server]: Passing new path to controller.
+[INFO] [1775712144.644181691] [controller_server]: Passing new path to controller.
+[INFO] [1775712145.694190101] [controller_server]: Passing new path to controller.
+[INFO] [1775712146.694186806] [controller_server]: Passing new path to controller.
+[ERROR] [1775712147.494263174] [controller_server]: Failed to make progress
+[INFO] [1775712147.495919217] [controller_server]: Optimizer reset
+[WARN] [1775712147.495986032] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712147.507879280] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712147.989015202] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712149.039344501] [controller_server]: Passing new path to controller.
+[INFO] [1775712150.039235984] [controller_server]: Passing new path to controller.
+[INFO] [1775712151.089424783] [controller_server]: Passing new path to controller.
+[INFO] [1775712152.139248766] [controller_server]: Passing new path to controller.
+[INFO] [1775712153.139396120] [controller_server]: Passing new path to controller.
+[INFO] [1775712154.189367955] [controller_server]: Passing new path to controller.
+[INFO] [1775712155.189426827] [controller_server]: Passing new path to controller.
+[INFO] [1775712156.189326050] [controller_server]: Passing new path to controller.
+[INFO] [1775712157.239389997] [controller_server]: Passing new path to controller.
+[ERROR] [1775712157.989373494] [controller_server]: Failed to make progress
+[INFO] [1775712157.991179760] [controller_server]: Optimizer reset
+[WARN] [1775712157.991238630] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712158.007841396] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712158.008780992] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712158.092929583] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.8972 Hz.
+[WARN] [1775712158.114664627] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 46.1885 Hz.
+[INFO] [1775712158.259144609] [controller_server]: Passing new path to controller.
+[INFO] [1775712159.258966703] [controller_server]: Passing new path to controller.
+[INFO] [1775712160.308956575] [controller_server]: Passing new path to controller.
+[INFO] [1775712161.308952262] [controller_server]: Passing new path to controller.
+[INFO] [1775712162.359491785] [controller_server]: Passing new path to controller.
+[INFO] [1775712163.408956877] [controller_server]: Passing new path to controller.
+[INFO] [1775712164.408959749] [controller_server]: Passing new path to controller.
+[INFO] [1775712165.458975881] [controller_server]: Passing new path to controller.
+[INFO] [1775712166.458959493] [controller_server]: Passing new path to controller.
+[INFO] [1775712167.458979587] [controller_server]: Passing new path to controller.
+[ERROR] [1775712168.109064008] [controller_server]: Failed to make progress
+[INFO] [1775712168.110410328] [controller_server]: Optimizer reset
+[WARN] [1775712168.110458550] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712183.188610342] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712184.238996809] [controller_server]: Passing new path to controller.
+[INFO] [1775712185.240090000] [controller_server]: Passing new path to controller.
+[INFO] [1775712186.288817627] [controller_server]: Passing new path to controller.
+[INFO] [1775712187.288814350] [controller_server]: Passing new path to controller.
+[INFO] [1775712188.339281984] [controller_server]: Passing new path to controller.
+[INFO] [1775712189.338870613] [controller_server]: Passing new path to controller.
+[INFO] [1775712190.389149487] [controller_server]: Passing new path to controller.
+[INFO] [1775712191.388879339] [controller_server]: Passing new path to controller.
+[INFO] [1775712192.438807564] [controller_server]: Passing new path to controller.
+[ERROR] [1775712193.189539769] [controller_server]: Failed to make progress
+[INFO] [1775712193.191465239] [controller_server]: Optimizer reset
+[WARN] [1775712193.191539277] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712193.207820297] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712193.208694541] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712193.292732117] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.9146 Hz.
+[WARN] [1775712193.314902937] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 45.2927 Hz.
+[INFO] [1775712193.459239746] [controller_server]: Passing new path to controller.
+[INFO] [1775712194.508880750] [controller_server]: Passing new path to controller.
+[INFO] [1775712195.508885894] [controller_server]: Passing new path to controller.
+[INFO] [1775712196.558968178] [controller_server]: Passing new path to controller.
+[INFO] [1775712197.559466416] [controller_server]: Passing new path to controller.
+[INFO] [1775712198.608888179] [controller_server]: Passing new path to controller.
+[INFO] [1775712199.608886452] [controller_server]: Passing new path to controller.
+[INFO] [1775712200.608885836] [controller_server]: Passing new path to controller.
+[INFO] [1775712201.659517456] [controller_server]: Passing new path to controller.
+[INFO] [1775712202.659195135] [controller_server]: Passing new path to controller.
+[ERROR] [1775712203.308967405] [controller_server]: Failed to make progress
+[INFO] [1775712203.310343391] [controller_server]: Optimizer reset
+[WARN] [1775712203.310396225] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712213.347705476] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712213.988724308] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712215.039254482] [controller_server]: Passing new path to controller.
+[INFO] [1775712216.089336526] [controller_server]: Passing new path to controller.
+[INFO] [1775712217.089775263] [controller_server]: Passing new path to controller.
+[INFO] [1775712218.088956385] [controller_server]: Passing new path to controller.
+[INFO] [1775712219.139298226] [controller_server]: Passing new path to controller.
+[INFO] [1775712220.188996342] [controller_server]: Passing new path to controller.
+[INFO] [1775712221.189527987] [controller_server]: Passing new path to controller.
+[INFO] [1775712222.188942258] [controller_server]: Passing new path to controller.
+[INFO] [1775712223.239324099] [controller_server]: Passing new path to controller.
+[ERROR] [1775712223.989122669] [controller_server]: Failed to make progress
+[INFO] [1775712223.991087750] [controller_server]: Optimizer reset
+[WARN] [1775712223.991164195] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712224.007839309] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712224.008760664] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712224.093350761] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.8356 Hz.
+[WARN] [1775712224.116153731] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 44.0146 Hz.
+[INFO] [1775712224.258977923] [controller_server]: Passing new path to controller.
+[INFO] [1775712225.258963863] [controller_server]: Passing new path to controller.
+[INFO] [1775712226.308940610] [controller_server]: Passing new path to controller.
+[INFO] [1775712227.308944049] [controller_server]: Passing new path to controller.
+[INFO] [1775712228.308941119] [controller_server]: Passing new path to controller.
+[INFO] [1775712229.358953699] [controller_server]: Passing new path to controller.
+[INFO] [1775712230.358964990] [controller_server]: Passing new path to controller.
+[INFO] [1775712231.408942848] [controller_server]: Passing new path to controller.
+[INFO] [1775712232.408943955] [controller_server]: Passing new path to controller.
+[INFO] [1775712233.408939561] [controller_server]: Passing new path to controller.
+[ERROR] [1775712234.109033399] [controller_server]: Failed to make progress
+[INFO] [1775712234.110531534] [controller_server]: Optimizer reset
+[WARN] [1775712234.110587108] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712249.188335646] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712250.238588467] [controller_server]: Passing new path to controller.
+[INFO] [1775712251.288938993] [controller_server]: Passing new path to controller.
+[INFO] [1775712252.288546857] [controller_server]: Passing new path to controller.
+[INFO] [1775712253.288732835] [controller_server]: Passing new path to controller.
+[INFO] [1775712254.339267195] [controller_server]: Passing new path to controller.
+[INFO] [1775712255.339183115] [controller_server]: Passing new path to controller.
+[INFO] [1775712256.388644842] [controller_server]: Passing new path to controller.
+[INFO] [1775712257.389480118] [controller_server]: Passing new path to controller.
+[INFO] [1775712258.438695584] [controller_server]: Passing new path to controller.
+[ERROR] [1775712259.189085323] [controller_server]: Failed to make progress
+[INFO] [1775712259.192148945] [controller_server]: Optimizer reset
+[WARN] [1775712259.192250963] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712259.207862741] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712259.208899745] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712259.295181347] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.6043 Hz.
+[WARN] [1775712259.320430826] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 39.7225 Hz.
+[INFO] [1775712259.459100874] [controller_server]: Passing new path to controller.
+[INFO] [1775712260.459947243] [controller_server]: Passing new path to controller.
+[INFO] [1775712261.509091338] [controller_server]: Passing new path to controller.
+[INFO] [1775712262.509100741] [controller_server]: Passing new path to controller.
+[INFO] [1775712263.559181877] [controller_server]: Passing new path to controller.
+[INFO] [1775712264.559090779] [controller_server]: Passing new path to controller.
+[INFO] [1775712265.609094119] [controller_server]: Passing new path to controller.
+[INFO] [1775712266.609088169] [controller_server]: Passing new path to controller.
+[INFO] [1775712267.659107046] [controller_server]: Passing new path to controller.
+[INFO] [1775712268.659511468] [controller_server]: Passing new path to controller.
+[ERROR] [1775712269.309186831] [controller_server]: Failed to make progress
+[INFO] [1775712269.310854540] [controller_server]: Optimizer reset
+[WARN] [1775712269.310926874] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712279.347687864] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712279.988802974] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712281.039145426] [controller_server]: Passing new path to controller.
+[INFO] [1775712282.040164943] [controller_server]: Passing new path to controller.
+[INFO] [1775712283.089284983] [controller_server]: Passing new path to controller.
+[INFO] [1775712284.089062385] [controller_server]: Passing new path to controller.
+[INFO] [1775712285.139433744] [controller_server]: Passing new path to controller.
+[INFO] [1775712286.139551943] [controller_server]: Passing new path to controller.
+[INFO] [1775712287.139030585] [controller_server]: Passing new path to controller.
+[INFO] [1775712288.189019850] [controller_server]: Passing new path to controller.
+[INFO] [1775712289.189304457] [controller_server]: Passing new path to controller.
+[ERROR] [1775712289.989200038] [controller_server]: Failed to make progress
+[INFO] [1775712289.991213212] [controller_server]: Optimizer reset
+[WARN] [1775712289.991299231] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712290.007881049] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712290.008788330] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712290.092691221] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.9340 Hz.
+[WARN] [1775712290.114676762] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 45.6715 Hz.
+[INFO] [1775712290.208980097] [controller_server]: Passing new path to controller.
+[INFO] [1775712291.258992306] [controller_server]: Passing new path to controller.
+[INFO] [1775712292.259013468] [controller_server]: Passing new path to controller.
+[INFO] [1775712293.259425761] [controller_server]: Passing new path to controller.
+[INFO] [1775712294.308977766] [controller_server]: Passing new path to controller.
+[INFO] [1775712295.308981076] [controller_server]: Passing new path to controller.
+[INFO] [1775712296.359175249] [controller_server]: Passing new path to controller.
+[INFO] [1775712297.358997448] [controller_server]: Passing new path to controller.
+[INFO] [1775712298.408952972] [controller_server]: Passing new path to controller.
+[INFO] [1775712299.408986597] [controller_server]: Passing new path to controller.
+[ERROR] [1775712300.109073972] [controller_server]: Failed to make progress
+[INFO] [1775712300.110873812] [controller_server]: Optimizer reset
+[WARN] [1775712300.110994127] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712315.190154392] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712316.240355824] [controller_server]: Passing new path to controller.
+[INFO] [1775712317.240356319] [controller_server]: Passing new path to controller.
+[INFO] [1775712318.290360344] [controller_server]: Passing new path to controller.
+[INFO] [1775712319.290378469] [controller_server]: Passing new path to controller.
+[INFO] [1775712320.340367438] [controller_server]: Passing new path to controller.
+[INFO] [1775712321.340356100] [controller_server]: Passing new path to controller.
+[INFO] [1775712322.390360057] [controller_server]: Passing new path to controller.
+[INFO] [1775712323.440489703] [controller_server]: Passing new path to controller.
+[INFO] [1775712324.440354818] [controller_server]: Passing new path to controller.
+[ERROR] [1775712325.190560804] [controller_server]: Failed to make progress
+[INFO] [1775712325.192497374] [controller_server]: Optimizer reset
+[WARN] [1775712325.192588078] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712325.207902782] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712325.209724776] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712325.293327365] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.9757 Hz.
+[WARN] [1775712325.314480500] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 47.4984 Hz.
+[INFO] [1775712325.460798989] [controller_server]: Passing new path to controller.
+[INFO] [1775712326.459909376] [controller_server]: Passing new path to controller.
+[INFO] [1775712327.509907873] [controller_server]: Passing new path to controller.
+[WARN] [1775712328.491369206] [rcl_lifecycle]: No transition matching 1 found for current state active
+[WARN] [1775712328.491401817] [rcl_lifecycle]: No transition matching 1 found for current state active
+[ERROR] [1775712328.491416854] [controller_server]: Unable to start transition 1 from current state active: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[INFO] [1775712328.509909692] [controller_server]: Passing new path to controller.
+[INFO] [1775712329.509899178] [controller_server]: Passing new path to controller.
+[INFO] [1775712330.559920231] [controller_server]: Passing new path to controller.
+[INFO] [1775712331.559911032] [controller_server]: Passing new path to controller.
+[INFO] [1775712332.609910400] [controller_server]: Passing new path to controller.
+[INFO] [1775712333.609907182] [controller_server]: Passing new path to controller.
+[INFO] [1775712334.609897427] [controller_server]: Passing new path to controller.
+[ERROR] [1775712335.309995605] [controller_server]: Failed to make progress
+[INFO] [1775712335.311982934] [controller_server]: Optimizer reset
+[WARN] [1775712335.312498086] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712339.229504260] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712340.279692759] [controller_server]: Passing new path to controller.
+[INFO] [1775712341.329699256] [controller_server]: Passing new path to controller.
+[INFO] [1775712342.329698557] [controller_server]: Passing new path to controller.
+[INFO] [1775712343.379696517] [controller_server]: Passing new path to controller.
+[INFO] [1775712344.379802559] [controller_server]: Passing new path to controller.
+[INFO] [1775712345.429697815] [controller_server]: Passing new path to controller.
+[INFO] [1775712346.429695023] [controller_server]: Passing new path to controller.
+[INFO] [1775712347.479706502] [controller_server]: Passing new path to controller.
+[INFO] [1775712348.479695339] [controller_server]: Passing new path to controller.
+[ERROR] [1775712349.229779177] [controller_server]: Failed to make progress
+[INFO] [1775712349.231565801] [controller_server]: Optimizer reset
+[WARN] [1775712349.231635450] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712349.249132465] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712349.249971564] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712349.500173307] [controller_server]: Passing new path to controller.
+[INFO] [1775712350.550171268] [controller_server]: Passing new path to controller.
+[INFO] [1775712351.550198772] [controller_server]: Passing new path to controller.
+[INFO] [1775712352.600175381] [controller_server]: Passing new path to controller.
+[INFO] [1775712353.600174885] [controller_server]: Passing new path to controller.
+[INFO] [1775712354.650175901] [controller_server]: Passing new path to controller.
+[INFO] [1775712355.650175831] [controller_server]: Passing new path to controller.
+[INFO] [1775712356.700178217] [controller_server]: Passing new path to controller.
+[INFO] [1775712357.700175444] [controller_server]: Passing new path to controller.
+[INFO] [1775712358.700181856] [controller_server]: Passing new path to controller.
+[ERROR] [1775712359.300265863] [controller_server]: Failed to make progress
+[INFO] [1775712359.301914523] [controller_server]: Optimizer reset
+[WARN] [1775712359.301965282] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712359.319202556] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712359.989847205] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712361.040036500] [controller_server]: Passing new path to controller.
+[INFO] [1775712362.090065942] [controller_server]: Passing new path to controller.
+[INFO] [1775712363.090035279] [controller_server]: Passing new path to controller.
+[INFO] [1775712364.090111747] [controller_server]: Passing new path to controller.
+[INFO] [1775712365.140066652] [controller_server]: Passing new path to controller.
+[INFO] [1775712366.190033963] [controller_server]: Passing new path to controller.
+[INFO] [1775712367.190061061] [controller_server]: Passing new path to controller.
+[INFO] [1775712368.189999639] [controller_server]: Passing new path to controller.
+[INFO] [1775712369.241150570] [controller_server]: Passing new path to controller.
+[ERROR] [1775712369.990116696] [controller_server]: Failed to make progress
+[INFO] [1775712369.992008765] [controller_server]: Optimizer reset
+[WARN] [1775712369.992112340] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712370.009190279] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712370.010130619] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712370.094739733] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.8342 Hz.
+[WARN] [1775712370.117822642] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 43.5299 Hz.
+[INFO] [1775712370.260327658] [controller_server]: Passing new path to controller.
+[INFO] [1775712371.310317230] [controller_server]: Passing new path to controller.
+[INFO] [1775712372.310320975] [controller_server]: Passing new path to controller.
+[INFO] [1775712373.310315350] [controller_server]: Passing new path to controller.
+[INFO] [1775712374.360321477] [controller_server]: Passing new path to controller.
+[INFO] [1775712375.360966393] [controller_server]: Passing new path to controller.
+[INFO] [1775712376.410322200] [controller_server]: Passing new path to controller.
+[INFO] [1775712377.410324575] [controller_server]: Passing new path to controller.
+[INFO] [1775712378.460326350] [controller_server]: Passing new path to controller.
+[INFO] [1775712379.460752950] [controller_server]: Passing new path to controller.
+[ERROR] [1775712380.110415669] [controller_server]: Failed to make progress
+[INFO] [1775712380.113942936] [controller_server]: Optimizer reset
+[WARN] [1775712380.114050844] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712395.189976647] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712396.240193238] [controller_server]: Passing new path to controller.
+[INFO] [1775712397.240199391] [controller_server]: Passing new path to controller.
+[INFO] [1775712398.290196759] [controller_server]: Passing new path to controller.
+[INFO] [1775712399.290186911] [controller_server]: Passing new path to controller.
+[INFO] [1775712400.340200927] [controller_server]: Passing new path to controller.
+[INFO] [1775712401.340195450] [controller_server]: Passing new path to controller.
+[INFO] [1775712402.390197984] [controller_server]: Passing new path to controller.
+[INFO] [1775712403.390192378] [controller_server]: Passing new path to controller.
+[INFO] [1775712404.440209005] [controller_server]: Passing new path to controller.
+[ERROR] [1775712405.190284953] [controller_server]: Failed to make progress
+[INFO] [1775712405.191962780] [controller_server]: Optimizer reset
+[WARN] [1775712405.192031466] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712405.209191275] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712405.210126634] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712405.283924633] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 13.5705 Hz.
+[INFO] [1775712405.460326581] [controller_server]: Passing new path to controller.
+[INFO] [1775712406.460319419] [controller_server]: Passing new path to controller.
+[INFO] [1775712407.510315305] [controller_server]: Passing new path to controller.
+[INFO] [1775712408.510315957] [controller_server]: Passing new path to controller.
+[INFO] [1775712409.560524215] [controller_server]: Passing new path to controller.
+[INFO] [1775712410.560326607] [controller_server]: Passing new path to controller.
+[INFO] [1775712411.610319993] [controller_server]: Passing new path to controller.
+[INFO] [1775712412.610280146] [controller_server]: Passing new path to controller.
+[INFO] [1775712413.610312262] [controller_server]: Passing new path to controller.
+[INFO] [1775712414.660332481] [controller_server]: Passing new path to controller.
+[ERROR] [1775712415.310395759] [controller_server]: Failed to make progress
+[INFO] [1775712415.312915814] [controller_server]: Optimizer reset
+[WARN] [1775712415.312994351] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712417.748979601] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712417.979437720] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712419.029662793] [controller_server]: Passing new path to controller.
+[INFO] [1775712420.029655890] [controller_server]: Passing new path to controller.
+[INFO] [1775712421.079724424] [controller_server]: Passing new path to controller.
+[INFO] [1775712422.129658514] [controller_server]: Passing new path to controller.
+[INFO] [1775712423.129661037] [controller_server]: Passing new path to controller.
+[INFO] [1775712424.179659256] [controller_server]: Passing new path to controller.
+[INFO] [1775712425.179813003] [controller_server]: Passing new path to controller.
+[INFO] [1775712426.229659610] [controller_server]: Passing new path to controller.
+[INFO] [1775712427.229651262] [controller_server]: Passing new path to controller.
+[ERROR] [1775712427.979741840] [controller_server]: Failed to make progress
+[INFO] [1775712427.981117128] [controller_server]: Optimizer reset
+[WARN] [1775712427.981172777] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712427.999529780] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712428.000592825] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712428.097915902] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.2858 Hz.
+[WARN] [1775712428.120735753] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 45.6052 Hz.
+[INFO] [1775712428.250774994] [controller_server]: Passing new path to controller.
+[INFO] [1775712429.300788348] [controller_server]: Passing new path to controller.
+[INFO] [1775712430.350804140] [controller_server]: Passing new path to controller.
+[INFO] [1775712431.350780250] [controller_server]: Passing new path to controller.
+[INFO] [1775712432.400779746] [controller_server]: Passing new path to controller.
+[INFO] [1775712433.400781190] [controller_server]: Passing new path to controller.
+[INFO] [1775712434.400774170] [controller_server]: Passing new path to controller.
+[INFO] [1775712435.450784425] [controller_server]: Passing new path to controller.
+[INFO] [1775712436.450808128] [controller_server]: Passing new path to controller.
+[INFO] [1775712437.500782846] [controller_server]: Passing new path to controller.
+[ERROR] [1775712438.100872776] [controller_server]: Failed to make progress
+[INFO] [1775712438.102270374] [controller_server]: Optimizer reset
+[WARN] [1775712438.102315041] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712453.179825100] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712454.230027133] [controller_server]: Passing new path to controller.
+[INFO] [1775712455.230024360] [controller_server]: Passing new path to controller.
+[INFO] [1775712456.280022188] [controller_server]: Passing new path to controller.
+[INFO] [1775712457.280022267] [controller_server]: Passing new path to controller.
+[INFO] [1775712458.330023817] [controller_server]: Passing new path to controller.
+[INFO] [1775712459.330030007] [controller_server]: Passing new path to controller.
+[INFO] [1775712460.380024723] [controller_server]: Passing new path to controller.
+[INFO] [1775712461.380024135] [controller_server]: Passing new path to controller.
+[INFO] [1775712462.430022389] [controller_server]: Passing new path to controller.
+[ERROR] [1775712463.180129598] [controller_server]: Failed to make progress
+[INFO] [1775712463.181753766] [controller_server]: Optimizer reset
+[WARN] [1775712463.181810729] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712463.199191741] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712463.200104363] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712463.284027587] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.9292 Hz.
+[WARN] [1775712463.306855055] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 44.0509 Hz.
+[INFO] [1775712463.450285941] [controller_server]: Passing new path to controller.
+[INFO] [1775712464.450276279] [controller_server]: Passing new path to controller.
+[INFO] [1775712465.500287125] [controller_server]: Passing new path to controller.
+[INFO] [1775712466.500277297] [controller_server]: Passing new path to controller.
+[INFO] [1775712467.550284106] [controller_server]: Passing new path to controller.
+[INFO] [1775712468.550281444] [controller_server]: Passing new path to controller.
+[INFO] [1775712469.600287642] [controller_server]: Passing new path to controller.
+[INFO] [1775712470.600277313] [controller_server]: Passing new path to controller.
+[INFO] [1775712471.650283585] [controller_server]: Passing new path to controller.
+[INFO] [1775712472.650275275] [controller_server]: Passing new path to controller.
+[ERROR] [1775712473.300374339] [controller_server]: Failed to make progress
+[INFO] [1775712473.303467248] [controller_server]: Optimizer reset
+[WARN] [1775712473.303555804] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712483.339327296] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712483.979501293] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712485.029705141] [controller_server]: Passing new path to controller.
+[INFO] [1775712486.029694906] [controller_server]: Passing new path to controller.
+[INFO] [1775712487.079705307] [controller_server]: Passing new path to controller.
+[INFO] [1775712488.079699682] [controller_server]: Passing new path to controller.
+[INFO] [1775712489.129706566] [controller_server]: Passing new path to controller.
+[INFO] [1775712490.129693737] [controller_server]: Passing new path to controller.
+[INFO] [1775712491.179709676] [controller_server]: Passing new path to controller.
+[INFO] [1775712492.179702440] [controller_server]: Passing new path to controller.
+[INFO] [1775712493.229706990] [controller_server]: Passing new path to controller.
+[ERROR] [1775712493.979784550] [controller_server]: Failed to make progress
+[INFO] [1775712493.981354014] [controller_server]: Optimizer reset
+[WARN] [1775712493.981410107] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712493.999222327] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712494.000371453] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712494.094432339] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.6400 Hz.
+[WARN] [1775712494.115345635] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 48.0053 Hz.
+[INFO] [1775712494.250529771] [controller_server]: Passing new path to controller.
+[INFO] [1775712495.250533331] [controller_server]: Passing new path to controller.
+[INFO] [1775712496.300533640] [controller_server]: Passing new path to controller.
+[INFO] [1775712497.300532442] [controller_server]: Passing new path to controller.
+[INFO] [1775712498.350530250] [controller_server]: Passing new path to controller.
+[INFO] [1775712499.350530755] [controller_server]: Passing new path to controller.
+[INFO] [1775712500.350525279] [controller_server]: Passing new path to controller.
+[INFO] [1775712501.400546847] [controller_server]: Passing new path to controller.
+[INFO] [1775712502.450530063] [controller_server]: Passing new path to controller.
+[INFO] [1775712503.450530957] [controller_server]: Passing new path to controller.
+[ERROR] [1775712504.100613317] [controller_server]: Failed to make progress
+[INFO] [1775712504.102070243] [controller_server]: Optimizer reset
+[WARN] [1775712504.102138262] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712519.180228578] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712520.230419285] [controller_server]: Passing new path to controller.
+[INFO] [1775712521.230411045] [controller_server]: Passing new path to controller.
+[INFO] [1775712522.280417120] [controller_server]: Passing new path to controller.
+[INFO] [1775712523.280414065] [controller_server]: Passing new path to controller.
+[INFO] [1775712524.330421752] [controller_server]: Passing new path to controller.
+[INFO] [1775712525.330409771] [controller_server]: Passing new path to controller.
+[INFO] [1775712526.380428810] [controller_server]: Passing new path to controller.
+[INFO] [1775712527.380408255] [controller_server]: Passing new path to controller.
+[INFO] [1775712528.430416664] [controller_server]: Passing new path to controller.
+[ERROR] [1775712529.180509456] [controller_server]: Failed to make progress
+[INFO] [1775712529.182085372] [controller_server]: Optimizer reset
+[WARN] [1775712529.182142687] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712529.199201269] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712529.200051125] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712529.294626193] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.5837 Hz.
+[WARN] [1775712529.319761833] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 39.9677 Hz.
+[INFO] [1775712529.450228149] [controller_server]: Passing new path to controller.
+[INFO] [1775712530.450229798] [controller_server]: Passing new path to controller.
+[INFO] [1775712531.500226892] [controller_server]: Passing new path to controller.
+[INFO] [1775712532.500227782] [controller_server]: Passing new path to controller.
+[INFO] [1775712533.550225450] [controller_server]: Passing new path to controller.
+[INFO] [1775712534.550229876] [controller_server]: Passing new path to controller.
+[INFO] [1775712535.600226619] [controller_server]: Passing new path to controller.
+[INFO] [1775712536.600225601] [controller_server]: Passing new path to controller.
+[INFO] [1775712537.600232972] [controller_server]: Passing new path to controller.
+[INFO] [1775712538.650226955] [controller_server]: Passing new path to controller.
+[ERROR] [1775712539.300324579] [controller_server]: Failed to make progress
+[INFO] [1775712539.301998883] [controller_server]: Optimizer reset
+[WARN] [1775712539.302088569] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712627.547316644] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712628.597719303] [controller_server]: Passing new path to controller.
+[INFO] [1775712629.597510162] [controller_server]: Passing new path to controller.
+[INFO] [1775712630.647537837] [controller_server]: Passing new path to controller.
+[INFO] [1775712631.647507938] [controller_server]: Passing new path to controller.
+[INFO] [1775712632.647504372] [controller_server]: Passing new path to controller.
+[INFO] [1775712633.698081439] [controller_server]: Passing new path to controller.
+[INFO] [1775712634.747503444] [controller_server]: Passing new path to controller.
+[INFO] [1775712635.072231010] [controller_server]: Reached the goal!
+[INFO] [1775712635.076262980] [controller_server]: Optimizer reset
+[INFO] [1775712660.377488245] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712661.427682959] [controller_server]: Passing new path to controller.
+[INFO] [1775712662.427678004] [controller_server]: Passing new path to controller.
+[INFO] [1775712663.478282275] [controller_server]: Passing new path to controller.
+[INFO] [1775712664.478243579] [controller_server]: Passing new path to controller.
+[INFO] [1775712665.527687658] [controller_server]: Passing new path to controller.
+[INFO] [1775712666.527691815] [controller_server]: Passing new path to controller.
+[INFO] [1775712667.577782953] [controller_server]: Passing new path to controller.
+[INFO] [1775712668.577694016] [controller_server]: Passing new path to controller.
+[INFO] [1775712669.577726525] [controller_server]: Passing new path to controller.
+[ERROR] [1775712670.377784846] [controller_server]: Failed to make progress
+[INFO] [1775712670.379786655] [controller_server]: Optimizer reset
+[WARN] [1775712670.379849100] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712670.397717768] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712670.399409594] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712670.492771997] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.7233 Hz.
+[WARN] [1775712670.514845229] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 45.4957 Hz.
+[INFO] [1775712670.599597726] [controller_server]: Passing new path to controller.
+[INFO] [1775712671.649617790] [controller_server]: Passing new path to controller.
+[INFO] [1775712672.649596631] [controller_server]: Passing new path to controller.
+[INFO] [1775712673.699599269] [controller_server]: Passing new path to controller.
+[INFO] [1775712674.699601889] [controller_server]: Passing new path to controller.
+[INFO] [1775712675.699602248] [controller_server]: Passing new path to controller.
+[INFO] [1775712676.749600572] [controller_server]: Passing new path to controller.
+[INFO] [1775712677.749597580] [controller_server]: Passing new path to controller.
+[INFO] [1775712678.799601440] [controller_server]: Passing new path to controller.
+[INFO] [1775712679.799597763] [controller_server]: Passing new path to controller.
+[ERROR] [1775712680.499695806] [controller_server]: Failed to make progress
+[INFO] [1775712680.501093222] [controller_server]: Optimizer reset
+[WARN] [1775712680.501160482] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712680.517717586] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712680.987134175] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712682.037635761] [controller_server]: Passing new path to controller.
+[INFO] [1775712683.037380341] [controller_server]: Passing new path to controller.
+[INFO] [1775712684.087340331] [controller_server]: Passing new path to controller.
+[INFO] [1775712685.087338617] [controller_server]: Passing new path to controller.
+[INFO] [1775712686.137344107] [controller_server]: Passing new path to controller.
+[INFO] [1775712687.137418671] [controller_server]: Passing new path to controller.
+[INFO] [1775712688.187340105] [controller_server]: Passing new path to controller.
+[INFO] [1775712689.187341761] [controller_server]: Passing new path to controller.
+[INFO] [1775712690.237347621] [controller_server]: Passing new path to controller.
+[ERROR] [1775712690.987425035] [controller_server]: Failed to make progress
+[INFO] [1775712690.989011712] [controller_server]: Optimizer reset
+[WARN] [1775712690.989082509] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712691.006920954] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712691.007791849] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712691.091800156] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.9174 Hz.
+[WARN] [1775712691.113899833] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 45.4252 Hz.
+[INFO] [1775712691.258346651] [controller_server]: Passing new path to controller.
+[INFO] [1775712692.258664087] [controller_server]: Passing new path to controller.
+[INFO] [1775712693.307975350] [controller_server]: Passing new path to controller.
+[INFO] [1775712694.307969284] [controller_server]: Passing new path to controller.
+[INFO] [1775712695.358421888] [controller_server]: Passing new path to controller.
+[INFO] [1775712696.358178987] [controller_server]: Passing new path to controller.
+[INFO] [1775712697.407972994] [controller_server]: Passing new path to controller.
+[INFO] [1775712698.407972187] [controller_server]: Passing new path to controller.
+[INFO] [1775712699.407970843] [controller_server]: Passing new path to controller.
+[INFO] [1775712700.458295854] [controller_server]: Passing new path to controller.
+[ERROR] [1775712701.108074506] [controller_server]: Failed to make progress
+[INFO] [1775712701.109917943] [controller_server]: Optimizer reset
+[WARN] [1775712701.109980129] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712716.187285682] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712717.237496006] [controller_server]: Passing new path to controller.
+[INFO] [1775712718.237514986] [controller_server]: Passing new path to controller.
+[INFO] [1775712719.287509160] [controller_server]: Passing new path to controller.
+[INFO] [1775712720.337577816] [controller_server]: Passing new path to controller.
+[INFO] [1775712721.337490259] [controller_server]: Passing new path to controller.
+[INFO] [1775712722.387444562] [controller_server]: Passing new path to controller.
+[INFO] [1775712723.387489376] [controller_server]: Passing new path to controller.
+[INFO] [1775712724.387485468] [controller_server]: Passing new path to controller.
+[INFO] [1775712725.437500938] [controller_server]: Passing new path to controller.
+[ERROR] [1775712726.187572211] [controller_server]: Failed to make progress
+[INFO] [1775712726.189994170] [controller_server]: Optimizer reset
+[WARN] [1775712726.191145233] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712726.206981996] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712726.207982113] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712726.292655425] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.8230 Hz.
+[WARN] [1775712726.313301144] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 48.6233 Hz.
+[INFO] [1775712726.458565362] [controller_server]: Passing new path to controller.
+[INFO] [1775712727.508158681] [controller_server]: Passing new path to controller.
+[INFO] [1775712728.508161254] [controller_server]: Passing new path to controller.
+[INFO] [1775712729.508154624] [controller_server]: Passing new path to controller.
+[INFO] [1775712730.559205248] [controller_server]: Passing new path to controller.
+[INFO] [1775712731.558350539] [controller_server]: Passing new path to controller.
+[INFO] [1775712732.608163360] [controller_server]: Passing new path to controller.
+[INFO] [1775712733.608275896] [controller_server]: Passing new path to controller.
+[INFO] [1775712734.658186496] [controller_server]: Passing new path to controller.
+[INFO] [1775712735.708160873] [controller_server]: Passing new path to controller.
+[ERROR] [1775712736.308281121] [controller_server]: Failed to make progress
+[INFO] [1775712736.309964076] [controller_server]: Optimizer reset
+[WARN] [1775712736.310024224] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712746.346812309] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712746.977342131] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712748.027541603] [controller_server]: Passing new path to controller.
+[INFO] [1775712749.077544017] [controller_server]: Passing new path to controller.
+[INFO] [1775712750.078130149] [controller_server]: Passing new path to controller.
+[WARN] [1775712750.284391591] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.5913 Hz.
+[WARN] [1775712750.348605816] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 15.5914 Hz.
+[WARN] [1775712750.381280663] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 30.6847 Hz.
+[WARN] [1775712750.685828462] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.1629 Hz.
+[INFO] [1775712751.077589201] [controller_server]: Passing new path to controller.
+[WARN] [1775712751.481867737] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.4239 Hz.
+[INFO] [1775712752.127541763] [controller_server]: Passing new path to controller.
+[INFO] [1775712753.127538077] [controller_server]: Passing new path to controller.
+[INFO] [1775712754.177554270] [controller_server]: Passing new path to controller.
+[INFO] [1775712755.177536639] [controller_server]: Passing new path to controller.
+[INFO] [1775712756.227539128] [controller_server]: Passing new path to controller.
+[ERROR] [1775712756.977678234] [controller_server]: Failed to make progress
+[INFO] [1775712756.980438658] [controller_server]: Optimizer reset
+[WARN] [1775712756.980534103] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712756.997203038] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712756.999965425] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712757.094884652] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.5481 Hz.
+[WARN] [1775712757.116165541] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 47.2204 Hz.
+[INFO] [1775712757.250161913] [controller_server]: Passing new path to controller.
+[INFO] [1775712758.250162782] [controller_server]: Passing new path to controller.
+[INFO] [1775712759.300179715] [controller_server]: Passing new path to controller.
+[INFO] [1775712760.300162918] [controller_server]: Passing new path to controller.
+[INFO] [1775712761.300162232] [controller_server]: Passing new path to controller.
+[INFO] [1775712762.350143535] [controller_server]: Passing new path to controller.
+[INFO] [1775712763.350161979] [controller_server]: Passing new path to controller.
+[INFO] [1775712764.400167301] [controller_server]: Passing new path to controller.
+[INFO] [1775712765.450164956] [controller_server]: Passing new path to controller.
+[INFO] [1775712766.450170177] [controller_server]: Passing new path to controller.
+[ERROR] [1775712767.100239693] [controller_server]: Failed to make progress
+[INFO] [1775712767.102305965] [controller_server]: Optimizer reset
+[WARN] [1775712767.102393799] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712782.182415012] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712783.232616076] [controller_server]: Passing new path to controller.
+[INFO] [1775712784.282612324] [controller_server]: Passing new path to controller.
+[INFO] [1775712785.282608545] [controller_server]: Passing new path to controller.
+[INFO] [1775712786.332621201] [controller_server]: Passing new path to controller.
+[INFO] [1775712787.332898072] [controller_server]: Passing new path to controller.
+[WARN] [1775712787.983642110] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.6465 Hz.
+[INFO] [1775712788.383595879] [controller_server]: Passing new path to controller.
+[WARN] [1775712788.591890019] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.2786 Hz.
+[INFO] [1775712788.688107290] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775712788.371 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1775712788.801915150] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.7635 Hz.
+[WARN] [1775712789.052002692] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.0001 Hz.
+[WARN] [1775712789.255843971] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.9115 Hz.
+[INFO] [1775712789.456112468] [controller_server]: Passing new path to controller.
+[WARN] [1775712789.508079970] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.2405 Hz.
+[WARN] [1775712789.729469985] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 4.5778 Hz.
+[WARN] [1775712790.180560826] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 19.6040 Hz.
+[INFO] [1775712790.479796056] [controller_server]: Passing new path to controller.
+[INFO] [1775712791.529565969] [controller_server]: Passing new path to controller.
+[ERROR] [1775712792.229681493] [controller_server]: Failed to make progress
+[INFO] [1775712792.233062532] [controller_server]: Optimizer reset
+[WARN] [1775712792.233169403] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712792.246323039] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712792.247192618] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712792.547378762] [controller_server]: Passing new path to controller.
+[INFO] [1775712793.547365816] [controller_server]: Passing new path to controller.
+[INFO] [1775712794.597423009] [controller_server]: Passing new path to controller.
+[INFO] [1775712795.597391841] [controller_server]: Passing new path to controller.
+[INFO] [1775712796.647376385] [controller_server]: Passing new path to controller.
+[INFO] [1775712797.647367310] [controller_server]: Passing new path to controller.
+[INFO] [1775712798.698247138] [controller_server]: Passing new path to controller.
+[INFO] [1775712799.697608744] [controller_server]: Passing new path to controller.
+[INFO] [1775712800.747372287] [controller_server]: Passing new path to controller.
+[INFO] [1775712801.747369897] [controller_server]: Passing new path to controller.
+[ERROR] [1775712802.297653786] [controller_server]: Failed to make progress
+[INFO] [1775712802.299861466] [controller_server]: Optimizer reset
+[WARN] [1775712802.299932874] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712812.336310493] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712812.977309342] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712814.027496258] [controller_server]: Passing new path to controller.
+[INFO] [1775712815.027493312] [controller_server]: Passing new path to controller.
+[INFO] [1775712816.027486256] [controller_server]: Passing new path to controller.
+[INFO] [1775712817.077488041] [controller_server]: Passing new path to controller.
+[INFO] [1775712818.127489752] [controller_server]: Passing new path to controller.
+[INFO] [1775712819.127487325] [controller_server]: Passing new path to controller.
+[INFO] [1775712820.177493332] [controller_server]: Passing new path to controller.
+[INFO] [1775712821.177528146] [controller_server]: Passing new path to controller.
+[INFO] [1775712822.227493338] [controller_server]: Passing new path to controller.
+[ERROR] [1775712822.977581148] [controller_server]: Failed to make progress
+[INFO] [1775712822.981359653] [controller_server]: Optimizer reset
+[WARN] [1775712822.981458709] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712822.996973822] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712822.998850833] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712823.093532095] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.5745 Hz.
+[WARN] [1775712823.117315833] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 42.2271 Hz.
+[INFO] [1775712823.249048302] [controller_server]: Passing new path to controller.
+[INFO] [1775712824.249051467] [controller_server]: Passing new path to controller.
+[INFO] [1775712825.299058067] [controller_server]: Passing new path to controller.
+[INFO] [1775712826.299070844] [controller_server]: Passing new path to controller.
+[INFO] [1775712827.349057537] [controller_server]: Passing new path to controller.
+[WARN] [1775712827.656320705] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.9031 Hz.
+[INFO] [1775712828.399056136] [controller_server]: Passing new path to controller.
+[INFO] [1775712829.399061006] [controller_server]: Passing new path to controller.
+[INFO] [1775712830.449051939] [controller_server]: Passing new path to controller.
+[INFO] [1775712831.449052586] [controller_server]: Passing new path to controller.
+[INFO] [1775712832.449047918] [controller_server]: Passing new path to controller.
+[ERROR] [1775712833.099156360] [controller_server]: Failed to make progress
+[INFO] [1775712833.100967408] [controller_server]: Optimizer reset
+[WARN] [1775712833.101032964] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712848.176748426] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712849.226963613] [controller_server]: Passing new path to controller.
+[INFO] [1775712850.277001132] [controller_server]: Passing new path to controller.
+[WARN] [1775712850.938023015] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.2272 Hz.
+[WARN] [1775712851.154908994] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 14.9667 Hz.
+[WARN] [1775712851.199625945] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 22.8122 Hz.
+[WARN] [1775712851.253206742] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 18.7029 Hz.
+[WARN] [1775712851.443604722] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.2545 Hz.
+[INFO] [1775712851.443684667] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1775712851.443705611] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1775712851.446818888] [controller_server]: Optimizer reset
+[INFO] [1775712868.607733854] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712868.637523241] [controller_server]: Reached the goal!
+[INFO] [1775712868.645285655] [controller_server]: Optimizer reset
+[INFO] [1775712885.760883462] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712886.811080408] [controller_server]: Passing new path to controller.
+[INFO] [1775712887.811013687] [controller_server]: Passing new path to controller.
+[INFO] [1775712888.861168447] [controller_server]: Passing new path to controller.
+[INFO] [1775712889.911076873] [controller_server]: Passing new path to controller.
+[INFO] [1775712890.911072985] [controller_server]: Passing new path to controller.
+[INFO] [1775712891.911071671] [controller_server]: Passing new path to controller.
+[INFO] [1775712892.961058690] [controller_server]: Passing new path to controller.
+[INFO] [1775712893.961066080] [controller_server]: Passing new path to controller.
+[INFO] [1775712895.011074562] [controller_server]: Passing new path to controller.
+[ERROR] [1775712895.761352273] [controller_server]: Failed to make progress
+[INFO] [1775712895.763744193] [controller_server]: Optimizer reset
+[WARN] [1775712895.763840805] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712895.780544490] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712895.781368198] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712895.892263183] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.0247 Hz.
+[INFO] [1775712896.042285347] [controller_server]: Passing new path to controller.
+[INFO] [1775712897.042367200] [controller_server]: Passing new path to controller.
+[INFO] [1775712898.042928075] [controller_server]: Passing new path to controller.
+[INFO] [1775712899.092346054] [controller_server]: Passing new path to controller.
+[INFO] [1775712900.092351444] [controller_server]: Passing new path to controller.
+[INFO] [1775712901.142675094] [controller_server]: Passing new path to controller.
+[INFO] [1775712902.142347241] [controller_server]: Passing new path to controller.
+[INFO] [1775712903.192347445] [controller_server]: Passing new path to controller.
+[INFO] [1775712904.242985764] [controller_server]: Passing new path to controller.
+[INFO] [1775712905.242347854] [controller_server]: Passing new path to controller.
+[INFO] [1775712906.242341633] [controller_server]: Passing new path to controller.
+[INFO] [1775712907.292349504] [controller_server]: Passing new path to controller.
+[INFO] [1775712908.342648654] [controller_server]: Passing new path to controller.
+[INFO] [1775712909.342816823] [controller_server]: Passing new path to controller.
+[INFO] [1775712910.392348542] [controller_server]: Passing new path to controller.
+[INFO] [1775712911.392347451] [controller_server]: Passing new path to controller.
+[ERROR] [1775712912.092441365] [controller_server]: Failed to make progress
+[INFO] [1775712912.093899633] [controller_server]: Optimizer reset
+[WARN] [1775712912.093957818] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712912.110634133] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712912.980833471] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712914.031111732] [controller_server]: Passing new path to controller.
+[INFO] [1775712915.031209604] [controller_server]: Passing new path to controller.
+[INFO] [1775712916.081030214] [controller_server]: Passing new path to controller.
+[INFO] [1775712917.131621847] [controller_server]: Passing new path to controller.
+[INFO] [1775712918.131112901] [controller_server]: Passing new path to controller.
+[INFO] [1775712919.181028456] [controller_server]: Passing new path to controller.
+[INFO] [1775712920.181028365] [controller_server]: Passing new path to controller.
+[INFO] [1775712921.231151292] [controller_server]: Passing new path to controller.
+[INFO] [1775712922.231035070] [controller_server]: Passing new path to controller.
+[ERROR] [1775712922.981110354] [controller_server]: Failed to make progress
+[INFO] [1775712922.982469084] [controller_server]: Optimizer reset
+[WARN] [1775712922.982525954] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712923.000619443] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712923.001608245] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712923.086425307] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.8050 Hz.
+[WARN] [1775712923.109465861] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 43.5524 Hz.
+[INFO] [1775712923.252210355] [controller_server]: Passing new path to controller.
+[INFO] [1775712924.301797742] [controller_server]: Passing new path to controller.
+[INFO] [1775712925.301798391] [controller_server]: Passing new path to controller.
+[INFO] [1775712926.351800503] [controller_server]: Passing new path to controller.
+[INFO] [1775712927.352088376] [controller_server]: Passing new path to controller.
+[INFO] [1775712928.401800541] [controller_server]: Passing new path to controller.
+[INFO] [1775712929.401806209] [controller_server]: Passing new path to controller.
+[INFO] [1775712930.451802950] [controller_server]: Passing new path to controller.
+[INFO] [1775712931.451804470] [controller_server]: Passing new path to controller.
+[INFO] [1775712932.451803878] [controller_server]: Passing new path to controller.
+[ERROR] [1775712933.101968479] [controller_server]: Failed to make progress
+[INFO] [1775712933.103743804] [controller_server]: Optimizer reset
+[WARN] [1775712933.103853878] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712935.360882082] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712936.411081676] [controller_server]: Passing new path to controller.
+[INFO] [1775712937.411089455] [controller_server]: Passing new path to controller.
+[INFO] [1775712938.461082585] [controller_server]: Passing new path to controller.
+[INFO] [1775712939.076515789] [controller_server]: Optimizer reset
+[INFO] [1775712939.093384827] [controller_server]: Optimizer reset
+[WARN] [1775712939.093563365] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712939.126813586] [controller_server]: Optimizer reset
+[INFO] [1775712939.147143866] [controller_server]: Optimizer reset
+[WARN] [1775712939.147263107] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712939.174806019] [controller_server]: Optimizer reset
+[INFO] [1775712939.197588941] [controller_server]: Optimizer reset
+[WARN] [1775712939.199269580] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712939.225910543] [controller_server]: Optimizer reset
+[INFO] [1775712939.250191640] [controller_server]: Optimizer reset
+[WARN] [1775712939.250441530] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712940.011094206] [controller_server]: Passing new path to controller.
+[INFO] [1775712941.011108707] [controller_server]: Passing new path to controller.
+[INFO] [1775712942.061113670] [controller_server]: Passing new path to controller.
+[INFO] [1775712943.061076412] [controller_server]: Passing new path to controller.
+[INFO] [1775712944.111084283] [controller_server]: Passing new path to controller.
+[INFO] [1775712945.111081099] [controller_server]: Passing new path to controller.
+[INFO] [1775712946.111081507] [controller_server]: Passing new path to controller.
+[INFO] [1775712947.161084933] [controller_server]: Passing new path to controller.
+[ERROR] [1775712947.611342538] [controller_server]: Failed to make progress
+[INFO] [1775712947.612908936] [controller_server]: Optimizer reset
+[WARN] [1775712947.612965418] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712947.630576459] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712947.632494618] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712947.688614577] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 17.8505 Hz.
+[INFO] [1775712948.182676276] [controller_server]: Passing new path to controller.
+[INFO] [1775712949.232687221] [controller_server]: Passing new path to controller.
+[INFO] [1775712950.232680074] [controller_server]: Passing new path to controller.
+[INFO] [1775712951.282678334] [controller_server]: Passing new path to controller.
+[INFO] [1775712952.097211085] [controller_server]: Optimizer reset
+[INFO] [1775712952.110475733] [controller_server]: Optimizer reset
+[WARN] [1775712952.110625771] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712952.282843947] [controller_server]: Passing new path to controller.
+[INFO] [1775712953.332683354] [controller_server]: Passing new path to controller.
+[INFO] [1775712954.332692799] [controller_server]: Passing new path to controller.
+[INFO] [1775712955.382677522] [controller_server]: Passing new path to controller.
+[INFO] [1775712956.382675801] [controller_server]: Passing new path to controller.
+[INFO] [1775712957.382677728] [controller_server]: Passing new path to controller.
+[ERROR] [1775712957.682763538] [controller_server]: Failed to make progress
+[INFO] [1775712957.684209064] [controller_server]: Optimizer reset
+[WARN] [1775712957.684267565] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712962.740930588] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712963.791136830] [controller_server]: Passing new path to controller.
+[INFO] [1775712964.791130146] [controller_server]: Passing new path to controller.
+[INFO] [1775712965.841129072] [controller_server]: Passing new path to controller.
+[INFO] [1775712966.841140073] [controller_server]: Passing new path to controller.
+[INFO] [1775712967.841137389] [controller_server]: Passing new path to controller.
+[INFO] [1775712968.891154389] [controller_server]: Passing new path to controller.
+[INFO] [1775712969.891128483] [controller_server]: Passing new path to controller.
+[INFO] [1775712970.941129965] [controller_server]: Passing new path to controller.
+[INFO] [1775712971.941156003] [controller_server]: Passing new path to controller.
+[ERROR] [1775712972.741219101] [controller_server]: Failed to make progress
+[INFO] [1775712972.742886295] [controller_server]: Optimizer reset
+[WARN] [1775712972.742960314] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712972.761449139] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712972.762414348] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712972.887449818] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.0040 Hz.
+[INFO] [1775712973.037567983] [controller_server]: Passing new path to controller.
+[INFO] [1775712974.037600465] [controller_server]: Passing new path to controller.
+[INFO] [1775712975.037540170] [controller_server]: Passing new path to controller.
+[INFO] [1775712976.087564893] [controller_server]: Passing new path to controller.
+[INFO] [1775712977.087537005] [controller_server]: Passing new path to controller.
+[INFO] [1775712978.087539728] [controller_server]: Passing new path to controller.
+[INFO] [1775712979.137585506] [controller_server]: Passing new path to controller.
+[INFO] [1775712980.187537580] [controller_server]: Passing new path to controller.
+[INFO] [1775712981.187536748] [controller_server]: Passing new path to controller.
+[INFO] [1775712982.237541730] [controller_server]: Passing new path to controller.
+[ERROR] [1775712982.888163370] [controller_server]: Failed to make progress
+[INFO] [1775712982.889433451] [controller_server]: Optimizer reset
+[WARN] [1775712982.889485026] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712985.320395248] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712985.980835461] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775712987.031068574] [controller_server]: Passing new path to controller.
+[INFO] [1775712988.031223261] [controller_server]: Passing new path to controller.
+[INFO] [1775712988.495291386] [controller_server]: Optimizer reset
+[INFO] [1775712988.511133456] [controller_server]: Optimizer reset
+[WARN] [1775712988.511351512] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712988.551067177] [controller_server]: Optimizer reset
+[INFO] [1775712988.570054449] [controller_server]: Optimizer reset
+[WARN] [1775712988.570237616] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712988.595870758] [controller_server]: Optimizer reset
+[INFO] [1775712988.613500856] [controller_server]: Optimizer reset
+[WARN] [1775712988.613682135] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712988.648277474] [controller_server]: Optimizer reset
+[INFO] [1775712988.671604530] [controller_server]: Optimizer reset
+[WARN] [1775712988.672070106] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712988.694739343] [controller_server]: Optimizer reset
+[INFO] [1775712988.713099593] [controller_server]: Optimizer reset
+[WARN] [1775712988.713280612] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712988.747657414] [controller_server]: Optimizer reset
+[INFO] [1775712988.768726327] [controller_server]: Optimizer reset
+[WARN] [1775712988.768864309] [controller_server]: Optimizer fail to compute path
+[ERROR] [1775712988.768934383] [controller_server]: Controller patience exceeded
+[INFO] [1775712988.774705693] [controller_server]: Optimizer reset
+[WARN] [1775712988.774792194] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775712988.790591966] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775712988.791638324] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775712988.886210292] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.5836 Hz.
+[WARN] [1775712988.909688256] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 42.7446 Hz.
+[INFO] [1775712989.091809542] [controller_server]: Passing new path to controller.
+[INFO] [1775712990.091810636] [controller_server]: Passing new path to controller.
+[INFO] [1775712991.141814636] [controller_server]: Passing new path to controller.
+[INFO] [1775712992.141804230] [controller_server]: Passing new path to controller.
+[INFO] [1775712992.308555690] [controller_server]: Optimizer reset
+[INFO] [1775712992.326710476] [controller_server]: Optimizer reset
+[WARN] [1775712992.326859755] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712992.357303127] [controller_server]: Optimizer reset
+[INFO] [1775712992.376176083] [controller_server]: Optimizer reset
+[WARN] [1775712992.376334880] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712992.407502034] [controller_server]: Optimizer reset
+[INFO] [1775712992.424116515] [controller_server]: Optimizer reset
+[WARN] [1775712992.424272776] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712992.457247384] [controller_server]: Optimizer reset
+[INFO] [1775712992.481359147] [controller_server]: Optimizer reset
+[WARN] [1775712992.481702760] [controller_server]: Optimizer fail to compute path
+[INFO] [1775712993.191817119] [controller_server]: Passing new path to controller.
+[INFO] [1775712994.191808472] [controller_server]: Passing new path to controller.
+[INFO] [1775712995.241862084] [controller_server]: Passing new path to controller.
+[INFO] [1775712996.242085271] [controller_server]: Passing new path to controller.
+[INFO] [1775712997.241810308] [controller_server]: Passing new path to controller.
+[INFO] [1775712998.291804549] [controller_server]: Passing new path to controller.
+[ERROR] [1775712998.891887409] [controller_server]: Failed to make progress
+[INFO] [1775712998.893289750] [controller_server]: Optimizer reset
+[WARN] [1775712998.893362121] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775713005.670773378] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775713006.720973157] [controller_server]: Passing new path to controller.
+[INFO] [1775713007.720981306] [controller_server]: Passing new path to controller.
+[INFO] [1775713008.770971955] [controller_server]: Passing new path to controller.
+[INFO] [1775713009.770971900] [controller_server]: Passing new path to controller.
+[INFO] [1775713010.820972623] [controller_server]: Passing new path to controller.
+[INFO] [1775713011.820972846] [controller_server]: Passing new path to controller.
+[INFO] [1775713012.870971754] [controller_server]: Passing new path to controller.
+[INFO] [1775713013.870969866] [controller_server]: Passing new path to controller.
+[INFO] [1775713014.871003812] [controller_server]: Passing new path to controller.
+[ERROR] [1775713015.671068520] [controller_server]: Failed to make progress
+[INFO] [1775713015.672554788] [controller_server]: Optimizer reset
+[WARN] [1775713015.672612103] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775713015.690588703] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775713015.691497708] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775713015.887180828] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 5.1131 Hz.
+[INFO] [1775713015.961715000] [controller_server]: Passing new path to controller.
+[INFO] [1775713016.937270940] [controller_server]: Passing new path to controller.
+[INFO] [1775713017.110629141] [controller_server]: Optimizer reset
+[INFO] [1775713017.126195987] [controller_server]: Optimizer reset
+[WARN] [1775713017.126426543] [controller_server]: Optimizer fail to compute path
+[INFO] [1775713017.151547534] [controller_server]: Optimizer reset
+[INFO] [1775713017.167743365] [controller_server]: Optimizer reset
+[WARN] [1775713017.167924088] [controller_server]: Optimizer fail to compute path
+[INFO] [1775713017.202570521] [controller_server]: Optimizer reset
+[INFO] [1775713017.221464662] [controller_server]: Optimizer reset
+[WARN] [1775713017.221735905] [controller_server]: Optimizer fail to compute path
+[INFO] [1775713017.256215818] [controller_server]: Optimizer reset
+[INFO] [1775713017.280687398] [controller_server]: Optimizer reset
+[WARN] [1775713017.281221734] [controller_server]: Optimizer fail to compute path
+[INFO] [1775713017.937271590] [controller_server]: Passing new path to controller.
+[INFO] [1775713018.987257053] [controller_server]: Passing new path to controller.
+[INFO] [1775713019.987267683] [controller_server]: Passing new path to controller.
+[INFO] [1775713021.037273332] [controller_server]: Passing new path to controller.
+[INFO] [1775713022.037362611] [controller_server]: Passing new path to controller.
+[INFO] [1775713023.087280574] [controller_server]: Passing new path to controller.
+[INFO] [1775713024.087270112] [controller_server]: Passing new path to controller.
+[INFO] [1775713025.137284168] [controller_server]: Passing new path to controller.
+[ERROR] [1775713025.887345841] [controller_server]: Failed to make progress
+[INFO] [1775713025.889014368] [controller_server]: Optimizer reset
+[WARN] [1775713025.889088961] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775713028.540942111] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775713029.591162538] [controller_server]: Passing new path to controller.
+[INFO] [1775713030.591159595] [controller_server]: Passing new path to controller.
+[INFO] [1775713031.307284542] [controller_server]: Optimizer reset
+[INFO] [1775713031.324275285] [controller_server]: Optimizer reset
+[WARN] [1775713031.324503323] [controller_server]: Optimizer fail to compute path
+[INFO] [1775713031.641135799] [controller_server]: Passing new path to controller.
+[ERROR] [1775713031.691244428] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1775713031.692692325] [controller_server]: Optimizer reset
+[WARN] [1775713031.692750288] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775713100.935418192] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713100.622 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713116.806328260] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713116.502 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713120.193523949] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713119.884 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713123.184073675] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713122.881 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713126.180208603] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713125.879 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713145.904010668] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713145.586 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713159.498124472] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713159.195 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713207.524578654] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775713208.574799090] [controller_server]: Passing new path to controller.
+[INFO] [1775713209.624791525] [controller_server]: Passing new path to controller.
+[INFO] [1775713210.624795182] [controller_server]: Passing new path to controller.
+[INFO] [1775713211.624795765] [controller_server]: Passing new path to controller.
+[INFO] [1775713212.675280629] [controller_server]: Passing new path to controller.
+[INFO] [1775713213.676392182] [controller_server]: Passing new path to controller.
+[INFO] [1775713214.675590445] [controller_server]: Passing new path to controller.
+[INFO] [1775713215.724808375] [controller_server]: Passing new path to controller.
+[INFO] [1775713216.724793088] [controller_server]: Passing new path to controller.
+[ERROR] [1775713217.524895707] [controller_server]: Failed to make progress
+[INFO] [1775713217.526416809] [controller_server]: Optimizer reset
+[WARN] [1775713217.526467494] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775713217.544424219] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775713217.545448966] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775713217.693289676] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.7686 Hz.
+[INFO] [1775713217.769501119] [controller_server]: Passing new path to controller.
+[INFO] [1775713218.793377593] [controller_server]: Passing new path to controller.
+[INFO] [1775713219.793374398] [controller_server]: Passing new path to controller.
+[INFO] [1775713220.793379389] [controller_server]: Passing new path to controller.
+[INFO] [1775713221.843502065] [controller_server]: Passing new path to controller.
+[INFO] [1775713222.844112374] [controller_server]: Passing new path to controller.
+[INFO] [1775713223.893377268] [controller_server]: Passing new path to controller.
+[INFO] [1775713224.893372999] [controller_server]: Passing new path to controller.
+[INFO] [1775713225.943907104] [controller_server]: Passing new path to controller.
+[INFO] [1775713226.943386943] [controller_server]: Passing new path to controller.
+[ERROR] [1775713227.693480728] [controller_server]: Failed to make progress
+[INFO] [1775713227.695189905] [controller_server]: Optimizer reset
+[WARN] [1775713227.695260183] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775713227.714354238] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775713227.984522853] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775713229.034733030] [controller_server]: Passing new path to controller.
+[INFO] [1775713230.084721816] [controller_server]: Passing new path to controller.
+[INFO] [1775713231.084718887] [controller_server]: Passing new path to controller.
+[INFO] [1775713232.134729470] [controller_server]: Passing new path to controller.
+[INFO] [1775713233.184718664] [controller_server]: Passing new path to controller.
+[INFO] [1775713234.184719383] [controller_server]: Passing new path to controller.
+[INFO] [1775713235.234722799] [controller_server]: Passing new path to controller.
+[INFO] [1775713236.234745112] [controller_server]: Passing new path to controller.
+[INFO] [1775713237.235087907] [controller_server]: Passing new path to controller.
+[ERROR] [1775713237.984829015] [controller_server]: Failed to make progress
+[INFO] [1775713237.986228820] [controller_server]: Optimizer reset
+[WARN] [1775713237.986296190] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775713238.004337202] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1775713238.005915026] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1775713238.096306418] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.0751 Hz.
+[WARN] [1775713238.124295654] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 37.2591 Hz.
+[WARN] [1775713238.159035169] [controller_server]: Control loop missed its desired rate of 20.0000 Hz. Current loop rate is 28.8655 Hz.
+[INFO] [1775713238.256177138] [controller_server]: Passing new path to controller.
+[INFO] [1775713239.306098775] [controller_server]: Passing new path to controller.
+[INFO] [1775713240.356147988] [controller_server]: Passing new path to controller.
+[INFO] [1775713241.356361690] [controller_server]: Passing new path to controller.
+[INFO] [1775713242.406096920] [controller_server]: Passing new path to controller.
+[INFO] [1775713243.406102547] [controller_server]: Passing new path to controller.
+[INFO] [1775713244.456715577] [controller_server]: Passing new path to controller.
+[INFO] [1775713245.456572518] [controller_server]: Passing new path to controller.
+[INFO] [1775713246.456371292] [controller_server]: Passing new path to controller.
+[INFO] [1775713247.506086966] [controller_server]: Passing new path to controller.
+[ERROR] [1775713248.106436637] [controller_server]: Failed to make progress
+[INFO] [1775713248.108778502] [controller_server]: Optimizer reset
+[WARN] [1775713248.108863280] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775713254.164872663] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1775713255.215081191] [controller_server]: Passing new path to controller.
+[ERROR] [1775713255.765208128] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1775713255.767336436] [controller_server]: Optimizer reset
+[WARN] [1775713255.767432103] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1775713280.398246927] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713280.089 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713284.397958378] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713284.092 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713307.877957796] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775713307.576 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775713314.809137363] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1775713314.809214363] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1775713314.809440846] [controller_server]: Deactivating
+[INFO] [1775713314.809828070] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[INFO] [1775713314.809893626] [local_costmap.local_costmap]: Deactivating
+[INFO] [1775713314.875239244] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1775713314.906603888] [controller_server]: Cleaning up
+[INFO] [1775713315.079422294] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[INFO] [1775713315.082957814] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1775713316.014998975] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

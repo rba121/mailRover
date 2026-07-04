@@ -1,0 +1,29 @@
+[INFO] [1783121466.876826449] [bt_navigator]: 
+	bt_navigator lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1783121466.888740424] [bt_navigator]: Creating
+[INFO] [1783121471.594169679] [bt_navigator]: Configuring
+[INFO] [1783121471.656096583] [bt_navigator]: Creating navigator id navigate_to_pose of type nav2_bt_navigator::NavigateToPoseNavigator
+[INFO] [1783121472.046978132] [bt_navigator]: Creating navigator id navigate_through_poses of type nav2_bt_navigator::NavigateThroughPosesNavigator
+[INFO] [1783121476.027978777] [bt_navigator]: Activating
+[INFO] [1783121476.534952479] [bt_navigator]: Creating bond (bt_navigator) to lifecycle manager.
+[INFO] [1783121508.022013495] [bt_navigator]: Begin navigating from current location (3.10, 6.09) to (1.97, 4.13)
+[WARN] [1783121554.277544925] [bt_navigator_navigate_to_pose_rclcpp_node]: Timed out while waiting for action server to acknowledge goal request for compute_path_to_pose
+[ERROR] [1783121554.372525070] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to cancel action server for follow_path
+[ERROR] [1783121554.393910005] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!
+[WARN] [1783121554.394400211] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.
+[ERROR] [1783121554.420925175] [bt_navigator]: Goal failed
+[INFO] [1783121722.534819895] [bt_navigator]: Begin navigating from current location (2.99, 6.04) to (2.12, 4.28)
+[ERROR] [1783121809.419280259] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!
+[INFO] [1783121887.981626223] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1783121887.981755871] [bt_navigator]: Running Nav2 LifecycleNode rcl preshutdown (bt_navigator)
+[INFO] [1783121887.981886113] [bt_navigator]: Deactivating
+[WARN] [1783121887.981924058] [bt_navigator]: [navigate_to_pose] [ActionServer] Requested to deactivate server but goal is still executing. Should check if action server is running before deactivating.
+[WARN] [1783121888.004712261] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.
+[INFO] [1783121888.011464503] [bt_navigator]: Goal canceled
+[WARN] [1783121888.011575893] [bt_navigator]: [navigate_to_pose] [ActionServer] Stopping the thread per request.
+[INFO] [1783121888.016733181] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.
+[INFO] [1783121888.129929342] [bt_navigator]: Cleaning up
+[INFO] [1783121890.138845376] [bt_navigator]: Completed Cleaning up
+[INFO] [1783121890.139161859] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.

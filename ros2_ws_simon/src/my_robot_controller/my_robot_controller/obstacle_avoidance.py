@@ -20,6 +20,7 @@ class ObstacleAvoidanceNode(Node):
         self.declare_parameter('stop_distance', 0.38)
         self.declare_parameter('emergency_distance', 0.25)
         self.declare_parameter('blockage_wait_time', 5.0)
+        self.declare_parameter('allow_turning_when_blocked', False)
         self.declare_parameter('cmd_timeout', 0.5)
         self.declare_parameter('sensor_timeout', 0.75)
 
@@ -34,6 +35,9 @@ class ObstacleAvoidanceNode(Node):
         self.emergency_distance = float(self.get_parameter('emergency_distance').value)
         self.blockage_wait_time = float(
             self.get_parameter('blockage_wait_time').value
+        )
+        self.allow_turning_when_blocked = bool(
+            self.get_parameter('allow_turning_when_blocked').value
         )
         self.cmd_timeout = float(self.get_parameter('cmd_timeout').value)
         self.sensor_timeout = float(self.get_parameter('sensor_timeout').value)
@@ -154,7 +158,10 @@ class ObstacleAvoidanceNode(Node):
                 blocked_time = (now - self.blocked_since).nanoseconds / 1e9
                 safe_cmd.linear.x = 0.0
 
-                if blocked_time < self.blockage_wait_time:
+                if (
+                    not self.allow_turning_when_blocked
+                    or blocked_time < self.blockage_wait_time
+                ):
                     safe_cmd.angular.z = 0.0
                 elif not self.replan_logged:
                     self.get_logger().warn(

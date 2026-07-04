@@ -1,0 +1,1 @@
+/home/mypi/ros2_ws_wendy/src/sllidar_ros2/launch/view_sllidar_s1_tcp_launch.py

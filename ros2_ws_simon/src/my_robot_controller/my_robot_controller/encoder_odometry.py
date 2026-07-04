@@ -60,20 +60,21 @@ class EncoderOdometryNode(Node):
     def __init__(self):
         super().__init__('encoder_odometry')
 
-        self.declare_parameter('left_encoder_a_pin', 17)
-        self.declare_parameter('left_encoder_b_pin', 27)
-        self.declare_parameter('right_encoder_a_pin', 22)
-        self.declare_parameter('right_encoder_b_pin', 25)
+        self.declare_parameter('left_encoder_b_pin', 22)
+        self.declare_parameter('left_encoder_a_pin', 25)
+        self.declare_parameter('right_encoder_b_pin', 17)
+        self.declare_parameter('right_encoder_a_pin', 27)
         self.declare_parameter('encoder_pull_up', False)
         self.declare_parameter('ticks_per_wheel_rev', 4350.0)
         self.declare_parameter('wheel_radius_m', 0.0635)
         self.declare_parameter('track_width_m', 0.4572)
         self.declare_parameter('odom_frame_id', 'odom')
         self.declare_parameter('base_frame_id', 'base_footprint')
-        self.declare_parameter('publish_tf', False)
+        self.declare_parameter('publish_tf', True)
         self.declare_parameter('publish_rate_hz', 30.0)
         self.declare_parameter('left_direction', 1.0)
         self.declare_parameter('right_direction', -1.0)
+        self.declare_parameter('max_wheel_speed_mps', 1.0)
 
         left_a_pin = int(self.get_parameter('left_encoder_a_pin').value)
         left_b_pin = int(self.get_parameter('left_encoder_b_pin').value)
@@ -91,6 +92,9 @@ class EncoderOdometryNode(Node):
         self.publish_tf = bool(self.get_parameter('publish_tf').value)
         self.left_direction = float(self.get_parameter('left_direction').value)
         self.right_direction = float(self.get_parameter('right_direction').value)
+        self.max_wheel_speed_mps = float(
+            self.get_parameter('max_wheel_speed_mps').value
+        )
 
         publish_rate_hz = float(self.get_parameter('publish_rate_hz').value)
         timer_period = 1.0 / publish_rate_hz
@@ -106,7 +110,7 @@ class EncoderOdometryNode(Node):
         self.y = 0.0
         self.theta = 0.0
 
-        self.odom_pub = self.create_publisher(Odometry, 'wheel/odom', 10)
+        self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
         self.joint_pub = self.create_publisher(JointState, 'joint_states/wheels', 10)
         self.tf_broadcaster = TransformBroadcaster(self) if self.publish_tf else None
         self.timer = self.create_timer(timer_period, self.publish_odometry)
@@ -131,18 +135,30 @@ class EncoderOdometryNode(Node):
         left_count = self.left_encoder.get_count()
         right_count = self.right_encoder.get_count()
 
+        meters_per_tick = (
+            2.0 * math.pi * self.wheel_radius_m / self.ticks_per_wheel_rev
+        )
         delta_left_ticks = (left_count - self.last_left_count) * self.left_direction
         delta_right_ticks = (right_count - self.last_right_count) * self.right_direction
+        delta_left = delta_left_ticks * meters_per_tick
+        delta_right = delta_right_ticks * meters_per_tick
+
+        left_speed = abs(delta_left / dt)
+        right_speed = abs(delta_right / dt)
+        if left_speed > self.max_wheel_speed_mps:
+            self.get_logger().warn(
+                f'Ignoring left encoder spike: {left_speed:.2f} m/s'
+            )
+            delta_left = 0.0
+        if right_speed > self.max_wheel_speed_mps:
+            self.get_logger().warn(
+                f'Ignoring right encoder spike: {right_speed:.2f} m/s'
+            )
+            delta_right = 0.0
 
         self.last_left_count = left_count
         self.last_right_count = right_count
         self.last_time = now
-
-        meters_per_tick = (
-            2.0 * math.pi * self.wheel_radius_m / self.ticks_per_wheel_rev
-        )
-        delta_left = delta_left_ticks * meters_per_tick
-        delta_right = delta_right_ticks * meters_per_tick
 
         delta_distance = (delta_right + delta_left) / 2.0
         delta_theta = (delta_right - delta_left) / self.track_width_m
@@ -165,6 +181,14 @@ class EncoderOdometryNode(Node):
         odom_msg.pose.pose.orientation = orientation
         odom_msg.twist.twist.linear.x = linear_velocity
         odom_msg.twist.twist.angular.z = angular_velocity
+
+        # Non-zero covariance required by Nav2/EKF
+        odom_msg.pose.covariance[0]  = 0.05   # x
+        odom_msg.pose.covariance[7]  = 0.05   # y
+        odom_msg.pose.covariance[35] = 0.1    # yaw
+        odom_msg.twist.covariance[0]  = 0.05  # vx
+        odom_msg.twist.covariance[35] = 0.1   # vyaw
+
         self.odom_pub.publish(odom_msg)
 
         joint_msg = JointState()

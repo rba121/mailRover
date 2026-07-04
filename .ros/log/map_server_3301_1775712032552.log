@@ -1,0 +1,28 @@
+[INFO] [1775712032.598306445] [map_server]: 
+	map_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775712032.598507853] [map_server]: Creating
+[INFO] [1775712032.902687948] [map_server]: Configuring
+[INFO] [1775712032.902806930] [map_io]: Loading yaml file: /home/mypi/testmap.yaml
+[INFO] [1775712032.903289209] [map_io]: resolution: 0.05
+[INFO] [1775712032.903317228] [map_io]: origin[0]: -2.792
+[INFO] [1775712032.903326635] [map_io]: origin[1]: -3.174
+[INFO] [1775712032.903333209] [map_io]: origin[2]: 0
+[INFO] [1775712032.903340321] [map_io]: free_thresh: 0.196
+[INFO] [1775712032.903347450] [map_io]: occupied_thresh: 0.65
+[INFO] [1775712032.903355932] [map_io]: mode: trinary
+[INFO] [1775712032.903364302] [map_io]: negate: 0
+[INFO] [1775712032.903720988] [map_io]: Loading image_file: /home/mypi/testmap.pgm
+[INFO] [1775712032.905901069] [map_io]: Read map /home/mypi/testmap.pgm: 286 X 191 map @ 0.05 m/cell
+[INFO] [1775712032.958419812] [map_server]: Activating
+[INFO] [1775712032.959326240] [map_server]: Creating bond (map_server) to lifecycle manager.
+[WARN] [1775712328.492592659] [rcl_lifecycle]: No transition matching 1 found for current state active
+[WARN] [1775712328.492629734] [rcl_lifecycle]: No transition matching 1 found for current state active
+[ERROR] [1775712328.492646456] [map_server]: Unable to start transition 1 from current state active: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[INFO] [1775713307.848679960] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1775713307.848842109] [map_server]: Running Nav2 LifecycleNode rcl preshutdown (map_server)
+[INFO] [1775713307.848965703] [map_server]: Deactivating
+[INFO] [1775713307.848998481] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[INFO] [1775713307.859946137] [map_server]: Cleaning up
+[INFO] [1775713307.860175360] [map_server]: Destroying bond (map_server) to lifecycle manager.

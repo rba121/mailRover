@@ -1,0 +1,279 @@
+[INFO] [1775786075.852640245] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775786075.855746484] [planner_server]: Creating
+[INFO] [1775786077.221692384] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775786077.224578807] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1775786080.183496955] [planner_server]: Configuring
+[INFO] [1775786080.184383552] [global_costmap.global_costmap]: Configuring
+[INFO] [1775786080.248382335] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1775786080.262928763] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1775786080.276608132] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1775786080.276781188] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1775786080.307293442] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1775786080.382525414] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1775786080.382610803] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1775786080.402178517] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1775786080.610567989] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 548 X 491 at 0.050000 m/pix
+[INFO] [1775786080.611228214] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1775786080.611322363] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1775786080.618306659] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1775786082.653999431] [planner_server]: Activating
+[INFO] [1775786082.654076653] [global_costmap.global_costmap]: Activating
+[INFO] [1775786082.654101894] [global_costmap.global_costmap]: Checking transform
+[INFO] [1775786082.654320043] [global_costmap.global_costmap]: start
+[INFO] [1775786083.708846873] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1775786083.714337865] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[WARN] [1775786246.654633870] [global_costmap.global_costmap]: Sensor origin at (12.10, 11.94) is out of map bounds (0.27, -18.97) to (27.64, 5.56). The costmap cannot raytrace for it.
+[WARN] [1775786259.655508489] [nav2_costmap_2d]: Robot is out of bounds of the costmap!
+[INFO] [1775786300.508393709] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786300.675422240] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.0325 Hz
+[WARN] [1775786314.043423322] [planner_server]: GridBased plugin failed to plan from (8.29, 0.59) to (11.84, 1.39): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786314.043619804] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786314.057771789] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786314.679390110] [planner_server]: GridBased plugin failed to plan from (8.23, 0.57) to (11.84, 1.39): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786314.683316779] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786369.903000319] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786370.671031014] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 1.3039 Hz
+[WARN] [1775786384.036464901] [planner_server]: GridBased plugin failed to plan from (8.23, 0.84) to (11.84, 1.39): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786384.036688791] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786384.053848977] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786384.671331646] [planner_server]: GridBased plugin failed to plan from (8.14, 0.85) to (11.84, 1.39): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786384.671495425] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775786418.654638143] [global_costmap.global_costmap]: Sensor origin at (5.56, 8.08) is out of map bounds (0.27, -18.97) to (27.64, 5.56). The costmap cannot raytrace for it.
+[INFO] [1775786453.849853425] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1775786453.549 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1775786461.649341098] [planner_server]: GridBased plugin failed to plan from (14.55, 2.23) to (31.01, 8.82): "Goal Coordinates of(31.007500, 8.815201) was outside bounds"
+[WARN] [1775786461.649420895] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775786474.436211751] [planner_server]: GridBased plugin failed to plan from (15.19, 1.73) to (13.68, 1.95): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786474.436518827] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786474.448590486] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786474.665955228] [planner_server]: GridBased plugin failed to plan from (15.18, 1.72) to (13.68, 1.95): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786474.666116525] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786474.705325351] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786475.670559937] [planner_server]: GridBased plugin failed to plan from (15.15, 1.71) to (13.68, 1.95): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786475.670739049] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786475.687718809] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786476.671931870] [planner_server]: GridBased plugin failed to plan from (15.15, 1.71) to (13.68, 1.95): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786476.672117482] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775786496.488424657] [planner_server]: GridBased plugin failed to plan from (14.90, 2.40) to (15.67, 2.36): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786496.488555399] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786496.507139426] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786496.671313471] [planner_server]: GridBased plugin failed to plan from (14.90, 2.40) to (15.67, 2.36): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786496.671525546] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786496.688042007] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786497.672012622] [planner_server]: GridBased plugin failed to plan from (14.90, 2.41) to (15.67, 2.36): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786497.672207919] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786497.687224520] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786498.673866872] [planner_server]: GridBased plugin failed to plan from (14.90, 2.41) to (15.67, 2.36): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786498.673956983] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775786501.611375193] [planner_server]: GridBased plugin failed to plan from (14.97, 2.64) to (15.67, 2.36): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786501.611549842] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786501.627170298] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786529.090301035] [planner_server]: GridBased plugin failed to plan from (14.86, 2.64) to (13.92, 2.10): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786529.090502758] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786529.103716701] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786529.654575061] [global_costmap.global_costmap]: Sensor origin at (25.02, 7.20) is out of map bounds (0.27, -18.97) to (27.64, 5.56). The costmap cannot raytrace for it.
+[INFO] [1775786529.668685361] [planner_server]: Goal was canceled. Canceling planning action.
+[INFO] [1775786529.668869399] [planner_server]: [compute_path_to_pose] [ActionServer] Client requested to cancel the goal. Cancelling.
+[WARN] [1775786552.549683886] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.7739 Hz
+[WARN] [1775786553.679381352] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.7474 Hz
+[WARN] [1775786554.799799972] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.4733 Hz
+[WARN] [1775786555.931633635] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.3939 Hz
+[WARN] [1775786557.063807134] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.1925 Hz
+[WARN] [1775786558.197914328] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.6444 Hz
+[WARN] [1775786559.321186315] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.4574 Hz
+[WARN] [1775786560.455997827] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.1097 Hz
+[INFO] [1775786620.574087518] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1775786620.267 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1775786774.654615370] [global_costmap.global_costmap]: Sensor origin at (25.34, 8.97) is out of map bounds (0.27, -18.97) to (27.64, 5.56). The costmap cannot raytrace for it.
+[WARN] [1775786818.685414782] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.6079 Hz
+[WARN] [1775786820.744472361] [planner_server]: GridBased plugin failed to plan from (14.08, 2.34) to (13.25, 1.84): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786820.747407600] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786820.760803603] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786821.682100453] [planner_server]: GridBased plugin failed to plan from (14.08, 2.34) to (13.25, 1.84): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786821.682259787] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786821.719799669] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786822.675467146] [planner_server]: GridBased plugin failed to plan from (14.08, 2.33) to (13.25, 1.84): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786822.675694499] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786822.692605188] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786823.668935876] [planner_server]: GridBased plugin failed to plan from (14.10, 2.37) to (13.25, 1.84): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786823.669127636] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775786831.926502177] [planner_server]: GridBased plugin failed to plan from (14.75, 2.32) to (13.25, 1.84): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786831.926819124] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786831.942932920] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786832.671128963] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 1.3802 Hz
+[WARN] [1775786835.769266421] [planner_server]: GridBased plugin failed to plan from (14.83, 2.39) to (13.25, 1.84): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775786835.769492033] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775786835.785172790] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775786836.654587494] [nav2_costmap_2d]: Robot is out of bounds of the costmap!
+[WARN] [1775786836.663204655] [planner_server]: GridBased plugin failed to plan from (11.40, 7.22) to (13.25, 1.84): "Start Coordinates of(11.404701, 7.223637) was outside bounds"
+[INFO] [1775786836.663293914] [planner_server]: [compute_path_to_pose] [ActionServer] Client requested to cancel the goal. Cancelling.
+[WARN] [1775787244.960209941] [planner_server]: GridBased plugin failed to plan from (14.93, 2.36) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787244.960418480] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787244.976518242] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787245.666667523] [planner_server]: GridBased plugin failed to plan from (14.93, 2.36) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787245.666874190] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787245.687853093] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787246.674036990] [planner_server]: GridBased plugin failed to plan from (14.93, 2.36) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787246.674125435] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787246.686910363] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787247.671328212] [planner_server]: GridBased plugin failed to plan from (14.93, 2.36) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787247.671592269] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775787252.909476341] [planner_server]: GridBased plugin failed to plan from (15.00, 2.31) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787252.909662953] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787252.925972550] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787253.670898786] [planner_server]: GridBased plugin failed to plan from (15.10, 2.56) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787253.671060139] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775787265.909376806] [planner_server]: GridBased plugin failed to plan from (14.83, 2.54) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787265.909646530] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787265.925993665] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787266.673202322] [planner_server]: GridBased plugin failed to plan from (14.96, 2.65) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787266.673369193] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775787270.720279981] [planner_server]: GridBased plugin failed to plan from (14.82, 2.44) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787270.720433501] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787270.735716425] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787271.684910268] [planner_server]: GridBased plugin failed to plan from (14.89, 2.34) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787271.685019213] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787271.720081070] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787272.751842646] [planner_server]: GridBased plugin failed to plan from (14.72, 2.31) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787272.751934294] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787272.764253979] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787273.687083868] [planner_server]: GridBased plugin failed to plan from (16.91, -5.30) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787273.687179850] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775787276.654580148] [nav2_costmap_2d]: Robot is out of bounds of the costmap!
+[WARN] [1775787277.127127817] [planner_server]: GridBased plugin failed to plan from (8.45, -0.37) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787277.127347688] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787277.142821299] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787277.760314461] [planner_server]: GridBased plugin failed to plan from (14.41, 2.62) to (11.07, 1.07): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787277.760404295] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775787442.569941187] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.2286 Hz
+[WARN] [1775787443.712586281] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.8044 Hz
+[WARN] [1775787444.831465156] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.7492 Hz
+[WARN] [1775787445.974721032] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.5788 Hz
+[WARN] [1775787447.102173323] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.7614 Hz
+[WARN] [1775787448.205862005] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.4309 Hz
+[WARN] [1775787449.314373602] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.4111 Hz
+[WARN] [1775787450.447863907] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.1904 Hz
+[WARN] [1775787451.566731208] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.1505 Hz
+[WARN] [1775787452.693546495] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.4935 Hz
+[WARN] [1775787453.802848615] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.7964 Hz
+[WARN] [1775787454.922319697] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.6106 Hz
+[WARN] [1775787456.050163656] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.4454 Hz
+[WARN] [1775787457.175664011] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.6706 Hz
+[WARN] [1775787458.290876459] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.1322 Hz
+[WARN] [1775787459.425972365] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.5107 Hz
+[WARN] [1775787460.554085641] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.8331 Hz
+[WARN] [1775787461.587963098] [planner_server]: GridBased plugin failed to plan from (16.07, 3.28) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787461.588131803] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787461.600868093] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787461.669464849] [planner_server]: GridBased plugin failed to plan from (16.07, 3.28) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787461.669678776] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787461.694350093] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787462.670224925] [planner_server]: GridBased plugin failed to plan from (16.37, 3.42) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787462.670483575] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787462.691136463] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787463.753355183] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 0.9432 Hz
+[WARN] [1775787464.876175097] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.9263 Hz
+[WARN] [1775787465.904700766] [planner_server]: GridBased plugin failed to plan from (16.49, 3.42) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787465.904875230] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787465.920755871] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787466.667355809] [planner_server]: GridBased plugin failed to plan from (16.61, 3.50) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787466.667617162] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775787477.952315072] [planner_server]: GridBased plugin failed to plan from (15.77, 3.25) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787477.953794302] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787477.968243731] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787478.672272275] [planner_server]: GridBased plugin failed to plan from (15.77, 3.26) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787478.672488924] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775787480.811876555] [planner_server]: GridBased plugin failed to plan from (15.74, 3.56) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787480.812057149] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787480.828617515] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787481.673310441] [planner_server]: GridBased plugin failed to plan from (15.58, 3.43) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787481.673496979] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787481.688890877] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787482.664054242] [planner_server]: GridBased plugin failed to plan from (15.53, 3.19) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787482.667629446] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787482.678372670] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787483.745467601] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 0.9397 Hz
+[WARN] [1775787484.861229756] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.7785 Hz
+[WARN] [1775787485.994351614] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.5165 Hz
+[WARN] [1775787487.125985631] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.2895 Hz
+[WARN] [1775787488.253571182] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.5035 Hz
+[WARN] [1775787489.366123505] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 12.0140 Hz
+[WARN] [1775787490.506829663] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.5960 Hz
+[WARN] [1775787491.636378224] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.3069 Hz
+[WARN] [1775787493.768528853] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.5185 Hz
+[WARN] [1775787494.869267705] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.4965 Hz
+[WARN] [1775787496.006335103] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.2614 Hz
+[WARN] [1775787497.127681787] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.1279 Hz
+[WARN] [1775787498.250180422] [planner_server]: GridBased plugin failed to plan from (14.93, 3.18) to (14.01, 2.33): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787498.250269201] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787498.269724490] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787498.765367975] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.0292 Hz
+[WARN] [1775787499.897834108] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0584 Hz
+[WARN] [1775787501.017564228] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0856 Hz
+[WARN] [1775787502.127530369] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.1355 Hz
+[WARN] [1775787503.240326434] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.9234 Hz
+[WARN] [1775787504.362073417] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.7885 Hz
+[WARN] [1775787505.479242782] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.1960 Hz
+[WARN] [1775787506.575337035] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.8163 Hz
+[WARN] [1775787507.691613359] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.7343 Hz
+[WARN] [1775787508.794506556] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.6277 Hz
+[WARN] [1775787509.928099991] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.1076 Hz
+[WARN] [1775787511.042343378] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.7097 Hz
+[WARN] [1775787512.162499333] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.7350 Hz
+[WARN] [1775787513.268547232] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.2716 Hz
+[WARN] [1775787514.383157566] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.9451 Hz
+[WARN] [1775787515.494465807] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.6546 Hz
+[WARN] [1775787516.605106342] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 11.5294 Hz
+[WARN] [1775787517.728907854] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.0626 Hz
+[WARN] [1775787518.863068292] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.5509 Hz
+[WARN] [1775787519.999817299] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 9.1373 Hz
+[WARN] [1775787521.116271754] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.2110 Hz
+[WARN] [1775787522.247107952] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 8.4477 Hz
+[WARN] [1775787649.259684274] [planner_server]: GridBased plugin failed to plan from (19.47, 3.63) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787649.259949535] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787649.276157381] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787649.672906754] [planner_server]: GridBased plugin failed to plan from (19.47, 3.62) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787649.673130255] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787649.686522809] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787650.672917591] [planner_server]: GridBased plugin failed to plan from (19.47, 3.62) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787650.673110759] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787650.684748155] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787651.669184408] [planner_server]: GridBased plugin failed to plan from (19.47, 3.63) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787651.669486965] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775787666.731529145] [planner_server]: GridBased plugin failed to plan from (19.47, 3.63) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787666.731665016] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787666.746287465] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787667.670457080] [planner_server]: GridBased plugin failed to plan from (19.47, 3.63) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787667.670664247] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787677.705191689] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787678.669738427] [planner_server]: GridBased plugin failed to plan from (19.47, 3.63) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787678.670030725] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787678.685511401] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787679.671059623] [planner_server]: GridBased plugin failed to plan from (19.47, 3.63) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787679.671268032] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1775787694.729425932] [planner_server]: GridBased plugin failed to plan from (19.46, 3.62) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787694.729683174] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787694.745599426] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787695.670262395] [planner_server]: GridBased plugin failed to plan from (19.46, 3.62) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787695.670466377] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787705.705219209] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787706.669969560] [planner_server]: GridBased plugin failed to plan from (19.49, 3.63) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787706.670206395] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787706.684683435] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1775787707.670007897] [planner_server]: GridBased plugin failed to plan from (19.49, 3.63) to (20.54, 0.83): "Failed to create plan with tolerance of: 0.500000"
+[WARN] [1775787707.670259306] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1775787713.218785029] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1775787713.218854233] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1775787713.218933178] [planner_server]: Deactivating
+[INFO] [1775787713.218990438] [global_costmap.global_costmap]: Deactivating
+[INFO] [1775787713.655278042] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1775787713.655760915] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1775787713.677273493] [planner_server]: Cleaning up
+[INFO] [1775787714.063655644] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1775787714.207525861] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1775787714.207802918] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1775787714.541279692] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

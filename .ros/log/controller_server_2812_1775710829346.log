@@ -1,0 +1,64 @@
+[INFO] [1775710830.411032091] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775710830.486549244] [controller_server]: Creating controller server
+[INFO] [1775710831.226878630] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1775710831.233964766] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1775710831.314585585] [controller_server]: Configuring controller interface
+[INFO] [1775710831.314634659] [controller_server]: getting progress checker plugins..
+[INFO] [1775710831.316667314] [controller_server]: getting goal checker plugins..
+[INFO] [1775710831.318205097] [controller_server]: Controller frequency set to 20.0000Hz
+[INFO] [1775710831.318389968] [local_costmap.local_costmap]: Configuring
+[INFO] [1775710831.357520494] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1775710831.393274138] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1775710831.458835534] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1775710831.458910812] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1775710831.469836831] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1775710831.551018541] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1775710831.554637998] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1775710831.559895572] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1775710831.564992183] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1775710831.578010191] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1775710831.619335650] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1775710831.637334510] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1775710831.637997012] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[INFO] [1775710831.654726052] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.015000 weights. Critic will collision check based on circular cost.
+[INFO] [1775710831.654837515] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1775710831.661143186] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1775710831.661225593] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1775710831.664601587] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, and 0.500000 angular threshold.
+[INFO] [1775710831.664715494] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1775710831.671344221] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 14.000000 weight
+[INFO] [1775710831.671414555] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1775710831.674918511] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1775710831.682887576] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1775710831.682980206] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1775710831.687493111] [controller_server]: PreferForwardCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1775710831.687618963] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1775710831.695641658] [controller_server]: Optimizer reset
+[INFO] [1775710831.715347468] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1775710831.715534857] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1775710834.176693632] [controller_server]: Activating
+[INFO] [1775710834.176747132] [local_costmap.local_costmap]: Activating
+[INFO] [1775710834.176762243] [local_costmap.local_costmap]: Checking transform
+[INFO] [1775710834.176945503] [local_costmap.local_costmap]: start
+[WARN] [1775710834.382132609] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1775710834.386661588] [controller_server]: Optimizer reset
+[INFO] [1775710834.388422316] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1775710834.388501409] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1775711080.693894123] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775711080.384 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775711694.209027165] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1775711693.906 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1775712017.978231715] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1775712017.978438752] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1775712017.978591512] [controller_server]: Deactivating
+[INFO] [1775712017.978664309] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[INFO] [1775712017.978707549] [local_costmap.local_costmap]: Deactivating
+[INFO] [1775712017.985915107] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1775712018.000285371] [controller_server]: Cleaning up
+[INFO] [1775712018.128619258] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[INFO] [1775712018.137017356] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1775712018.825272572] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

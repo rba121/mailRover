@@ -1,0 +1,35 @@
+1782963148.3522327 [INFO] [launch]: All log files can be found below /home/mypi/.ros/log/2026-07-01-20-32-28-348335-pi5-2059
+1782963148.3524804 [INFO] [launch]: Default logging verbosity is set to INFO
+1782963150.2467835 [INFO] [robot_state_publisher-1]: process started with pid [2078]
+1782963150.2478316 [INFO] [joint_state_publisher-2]: process started with pid [2079]
+1782963150.2484610 [INFO] [encoder_odometry-3]: process started with pid [2080]
+1782963150.2487068 [INFO] [component_container_isolated-4]: process started with pid [2081]
+1782963150.2488363 [INFO] [motor_controller_pid-5]: process started with pid [2082]
+1782963153.2523057 [INFO] [rplidar_composition-6]: process started with pid [2183]
+1782963153.2729964 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/amcl' in container '/nav2_container'
+1782963153.4462955 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/controller_server' in container '/nav2_container'
+1782963153.5526187 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/lifecycle_manager_localization' in container '/nav2_container'
+1782963153.7717898 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/map_server' in container '/nav2_container'
+1782963153.8920119 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/smoother_server' in container '/nav2_container'
+1782963154.5838761 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/planner_server' in container '/nav2_container'
+1782963154.6766980 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/route_server' in container '/nav2_container'
+1782963154.7985277 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/behavior_server' in container '/nav2_container'
+1782963154.9339705 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/bt_navigator' in container '/nav2_container'
+1782963155.0269656 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/waypoint_follower' in container '/nav2_container'
+1782963155.1032910 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/velocity_smoother' in container '/nav2_container'
+1782963155.2081821 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/collision_monitor' in container '/nav2_container'
+1782963155.3089566 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/docking_server' in container '/nav2_container'
+1782963155.3691921 [INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/lifecycle_manager_navigation' in container '/nav2_container'
+1782963216.7433131 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+1782963217.4769452 [INFO] [robot_state_publisher-1]: process has finished cleanly [pid 2078]
+1782963217.4773924 [INFO] [joint_state_publisher-2]: process has finished cleanly [pid 2079]
+1782963217.5863857 [ERROR] [encoder_odometry-3]: process has died [pid 2080, exit code 1, cmd '/home/mypi/ros2_ws_simon/install/my_robot_controller/lib/my_robot_controller/encoder_odometry --ros-args -r __node:=encoder_odometry --params-file /tmp/launch_params_ry7mutn4'].
+1782963217.6683779 [ERROR] [motor_controller_pid-5]: process has died [pid 2082, exit code 1, cmd '/home/mypi/ros2_ws_simon/install/my_robot_controller/lib/my_robot_controller/motor_controller_pid --ros-args --params-file /tmp/launch_params_tna0vm3i'].
+1782963218.1771026 [ERROR] [rplidar_composition-6]: process has died [pid 2183, exit code -11, cmd '/opt/ros/jazzy/lib/rplidar_ros/rplidar_composition --ros-args -r __node:=rplidar_composition --params-file /tmp/launch_params_pqtxps22'].
+1782963222.0327792 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT) again, ignoring...
+1782963222.4783247 [ERROR] [component_container_isolated-4]: process[component_container_isolated-4] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+1782963222.4808657 [INFO] [component_container_isolated-4]: sending signal 'SIGTERM' to process[component_container_isolated-4]
+1782963225.4284201 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT) again, ignoring...
+1782963227.4785390 [ERROR] [component_container_isolated-4]: process[component_container_isolated-4] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'
+1782963227.4812441 [INFO] [component_container_isolated-4]: sending signal 'SIGKILL' to process[component_container_isolated-4]
+1782963227.5252519 [ERROR] [component_container_isolated-4]: process has died [pid 2081, exit code -9, cmd '/opt/ros/jazzy/lib/rclcpp_components/component_container_isolated --ros-args --log-level info --ros-args -r __node:=nav2_container --params-file /tmp/launch_params_2k7mw4s1 --params-file /tmp/launch_params__vefzkc6 -r /tf:=tf -r /tf_static:=tf_static'].

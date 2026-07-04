@@ -1,0 +1,99 @@
+[INFO] [1782878532.645160353] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782878532.650982331] [planner_server]: Creating
+[INFO] [1782878533.609675214] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1782878533.613691977] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1782878537.600937398] [planner_server]: Configuring
+[INFO] [1782878537.601020343] [global_costmap.global_costmap]: Configuring
+[INFO] [1782878537.649446767] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1782878537.662080654] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1782878537.672440047] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1782878537.672561381] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1782878537.681159634] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1782878537.720093115] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1782878537.720178523] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1782878537.744184420] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1782878537.985364704] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 169 X 107 at 0.050000 m/pix
+[INFO] [1782878537.988064016] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1782878537.988863595] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1782878537.994896574] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1782878541.624535656] [planner_server]: Activating
+[INFO] [1782878541.624637545] [global_costmap.global_costmap]: Activating
+[INFO] [1782878541.624663027] [global_costmap.global_costmap]: Checking transform
+[INFO] [1782878541.624921806] [global_costmap.global_costmap]: start
+[WARN] [1782878543.627372761] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878543.627705948] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[INFO] [1782878543.667621732] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1782878543.687925014] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[WARN] [1782878545.628201540] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878547.626236415] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878549.625331702] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878549.625466463] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878551.628959516] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878553.625562419] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878555.625338211] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878555.625457971] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878556.963808282] [planner_server]: GridBased plugin failed to plan from (-5.68, 0.11) to (-6.09, -1.14): "Start Coordinates of(-5.675165, 0.111386) was outside bounds"
+[WARN] [1782878556.963926486] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1782878557.629854086] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878559.626261154] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878561.625402831] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878561.625532091] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878563.628628383] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878565.626143866] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878567.625335765] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878567.626756144] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878569.626162804] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878571.625791298] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878573.626010259] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878573.626139390] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878575.626252313] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878577.625893974] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878579.628097558] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878579.628225318] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878581.626228840] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878583.625861890] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878585.625363736] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878585.625494940] [global_costmap.global_costmap]: Sensor origin at (-5.68, 0.11) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878587.626294794] [global_costmap.global_costmap]: Sensor origin at (-5.41, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878589.637631466] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878591.625352115] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878591.625475912] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878593.625429908] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878595.626385744] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878597.625342772] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878597.625462032] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878599.626175181] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878601.625412136] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878603.627027438] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878603.627811924] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878605.625415685] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878607.625632609] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878607.886413839] [planner_server]: GridBased plugin failed to plan from (-5.40, 0.09) to (-6.60, -0.23): "Start Coordinates of(-5.400603, 0.090334) was outside bounds"
+[WARN] [1782878607.887471567] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1782878609.625324215] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878609.625473901] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878611.627249426] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878613.625973804] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878615.625334964] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878615.625426335] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878617.626816821] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878619.625504236] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[WARN] [1782878621.626762425] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1782878621.626905297] [global_costmap.global_costmap]: Sensor origin at (-5.40, 0.09) is out of map bounds (-3.45, -3.25) to (4.97, 2.07). The costmap cannot raytrace for it.
+[INFO] [1782878621.814560405] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1782878621.814703388] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1782878621.814830018] [planner_server]: Deactivating
+[INFO] [1782878621.814893389] [global_costmap.global_costmap]: Deactivating
+[INFO] [1782878623.630635389] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1782878623.630722315] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1782878623.738652228] [planner_server]: Cleaning up
+[INFO] [1782878623.970967925] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1782878624.072538116] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1782878624.072759006] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1782878624.412566817] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

@@ -1,3 +1,5 @@
+import os
+from glob import glob
 from setuptools import find_packages, setup
 
 package_name = 'my_robot_controller'
@@ -14,6 +16,10 @@ setup(
         (
             'share/' + package_name,
             ['package.xml'],
+        ),
+        (
+            os.path.join('share', package_name, 'launch'),
+            glob('launch/*.py'),
         ),
     ],
     install_requires=['setuptools'],
@@ -38,7 +44,9 @@ setup(
             'keyboard_teleop = my_robot_controller.keyboard_teleop:main',
             'uart_bridge = my_robot_controller.uart_bridge:main',
             'obstacle_avoidance = my_robot_controller.obstacle_avoidance:main',
+            'scan_self_filter = my_robot_controller.scan_self_filter:main',
             'encoder_odometry = my_robot_controller.encoder_odometry:main',
+            'motor_controller_pid = my_robot_controller.motor_controller_pid:main'
         ],
     },
 )
