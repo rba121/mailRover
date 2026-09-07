@@ -1,0 +1,192 @@
+[INFO] [1785385219.721162483] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785385219.755314612] [controller_server]: Creating controller server
+[INFO] [1785385219.875586468] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785385219.879801509] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1785385220.642489422] [controller_server]: Configuring controller interface
+[INFO] [1785385220.642562163] [controller_server]: getting progress checker plugins..
+[INFO] [1785385220.642850127] [controller_server]: getting goal checker plugins..
+[INFO] [1785385220.643009795] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1785385220.643085962] [local_costmap.local_costmap]: Configuring
+[INFO] [1785385220.792038473] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1785385220.811604876] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1785385220.865658706] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1785385220.865726984] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1785385220.871674275] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1785385220.957843020] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1785385220.959892105] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1785385220.962039710] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1785385220.965429450] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1785385220.968940395] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1785385220.973644495] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1785385220.978784634] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1785385220.979154950] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1785385220.984098959] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1785385220.984153274] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1785385220.986068729] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1785385220.990804643] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1785385220.990878588] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1785385220.997162400] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1785385220.997242549] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1785385221.001664424] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1785385221.002843097] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1785385221.007635549] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1785385221.013849805] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1785385221.014155825] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1785385221.018704072] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1785385221.018837369] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1785385221.021751311] [controller_server]: Optimizer reset
+[INFO] [1785385221.040723821] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1785385221.040791451] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1785385223.330203844] [controller_server]: Activating
+[INFO] [1785385223.330278400] [local_costmap.local_costmap]: Activating
+[INFO] [1785385223.330299289] [local_costmap.local_costmap]: Checking transform
+[INFO] [1785385223.331640037] [local_costmap.local_costmap]: start
+[WARN] [1785385223.546888926] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1785385223.547135742] [controller_server]: Optimizer reset
+[INFO] [1785385223.548623417] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1785385223.548698769] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1785385630.358518932] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1785385630.358614358] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1785385630.358641562] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1785385631.458921156] [controller_server]: Passing new path to controller.
+[INFO] [1785385632.558905471] [controller_server]: Passing new path to controller.
+[INFO] [1785385633.658921248] [controller_server]: Passing new path to controller.
+[INFO] [1785385634.758909082] [controller_server]: Passing new path to controller.
+[INFO] [1785385635.858904007] [controller_server]: Passing new path to controller.
+[INFO] [1785385637.058916234] [controller_server]: Passing new path to controller.
+[INFO] [1785385638.158872919] [controller_server]: Passing new path to controller.
+[INFO] [1785385639.258914549] [controller_server]: Passing new path to controller.
+[INFO] [1785385640.358885308] [controller_server]: Passing new path to controller.
+[INFO] [1785385641.458901197] [controller_server]: Passing new path to controller.
+[INFO] [1785385642.458906376] [controller_server]: Passing new path to controller.
+[INFO] [1785385644.058856475] [controller_server]: Passing new path to controller.
+[INFO] [1785385650.462061167] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1785385650.462512799] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1785385650.486752967] [controller_server]: Optimizer reset
+[INFO] [1785385653.789389055] [controller_server]: Deactivating
+[INFO] [1785385653.789463407] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[INFO] [1785385653.789496944] [local_costmap.local_costmap]: Deactivating
+[INFO] [1785385653.892967561] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1785385655.888145802] [controller_server]: Cleaning up
+[INFO] [1785385655.896049234] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[INFO] [1785385655.896462847] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1785385657.165474337] [controller_server]: Configuring controller interface
+[INFO] [1785385657.165526282] [controller_server]: getting progress checker plugins..
+[INFO] [1785385657.165558412] [controller_server]: getting goal checker plugins..
+[INFO] [1785385657.165591079] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1785385657.165639486] [local_costmap.local_costmap]: Configuring
+[INFO] [1785385657.187953478] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1785385657.188152386] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1785385657.197601882] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1785385657.197692753] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1785385657.197865957] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1785385657.357199562] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1785385657.357308396] [controller_server]: Controller Server has progress_checker progress_checker  progress checkers available.
+[INFO] [1785385657.357357581] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1785385657.358043288] [controller_server]: Controller Server has general_goal_checker general_goal_checker  goal checkers available.
+[INFO] [1785385657.358235326] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1785385657.358519902] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1785385657.359276425] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1785385657.359339573] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1785385657.359404259] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1785385657.359419555] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1785385657.359436055] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1785385657.359468963] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1785385657.359482426] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1785385657.359517704] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1785385657.359535426] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1785385657.359578926] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1785385657.359594075] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1785385657.359631260] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1785385657.359672686] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1785385657.359687223] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1785385657.359718242] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1785385657.359729872] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1785385657.359932706] [controller_server]: Optimizer reset
+[INFO] [1785385657.417304443] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1785385657.417366499] [controller_server]: Controller Server has FollowPath FollowPath  controllers available.
+[INFO] [1785385659.335995436] [controller_server]: Activating
+[INFO] [1785385659.336878274] [local_costmap.local_costmap]: Activating
+[INFO] [1785385659.336917904] [local_costmap.local_costmap]: Checking transform
+[INFO] [1785385659.337090350] [local_costmap.local_costmap]: start
+[INFO] [1785385659.542425648] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1785385659.542473167] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1785385688.856139901] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785385689.956419643] [controller_server]: Passing new path to controller.
+[INFO] [1785385691.756434289] [controller_server]: Passing new path to controller.
+[INFO] [1785385693.256419420] [controller_server]: Passing new path to controller.
+[ERROR] [1785385694.058094877] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1785385693.931247 but the latest data is at time 1785385693.881135, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1785385694.058335989] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1785385694.059009567] [controller_server]: Optimizer reset
+[WARN] [1785385694.059070863] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1785385711.256950162] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785385712.457380910] [controller_server]: Passing new path to controller.
+[INFO] [1785385714.157386736] [controller_server]: Passing new path to controller.
+[INFO] [1785385715.957375401] [controller_server]: Passing new path to controller.
+[INFO] [1785385717.057372604] [controller_server]: Passing new path to controller.
+[INFO] [1785385719.157373599] [controller_server]: Passing new path to controller.
+[INFO] [1785385721.157355792] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1785385721.157423941] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1785385721.158110870] [controller_server]: Optimizer reset
+[INFO] [1785385722.393949458] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1785385722.089 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785385745.584328000] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785385746.684626483] [controller_server]: Passing new path to controller.
+[ERROR] [1785385748.686577149] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1785385748.564071 but the latest data is at time 1785385748.515609, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1785385748.686746002] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1785385748.687066985] [controller_server]: Optimizer reset
+[WARN] [1785385748.687115523] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1785385787.180392924] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1785385786.876 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1785385850.748042450] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1785385838.514690 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748099209] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1785385838.514690 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748111820] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1785385838.514690 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748122469] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1785385838.514690 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748376951] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1785385838.614682 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748405489] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1785385838.614682 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748415952] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1785385838.614682 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748425378] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1785385838.614682 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748459711] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1785385838.714663 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748475415] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1785385838.714663 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748484767] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1785385838.714663 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748493378] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1785385838.714663 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748518934] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1785385838.914639 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748531767] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1785385838.914639 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748540804] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1785385838.914639 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1785385850.748549545] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1785385838.914639 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[INFO] [1785385852.059424966] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1785385851.754 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785385856.102686179] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1785385855.799 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785385860.054927159] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1785385859.750 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785385864.222936308] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1785385863.919 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785385868.131550458] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1785385867.826 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785385873.334034122] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1785385873.028 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785385874.877964529] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1785385874.878101863] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1785385874.878222752] [controller_server]: Deactivating
+[INFO] [1785385874.878261678] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[INFO] [1785385874.878292808] [local_costmap.local_costmap]: Deactivating
+[INFO] [1785385874.939770771] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1785385874.952974213] [controller_server]: Cleaning up
+[INFO] [1785385874.956731067] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[INFO] [1785385874.957031865] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1785385875.346633921] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

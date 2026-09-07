@@ -1,0 +1,90 @@
+[INFO] [1785903642.362466728] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785903642.366314487] [planner_server]: Creating
+[INFO] [1785903643.369389661] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785903643.403824792] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1785903646.799455790] [planner_server]: Configuring
+[INFO] [1785903646.799517364] [global_costmap.global_costmap]: Configuring
+[INFO] [1785903646.885964286] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1785903646.917955590] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1785903646.941434520] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1785903646.941501502] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1785903646.974515959] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1785903647.068093675] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1785903647.068168546] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1785903647.074649022] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1785903647.421367399] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1785903647.421635141] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1785903647.429272975] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1785903647.433294717] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 1552 X 2299 at 0.050000 m/pix
+[INFO] [1785903650.055160439] [planner_server]: Activating
+[INFO] [1785903650.055230902] [global_costmap.global_costmap]: Activating
+[INFO] [1785903650.055252828] [global_costmap.global_costmap]: Checking transform
+[INFO] [1785903650.055480533] [global_costmap.global_costmap]: start
+[INFO] [1785903653.461189654] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1785903653.473668030] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1785903795.715702129] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1785903795.411 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785903915.038584519] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1785903914.724 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785904138.619013181] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1785904138.311 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1785904214.972850010] [planner_server]: GridBased plugin failed to plan from (30.98, -47.95) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904214.972970381] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904214.998525728] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904216.016163009] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1785904216.016278751] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904216.059165423] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904224.182641440] [planner_server]: GridBased plugin failed to plan from (31.90, -46.41) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904224.182785477] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904224.201869441] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904225.215427684] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1785904225.215540536] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904225.258544839] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904239.590066080] [planner_server]: GridBased plugin failed to plan from (32.72, -46.62) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904239.590192766] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904239.611439258] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904240.303088375] [planner_server]: GridBased plugin failed to plan from (32.73, -46.62) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904240.303211838] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904240.332975465] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1785904243.318123200] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1785904243.011 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1785904255.532958204] [planner_server]: GridBased plugin failed to plan from (32.81, -46.60) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904255.533055556] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904255.556459726] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904256.561651724] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1785904256.561740447] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904256.593881844] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904262.920542610] [planner_server]: GridBased plugin failed to plan from (33.16, -46.45) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904262.920648018] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904262.947046758] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904263.578979657] [planner_server]: GridBased plugin failed to plan from (33.12, -46.47) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904263.580325016] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904264.861704584] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904270.795454099] [planner_server]: GridBased plugin failed to plan from (32.72, -47.00) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904270.795537711] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904270.825349264] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904271.833169312] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1785904271.833251350] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904271.882209607] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904276.182303723] [planner_server]: GridBased plugin failed to plan from (32.71, -47.57) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904276.182422131] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785904276.216906188] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785904276.914475278] [planner_server]: GridBased plugin failed to plan from (32.73, -47.67) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1785904276.914597890] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[ERROR] [1785904887.032309319] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1785904874.593604 but the earliest data is at time 1785904877.014204, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1785904888.397373150] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1785904888.085 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785905051.432743633] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1785905051.129 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785905051.946356314] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1785905051.946443351] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1785905051.946811909] [planner_server]: Deactivating
+[INFO] [1785905051.947956970] [global_costmap.global_costmap]: Deactivating
+[INFO] [1785905053.389128608] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1785905053.389199441] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1785905053.399392011] [planner_server]: Cleaning up
+[INFO] [1785905053.527149595] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1785905053.544426588] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1785905053.544837350] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1785905053.691638251] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

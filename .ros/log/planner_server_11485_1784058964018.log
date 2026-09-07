@@ -1,0 +1,70 @@
+[INFO] [1784058965.131129392] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784058965.138877141] [planner_server]: Creating
+[INFO] [1784058965.279931278] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784058965.282026753] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1784058967.996448825] [planner_server]: Configuring
+[INFO] [1784058967.996550622] [global_costmap.global_costmap]: Configuring
+[INFO] [1784058968.066071120] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1784058968.088798511] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1784058968.101128861] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1784058968.101216658] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1784058968.105459034] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1784058968.152615661] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1784058968.152707236] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1784058968.185148258] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1784058968.528192553] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 514 X 677 at 0.050000 m/pix
+[INFO] [1784058968.531047903] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1784058968.531170570] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1784058968.546630956] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1784058971.261809459] [planner_server]: Activating
+[INFO] [1784058971.261879367] [global_costmap.global_costmap]: Activating
+[INFO] [1784058971.261899941] [global_costmap.global_costmap]: Checking transform
+[INFO] [1784058971.262127165] [global_costmap.global_costmap]: start
+[INFO] [1784058973.320762361] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1784058973.338431168] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[ERROR] [1784059007.565746305] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784058998.113238 but the earliest data is at time 1784059004.689879, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784059009.572026455] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784058998.113238 but the earliest data is at time 1784059004.689879, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784059011.572786481] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784058998.113238 but the earliest data is at time 1784059004.689879, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784059013.568722072] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784058998.113238 but the earliest data is at time 1784059004.689879, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784059015.570957329] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784058998.113238 but the earliest data is at time 1784059005.522941, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784059017.572463767] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784058998.113238 but the earliest data is at time 1784059007.556435, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784059019.566114511] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784058998.113238 but the earliest data is at time 1784059009.556454, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784059021.574191616] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784059021.557980 but the earliest data is at time 1784059022.193127, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784059022.514330927] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784059022.091 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1784059075.219612005] [planner_server]: GridBased plugin failed to plan from (-11.00, -43.13) to (-16.11, -43.99): "Failed to create plan with tolerance of: 0.800000"
+[WARN] [1784059075.219762228] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1784059075.240712887] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1784059115.450178041] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1784059116.451655430] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (-16.11, -43.99): "Costmap timed out waiting for update"
+[WARN] [1784059116.451746857] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1784059116.470632374] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1784059117.290634892] [planner_server]: Planner loop missed its desired rate of 5.0000 Hz. Current loop rate is 1.2233 Hz
+[INFO] [1784059256.645681724] [planner_server]: Goal was canceled. Canceling planning action.
+[INFO] [1784059256.645805502] [planner_server]: [compute_path_to_pose] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1784059256.648060163] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1784059257.288069799] [planner_server]: Planner loop missed its desired rate of 5.0000 Hz. Current loop rate is 1.5660 Hz
+[INFO] [1784059324.251939631] [planner_server]: Deactivating
+[INFO] [1784059324.252018262] [global_costmap.global_costmap]: Deactivating
+[INFO] [1784059325.264296659] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1784059325.264390012] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1784059326.782257457] [planner_server]: Cleaning up
+[INFO] [1784059326.842166152] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1784059326.866673567] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1784059326.867351553] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1784059380.067094191] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784059380.067180543] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1784059380.067299673] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

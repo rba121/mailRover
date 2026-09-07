@@ -13,7 +13,7 @@
     <xacro:property name="rear_caster_offset_x" value="-0.18"/>
     <xacro:property name="rear_caster_offset_y" value="0.22"/>
     <xacro:property name="caster_radius" value="0.035"/>
-    <xacro:property name="laser_height" value="0.10"/>
+    <xacro:property name="laser_height" value="0.105"/>
     <material name="blue"><color rgba="0.1 0.1 0.8 1.0"/></material>
     <xacro:property name="pi" value="3.141592653589793"/>
     <material name="black"><color rgba="0.1 0.1 0.1 1.0"/></material>
@@ -120,7 +120,7 @@
     <joint name="laser_joint" type="fixed">
         <parent link="base_link"/>
         <child link="laser"/>
-        <origin xyz="0 0 ${laser_height}" rpy="0 0 0"/>
+        <origin xyz="0 0 0.030" rpy="0 0 0"/>
     </joint>
 
     <gazebo reference="laser">

@@ -1,0 +1,127 @@
+[INFO] [1786033965.437939164] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786033965.468028978] [controller_server]: Creating controller server
+[INFO] [1786033965.610339488] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786033965.614626734] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1786033966.564134007] [controller_server]: Configuring controller interface
+[INFO] [1786033966.564197600] [controller_server]: getting progress checker plugins..
+[INFO] [1786033966.566135629] [controller_server]: getting goal checker plugins..
+[INFO] [1786033966.567465692] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1786033966.567607786] [local_costmap.local_costmap]: Configuring
+[INFO] [1786033966.593165779] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1786033966.605219216] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1786033966.642544293] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1786033966.642623627] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1786033966.643727540] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786033966.722497513] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1786033966.723179536] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1786033966.724713451] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1786033966.725212176] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1786033966.731784602] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1786033966.735645104] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1786033966.740739522] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1786033966.740825929] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1786033966.743070683] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1786033966.743129498] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1786033966.743157128] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1786033966.743475407] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1786033966.743513667] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1786033966.745346306] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1786033966.745451140] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1786033966.747425836] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1786033966.747501559] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1786033966.748536583] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1786033966.752417957] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1786033966.752500476] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1786033966.754630987] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1786033966.754742155] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1786033966.756288293] [controller_server]: Optimizer reset
+[INFO] [1786033966.773834334] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1786033966.774341096] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1786033968.231302030] [controller_server]: Activating
+[INFO] [1786033968.231653254] [local_costmap.local_costmap]: Activating
+[INFO] [1786033968.231698995] [local_costmap.local_costmap]: Checking transform
+[INFO] [1786033968.232365869] [local_costmap.local_costmap]: start
+[WARN] [1786033968.441429192] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1786033968.441759935] [controller_server]: Optimizer reset
+[INFO] [1786033968.442164660] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1786033968.442221271] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1786033972.029717865] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786033971.723 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034013.988321546] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034013.684 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034062.939380664] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034062.636 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034108.736538031] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034108.428 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034115.990843381] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034115.684 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034157.485656087] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034157.161 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034167.337480719] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034167.030 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034230.288875796] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034229.983 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034296.866756257] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034296.560 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034333.209804565] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034332.905 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034479.010286871] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034478.707 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034527.588292943] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034527.233 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034588.514238571] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034588.196 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034623.257451025] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034622.954 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034753.011445363] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786034753.011550327] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1786034753.011581790] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1786034754.112071454] [controller_server]: Passing new path to controller.
+[INFO] [1786034755.212080134] [controller_server]: Passing new path to controller.
+[INFO] [1786034756.314383864] [controller_server]: Passing new path to controller.
+[INFO] [1786034757.412082198] [controller_server]: Passing new path to controller.
+[INFO] [1786034758.512033081] [controller_server]: Passing new path to controller.
+[INFO] [1786034759.712083518] [controller_server]: Passing new path to controller.
+[INFO] [1786034761.766017755] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034761.812078232] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786034761.812202437] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786034761.813238813] [controller_server]: Optimizer reset
+[INFO] [1786034775.147101510] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034777.564737334] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034777.251 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034784.597903829] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034786.832155342] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034786.517 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034796.342158230] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034803.003811577] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034809.672250739] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034810.317681496] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034810.013 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034825.852208335] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034852.010191464] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034878.178398001] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034887.931863273] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034887.627 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034893.310744355] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786034894.411661318] [controller_server]: Passing new path to controller.
+[INFO] [1786034895.511671776] [controller_server]: Passing new path to controller.
+[INFO] [1786034896.113885627] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034895.810 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034896.611638529] [controller_server]: Passing new path to controller.
+[INFO] [1786034897.711639932] [controller_server]: Passing new path to controller.
+[INFO] [1786034898.811654852] [controller_server]: Passing new path to controller.
+[ERROR] [1786034899.311777676] [controller_server]: Failed to make progress
+[INFO] [1786034899.312158974] [controller_server]: Optimizer reset
+[WARN] [1786034899.312201993] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786034899.330463705] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034899.332072158] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786034899.444674022] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 8.8979 Hz.
+[INFO] [1786034900.891280343] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034900.945443476] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786034900.945537217] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786034900.945941608] [controller_server]: Optimizer reset
+[INFO] [1786034904.843438881] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034904.540 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034919.701805848] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034925.253100791] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034924.949 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034935.965861742] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034944.781535195] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034944.477 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034950.512973801] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034950.209 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034952.116205137] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034956.319722381] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034956.014 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786034968.255884843] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034984.614665169] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786034989.563248221] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786034989.258 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786035000.754661117] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786035006.978099373] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786035006.675 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786035016.355115710] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786035027.774531590] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786035027.469 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786035030.813029498] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786035030.509 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786035032.520768689] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786035048.680606858] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap

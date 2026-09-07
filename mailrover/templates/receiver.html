@@ -1,0 +1,446 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mail-Rover Receiver Portal</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f3f6fb;
+      color: #111827;
+    }
+
+    .page {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .header {
+      background: #111827;
+      color: white;
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      font-size: 14px;
+      letter-spacing: 1px;
+      opacity: 0.75;
+      margin-bottom: 8px;
+    }
+
+    .logoBadge {
+      width: 190px;
+      max-width: 100%;
+      display: block;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      background: white;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    .label {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .value {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .statusBig {
+      font-size: 26px;
+      font-weight: 800;
+      margin-top: 6px;
+    }
+
+    .green { color: #15803d; }
+    .blue { color: #2563eb; }
+    .orange { color: #c2410c; }
+    .red { color: #b91c1c; }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #6b7280;
+    }
+
+    .dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #e5e7eb;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .step.done { color: #15803d; font-weight: 700; }
+    .step.done .dot { background: #dcfce7; color: #15803d; }
+
+    .step.active { color: #2563eb; font-weight: 800; }
+    .step.active .dot { background: #dbeafe; color: #2563eb; }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 14px;
+      font-size: 17px;
+      margin-top: 10px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 15px;
+      border: none;
+      border-radius: 14px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+
+    .message {
+      margin-top: 12px;
+      font-weight: 700;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <img class="logoBadge" src="/static/images/rover-logo.png" alt="Rover Autonomous Systems">
+    <div class="brand">MAIL-ROVER</div>
+    <div class="title">Delivery Tracking</div>
+    <div class="subtitle">
+      Your parcel delivery is being handled by the autonomous Mail-Rover system.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="label">Current Status</div>
+    <div id="friendlyStatus" class="statusBig blue">Loading...</div>
+    <p id="statusText" class="small">Checking delivery status...</p>
+  </div>
+
+  <div class="card">
+    <div class="label">Delivery Details</div>
+    <p class="small">
+      Estimated arrival: <strong id="eta">-</strong><br>
+      Destination: <strong id="destination">-</strong><br>
+      Recipient: <strong id="recipient">-</strong>
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="label">Delivery Progress</div>
+
+    <div class="timeline">
+      <div class="step" id="stepLoaded">
+        <div class="dot">1</div>
+        Parcel loaded
+      </div>
+
+      <div class="step" id="stepLocked">
+        <div class="dot">2</div>
+        Drawer secured
+      </div>
+
+      <div class="step" id="stepMoving">
+        <div class="dot">3</div>
+        Rover en route
+      </div>
+
+      <div class="step" id="stepArrived">
+        <div class="dot">4</div>
+        Rover arrived
+      </div>
+
+      <div class="step" id="stepUnlock">
+        <div class="dot">5</div>
+        PIN verification
+      </div>
+
+      <div class="step" id="stepComplete">
+        <div class="dot">6</div>
+        Parcel retrieved
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="unlockCard">
+    <div class="label">Secure Unlock</div>
+    <div class="value">Enter your delivery PIN</div>
+
+    <input id="pin" type="password" placeholder="Enter PIN">
+    <button id="unlockBtn" onclick="verifyPin()">Unlock Drawer</button>
+
+    <div id="message" class="message"></div>
+
+    <p class="small">
+      Your unlock code is sent in a separate email after the rover arrives.
+    </p>
+  </div>
+
+</div>
+
+<script>
+  function friendlyState(state) {
+    const map = {
+      READY_FOR_LOADING: "Preparing Delivery",
+      TASK_ACTIVE: "Rover En Route",
+      TASK_SENT: "Navigation Started",
+      RECOVERING: "Rover Is Replanning the Route",
+      ABORTING: "Rover Is Stopping Safely",
+      ABORTED_WAITING_OPERATOR: "Delivery Paused — Assistance Required",
+      ARRIVED_AUTH_REQUIRED: "Rover Has Arrived",
+      AWAITING_RELOCK: "Securing Lock",
+      RETURNING_TO_LOADING: "Delivery Complete",
+      RETURNING_TO_LOADING_BAY: "Delivery Complete",
+      RETURN_ABORTING: "Delivery Complete",
+      RETURN_ABORTED: "Delivery Complete",
+      E_STOPPED_AWAITING_OPERATOR: "Delivery Paused for Safety",
+      CONFIRMING_HOME_COMPLETE: "Delivery Complete",
+      SAFE_HOLD: "Safety Hold Active",
+      BLOCKED: "Obstacle Detected",
+      FAULT: "System Fault",
+      IDLE: "Delivery Complete"
+    };
+
+    return map[state] || "Delivery Status Updating";
+  }
+
+  function statusClass(state) {
+    if (state === "FAULT") return "statusBig red";
+    if (state === "BLOCKED" || state === "SAFE_HOLD") return "statusBig orange";
+    if (state === "ARRIVED_AUTH_REQUIRED" || state === "AWAITING_RELOCK") return "statusBig green";
+    return "statusBig blue";
+  }
+
+  function errorText(error) {
+    const map = {
+      PIN_REQUIRED: "Please enter your PIN.",
+      INVALID_PIN: "Incorrect PIN.",
+      LOCKOUT_ACTIVE: "Too many attempts. Please wait before trying again.",
+      COMM_LOST: "Connection lost. Unlock is blocked until service is restored.",
+      INVALID_STATE: "Unlock is not available yet."
+    };
+    return map[error] || error || "Unexpected error";
+  }
+
+  function resetSteps() {
+    const ids = [
+      "stepLoaded",
+      "stepLocked",
+      "stepMoving",
+      "stepArrived",
+      "stepUnlock",
+      "stepComplete"
+    ];
+
+    ids.forEach(id => {
+      document.getElementById(id).className = "step";
+    });
+  }
+
+  function setStep(id, mode) {
+    document.getElementById(id).className = "step " + mode;
+  }
+
+  function updateTimeline(s) {
+    resetSteps();
+
+    const state = s.task_state;
+
+    if (state === "READY_FOR_LOADING") {
+      setStep("stepLoaded", "active");
+      return;
+    }
+
+    setStep("stepLoaded", "done");
+    setStep("stepLocked", "done");
+
+    if ([
+      "RETURNING_TO_LOADING",
+      "RETURNING_TO_LOADING_BAY",
+      "RETURN_ABORTING",
+      "RETURN_ABORTED",
+      "CONFIRMING_HOME_COMPLETE"
+    ].includes(state)) {
+      setStep("stepMoving", "done");
+      setStep("stepArrived", "done");
+      setStep("stepUnlock", "done");
+      setStep("stepComplete", "done");
+      return;
+    }
+
+    if (state === "TASK_ACTIVE" || s.moving) {
+      setStep("stepMoving", "active");
+    }
+
+    if (state === "ARRIVED_AUTH_REQUIRED") {
+      setStep("stepMoving", "done");
+      setStep("stepArrived", "active");
+      setStep("stepUnlock", "active");
+    }
+
+    if (state === "AWAITING_RELOCK") {
+      setStep("stepMoving", "done");
+      setStep("stepArrived", "done");
+      setStep("stepUnlock", "active");
+    }
+
+    if (!s.active_task_id && state === "READY_FOR_LOADING") {
+      setStep("stepComplete", "done");
+    }
+  }
+
+  async function getStatus() {
+    try {
+      const r = await fetch('/status');
+      const s = await r.json();
+      const recipientComplete = [
+        "RETURNING_TO_LOADING",
+        "RETURNING_TO_LOADING_BAY",
+        "RETURN_ABORTING",
+        "RETURN_ABORTED",
+        "CONFIRMING_HOME_COMPLETE",
+        "IDLE"
+      ].includes(s.task_state);
+
+      document.getElementById('friendlyStatus').textContent =
+        recipientComplete ? "Delivery Complete" : friendlyState(s.task_state);
+
+      document.getElementById('friendlyStatus').className =
+        recipientComplete ? "statusBig green" : statusClass(s.task_state);
+
+      document.getElementById('statusText').textContent =
+        recipientComplete
+          ? "Your parcel has been retrieved successfully."
+          : (s.drawer_prompt || "Delivery status updated.");
+
+      document.getElementById('eta').textContent =
+        s.estimated_arrival || "Arriving soon";
+
+      document.getElementById('destination').textContent =
+        s.destination || "-";
+
+      document.getElementById('recipient').textContent =
+        s.recipient_id || "-";
+
+      const unlockBtn = document.getElementById('unlockBtn');
+
+      if (s.task_state === "ARRIVED_AUTH_REQUIRED") {
+        unlockBtn.disabled = false;
+      } else {
+        unlockBtn.disabled = true;
+      }
+
+      updateTimeline(s);
+
+    } catch (e) {
+      document.getElementById('friendlyStatus').textContent =
+        "Connection Lost";
+
+      document.getElementById('friendlyStatus').className =
+        "statusBig red";
+
+      document.getElementById('statusText').textContent =
+        "Unable to reach the Mail-Rover server.";
+    }
+  }
+
+  async function verifyPin() {
+    const pinEl = document.getElementById('pin');
+    const pin = pinEl.value.trim();
+    const msg = document.getElementById('message');
+
+    if (!pin) {
+      msg.textContent = "Please enter your PIN.";
+      msg.className = "message red";
+      return;
+    }
+
+    try {
+      const r = await fetch('/auth/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin })
+      });
+
+      const res = await r.json();
+      pinEl.value = "";
+
+      if (res.ok) {
+        msg.textContent = "PIN accepted. Drawer unlocking.";
+        msg.className = "message green";
+      } else {
+        msg.textContent = errorText(res.error);
+        msg.className = "message red";
+      }
+
+      getStatus();
+
+    } catch (e) {
+      msg.textContent = "Network error. Please try again.";
+      msg.className = "message red";
+    }
+  }
+
+  getStatus();
+  setInterval(getStatus, 1000);
+</script>
+
+</body>
+</html>

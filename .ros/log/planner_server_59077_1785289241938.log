@@ -1,0 +1,61 @@
+[INFO] [1785289243.472882339] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785289243.493861330] [planner_server]: Creating
+[INFO] [1785289244.270014420] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785289244.276317062] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1785289245.525946437] [planner_server]: Configuring
+[INFO] [1785289245.526034622] [global_costmap.global_costmap]: Configuring
+[INFO] [1785289245.596318316] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1785289245.612222430] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1785289245.624144822] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1785289245.624290619] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1785289245.648255143] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1785289245.720990996] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1785289245.721074127] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1785289245.735817217] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1785289245.923577649] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 1552 X 2299 at 0.050000 m/pix
+[INFO] [1785289245.994665680] [planner_server]: Created global planner plugin GridBased of type nav2_smac_planner::SmacPlannerHybrid
+[INFO] [1785289245.994751624] [planner_server]: Configuring GridBased of type SmacPlannerHybrid
+[INFO] [1785289246.031008986] [planner_server]: Even sized heuristic lookup table size set 400.000000, increasing size by 1 to make odd
+[INFO] [1785289265.301155477] [planner_server]: Configured plugin GridBased of type SmacPlannerHybrid with maximum iterations 1000000, max on approach iterations 1000, and allowing unknown traversal. Tolerance 0.50.Using motion model: Reeds-Shepp.
+[INFO] [1785289265.301279996] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1785289266.990539972] [planner_server]: Activating
+[INFO] [1785289266.990619769] [global_costmap.global_costmap]: Activating
+[INFO] [1785289266.990647473] [global_costmap.global_costmap]: Checking transform
+[INFO] [1785289266.990865807] [global_costmap.global_costmap]: start
+[INFO] [1785289270.395415645] [planner_server]: Activating plugin GridBased of type SmacPlannerHybrid
+[INFO] [1785289270.411068888] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1785289318.374067537] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1785289364.243984469] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1785290278.001936385] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1785290324.171920166] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1785290404.261370471] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1785290410.721384110] [planner_server]: GridBased plugin failed to plan from (23.92, -47.69) to (23.41, -48.86): "Start occupied"
+[WARN] [1785290410.721469926] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1785290422.763002435] [planner_server]: GridBased plugin failed to plan from (23.93, -47.64) to (25.96, -48.20): "Start occupied"
+[WARN] [1785290422.763105454] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1785290427.443950848] [planner_server]: GridBased plugin failed to plan from (23.93, -47.64) to (26.38, -48.19): "Start occupied"
+[WARN] [1785290427.444031923] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1785290433.058622168] [planner_server]: GridBased plugin failed to plan from (23.93, -47.64) to (26.17, -48.22): "Start occupied"
+[WARN] [1785290433.058712613] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1785290442.785719643] [planner_server]: GridBased plugin failed to plan from (23.93, -47.64) to (26.32, -48.04): "Start occupied"
+[WARN] [1785290442.785908792] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1785290518.164046194] [planner_server]: GridBased plugin failed to plan from (23.93, -47.64) to (26.53, -47.68): "Start occupied"
+[WARN] [1785290518.164161009] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1785291393.728865805] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1785291393.425 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785291393.892479980] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1785291393.892558443] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1785291393.892652092] [planner_server]: Deactivating
+[INFO] [1785291393.892709685] [global_costmap.global_costmap]: Deactivating
+[INFO] [1785291396.991171822] [planner_server]: Deactivating plugin GridBased of type SmacPlannerHybrid
+[INFO] [1785291396.991257952] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1785291397.001553228] [planner_server]: Cleaning up
+[INFO] [1785291397.019963381] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1785291397.030053952] [planner_server]: Cleaning up plugin GridBased of type SmacPlannerHybrid
+[INFO] [1785291397.030268657] [planner_server]: Destroying plugin GridBased of type SmacPlannerHybrid
+[INFO] [1785291397.057469615] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

@@ -1,0 +1,26 @@
+[INFO] [1783555307.338918216] [collision_monitor]: 
+	collision_monitor lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1783555312.145125217] [collision_monitor]: Configuring
+[INFO] [1783555312.175839483] [collision_monitor]: [scan]: Creating Scan
+[INFO] [1783555312.185886984] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[INFO] [1783555312.186429820] [collision_monitor]: [FootprintApproach]: Polygon points are not defined. Using dynamic subscription instead.
+[INFO] [1783555312.198847057] [collision_monitor]: [FootprintApproach]: Making footprint subscriber on /local_costmap/published_footprint topic
+[INFO] [1783555312.206003431] [collision_monitor]: [ProximityZone]: Creating Polygon
+[INFO] [1783555312.206082746] [collision_monitor]: [ProximityZone]: Creating Circle
+[INFO] [1783555312.215375780] [collision_monitor]: [FrontStopZone]: Creating Polygon
+[INFO] [1783555316.332247464] [collision_monitor]: Activating
+[INFO] [1783555316.332322853] [collision_monitor]: Creating bond (collision_monitor) to lifecycle manager.
+[INFO] [1783555335.199750413] [collision_monitor]: Robot to stop due to ProximityZone polygon
+[INFO] [1783555359.511199574] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1783555359.511307408] [collision_monitor]: Running Nav2 LifecycleNode rcl preshutdown (collision_monitor)
+[INFO] [1783555359.511405612] [collision_monitor]: Deactivating
+[INFO] [1783555359.511434594] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.
+[INFO] [1783555359.584661896] [collision_monitor]: Cleaning up
+[INFO] [1783555359.584723063] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[INFO] [1783555359.584755174] [collision_monitor]: [ProximityZone]: Destroying Circle
+[INFO] [1783555359.584771008] [collision_monitor]: [ProximityZone]: Destroying Polygon
+[INFO] [1783555359.584783193] [collision_monitor]: [FrontStopZone]: Destroying Polygon
+[INFO] [1783555359.584797656] [collision_monitor]: [scan]: Destroying Scan
+[INFO] [1783555359.718966043] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.

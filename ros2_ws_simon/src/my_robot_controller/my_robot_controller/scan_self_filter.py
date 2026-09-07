@@ -2,6 +2,7 @@ import math
 
 import rclpy
 from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
 from sensor_msgs.msg import LaserScan
 
 
@@ -14,10 +15,10 @@ class ScanSelfFilterNode(Node):
         self.declare_parameter('enabled', True)
         self.declare_parameter('laser_x_offset_m', 0.0)
         self.declare_parameter('laser_y_offset_m', 0.0)
-        self.declare_parameter('self_filter_x_min_m', -0.26)
-        self.declare_parameter('self_filter_x_max_m', 0.34)
-        self.declare_parameter('self_filter_y_min_m', -0.34)
-        self.declare_parameter('self_filter_y_max_m', 0.34)
+        self.declare_parameter('self_filter_x_min_m', -0.25)
+        self.declare_parameter('self_filter_x_max_m', 0.25)
+        self.declare_parameter('self_filter_y_min_m', -0.25)
+        self.declare_parameter('self_filter_y_max_m', 0.25)
 
         input_topic = self.get_parameter('input_scan_topic').value
         output_topic = self.get_parameter('output_scan_topic').value
@@ -41,9 +42,13 @@ class ScanSelfFilterNode(Node):
             LaserScan,
             input_topic,
             self.scan_callback,
-            10,
+            qos_profile_sensor_data,
         )
-        self.scan_pub = self.create_publisher(LaserScan, output_topic, 10)
+        self.scan_pub = self.create_publisher(
+            LaserScan,
+            output_topic,
+            qos_profile_sensor_data,
+        )
 
         self.get_logger().info(
             f'Scan self-filter publishing {input_topic} -> {output_topic}; '
@@ -55,11 +60,13 @@ class ScanSelfFilterNode(Node):
 
     def scan_callback(self, msg):
         if not self.enabled:
+#            msg.header.stamp = self.get_clock().now().to_msg()
             self.scan_pub.publish(msg)
             return
 
         filtered = LaserScan()
         filtered.header = msg.header
+#        filtered.header.stamp = self.get_clock().now().to_msg()
         filtered.angle_min = msg.angle_min
         filtered.angle_max = msg.angle_max
         filtered.angle_increment = msg.angle_increment

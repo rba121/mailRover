@@ -1,0 +1,772 @@
+[INFO] [1784075115.342809953] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784075115.357655864] [planner_server]: Creating
+[INFO] [1784075115.873503114] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784075115.987927078] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1784075118.584419584] [planner_server]: Configuring
+[INFO] [1784075118.584702660] [global_costmap.global_costmap]: Configuring
+[INFO] [1784075118.675328297] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1784075118.700261796] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1784075118.721229998] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1784075118.721620870] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1784075118.737017746] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1784075118.758850323] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1784075118.758935916] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1784075118.770790440] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[ERROR] [1784075118.924142495] [global_costmap.global_costmap]: The configured inflation radius (0.200) is smaller than the computed inscribed radius (0.235) of your footprint, it is highly recommended to set inflation radius to be at least as big as the inscribed radius to avoid collisions
+[INFO] [1784075118.962844825] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1784075118.963140086] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1784075118.965714488] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 338 X 598 at 0.050000 m/pix
+[INFO] [1784075118.974031531] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1784075121.449513966] [planner_server]: Activating
+[INFO] [1784075121.449619707] [global_costmap.global_costmap]: Activating
+[INFO] [1784075121.449650170] [global_costmap.global_costmap]: Checking transform
+[INFO] [1784075121.449926801] [global_costmap.global_costmap]: start
+[INFO] [1784075123.459834858] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1784075123.466837727] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1784075177.822815058] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1784075185.008044406] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1784075297.532128475] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075297.216 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1784075406.258404320] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075405.945 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1784075423.423563403] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075423.109 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1784075431.385249137] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075431.073 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1784075434.548475166] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075434.237 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1784075449.609183580] [planner_server]: Deactivating
+[INFO] [1784075449.609253617] [global_costmap.global_costmap]: Deactivating
+[INFO] [1784075451.450474017] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1784075451.450548925] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1784075455.185561517] [planner_server]: Cleaning up
+[INFO] [1784075455.306936843] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1784075455.371697626] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1784075455.372084017] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1784075457.514059112] [planner_server]: Configuring
+[INFO] [1784075457.514116724] [global_costmap.global_costmap]: Configuring
+[INFO] [1784075457.544583888] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1784075457.544920112] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1784075457.549325414] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1784075457.549385729] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1784075457.549480266] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1784075457.559237171] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1784075457.559330208] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1784075457.559534117] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[ERROR] [1784075457.800426933] [global_costmap.global_costmap]: The configured inflation radius (0.200) is smaller than the computed inscribed radius (0.235) of your footprint, it is highly recommended to set inflation radius to be at least as big as the inscribed radius to avoid collisions
+[INFO] [1784075457.873933274] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1784075457.874015422] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1784075457.874076108] [planner_server]: Planner Server has GridBased GridBased  planners available.
+[INFO] [1784075457.875348726] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 338 X 598 at 0.050000 m/pix
+[INFO] [1784075461.373539650] [planner_server]: Activating
+[INFO] [1784075461.373600354] [global_costmap.global_costmap]: Activating
+[INFO] [1784075461.373628761] [global_costmap.global_costmap]: Checking transform
+[INFO] [1784075461.373840207] [global_costmap.global_costmap]: start
+[INFO] [1784075463.379855294] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1784075463.389583161] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[ERROR] [1784075747.677699811] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075735.256826 but the earliest data is at time 1784075737.356897, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784075749.640760092] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075749.329 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1784075761.677750230] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784075763.678388473] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784075765.677192225] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784075766.972413000] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075749.332 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1784075767.677571800] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[WARN] [1784075767.691149040] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075729.894503 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075767.691199503] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075729.894503 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075767.691210392] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075729.894503 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075767.691220818] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075729.894503 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075767.691270929] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075729.994528 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075767.691285503] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075729.994528 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075767.691296337] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075729.994528 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075767.691317522] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075729.994528 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[ERROR] [1784075769.677483613] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784075771.677410482] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784075773.677343647] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[WARN] [1784075775.036573657] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075730.094472 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.036636342] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075730.094472 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.036659935] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075730.094472 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.036680787] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075730.094472 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069238499] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075730.194479 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069303277] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075730.194479 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069338500] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075730.194479 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069350130] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075730.194479 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069424426] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075730.494497 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069441056] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075730.494497 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069453075] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075730.494497 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069463686] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075730.494497 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069494816] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075730.594841 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069509760] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075730.594841 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069521593] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075730.594841 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069531631] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075730.594841 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069562149] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075730.694484 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069636835] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075730.694484 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069651464] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075730.694484 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069663465] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075730.694484 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069700668] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075730.894485 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069714817] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075730.894485 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069726761] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075730.894485 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.069738058] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075730.894485 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.349499732] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075730.994653 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.349611455] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075730.994653 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.349625658] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075730.994653 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.349637621] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075730.994653 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.349691696] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075731.094495 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.349711325] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075731.094495 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.349723826] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075731.094495 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.349734177] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075731.094495 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350013012] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075731.194478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350240569] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075731.194478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350336181] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075731.194478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350352199] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075731.194478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350407570] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075731.294523 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350424644] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075731.294523 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350436644] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075731.294523 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350447033] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075731.294523 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350482107] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075731.394506 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350496885] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075731.394506 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350507385] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075731.394506 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.350517163] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075731.394506 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351404446] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075731.494529 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351430612] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075731.494529 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351443409] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075731.494529 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351453705] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075731.494529 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351501057] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075731.594486 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351517391] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075731.594486 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351560243] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075731.594486 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351571798] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075731.594486 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351608021] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075731.894451 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351622910] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075731.894451 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351634688] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075731.894451 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351872244] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075731.894451 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351927689] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075731.994761 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351943930] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075731.994761 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351955708] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075731.994761 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.351965782] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075731.994761 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352138950] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075732.094482 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352160987] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075732.094482 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352234783] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075732.094482 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352247358] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075732.094482 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352295339] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075732.394483 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352323506] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075732.394483 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352336117] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075732.394483 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352381673] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075732.394483 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352429785] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075732.494467 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352446970] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075732.494467 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352458211] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075732.494467 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.352468803] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075732.494467 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.354185127] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075732.594478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.354224665] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075732.594478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.354239424] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075732.594478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.354253202] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075732.594478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.354622074] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075732.694478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.354655167] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075732.694478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.354668778] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075732.694478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.354679686] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075732.694478 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.414743694] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075732.894464 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.414792121] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075732.894464 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.414804843] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075732.894464 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.414815398] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075732.894464 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.414929362] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075732.994482 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.414944307] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075732.994482 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.414954862] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075732.994482 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.414965159] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075732.994482 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.414996066] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075733.194485 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.415008733] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075733.194485 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.415019974] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075733.194485 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.415030177] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075733.194485 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.478083739] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075733.394463 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.478127591] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075733.394463 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.478139462] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075733.394463 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.478150221] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075733.394463 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.480330029] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075733.494567 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.480358678] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075733.494567 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.480370900] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075733.494567 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.480381418] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075733.494567 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.536362535] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075733.594510 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.536405461] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075733.594510 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.536419017] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075733.594510 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.536431017] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075733.594510 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.544901433] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075733.694492 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.544936007] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075733.694492 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.544948489] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075733.694492 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.544959192] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075733.694492 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.565903768] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075733.894694 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.565938787] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075733.894694 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.565950028] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075733.894694 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.565959731] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075733.894694 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.566005398] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075733.994740 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.566017176] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075733.994740 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.566027195] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075733.994740 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.566036454] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075733.994740 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.585224298] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075734.094515 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.585326965] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075734.094515 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.585339595] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075734.094515 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.585349706] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075734.094515 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.585474874] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075734.194542 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.585494689] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075734.194542 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.585505503] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075734.194542 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.585514485] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075734.194542 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.652894867] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075734.294498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.652940459] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075734.294498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.652954330] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075734.294498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.652965645] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075734.294498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653028719] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075734.394496 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653043553] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075734.394496 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653055608] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075734.394496 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653065849] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075734.394496 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653094349] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075734.494536 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653107016] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075734.494536 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653165535] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075734.494536 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653177683] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075734.494536 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653213720] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075734.894511 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653227776] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075734.894511 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653239072] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075734.894511 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653249739] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075734.894511 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653283332] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075734.994545 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653297332] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075734.994545 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653323813] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075734.994545 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.653334461] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075734.994545 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.777807743] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075735.094495 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.777846466] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075735.094495 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.777859040] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075735.094495 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.777869818] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075735.094495 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.777917022] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075735.194492 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.777931707] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075735.194492 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.777991985] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075735.194492 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.778003448] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075735.194492 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.962962556] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075735.294532 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.963003056] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075735.294532 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.963015852] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075735.294532 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.963026352] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075735.294532 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.988036487] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075735.494550 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.988084543] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075735.494550 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.988095488] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075735.494550 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.988106117] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075735.494550 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.988502490] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075735.594512 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.988529064] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075735.594512 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.988543008] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075735.594512 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075775.988554027] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075735.594512 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.057045155] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075735.694506 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.057088119] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075735.694506 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.057100341] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075735.694506 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.057164489] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075735.694506 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.062127516] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075735.894520 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.062163998] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075735.894520 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.062177553] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075735.894520 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.062188739] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075735.894520 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.137599960] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075736.194498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.137638627] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075736.194498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.137651275] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075736.194498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.137662127] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075736.194498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.197096966] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075736.495743 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.197136892] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075736.495743 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.197149651] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075736.495743 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.197160818] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075736.495743 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.231291650] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075736.694456 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.231338243] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075736.694456 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.231349928] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075736.694456 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.231359928] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075736.694456 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.250232567] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075736.794471 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.250267456] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075736.794471 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.250279085] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075736.794471 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.250288660] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075736.794471 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.325080618] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075736.894474 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.325122878] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075736.894474 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.325135433] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075736.894474 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.325145693] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075736.894474 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.335265210] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075736.994511 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.335301173] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075736.994511 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.335326840] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075736.994511 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.335337451] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075736.994511 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.335386488] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075737.094474 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.335399433] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075737.094474 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.335410285] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075737.094474 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.335419655] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075737.094474 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.391172604] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075737.294467 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.391234308] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075737.294467 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.391247901] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075737.294467 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.391258790] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075737.294467 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.428995493] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075737.394472 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.429034271] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075737.394472 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.429045660] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075737.394472 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.429055975] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075737.394472 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.469562693] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075737.494556 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.469617601] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075737.494556 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.469638934] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075737.494556 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.469650434] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075737.494556 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.544051335] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075737.594479 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.544113743] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075737.594479 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.544125521] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075737.594479 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.544137724] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075737.594479 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.544576931] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075737.694484 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.544656338] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075737.694484 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.544671246] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075737.694484 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.544683468] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075737.694484 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.762735847] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075737.794475 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.762777236] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075737.794475 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.762790532] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075737.794475 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.762801958] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075737.794475 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.852252514] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075738.294498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.852292570] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075738.294498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.852320348] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075738.294498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.852333293] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075738.294498 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.925338778] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075738.394502 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.925507316] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075738.394502 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.925520502] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075738.394502 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.925531668] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075738.394502 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.925590928] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075738.494568 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.925605687] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075738.494568 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.925676262] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075738.494568 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.925689799] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075738.494568 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926379303] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075738.594509 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926690915] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075738.594509 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926713045] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075738.594509 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926724842] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075738.594509 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926809546] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075738.694496 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926828398] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075738.694496 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926839750] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075738.694496 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926850157] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075738.694496 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926895324] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075738.794636 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926911417] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075738.794636 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926921009] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075738.794636 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.926932120] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075738.794636 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.927081695] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075738.894513 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.927105566] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075738.894513 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.927196289] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075738.894513 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075776.927210455] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075738.894513 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[INFO] [1784075777.488705147] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075766.666 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1784075785.044591732] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075738.994510 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.044632473] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075738.994510 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.044646195] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075738.994510 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.044657195] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075738.994510 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.045057734] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075739.094532 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.045084698] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075739.094532 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.045096716] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075739.094532 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.045107438] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075739.094532 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.045150605] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075739.194503 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.045166254] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075739.194503 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.045176976] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075739.194503 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075785.045187198] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075739.194503 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[ERROR] [1784075785.130492065] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784075787.434134960] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784075789.631098057] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075777.179 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1784075789.737741094] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784075792.041658416] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[WARN] [1784075797.676584205] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075739.294500 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676630780] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075739.294500 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676644428] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075739.294500 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676654928] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075739.294500 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676712150] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075739.394504 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676726836] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075739.394504 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676738558] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075739.394504 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676748651] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075739.394504 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676780892] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075739.494528 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676794503] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075739.494528 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676805632] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075739.494528 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676815188] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075739.494528 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676845762] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075739.594516 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676859522] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075739.594516 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676871151] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075739.594516 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676880633] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075739.594516 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676911522] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075739.694466 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.676984911] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075739.694466 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677002874] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075739.694466 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677014782] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075739.694466 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677070171] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075739.794505 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677086949] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075739.794505 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677097690] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075739.794505 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677107986] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075739.794505 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677150468] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075739.994523 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677166171] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075739.994523 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677177671] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075739.994523 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677189097] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075739.994523 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677233172] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075740.094517 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677248690] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075740.094517 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677260153] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075740.094517 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677270135] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075740.094517 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677324839] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075740.494534 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677346709] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075740.494534 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677396710] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075740.494534 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677410636] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075740.494534 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677465951] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075740.594512 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677482951] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075740.594512 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677495840] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075740.594512 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075797.677508525] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075740.594512 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[ERROR] [1784075797.977221436] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784075797.980867512] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075789.329 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1784075800.282960453] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784075802.588063096] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075761.298489, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784075811.510661063] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075808.593375, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784075811.554924469] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075810.676 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1784075813.814721534] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075808.593375, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784075814.056699671] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075813.748 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1784075816.121175240] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075808.593375, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784075816.847158467] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075816.030 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1784075818.426584403] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075808.593375, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784075819.411812267] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075819.008 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1784075820.730843227] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784075741.229043 but the earliest data is at time 1784075810.690173, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784075822.209226341] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784075821.805 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1784075822.731940417] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1784075822.733368295] [global_costmap.global_costmap]: Sensor origin at (0.01, 0.04) is out of map bounds (-7.25, 12.64) to (9.63, 42.51). The costmap cannot raytrace for it.
+[WARN] [1784075824.737777744] [global_costmap.global_costmap]: Sensor origin at (0.01, 0.04) is out of map bounds (-7.25, 12.64) to (9.63, 42.51). The costmap cannot raytrace for it.
+[WARN] [1784075826.751367779] [global_costmap.global_costmap]: Sensor origin at (0.01, 0.04) is out of map bounds (-7.25, 12.64) to (9.63, 42.51). The costmap cannot raytrace for it.
+[WARN] [1784075828.752287949] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1784075828.752387876] [global_costmap.global_costmap]: Sensor origin at (0.01, 0.04) is out of map bounds (-7.25, 12.64) to (9.63, 42.51). The costmap cannot raytrace for it.
+[WARN] [1784075830.753281046] [global_costmap.global_costmap]: Sensor origin at (0.01, 0.04) is out of map bounds (-7.25, 12.64) to (9.63, 42.51). The costmap cannot raytrace for it.
+[WARN] [1784075832.754226347] [global_costmap.global_costmap]: Sensor origin at (0.01, 0.04) is out of map bounds (-7.25, 12.64) to (9.63, 42.51). The costmap cannot raytrace for it.
+[WARN] [1784075834.139302069] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1784075740.694491 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075834.139352273] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1784075740.694491 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075834.139363940] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1784075740.694491 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075834.139375625] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1784075740.694491 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1784075834.755105647] [nav2_costmap_2d]: Robot is out of bounds of the costmap
+[WARN] [1784075834.755190240] [global_costmap.global_costmap]: Sensor origin at (0.01, 0.04) is out of map bounds (-7.25, 12.64) to (9.63, 42.51). The costmap cannot raytrace for it.
+[WARN] [1784075836.756054799] [global_costmap.global_costmap]: Sensor origin at (0.01, 0.04) is out of map bounds (-7.25, 12.64) to (9.63, 42.51). The costmap cannot raytrace for it.
+[WARN] [1784075838.756977303] [global_costmap.global_costmap]: Sensor origin at (0.01, 0.04) is out of map bounds (-7.25, 12.64) to (9.63, 42.51). The costmap cannot raytrace for it.
+[INFO] [1784075839.602641545] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784075839.602746064] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1784075839.602877250] [planner_server]: Deactivating
+[INFO] [1784075839.602926546] [global_costmap.global_costmap]: Deactivating
+[INFO] [1784075840.759489556] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1784075840.759866817] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1784075840.870438876] [planner_server]: Cleaning up
+[INFO] [1784075840.960845049] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1784075841.000106334] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1784075841.000180649] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1784075841.149433398] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

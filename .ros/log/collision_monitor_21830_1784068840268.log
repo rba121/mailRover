@@ -1,0 +1,22 @@
+[INFO] [1784068842.498470416] [collision_monitor]: 
+	collision_monitor lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784068846.244789216] [collision_monitor]: Configuring
+[INFO] [1784068846.295515373] [collision_monitor]: [scan]: Creating Scan
+[INFO] [1784068846.320715774] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[INFO] [1784068846.321167999] [collision_monitor]: [FootprintApproach]: Polygon points are not defined. Using dynamic subscription instead.
+[INFO] [1784068846.330594756] [collision_monitor]: [FootprintApproach]: Making footprint subscriber on /local_costmap/published_footprint topic
+[INFO] [1784068846.347225979] [collision_monitor]: [FrontStopZone]: Creating Polygon
+[INFO] [1784068850.195653799] [collision_monitor]: Activating
+[INFO] [1784068850.195850856] [collision_monitor]: Creating bond (collision_monitor) to lifecycle manager.
+[INFO] [1784068871.650432610] [collision_monitor]: Robot to stop due to FrontStopZone polygon
+[INFO] [1784069105.112813218] [collision_monitor]: Deactivating
+[INFO] [1784069105.112887922] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.
+[INFO] [1784069106.927830281] [collision_monitor]: Cleaning up
+[INFO] [1784069106.946902259] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[INFO] [1784069106.951739490] [collision_monitor]: [FrontStopZone]: Destroying Polygon
+[INFO] [1784069106.955528863] [collision_monitor]: [scan]: Destroying Scan
+[INFO] [1784069139.893837305] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784069139.894089473] [collision_monitor]: Running Nav2 LifecycleNode rcl preshutdown (collision_monitor)
+[INFO] [1784069139.894512197] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.

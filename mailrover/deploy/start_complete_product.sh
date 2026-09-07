@@ -1,0 +1,470 @@
+#!/usr/bin/env bash
+
+set -Ee -o pipefail
+
+MAILROVER_DIR=/home/mypi/mailrover
+DEPLOY_DIR="$MAILROVER_DIR/deploy"
+PRODUCT_CONFIG="$DEPLOY_DIR/product.env"
+ROS_WAIT="$DEPLOY_DIR/ros_wait.py"
+POSE_PUBLISHER="$DEPLOY_DIR/publish_initial_pose.py"
+LOG_DIR=/var/log/mailrover
+RUNTIME_DIR=/run/mailrover
+INITIAL_POSE_MARKER="$RUNTIME_DIR/initial_pose_published"
+
+source "$PRODUCT_CONFIG"
+
+declare -a PROCESS_PIDS=()
+declare -a PROCESS_NAMES=()
+
+CLEANUP_COMPLETE=0
+
+
+log() {
+    printf '%s %s\n' \
+        "$(date '+%Y-%m-%d %H:%M:%S')" \
+        "$*" >&2
+}
+
+
+cleanup() {
+    local pid
+
+    if [[ "$CLEANUP_COMPLETE" -eq 1 ]]; then
+        return
+    fi
+
+    CLEANUP_COMPLETE=1
+    log "Stopping complete MailRover stack..."
+
+    for pid in "${PROCESS_PIDS[@]}"; do
+        kill -TERM -- "-$pid" 2>/dev/null || true
+    done
+
+    sleep 5
+
+    for pid in "${PROCESS_PIDS[@]}"; do
+        kill -KILL -- "-$pid" 2>/dev/null || true
+    done
+
+    wait 2>/dev/null || true
+    log "MailRover stack stopped."
+}
+
+
+trap cleanup EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+
+
+validate_configuration() {
+    local path
+
+    local required_paths=(
+        "$START_ROVER"
+        "$START_MOTOR"
+        "$MAP_FILE"
+        "$NAV_PARAMS"
+        "$ROS_WAIT"
+        "$POSE_PUBLISHER"
+        "$MAILROVER_DIR/.env"
+        "$MAILROVER_DIR/app.py"
+        "$MAILROVER_DIR/.venv/bin/python"
+        "$MAILROVER_DIR/scripts/ros2_nav_bridge.py"
+        "/opt/ros/jazzy/setup.bash"
+        "/home/mypi/ros2_ws_simon/install/setup.bash"
+    )
+
+    for path in "${required_paths[@]}"; do
+        if [[ ! -e "$path" ]]; then
+            log "ERROR: Required path is missing: $path"
+            return 1
+        fi
+    done
+
+    if [[ ! -x "$START_ROVER" ]]; then
+        log "ERROR: Rover script is not executable: $START_ROVER"
+        return 1
+    fi
+
+    if [[ ! -x "$START_MOTOR" ]]; then
+        log "ERROR: Motor script is not executable: $START_MOTOR"
+        return 1
+    fi
+
+    mkdir -p "$LOG_DIR" "$RUNTIME_DIR"
+}
+
+
+check_processes() {
+    local index
+    local pid
+    local name
+    local state
+    local exit_status
+
+    for index in "${!PROCESS_PIDS[@]}"; do
+        pid="${PROCESS_PIDS[$index]}"
+        name="${PROCESS_NAMES[$index]}"
+
+        state="$(
+            ps -o stat= -p "$pid" 2>/dev/null |
+            xargs 2>/dev/null ||
+            true
+        )"
+
+        if [[ -z "$state" || "$state" == Z* ]]; then
+            exit_status=0
+            wait "$pid" || exit_status=$?
+
+            log "ERROR: $name exited with status $exit_status."
+
+            if [[ -f "$LOG_DIR/$name.log" ]]; then
+                log "Last 50 lines from $name:"
+                tail -n 50 "$LOG_DIR/$name.log" >&2 || true
+            fi
+
+            return 1
+        fi
+    done
+}
+
+
+start_as_mypi() {
+    local name="$1"
+    shift
+
+    local log_file="$LOG_DIR/$name.log"
+
+    : >"$log_file"
+    log "Starting $name..."
+
+    /usr/bin/setsid \
+    /usr/sbin/runuser -u mypi -- \
+    /bin/bash -c '
+        export HOME=/home/mypi
+        export USER=mypi
+        export LOGNAME=mypi
+        export PYTHONUNBUFFERED=1
+
+        set +u
+        source /opt/ros/jazzy/setup.bash
+
+        if [[ -f /home/mypi/ros2_ws/install/setup.bash ]]; then
+            source /home/mypi/ros2_ws/install/setup.bash
+        fi
+
+        source /home/mypi/ros2_ws_simon/install/setup.bash
+
+        set -a
+        source /home/mypi/mailrover/.env
+        set +a
+
+        cd /home/mypi/mailrover
+        exec "$@"
+    ' bash "$@" >>"$log_file" 2>&1 &
+
+    PROCESS_PIDS+=("$!")
+    PROCESS_NAMES+=("$name")
+
+    sleep 1
+    check_processes
+}
+
+
+run_as_mypi() {
+    /usr/sbin/runuser -u mypi -- \
+    /bin/bash -c '
+        export HOME=/home/mypi
+        export USER=mypi
+        export LOGNAME=mypi
+
+        set +u
+        source /opt/ros/jazzy/setup.bash
+
+        if [[ -f /home/mypi/ros2_ws/install/setup.bash ]]; then
+            source /home/mypi/ros2_ws/install/setup.bash
+        fi
+
+        source /home/mypi/ros2_ws_simon/install/setup.bash
+
+        set -a
+        source /home/mypi/mailrover/.env
+        set +a
+
+        exec "$@"
+    ' bash "$@"
+}
+
+
+start_flask_app() {
+    local name=flask_app
+    local log_file="$LOG_DIR/$name.log"
+
+    : >"$log_file"
+    log "Starting Flask application..."
+
+    /usr/bin/setsid /bin/bash -c '
+        set -Ee -o pipefail
+
+        cd /home/mypi/mailrover
+
+        set -a
+        source /home/mypi/mailrover/.env
+        set +a
+
+        export PYTHONUNBUFFERED=1
+
+        exec /home/mypi/mailrover/.venv/bin/python \
+            /home/mypi/mailrover/app.py
+    ' >>"$log_file" 2>&1 &
+
+    PROCESS_PIDS+=("$!")
+    PROCESS_NAMES+=("$name")
+
+    sleep 1
+    check_processes
+}
+
+
+wait_for_topic() {
+    local topic="$1"
+    local message_type="$2"
+    local timeout="$3"
+    local qos="$4"
+
+    log "Waiting for $topic..."
+
+    check_processes
+
+    run_as_mypi \
+        "$ROS_WAIT" topic \
+        --topic "$topic" \
+        --type "$message_type" \
+        --timeout "$timeout" \
+        --qos "$qos"
+
+    check_processes
+    log "Ready: $topic"
+}
+
+
+wait_for_action() {
+    local action_name="$1"
+    local timeout="$2"
+
+    log "Waiting for $action_name action server..."
+
+    check_processes
+
+    run_as_mypi \
+        "$ROS_WAIT" action \
+        --name "$action_name" \
+        --timeout "$timeout"
+
+    check_processes
+    log "Ready: $action_name"
+}
+
+
+port_is_open() {
+    local host="$1"
+    local port="$2"
+
+    /usr/bin/timeout 2 \
+        /bin/bash -c \
+        "echo >/dev/tcp/$host/$port" \
+        >/dev/null 2>&1
+}
+
+
+wait_for_port() {
+    local host="$1"
+    local port="$2"
+    local timeout="$3"
+    local label="$4"
+
+    local deadline=$((SECONDS + timeout))
+
+    log "Waiting for $label on $host:$port..."
+
+    while ((SECONDS < deadline)); do
+        check_processes
+
+        if port_is_open "$host" "$port"; then
+            log "Ready: $label"
+            return 0
+        fi
+
+        sleep 1
+    done
+
+    log "ERROR: Timed out waiting for $label."
+    return 1
+}
+
+
+watchdog_check() {
+    log "Running watchdog health check..."
+
+    check_processes
+
+    run_as_mypi \
+        "$ROS_WAIT" topic \
+        --topic /scan \
+        --type sensor_msgs/msg/LaserScan \
+        --timeout "$WATCHDOG_TIMEOUT" \
+        --qos sensor \
+        >/dev/null 2>&1 ||
+    {
+        log "ERROR: Watchdog lost /scan."
+        return 1
+    }
+
+    run_as_mypi \
+        "$ROS_WAIT" topic \
+        --topic /odom \
+        --type nav_msgs/msg/Odometry \
+        --timeout "$WATCHDOG_TIMEOUT" \
+        --qos sensor \
+        >/dev/null 2>&1 ||
+    {
+        log "ERROR: Watchdog lost /odom."
+        return 1
+    }
+
+    run_as_mypi \
+        "$ROS_WAIT" topic \
+        --topic /scan_filtered \
+        --type sensor_msgs/msg/LaserScan \
+        --timeout "$WATCHDOG_TIMEOUT" \
+        --qos sensor \
+        >/dev/null 2>&1 ||
+    {
+        log "ERROR: Watchdog lost /scan_filtered."
+        return 1
+    }
+
+    run_as_mypi \
+        "$ROS_WAIT" action \
+        --name /navigate_to_pose \
+        --timeout "$WATCHDOG_TIMEOUT" \
+        >/dev/null 2>&1 ||
+    {
+        log "ERROR: Watchdog lost /navigate_to_pose."
+        return 1
+    }
+
+    if ! port_is_open 127.0.0.1 8765; then
+        log "ERROR: Navigation bridge port 8765 is unavailable."
+        return 1
+    fi
+
+    if ! port_is_open 127.0.0.1 8000; then
+        log "ERROR: Flask port 8000 is unavailable."
+        return 1
+    fi
+
+    log "Watchdog health check passed."
+}
+
+
+main() {
+    validate_configuration
+
+    log "Beginning complete MailRover startup sequence."
+
+    start_as_mypi rover_base "$START_ROVER"
+
+    wait_for_topic \
+        /scan \
+        sensor_msgs/msg/LaserScan \
+        "$SCAN_TIMEOUT" \
+        sensor
+
+    start_as_mypi motor_stack "$START_MOTOR"
+
+    wait_for_topic \
+        /odom \
+        nav_msgs/msg/Odometry \
+        "$ODOM_TIMEOUT" \
+        sensor
+
+    wait_for_topic \
+        /scan_filtered \
+        sensor_msgs/msg/LaserScan \
+        "$FILTERED_SCAN_TIMEOUT" \
+        sensor
+
+    start_as_mypi localization \
+        ros2 launch nav2_bringup localization_launch.py \
+        "map:=$MAP_FILE" \
+        "use_sim_time:=false" \
+        "params_file:=$NAV_PARAMS"
+
+    wait_for_topic \
+        /map \
+        nav_msgs/msg/OccupancyGrid \
+        "$MAP_TIMEOUT" \
+        map
+
+    if [[ "$AUTO_INITIAL_POSE" == "true" && ! -e "$INITIAL_POSE_MARKER" ]]; then
+        log "Publishing automatic dock pose..."
+
+        run_as_mypi \
+            "$POSE_PUBLISHER" \
+            --x "$DOCK_X" \
+            --y "$DOCK_Y" \
+            --yaw "$DOCK_YAW"
+
+        touch "$INITIAL_POSE_MARKER"
+        log "Automatic dock pose recorded for this boot."
+
+    elif [[ "$AUTO_INITIAL_POSE" == "true" ]]; then
+        log "Skipping automatic dock pose: it was already published this boot."
+
+    else
+        log "Automatic initial pose is disabled."
+    fi
+
+    start_as_mypi navigation \
+        ros2 launch my_robot_controller navigation_launch.py \
+        "map:=$MAP_FILE" \
+        "use_sim_time:=false" \
+        "params_file:=$NAV_PARAMS"
+
+    wait_for_action \
+        /navigate_to_pose \
+        "$NAVIGATION_TIMEOUT"
+
+    start_as_mypi nav_bridge \
+        python3 \
+        "$MAILROVER_DIR/scripts/ros2_nav_bridge.py"
+
+    wait_for_port \
+        127.0.0.1 \
+        8765 \
+        "$BRIDGE_TIMEOUT" \
+        "navigation bridge"
+
+    start_flask_app
+
+    wait_for_port \
+        127.0.0.1 \
+        8000 \
+        "$APP_TIMEOUT" \
+        "Flask application"
+
+    log "MAILROVER PRODUCT READY"
+
+    while true; do
+        sleep "$WATCHDOG_INTERVAL"
+        check_processes
+
+        if [[ "$WATCHDOG_ENABLED" == "true" ]]; then
+            watchdog_check
+        fi
+    done
+}
+
+
+main "$@"

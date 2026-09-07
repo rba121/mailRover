@@ -1,0 +1,30 @@
+[INFO] [1786093596.671517852] [amcl]: 
+	amcl lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786093596.672355653] [amcl]: Creating
+[INFO] [1786093597.073323614] [amcl]: Configuring
+[INFO] [1786093597.073786079] [amcl]: initTransforms
+[INFO] [1786093597.104446635] [amcl]: initPubSub
+[INFO] [1786093597.394790494] [amcl]: Subscribed to map topic.
+[INFO] [1786093600.019097412] [amcl]: Activating
+[INFO] [1786093600.019174097] [amcl]: Creating bond (amcl) to lifecycle manager.
+[WARN] [1786093600.055786445] [amcl]: Waiting for map....
+[INFO] [1786093600.980638054] [amcl]: Message Filter dropping message: frame 'laser' at time 1786093598.976 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786093602.122133380] [amcl]: Waiting for map....
+[INFO] [1786093602.772315439] [amcl]: Received a 1552 X 2299 map @ 0.050 m/pix
+[INFO] [1786093602.854888259] [amcl]: createLaserObject
+[WARN] [1786093604.155623470] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[WARN] [1786093606.221548515] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[WARN] [1786093608.388725129] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[INFO] [1786093610.006033268] [amcl]: initialPoseReceived
+[WARN] [1786093610.006254676] [amcl]: Failed to transform initial pose in time (Lookup would require extrapolation into the future.  Requested time 1786093610.006138 but the latest data is at time 1786093609.987389, when looking up transform from frame [base_footprint] to frame [odom])
+[INFO] [1786093610.006299603] [amcl]: Setting pose (1786093610.006297): 24.573 -45.921 0.927
+[INFO] [1786093623.932878520] [amcl]: Deactivating
+[INFO] [1786093623.932941446] [amcl]: Destroying bond (amcl) to lifecycle manager.
+[INFO] [1786093640.542494822] [amcl]: initialPoseReceived
+[WARN] [1786093640.542567971] [amcl]: Received initial pose request, but AMCL is not yet in the active state
+[INFO] [1786093651.125527480] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786093651.125618980] [amcl]: Running Nav2 LifecycleNode rcl preshutdown (amcl)
+[INFO] [1786093651.125712277] [amcl]: Cleaning up
+[INFO] [1786093651.138715607] [amcl]: Destroying bond (amcl) to lifecycle manager.

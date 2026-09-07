@@ -1,0 +1,609 @@
+[INFO] [1786083003.772475020] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786083003.786463688] [planner_server]: Creating
+[INFO] [1786083004.339948042] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786083004.345994427] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1786083004.707416924] [planner_server]: Configuring
+[INFO] [1786083004.707487924] [global_costmap.global_costmap]: Configuring
+[INFO] [1786083004.774471547] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1786083004.782021681] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1786083004.798698956] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1786083004.798785475] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1786083004.801799584] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1786083004.860325883] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1786083004.860406532] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1786083004.868222056] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786083005.148688669] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1786083005.148843633] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1786083005.153394584] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1786083005.160385048] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 1552 X 2299 at 0.050000 m/pix
+[INFO] [1786083006.733399820] [planner_server]: Activating
+[INFO] [1786083006.733470191] [global_costmap.global_costmap]: Activating
+[INFO] [1786083006.733492321] [global_costmap.global_costmap]: Checking transform
+[INFO] [1786083006.733616006] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786083006.718390 but the earliest data is at time 1786083006.819110, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786083007.233760978] [global_costmap.global_costmap]: start
+[INFO] [1786083010.640657938] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1786083011.405009528] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1786083322.734888327] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083322.739438167] [planner_server]: Goal was canceled. Canceling planning action.
+[INFO] [1786083322.739523760] [planner_server]: [compute_path_to_pose] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786083330.318031772] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083337.594252422] [planner_server]: GridBased plugin failed to plan from (32.11, -49.32) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083337.594362663] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083337.605928207] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083338.609577836] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083338.609665429] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083338.643978708] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083341.802383468] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083341.890349205] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083342.851925716] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083342.852118273] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083343.852421402] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083343.852504125] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083344.898510113] [planner_server]: GridBased plugin failed to plan from (32.11, -48.59) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083344.898607502] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083344.921394978] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083345.923780174] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083345.923891693] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083345.936282834] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083350.203341311] [planner_server]: GridBased plugin failed to plan from (31.80, -48.12) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083350.203484016] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083350.208169374] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083351.526215320] [planner_server]: GridBased plugin failed to plan from (31.75, -48.09) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083351.526321246] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083351.545998223] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083355.786560945] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083355.819627273] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083356.819065879] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083356.819153879] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083358.900572928] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083358.910703761] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083360.658260406] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083361.441809711] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083361.467834519] [planner_server]: GridBased plugin failed to plan from (31.22, -48.06) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083361.467938408] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083363.514944900] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083363.515051734] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083363.534587136] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083364.781946809] [planner_server]: GridBased plugin failed to plan from (31.40, -48.07) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083364.782042865] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083364.795112288] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083369.068439391] [planner_server]: GridBased plugin failed to plan from (31.26, -47.87) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083369.068531540] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083369.084548645] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083370.086941082] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083370.087035342] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083372.590130937] [planner_server]: GridBased plugin failed to plan from (31.37, -48.03) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083372.590216122] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083372.602624171] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083373.607723956] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083373.607814957] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083373.622868909] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083378.103333080] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083378.166109217] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083381.409196807] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083381.482934596] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083381.491354697] [planner_server]: GridBased plugin failed to plan from (31.01, -47.67) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083381.491492105] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083383.803392422] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083383.803489386] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083383.822761120] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083384.769102790] [planner_server]: GridBased plugin failed to plan from (31.42, -48.17) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083384.769212920] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083384.795532248] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083393.205662789] [planner_server]: GridBased plugin failed to plan from (31.38, -48.32) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083393.205762697] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083393.218832990] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083394.773040531] [planner_server]: GridBased plugin failed to plan from (31.38, -48.32) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083394.773124179] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083394.789610657] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083400.497802655] [planner_server]: GridBased plugin failed to plan from (31.50, -48.15) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083400.498292231] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083400.508858196] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083401.460405172] [planner_server]: GridBased plugin failed to plan from (31.50, -48.15) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083401.460511802] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083401.479906907] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083406.985320508] [planner_server]: GridBased plugin failed to plan from (30.99, -47.89) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083406.985415731] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083407.005575563] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083408.098756492] [planner_server]: GridBased plugin failed to plan from (30.99, -47.89) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083408.098859622] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083408.114602893] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083413.430645430] [planner_server]: GridBased plugin failed to plan from (31.00, -47.89) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083413.432739793] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083413.449541773] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083414.781943092] [planner_server]: GridBased plugin failed to plan from (31.00, -47.89) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083414.782038185] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083414.806295021] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083419.320705876] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083417.316 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786083420.416387634] [planner_server]: GridBased plugin failed to plan from (31.27, -48.30) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083420.416485190] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083420.429281482] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083421.493535124] [planner_server]: GridBased plugin failed to plan from (31.27, -48.30) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083421.493778033] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083421.519560951] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083426.737538011] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083424.596 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786083427.141408831] [planner_server]: GridBased plugin failed to plan from (31.10, -48.06) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083427.141507869] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083427.162858059] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083428.090689239] [planner_server]: GridBased plugin failed to plan from (31.10, -48.06) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083428.090782406] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083428.113703901] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083433.834723023] [planner_server]: GridBased plugin failed to plan from (30.99, -47.89) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083433.834811191] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083433.849221510] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083434.792322143] [planner_server]: GridBased plugin failed to plan from (30.99, -47.89) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083434.793158889] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083437.339004530] [planner_server]: GridBased plugin failed to plan from (30.99, -47.89) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083437.339212142] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083438.096253952] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083438.113017302] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083444.797764744] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083444.816528865] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083444.868108718] [planner_server]: GridBased plugin failed to plan from (31.05, -47.87) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083444.868273201] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083449.035033337] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 0.3997 Hz
+[WARN] [1786083452.869391949] [planner_server]: GridBased plugin failed to plan from (31.33, -47.95) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083452.869500727] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083455.005715055] [planner_server]: GridBased plugin failed to plan from (31.33, -47.95) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083455.005812222] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083455.018000084] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083456.020310169] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083456.020404447] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083456.039848904] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083460.310078695] [planner_server]: GridBased plugin failed to plan from (31.67, -48.46) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083460.310178936] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083460.328465276] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083461.409129397] [planner_server]: GridBased plugin failed to plan from (31.61, -48.77) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083461.411733985] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083461.433181305] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083486.592268819] [planner_server]: GridBased plugin failed to plan from (31.82, -49.22) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083486.592587654] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083486.613940825] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083491.093100286] [planner_server]: GridBased plugin failed to plan from (31.90, -49.29) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083491.093204694] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083492.664558346] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083494.820592633] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083494.859260676] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083512.420199571] [planner_server]: GridBased plugin failed to plan from (31.86, -47.63) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083512.420293535] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083512.437960279] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083513.441232368] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083513.441325202] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083513.458655444] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083520.819562220] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083520.846554385] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083522.066085074] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786083522.066172019] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083526.036380867] [planner_server]: GridBased plugin failed to plan from (31.55, -48.31) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083526.036956648] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083526.188139987] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083524.183 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786083526.765985732] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083526.768648598] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083528.765920968] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083526.099 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786083531.680553999] [planner_server]: GridBased plugin failed to plan from (31.68, -48.39) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083531.680647758] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083531.691806967] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083532.696603861] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (24.36, -44.68): "Costmap timed out waiting for update"
+[WARN] [1786083532.696703269] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083532.846978899] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083538.460087862] [planner_server]: GridBased plugin failed to plan from (31.94, -48.52) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083538.460248363] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083539.018810319] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083539.035017499] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083544.711247564] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083544.717293189] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083548.103532629] [planner_server]: GridBased plugin failed to plan from (31.75, -47.90) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083548.104139114] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083548.116187643] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083549.118545690] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (24.36, -44.68): "Costmap timed out waiting for update"
+[WARN] [1786083549.118641820] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083549.137968907] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083555.074674606] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083552.911 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786083626.085108680] [planner_server]: GridBased plugin failed to plan from (26.60, -45.63) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083626.085196199] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083626.100727931] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083627.103240054] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (24.36, -44.68): "Costmap timed out waiting for update"
+[WARN] [1786083627.103322536] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083627.140864443] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083633.968437252] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.6395 Hz
+[INFO] [1786083634.938009974] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083630.879 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786083635.689297864] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.4480 Hz
+[WARN] [1786083637.361137161] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.5346 Hz
+[WARN] [1786083639.080350651] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.4502 Hz
+[WARN] [1786083641.020270256] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.0936 Hz
+[WARN] [1786083642.965903133] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.0807 Hz
+[INFO] [1786083665.033755108] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083673.376694155] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083671.181 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786083705.638068355] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083710.780467594] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083711.472080026] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.4383 Hz
+[WARN] [1786083715.584549176] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 0.5374 Hz
+[WARN] [1786083717.686423080] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 0.9325 Hz
+[WARN] [1786083735.071814481] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.0528 Hz
+[WARN] [1786083736.897661527] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.2443 Hz
+[WARN] [1786083738.769331375] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.1809 Hz
+[WARN] [1786083740.599817853] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.2401 Hz
+[WARN] [1786083742.436986386] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.2296 Hz
+[WARN] [1786083744.301665475] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.1947 Hz
+[WARN] [1786083746.002747496] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.4519 Hz
+[WARN] [1786083747.824825559] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.2434 Hz
+[INFO] [1786083754.652461863] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083761.634552056] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083759.627 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786083776.085790307] [planner_server]: GridBased plugin failed to plan from (31.09, -45.59) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083776.086141975] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083776.099583696] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083777.101941858] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (24.36, -44.68): "Costmap timed out waiting for update"
+[WARN] [1786083777.102035285] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083777.140788753] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083788.661356836] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.3350 Hz
+[WARN] [1786083790.403231855] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.3975 Hz
+[WARN] [1786083792.375388690] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.0511 Hz
+[WARN] [1786083793.998465217] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.6879 Hz
+[WARN] [1786083795.808295361] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.2815 Hz
+[WARN] [1786083797.545096650] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.4134 Hz
+[INFO] [1786083806.095918335] [planner_server]: Goal was canceled. Canceling planning action.
+[INFO] [1786083806.096007299] [planner_server]: [compute_path_to_pose] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786083806.097915235] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083824.634801713] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083831.520177514] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083836.715632816] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083838.146150898] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 0.7071 Hz
+[INFO] [1786083840.113290243] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083838.109 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786083844.349770616] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083840.096 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786083845.003870290] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083848.064204435] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083854.147584135] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083854.794087453] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 1.6555 Hz
+[WARN] [1786083858.119587546] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 0.6127 Hz
+[INFO] [1786083863.361171078] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083860.991 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786083863.770294932] [planner_server]: GridBased plugin failed to plan from (32.99, -46.97) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083863.770837972] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083863.790895673] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083864.776505300] [planner_server]: GridBased plugin failed to plan from (32.99, -46.97) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083864.776629801] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083864.794659621] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083868.934205675] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083868.948194121] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083869.949127146] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (24.36, -44.68): "Costmap timed out waiting for update"
+[WARN] [1786083869.949230999] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786083872.980141578] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786083870.976 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786083877.034051726] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786083877.058536729] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786083878.070307627] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083878.119581652] [planner_server]: GridBased plugin failed to plan from (32.30, -46.20) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083878.119675949] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786083878.173639610] [planner_server]: GridBased plugin failed to plan from (32.33, -46.19) to (24.36, -44.68): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786083878.173731685] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786084411.736619219] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084409.732 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084414.468228018] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084412.464 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084418.734913407] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084416.731 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084421.828412564] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084419.824 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084422.570642065] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084412.558384, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084424.900628995] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084422.896 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084425.904906297] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084415.891896, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084427.972554850] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084425.968 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084429.237560188] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084419.191848, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084431.045481322] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084429.040 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084432.571086194] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084422.525076, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084434.119539319] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084432.115 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084435.905712040] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084425.891854, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084437.168364087] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084435.164 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084439.237154998] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084429.225045, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084440.200667840] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084438.196 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084442.570849524] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084432.525044, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084443.334232620] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084441.328 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084445.906897784] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084435.858401, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084446.405046562] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084444.400 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084449.238272853] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084439.192339, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084449.477042288] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084447.473 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084452.549886297] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084450.544 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084452.570739076] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084442.558392, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084455.599993238] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084453.595 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084455.905421626] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084445.891885, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084458.694958051] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084456.688 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084459.238325888] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084449.225046, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084461.765324176] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084459.760 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084462.569955199] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084452.525073, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084464.837361218] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084462.833 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084465.903005110] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084455.891913, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084467.909783354] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084465.904 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084469.237363695] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084459.192490, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084470.899354358] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084468.895 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084472.570481125] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084462.525050, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084474.054802071] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084472.050 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084475.905553177] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084465.892263, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084477.098765498] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084475.095 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084479.238018122] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084469.225034, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084480.197164940] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084478.193 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084482.571205460] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084472.558392, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084483.269698966] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084481.266 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084485.905668249] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084475.858420, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084486.343686240] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084484.340 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084489.237700858] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084479.191806, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084490.938585509] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084488.934 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084492.571078808] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084482.525119, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084494.067112225] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084492.063 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084495.905287837] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084485.891816, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084497.198821495] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084495.195 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084499.237909024] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084489.225039, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084500.266292826] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084498.262 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084502.571313529] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084492.558373, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084503.898956242] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084501.895 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084505.905570725] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084495.858392, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084506.899137081] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084504.895 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084509.237930762] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084499.191834, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084509.836029986] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084507.832 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084512.532140982] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084510.527 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084512.573079629] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084502.558367, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084515.566334097] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084513.561 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084515.905441851] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084505.858386, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084518.699188337] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084516.695 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084519.237698184] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084509.191821, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084521.733471397] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084519.728 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084522.572507327] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084512.525195, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084524.766432190] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084522.762 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084525.904554159] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084515.891830, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084527.933464596] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084525.928 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084529.237732626] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084519.225031, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084531.242585970] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084529.239 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084532.570797093] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084522.525037, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084534.335612532] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084532.332 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084535.905430254] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084525.858382, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084538.600501189] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084536.596 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084539.237822458] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084529.191841, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084541.701193199] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084539.696 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084542.570251217] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084532.558374, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084544.765742145] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084542.760 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084545.904572469] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084535.891950, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084547.909427054] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084545.904 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084549.236807913] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084539.225025, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084550.980673442] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084548.976 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084552.571323683] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084542.525105, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084553.966372870] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084551.961 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084555.906388569] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084545.858389, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084557.100020040] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084555.096 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084559.237975176] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084549.225032, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084560.138799365] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084558.135 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084562.570351842] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084552.558383, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084563.269967984] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084561.266 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084565.904792020] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084555.892166, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084566.334877117] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084564.328 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084569.238115155] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084559.191859, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084569.414644662] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084567.409 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084572.434214013] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084570.428 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084572.572798335] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084562.525045, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084575.534650411] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084573.530 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084575.905668356] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084565.891867, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084578.567415556] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084576.560 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084579.238306598] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084569.225027, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084581.701229060] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084579.697 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084582.572006976] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084572.558389, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084584.772376411] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084582.768 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084585.905521278] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084575.858392, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084587.843865246] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084585.840 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084589.238215466] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084579.191821, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084590.916916959] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084588.912 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084592.572136659] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084582.525080, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084593.899236146] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084591.895 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084595.903998083] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084585.891827, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084597.060726429] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084595.056 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084599.237970684] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084589.191804, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084600.133720846] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084598.128 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084602.571308486] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084592.558393, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084603.205321996] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084601.200 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084605.904910900] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084595.858386, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084606.275833862] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084604.272 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084609.237983052] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084599.225034, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084609.350310046] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084607.344 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084612.366988530] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084610.361 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084612.570397941] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084602.558364, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084615.493720940] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084613.489 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084615.904284116] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084605.858382, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084618.566291336] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084616.561 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084619.237271434] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084609.225041, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084621.242828579] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084619.239 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084622.571012553] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084612.525037, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084623.935711261] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084621.931 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084625.904760690] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084615.858381, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084626.527815808] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084624.524 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084629.237648804] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084619.192067, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084629.998704185] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084627.993 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084632.521191467] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084630.517 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084632.572099279] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084622.525032, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084635.498833000] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084633.494 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084635.904038869] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084625.858380, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084638.499144876] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084636.495 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084639.239101680] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084629.191926, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084641.698716883] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084639.694 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084642.571365994] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084632.525030, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084644.732778053] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084642.727 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084645.903555623] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084635.858377, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084647.909782827] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084645.906 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084649.237289612] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084639.225035, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084651.236669316] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084649.232 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084652.570582228] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084642.558364, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084654.237441936] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084652.233 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084655.904706719] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084645.891762, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084657.637345337] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084655.632 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084659.237181053] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084649.192239, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084660.535668479] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084658.530 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084662.570996302] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084652.558377, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084663.535325223] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084661.530 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084665.904431141] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084655.891803, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084666.635682879] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084664.631 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084669.166932942] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084667.160 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084669.236811051] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084659.225024, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084671.690668318] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084669.686 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084672.572163323] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084662.525053, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084675.366052681] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084673.361 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084675.905254824] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084665.892462, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084678.465945136] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084676.461 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084679.237695469] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084669.225023, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084681.499862169] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084679.496 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084682.571690290] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084672.525026, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084684.577781008] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084682.574 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084685.905562813] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084675.891784, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084687.898435165] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084685.894 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084689.237290992] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084679.192250, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084690.835915930] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084688.831 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084692.570913143] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084682.558391, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084693.899419656] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084691.895 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084695.904468406] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084685.891823, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084696.936259444] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084694.931 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084699.237731592] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084689.225024, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084700.133013040] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084698.128 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084702.570610573] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084692.525040, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084703.199596190] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084701.195 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084705.905530324] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084695.858392, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084706.236567572] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084704.232 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084709.238126415] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084699.225033, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084710.837421690] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084708.832 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084712.570270929] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084702.525033, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084713.924170761] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084711.920 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084715.903445690] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084705.892038, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084716.999415734] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084714.993 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084719.237133805] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084709.225040, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084720.069639292] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084718.065 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084722.572293409] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084712.558383, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084723.141465950] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084721.136 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084725.904080106] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084715.858386, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084726.214051094] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084724.208 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084729.238238428] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084719.191988, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084729.284966359] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084727.281 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084732.356655999] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084730.352 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084732.571207872] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084722.525032, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084735.428483861] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084733.424 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084735.904512726] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084725.891926, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084738.500608614] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084736.497 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084739.236734092] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084729.191920, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084741.572500495] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084739.568 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084742.573134481] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084732.558369, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084744.643871615] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084742.640 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084745.904367546] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084735.891769, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084747.718181971] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084745.714 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084749.237826808] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084739.225093, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084750.222995045] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084748.219 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084752.573132579] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084742.525073, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084753.837399197] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084751.831 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786084755.905161574] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084745.859111, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084756.934119061] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786084754.928 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786084757.770276771] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786084757.770378457] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1786084757.770969886] [planner_server]: Deactivating
+[INFO] [1786084757.772440042] [global_costmap.global_costmap]: Deactivating
+[ERROR] [1786084759.235460542] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786084409.541509 but the earliest data is at time 1786084749.191924, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1786084760.567378720] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1786084760.567450684] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1786084760.577650071] [planner_server]: Cleaning up
+[INFO] [1786084760.600329264] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1786084760.611345563] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1786084760.611615343] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1786084760.643753605] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

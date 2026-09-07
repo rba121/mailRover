@@ -1,0 +1,25 @@
+[INFO] [1786043692.923111615] [collision_monitor]: 
+	collision_monitor lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786043694.525003548] [collision_monitor]: Configuring
+[INFO] [1786043694.545042937] [collision_monitor]: [scan]: Creating Scan
+[INFO] [1786043694.563805300] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[INFO] [1786043694.565967386] [collision_monitor]: [FootprintApproach]: Polygon points are not defined. Using dynamic subscription instead.
+[INFO] [1786043694.572766701] [collision_monitor]: [FootprintApproach]: Making footprint subscriber on /local_costmap/published_footprint topic
+[INFO] [1786043700.158036569] [collision_monitor]: Activating
+[INFO] [1786043700.158142403] [collision_monitor]: Creating bond (collision_monitor) to lifecycle manager.
+[WARN] [1786044149.338589312] [collision_monitor]: [scan]: Latest source and current collision monitor node timestamps differ on 1.035161 seconds. Ignoring the source.
+[WARN] [1786044149.338735128] [collision_monitor]: Robot to stop due to invalid source. Either due to data not published yet, or to lack of new data received within the sensor timeout, or if impossible to transform data to base frame
+[WARN] [1786044149.388433699] [collision_monitor]: [scan]: Latest source and current collision monitor node timestamps differ on 1.085003 seconds. Ignoring the source.
+[WARN] [1786044149.438375846] [collision_monitor]: [scan]: Latest source and current collision monitor node timestamps differ on 1.134948 seconds. Ignoring the source.
+[WARN] [1786044149.488756180] [collision_monitor]: [scan]: Latest source and current collision monitor node timestamps differ on 1.185326 seconds. Ignoring the source.
+[INFO] [1786044149.570087759] [collision_monitor]: Robot to continue normal operation
+[INFO] [1786048584.224500300] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786048584.224619227] [collision_monitor]: Running Nav2 LifecycleNode rcl preshutdown (collision_monitor)
+[INFO] [1786048584.224735616] [collision_monitor]: Deactivating
+[INFO] [1786048584.224773579] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.
+[INFO] [1786048584.255324114] [collision_monitor]: Cleaning up
+[INFO] [1786048584.255419689] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[INFO] [1786048584.255448041] [collision_monitor]: [scan]: Destroying Scan
+[INFO] [1786048584.263791993] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.

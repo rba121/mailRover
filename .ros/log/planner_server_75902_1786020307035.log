@@ -1,0 +1,60 @@
+[INFO] [1786020308.589410945] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786020308.592780223] [planner_server]: Creating
+[INFO] [1786020308.928791512] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786020308.929867740] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1786020309.221321248] [planner_server]: Configuring
+[INFO] [1786020309.221423822] [global_costmap.global_costmap]: Configuring
+[INFO] [1786020309.304521705] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1786020309.334938964] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1786020309.343614641] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1786020309.343701457] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1786020309.344293330] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1786020309.368625075] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1786020309.368735316] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1786020309.372650727] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786020309.493356075] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1786020309.493541409] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1786020309.496508351] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1786020310.285378201] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 1552 X 2299 at 0.050000 m/pix
+[INFO] [1786020310.917189837] [planner_server]: Activating
+[INFO] [1786020310.917275819] [global_costmap.global_costmap]: Activating
+[INFO] [1786020310.917297874] [global_costmap.global_costmap]: Checking transform
+[INFO] [1786020310.917503061] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786020310.887069 but the earliest data is at time 1786020311.311384, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786020311.417630973] [global_costmap.global_costmap]: start
+[INFO] [1786020314.823967213] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1786020314.830043061] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1786020356.166969891] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786020355.863 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786020461.866673235] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786020461.562 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786020686.133065211] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786020685.828 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786020786.019484820] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786020785.715 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786020914.191346646] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786020913.886 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786020926.177986528] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786020925.873 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786021058.158419577] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786021057.851 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1786021100.429518012] [planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.
+[WARN] [1786021100.429829736] [planner_server]: GridBased plugin failed to plan from (32.00, -49.75) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786021100.429889755] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786021100.448978823] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786021101.460618474] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786021101.461580461] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786021101.510779491] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786021103.118451750] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786021102.814 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786021122.711531168] [planner_server]: GridBased plugin failed to plan from (31.84, -49.26) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786021122.711629502] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786021122.724439758] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786021123.728026587] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786021123.728114328] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786021123.768264808] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786021128.935215069] [planner_server]: GridBased plugin failed to plan from (31.84, -48.48) to (38.11, -58.03): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786021128.935308681] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786021128.945232161] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786021129.949292086] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (38.11, -58.03): "Costmap timed out waiting for update"
+[WARN] [1786021129.949384901] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786021129.966787793] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786021760.077818435] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786021759.774 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786021856.182177857] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786021855.878 for reason 'the timestamp on the message is earlier than all the data in the transform cache'

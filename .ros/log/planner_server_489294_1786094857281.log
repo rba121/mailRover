@@ -1,0 +1,289 @@
+[INFO] [1786094857.960581689] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786094857.978690899] [planner_server]: Creating
+[INFO] [1786094858.087421713] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786094858.088327070] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1786094859.069137799] [planner_server]: Configuring
+[INFO] [1786094859.069203873] [global_costmap.global_costmap]: Configuring
+[INFO] [1786094859.099655687] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1786094859.106897874] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1786094859.113556040] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1786094859.113637633] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1786094859.116593149] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1786094859.131701195] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1786094859.131774047] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1786094859.134140986] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786094859.245192720] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1786094859.245290258] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1786094859.248478108] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1786094860.617705045] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 1552 X 2299 at 0.050000 m/pix
+[INFO] [1786094861.133023702] [planner_server]: Activating
+[INFO] [1786094861.133112129] [global_costmap.global_costmap]: Activating
+[INFO] [1786094861.133133962] [global_costmap.global_costmap]: Checking transform
+[INFO] [1786094861.133267129] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786094861.101307 but the earliest data is at time 1786094861.111367, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786094861.633644409] [global_costmap.global_costmap]: start
+[INFO] [1786094861.890188269] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1786094861.895604873] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1786095404.161104057] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786095402.143 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786095444.711172447] [planner_server]: Planner loop missed its desired rate of 3.0000 Hz. Current loop rate is 2.8540 Hz
+[WARN] [1786095450.104526052] [planner_server]: GridBased plugin failed to plan from (31.25, -48.08) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095450.105266982] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095450.125696815] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095450.340902802] [planner_server]: GridBased plugin failed to plan from (31.25, -48.10) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095450.342920554] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095450.369881034] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095456.644806402] [planner_server]: GridBased plugin failed to plan from (31.33, -47.35) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095456.644915050] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095456.660746618] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095456.930147992] [planner_server]: GridBased plugin failed to plan from (31.38, -47.25) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095456.931068757] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095456.947254141] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095461.114456311] [planner_server]: GridBased plugin failed to plan from (31.57, -46.56) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095461.114565497] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095461.132040111] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095461.335287217] [planner_server]: GridBased plugin failed to plan from (31.57, -46.53) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095461.335362014] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095461.349415590] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095465.516576612] [planner_server]: GridBased plugin failed to plan from (31.81, -45.84) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095465.516683131] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095465.539077957] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095465.735289840] [planner_server]: GridBased plugin failed to plan from (31.81, -45.82) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095465.735390396] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095465.749874975] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095469.934802593] [planner_server]: GridBased plugin failed to plan from (32.04, -45.39) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095469.935970711] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095469.948808355] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095470.128746631] [planner_server]: GridBased plugin failed to plan from (32.23, -45.53) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095470.128833613] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095470.140659307] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095474.311272459] [planner_server]: GridBased plugin failed to plan from (32.34, -45.13) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095474.312271964] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095474.330491785] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095474.525155160] [planner_server]: GridBased plugin failed to plan from (32.35, -45.11) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095474.525246105] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095474.547117502] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095478.938335855] [planner_server]: GridBased plugin failed to plan from (33.32, -44.82) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095478.938639986] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095478.961141794] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095479.144450366] [planner_server]: GridBased plugin failed to plan from (33.06, -45.15) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095479.144576533] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095479.167260657] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095484.439488954] [planner_server]: GridBased plugin failed to plan from (33.07, -45.28) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095484.439601233] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095484.454706000] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095484.738222025] [planner_server]: GridBased plugin failed to plan from (32.88, -45.55) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095484.738307470] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095484.756688070] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095488.931869302] [planner_server]: GridBased plugin failed to plan from (32.42, -45.43) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095488.931951969] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095488.944280351] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095489.147585662] [planner_server]: GridBased plugin failed to plan from (32.40, -45.42) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095489.147671681] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095489.165040924] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095493.350793584] [planner_server]: GridBased plugin failed to plan from (32.22, -44.93) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095493.350869584] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095493.366950505] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095493.539846391] [planner_server]: GridBased plugin failed to plan from (32.22, -44.94) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095493.539937780] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095493.557868989] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095497.834137253] [planner_server]: GridBased plugin failed to plan from (31.83, -45.09) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095497.834232902] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095497.840875364] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095498.144809907] [planner_server]: GridBased plugin failed to plan from (31.80, -45.09) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095498.144945890] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[WARN] [1786095500.678448276] [planner_server]: GridBased plugin failed to plan from (31.85, -45.11) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095500.678533332] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095500.691644218] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095500.933840759] [planner_server]: GridBased plugin failed to plan from (31.85, -45.11) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095500.933923241] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095500.952388508] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095505.329416136] [planner_server]: GridBased plugin failed to plan from (31.43, -45.50) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095505.329492932] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095505.341541646] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095505.546066167] [planner_server]: GridBased plugin failed to plan from (31.41, -45.50) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095505.546731041] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095505.572123883] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095509.849094391] [planner_server]: GridBased plugin failed to plan from (31.28, -45.64) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095509.849717506] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095509.871224790] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095510.137780574] [planner_server]: GridBased plugin failed to plan from (31.25, -45.65) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095510.137862038] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095510.152457673] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095514.417496190] [planner_server]: GridBased plugin failed to plan from (31.19, -46.41) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095514.417583561] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095514.438193470] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095514.726174427] [planner_server]: GridBased plugin failed to plan from (31.16, -46.43) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095514.726248094] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095514.744005968] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095518.907638174] [planner_server]: GridBased plugin failed to plan from (31.27, -46.80) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095518.907727730] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095518.931570490] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095519.123541239] [planner_server]: GridBased plugin failed to plan from (31.25, -46.72) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095519.123626795] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095519.138476265] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095523.309668660] [planner_server]: GridBased plugin failed to plan from (31.19, -46.81) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095523.310033273] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095523.327267682] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095523.520768439] [planner_server]: GridBased plugin failed to plan from (31.17, -46.83) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095523.520913644] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095523.537948736] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095527.702626134] [planner_server]: GridBased plugin failed to plan from (31.80, -47.77) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095527.702714412] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095527.723561322] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095527.920444912] [planner_server]: GridBased plugin failed to plan from (31.88, -47.83) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095527.920555968] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095527.946495795] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095534.247463323] [planner_server]: GridBased plugin failed to plan from (32.70, -47.67) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095534.247894085] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095534.267737433] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095534.520222808] [planner_server]: GridBased plugin failed to plan from (32.70, -47.67) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095534.520304827] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095534.538512074] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095539.696347416] [planner_server]: GridBased plugin failed to plan from (32.70, -47.67) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095539.696441768] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095539.717576439] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095539.911996145] [planner_server]: GridBased plugin failed to plan from (32.70, -47.67) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095539.912115461] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095539.926929060] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095545.336557254] [planner_server]: GridBased plugin failed to plan from (32.61, -47.77) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095545.336649643] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095545.356468733] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095545.523620958] [planner_server]: GridBased plugin failed to plan from (32.61, -47.77) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095545.523727217] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095545.537509700] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095550.941457992] [planner_server]: GridBased plugin failed to plan from (32.72, -47.57) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095550.941556197] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095550.963391797] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095551.110338467] [planner_server]: GridBased plugin failed to plan from (32.72, -47.57) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095551.110441394] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095551.129167644] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095556.740859993] [planner_server]: GridBased plugin failed to plan from (32.77, -47.68) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095556.740960216] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095556.763682062] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095556.928745387] [planner_server]: GridBased plugin failed to plan from (32.77, -47.68) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095556.928820869] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095556.946910449] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095756.067351812] [planner_server]: GridBased plugin failed to plan from (32.59, -47.51) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095756.068199743] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095756.080953683] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095756.317618027] [planner_server]: GridBased plugin failed to plan from (32.59, -47.51) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095756.318281790] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095756.332172385] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095758.738723316] [planner_server]: GridBased plugin failed to plan from (32.57, -47.52) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095758.738805687] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095758.750981921] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095758.916320352] [planner_server]: GridBased plugin failed to plan from (32.51, -47.55) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095758.916423482] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095758.932661683] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095764.199868570] [planner_server]: GridBased plugin failed to plan from (32.16, -47.46) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095764.199950644] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095764.220935353] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095764.326457972] [planner_server]: GridBased plugin failed to plan from (32.15, -47.46) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095764.326532732] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095764.341638278] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095768.408037297] [planner_server]: GridBased plugin failed to plan from (31.61, -47.42) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095768.408130316] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095768.420860164] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095768.526286283] [planner_server]: GridBased plugin failed to plan from (31.72, -47.27) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095768.526398728] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095768.543110431] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095772.708756794] [planner_server]: GridBased plugin failed to plan from (31.39, -46.92) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095772.708853906] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095772.720907528] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095772.924838987] [planner_server]: GridBased plugin failed to plan from (31.46, -46.91) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095772.924930172] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095772.941788654] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095777.012034657] [planner_server]: GridBased plugin failed to plan from (31.18, -46.68) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095777.012215769] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095777.040408203] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095777.332467204] [planner_server]: GridBased plugin failed to plan from (31.11, -46.11) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095777.332566778] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095777.351398790] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095781.516002647] [planner_server]: GridBased plugin failed to plan from (31.49, -46.97) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095781.516385815] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095781.522650720] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095781.727982798] [planner_server]: GridBased plugin failed to plan from (31.58, -46.92) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095781.728067780] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095781.741426113] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095785.907629831] [planner_server]: GridBased plugin failed to plan from (31.68, -46.31) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095785.907721016] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095785.920444420] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095786.117320451] [planner_server]: GridBased plugin failed to plan from (32.08, -45.86) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095786.117416433] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095786.131899532] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095790.298314676] [planner_server]: GridBased plugin failed to plan from (31.18, -45.32) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095790.298393695] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095790.311424638] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095790.531685742] [planner_server]: GridBased plugin failed to plan from (31.16, -45.31) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095790.531791206] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095790.556593565] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095791.381578248] [planner_server]: GridBased plugin failed to plan from (34.15, -45.17) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095791.381722138] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095791.394295318] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095791.525527598] [planner_server]: GridBased plugin failed to plan from (34.15, -45.17) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095791.525620654] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095791.545005335] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095796.730329363] [planner_server]: GridBased plugin failed to plan from (32.43, -44.37) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095796.730423086] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095796.744280885] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095796.924465453] [planner_server]: GridBased plugin failed to plan from (33.37, -44.49) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095796.924564009] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095796.957616340] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095802.226319198] [planner_server]: GridBased plugin failed to plan from (34.21, -45.61) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095802.226409162] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095802.246247716] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095802.521639828] [planner_server]: GridBased plugin failed to plan from (34.18, -45.58) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095802.523324097] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095802.538358069] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095806.705048048] [planner_server]: GridBased plugin failed to plan from (33.40, -46.64) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095806.705150827] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095806.725432624] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095806.930083216] [planner_server]: GridBased plugin failed to plan from (33.39, -46.65) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095806.930181995] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095806.946875846] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095811.112681617] [planner_server]: GridBased plugin failed to plan from (32.68, -46.71) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095811.112788488] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095811.125364335] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095811.326858947] [planner_server]: GridBased plugin failed to plan from (32.67, -46.75) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095811.326961466] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095811.347108967] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095815.511017079] [planner_server]: GridBased plugin failed to plan from (33.87, -44.75) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095815.511127728] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095815.526914296] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095815.727385718] [planner_server]: GridBased plugin failed to plan from (33.89, -44.72) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095815.727680275] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095815.746959974] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095818.440835213] [planner_server]: GridBased plugin failed to plan from (31.94, -46.66) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095818.440939491] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095818.465525072] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095818.722306896] [planner_server]: GridBased plugin failed to plan from (31.88, -46.62) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095818.722384600] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095818.736514327] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095823.913339585] [planner_server]: GridBased plugin failed to plan from (32.66, -46.46) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095823.913441401] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095823.925565745] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095824.125257514] [planner_server]: GridBased plugin failed to plan from (32.51, -46.37) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095824.125528368] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095824.137187432] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095828.302453367] [planner_server]: GridBased plugin failed to plan from (33.97, -46.50) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095828.302572145] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095828.315606550] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1786095828.553018694] [planner_server]: GridBased plugin failed to plan from (34.00, -46.50) to (23.88, -45.90): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786095828.553120213] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786095828.566558510] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1786095901.740415005] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786095901.740486727] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1786095901.740596247] [planner_server]: Deactivating
+[INFO] [1786095901.740660136] [global_costmap.global_costmap]: Deactivating
+[INFO] [1786095901.836570850] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1786095901.836652795] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1786095901.858619194] [planner_server]: Cleaning up
+[INFO] [1786095902.121295829] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1786095902.219346537] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1786095902.221438919] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1786095902.389855386] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

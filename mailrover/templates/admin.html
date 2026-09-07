@@ -1,0 +1,1598 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MailRover Admin</title>
+  <style>
+    :root {
+      --bg: #f6f7f4;
+      --panel: #ffffff;
+      --ink: #151719;
+      --muted: #626970;
+      --line: #dde1e3;
+      --primary: #0f766e;
+      --accent: #1d4ed8;
+      --danger: #b42318;
+      --warn: #b45309;
+      --ok: #157347;
+      --shadow: 0 8px 22px rgba(21, 23, 25, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    button { font: inherit; }
+
+    .app {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .topStatus {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .logo {
+      width: 122px;
+      max-width: 36vw;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      background: #ffffff;
+    }
+
+    h1, h2, h3 { margin: 0; letter-spacing: 0; }
+    h1 { font-size: 1.28rem; line-height: 1.1; }
+    h2 { font-size: 1.05rem; }
+    h3 { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; }
+
+    .subtle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .pill {
+      display: inline-flex;
+      min-height: 30px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: white;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pill.ok { color: var(--ok); border-color: #b7dec8; background: #f0fbf4; }
+    .pill.warn { color: var(--warn); border-color: #f0c37b; background: #fff8eb; }
+    .pill.danger { color: var(--danger); border-color: #efb5ae; background: #fff4f2; }
+    .pill.info { color: var(--accent); border-color: #b8c7f4; background: #f1f5ff; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 14px;
+      margin-top: 14px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .metric {
+      display: grid;
+      gap: 8px;
+      min-height: 96px;
+    }
+
+    .metric strong {
+      font-size: 1.15rem;
+      overflow-wrap: anywhere;
+    }
+
+    .rows {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid #eef0f1;
+      padding-top: 10px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .row strong {
+      color: var(--ink);
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .requestActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .formGrid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+      align-items: end;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid #cbd1d5;
+      border-radius: 8px;
+      padding: 9px 11px;
+      font: inherit;
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    .workflowPanel {
+      border: 2px solid #91c9c3;
+      box-shadow: 0 12px 30px rgba(15, 118, 110, 0.12);
+    }
+
+    .guidePanel {
+      border: 2px solid #79bdb5;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fbf8 100%);
+      box-shadow: 0 14px 34px rgba(15, 118, 110, 0.14);
+    }
+
+    .guideTop {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .stepBadge {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 900;
+      box-shadow: 0 7px 18px rgba(15, 118, 110, 0.22);
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .guideTitle { font-size: 1.32rem; }
+
+    .guideText {
+      max-width: 700px;
+      margin: 6px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 650;
+    }
+
+    .guideButtons {
+      display: grid;
+      gap: 8px;
+      min-width: 210px;
+    }
+
+    .guideButtons button { min-height: 48px; }
+    button[hidden] { display: none; }
+
+    .progressTrack {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0;
+      margin: 22px 0 0;
+      padding: 0;
+    }
+
+    .guideStep {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      gap: 7px;
+      color: #858c91;
+      text-align: center;
+      font-size: 0.76rem;
+      font-weight: 850;
+    }
+
+    .guideStep::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #dfe5e6;
+      z-index: 0;
+    }
+
+    .guideStep:first-child::before { left: 50%; }
+    .guideStep:last-child::before { right: 50%; }
+
+    .guideDot {
+      position: relative;
+      z-index: 1;
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border: 3px solid #dfe5e6;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #7a8287;
+    }
+
+    .guideStep.done::before,
+    .guideStep.active::before { background: #79bdb5; }
+    .guideStep.done .guideDot { border-color: var(--ok); background: var(--ok); color: #fff; }
+    .guideStep.active { color: var(--ink); }
+    .guideStep.active .guideDot { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 0 5px #dff5f1; }
+
+    .sectionHeader {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .sectionNumber {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #e4f4f1;
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .instructionBox {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .instruction {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 11px;
+      border-radius: 8px;
+      background: #f5f8f8;
+      color: var(--muted);
+      line-height: 1.4;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .instruction strong { color: var(--primary); }
+
+    .requestItem.actionable {
+      border: 2px solid #b7ddd7;
+      border-radius: 8px;
+      padding: 14px;
+      background: #f7fcfb;
+    }
+
+    .requestItem:first-child { border-top: 0; }
+
+    .actionHint {
+      display: block;
+      margin-top: 7px;
+      color: var(--primary);
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+
+    .emptyState {
+      padding: 22px;
+      border: 2px dashed #d7dcde;
+      border-radius: 8px;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 750;
+    }
+
+    .historyDetails,
+    .systemDetails {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .historyDetails summary,
+    .systemDetails > summary {
+      cursor: pointer;
+      padding: 14px 16px;
+      color: var(--muted);
+      font-weight: 850;
+    }
+
+    .historyDetails .requestList { padding: 0 16px 16px; }
+    .systemDetails .systemContent { padding: 0 16px 16px; }
+
+    .focusFlash { animation: focusFlash 1.2s ease-out; }
+    @keyframes focusFlash {
+      0% { box-shadow: 0 0 0 6px rgba(29, 78, 216, 0.22); }
+      100% { box-shadow: var(--shadow); }
+    }
+
+    .workflowHeader {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .workflowActions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .workflowActions button {
+      min-height: 52px;
+      font-size: 0.98rem;
+    }
+
+    button.dangerSolid {
+      background: var(--danger);
+      color: #ffffff;
+      border-color: var(--danger);
+    }
+
+    .requestList {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .requestItem {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      border-top: 1px solid #eef0f1;
+      padding-top: 12px;
+    }
+
+    .requestItem strong,
+    .requestItem span {
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    .requestItem .meta {
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+
+    button {
+      min-height: 42px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 9px 13px;
+      cursor: pointer;
+      font-weight: 800;
+      color: #ffffff;
+      background: var(--primary);
+    }
+
+    button.secondary {
+      background: #ffffff;
+      color: var(--ink);
+      border-color: #cbd1d5;
+    }
+
+    button.danger {
+      background: #ffffff;
+      color: var(--danger);
+      border-color: #efb5ae;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      background: #a7adb7;
+      color: #ffffff;
+      border-color: #a7adb7;
+      opacity: 0.9;
+    }
+
+    .message {
+      min-height: 22px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .message.ok { color: var(--ok); }
+    .message.danger { color: var(--danger); }
+
+    .estopModal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(21, 23, 25, 0.66);
+      backdrop-filter: blur(3px);
+    }
+
+    .estopModal.show { display: grid; }
+
+    .estopDialog {
+      width: min(650px, 100%);
+      border: 4px solid var(--danger);
+      border-radius: 14px;
+      padding: 24px;
+      background: #ffffff;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      animation: emergencyShake 0.58s ease-in-out 3;
+    }
+
+    @keyframes emergencyShake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-9px) rotate(-0.4deg); }
+      40% { transform: translateX(9px) rotate(0.4deg); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+
+    .estopDialog h2 { color: var(--danger); font-size: 1.55rem; }
+    .estopDialog p { line-height: 1.55; font-weight: 700; }
+    .estopChoices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+    .estopChoices .full { grid-column: 1 / -1; }
+
+    .manualPanel {
+      border: 2px solid #d69e2e;
+      background: #fffaf0;
+    }
+
+    .teleopWarning {
+      margin-top: 12px;
+      padding: 12px;
+      border-left: 5px solid var(--danger);
+      background: #fff4f2;
+      color: var(--danger);
+      font-weight: 850;
+      line-height: 1.45;
+    }
+
+    .teleopPad {
+      width: min(390px, 100%);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 18px auto 0;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .teleopPad button { min-height: 64px; font-size: 1.1rem; }
+    .teleopPad .forward { grid-column: 2; }
+    .teleopPad .left { grid-column: 1; grid-row: 2; }
+    .teleopPad .stop { grid-column: 2; grid-row: 2; background: var(--danger); }
+    .teleopPad .right { grid-column: 3; grid-row: 2; }
+    .teleopPad .backward { grid-column: 2; grid-row: 3; }
+
+    @media (max-width: 900px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .grid { grid-template-columns: 1fr 1fr; }
+      .layout { grid-template-columns: 1fr; }
+      .formGrid { grid-template-columns: 1fr; }
+      .requestItem { grid-template-columns: 1fr; }
+      .workflowActions { grid-template-columns: 1fr; }
+      .guideTop { grid-template-columns: auto 1fr; }
+      .guideButtons { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+      .instructionBox { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .app { padding: 14px; }
+      .grid { grid-template-columns: 1fr; }
+      .row { display: grid; }
+      .row strong { text-align: left; }
+      .requestActions { justify-content: flex-start; }
+      .progressTrack { overflow-x: auto; grid-template-columns: repeat(6, 105px); padding-bottom: 8px; }
+      .guideTop { grid-template-columns: 1fr; }
+      .stepBadge { width: 48px; height: 48px; }
+      .guideButtons { grid-template-columns: 1fr; }
+      .estopChoices { grid-template-columns: 1fr; }
+      .estopChoices .full { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div id="estopRecoveryModal" class="estopModal" role="alertdialog" aria-modal="true" aria-labelledby="estopRecoveryTitle">
+    <div class="estopDialog">
+      <h2 id="estopRecoveryTitle">Emergency stop pressed during delivery</h2>
+      <p id="estopRecoveryText">MailRover has stopped. Go to the robot and investigate before taking any action.</p>
+      <div id="estopPressedInstruction" class="teleopWarning">Keep the E-stop pressed while investigating. The recovery choices will unlock only after the physical E-stop is released.</div>
+      <div class="estopChoices">
+        <button id="resumeDeliveryButton" onclick="resumeAfterEstop()" disabled>Continue journey</button>
+        <button id="modalReturnHomeButton" class="dangerSolid" onclick="returnHomeAfterEstop()" disabled>Send back Home</button>
+        <button id="modalManualButton" class="secondary full" onclick="openManualRecovery()" disabled>Open Manual Recovery</button>
+        <button id="acknowledgeEstopButton" class="secondary full" onclick="acknowledgeEstopAlert()">I am going to investigate</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <img class="logo" src="/static/images/rover-logo.png" alt="Rover Autonomous Systems">
+        <div>
+          <h1>MailRover Admin</h1>
+          <div class="subtle">Front desk intake, scheduling, dispatch, and delivery handoff</div>
+        </div>
+      </div>
+      <div class="topStatus">
+        <div id="batteryPill" class="pill">Battery Checking</div>
+        <div id="estopPill" class="pill">E-stop Checking</div>
+      </div>
+    </header>
+
+    <section class="panel guidePanel" aria-live="polite">
+      <div class="guideTop">
+        <div id="currentStepBadge" class="stepBadge">1</div>
+        <div>
+          <div class="eyebrow">Do this next</div>
+          <h2 id="nextActionTitle" class="guideTitle">Checking MailRover…</h2>
+          <p id="nextActionDescription" class="guideText">The next instruction will appear here.</p>
+        </div>
+        <div class="guideButtons">
+          <button id="nextActionButton" onclick="runNextAction()" disabled>Please wait…</button>
+          <button id="cancelReturnHomeButton" class="dangerSolid" onclick="cancelAndReturnHome()" hidden disabled>Cancel &amp; Return Home</button>
+          <button id="confirmHomeCompleteButton" class="secondary" onclick="confirmHomeComplete()" hidden disabled>Robot Is Home — Close Task</button>
+        </div>
+      </div>
+      <ol class="progressTrack" aria-label="Delivery workflow progress">
+        <li id="guideStep1" class="guideStep active"><span class="guideDot">1</span><span>Log package</span></li>
+        <li id="guideStep2" class="guideStep"><span class="guideDot">2</span><span>Recipient schedules</span></li>
+        <li id="guideStep3" class="guideStep"><span class="guideDot">3</span><span>Load robot</span></li>
+        <li id="guideStep4" class="guideStep"><span class="guideDot">4</span><span>Dispatch</span></li>
+        <li id="guideStep5" class="guideStep"><span class="guideDot">5</span><span>Deliver</span></li>
+        <li id="guideStep6" class="guideStep"><span class="guideDot">6</span><span>Return Home</span></li>
+      </ol>
+      <div id="msg" class="message"></div>
+    </section>
+
+    <section id="intakePanel" class="panel" style="margin-top:14px;">
+      <div class="sectionHeader">
+        <span class="sectionNumber">1</span>
+        <div>
+          <h2>Receive and log the package</h2>
+          <div class="subtle">Load the secured drawer, enter the recipient details, then send their scheduling link.</div>
+        </div>
+      </div>
+      <div class="instructionBox">
+        <div class="instruction"><strong>1</strong><span>Press <b>Unlock drawer</b> and place the package inside.</span></div>
+        <div class="instruction"><strong>2</strong><span>Close the drawer fully before continuing.</span></div>
+        <div class="instruction"><strong>3</strong><span>Enter the details below and notify the recipient.</span></div>
+      </div>
+      <div class="actions" style="max-width:260px;">
+        <button id="unlockLoadingButton" class="secondary" onclick="openLockerForLoading()">Unlock drawer for loading</button>
+      </div>
+      <div class="formGrid">
+        <label>
+          Recipient name
+          <input id="packageRecipientName" placeholder="Simon Amanu" required>
+        </label>
+        <label>
+          Recipient email
+          <input id="packageRecipientEmail" type="email" placeholder="name@example.com" required>
+        </label>
+        <label>
+          Delivery destination
+          <select id="packageDestination">
+            {% for destination in destination_choices %}
+            <option value="{{ destination }}">{{ destination }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>
+          Package note <span class="subtle">(optional)</span>
+          <input id="packageLabel" placeholder="Small parcel, envelope, locker item">
+        </label>
+      </div>
+      <div class="actions" style="max-width:240px;">
+        <button id="notifyRecipientButton" onclick="receivePackage()">Save package &amp; notify recipient</button>
+      </div>
+      <div id="packageMsg" class="message"></div>
+    </section>
+
+    <section id="requestsPanel" class="panel" style="margin-top:14px;">
+      <div class="sectionHeader">
+        <span class="sectionNumber">2–4</span>
+        <div>
+          <h2>Scheduling, loading, and dispatch</h2>
+          <div class="subtle">This list tells you whether to wait for the recipient or load and dispatch the robot.</div>
+        </div>
+      </div>
+      <div id="packageRequests" class="requestList">Loading...</div>
+    </section>
+
+    <section id="livePanel" class="panel" style="margin-top:14px;">
+      <div class="sectionHeader">
+        <span class="sectionNumber">5–6</span>
+        <div>
+          <h2>Live delivery and return</h2>
+          <div class="subtle">Monitor the robot here. Completion is confirmed only after it returns Home.</div>
+        </div>
+      </div>
+      <div class="rows">
+        <div class="row"><span>Active Task</span><strong id="activeTask">-</strong></div>
+        <div class="row"><span>Destination</span><strong id="destination">-</strong></div>
+        <div class="row"><span>Recipient</span><strong id="recipient">-</strong></div>
+        <div class="row"><span>Drawer</span><strong id="drawer">-</strong></div>
+        <div class="row"><span>Lock</span><strong id="lockState">-</strong></div>
+        <div class="row"><span>E-stop</span><strong id="powerButton">-</strong></div>
+        <div class="row"><span>Prompt</span><strong id="prompt">-</strong></div>
+      </div>
+    </section>
+
+    <section id="manualRecoveryPanel" class="panel manualPanel" style="margin-top:14px;" hidden>
+      <div class="sectionHeader">
+        <span class="sectionNumber">!</span>
+        <div>
+          <h2>Supervised manual recovery</h2>
+          <div class="subtle">For an on-site administrator when autonomous navigation cannot safely continue.</div>
+        </div>
+      </div>
+      <div class="teleopWarning">
+        Manual commands bypass Nav2 obstacle avoidance. Keep the robot in sight, move slowly, and keep one hand ready for the physical E-stop.
+      </div>
+      <div id="manualStartArea" class="actions" style="max-width:360px;">
+        <button id="startManualButton" class="dangerSolid" onclick="startManualRecovery()">I am on-site — Enable Manual Controls</button>
+      </div>
+      <div id="manualControls" hidden>
+        <p class="subtle"><strong>Hold</strong> W/A/S/D or a direction button to move. Releasing the key/button stops immediately. Space also stops.</p>
+        <div class="teleopPad" aria-label="Manual robot movement controls">
+          <button class="forward" data-teleop="forward">W<br>Forward</button>
+          <button class="left" data-teleop="left">A<br>Left</button>
+          <button class="stop" data-teleop="stop">STOP</button>
+          <button class="right" data-teleop="right">D<br>Right</button>
+          <button class="backward" data-teleop="backward">S<br>Backward</button>
+        </div>
+        <div class="actions" style="max-width:360px; margin:18px auto 0;">
+          <button class="secondary" onclick="exitManualRecovery()">Stop &amp; Exit Manual Mode</button>
+        </div>
+      </div>
+      <div id="manualMsg" class="message"></div>
+    </section>
+
+    <details class="systemDetails">
+      <summary>System details and diagnostics</summary>
+      <div class="systemContent">
+        <section class="grid">
+          <div class="panel metric">
+            <h3>Task State</h3>
+            <strong id="taskState">-</strong>
+            <span id="taskPill" class="pill">-</span>
+          </div>
+          <div class="panel metric">
+            <h3>Email</h3>
+            <strong id="emailState">-</strong>
+            <span id="emailPill" class="pill">-</span>
+          </div>
+          <div class="panel metric">
+            <h3>Operating Mode</h3>
+            <strong id="hardwareState">-</strong>
+            <span id="hardwarePill" class="pill">-</span>
+          </div>
+          <div class="panel metric">
+            <h3>Navigation</h3>
+            <strong id="navState">-</strong>
+          </div>
+        </section>
+        <div class="rows">
+          <div class="row"><span>SMTP Host</span><strong id="smtpHost">-</strong></div>
+          <div class="row"><span>Email From</span><strong id="emailFrom">-</strong></div>
+          <div class="row"><span>Mapped Drawers</span><strong id="mappedDrawers">-</strong></div>
+          <div class="row"><span>Battery Voltage</span><strong id="batteryVoltage">-</strong></div>
+          <div class="row"><span>Battery Reading</span><strong id="batteryReadingSource">-</strong></div>
+          <div class="row"><span>Dispatch Timing</span><strong id="dispatchTiming">-</strong></div>
+          <div class="row"><span>Admin Access</span><strong id="adminPassword">-</strong></div>
+          <div class="row"><span>Arrival Control</span><strong id="serviceKey">-</strong></div>
+        </div>
+      </div>
+    </details>
+  </main>
+
+<script>
+function setText(id, value) {
+  document.getElementById(id).textContent = value === undefined || value === null || value === "" ? "-" : value;
+}
+
+function setPill(id, text, tone = "") {
+  const el = document.getElementById(id);
+  el.textContent = text;
+  el.className = "pill" + (tone ? ` ${tone}` : "");
+}
+
+function boolText(value) {
+  return value ? "Enabled" : "Disabled";
+}
+
+function readableState(value) {
+  if (!value) return "-";
+  return String(value)
+    .replaceAll('_', ' ')
+    .toLowerCase()
+    .replace(/\b\w/g, character => character.toUpperCase());
+}
+
+function escapeHtml(value) {
+  return String(value || "").replace(/[&<>"']/g, ch => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  })[ch]);
+}
+
+function errorText(error) {
+  const map = {
+    NO_ACTIVE_TASK: "No active delivery.",
+    SERVICE_KEY_REQUIRED: "Service key required.",
+    RECIPIENT_EMAIL_REQUIRED: "Recipient email is required.",
+    DESTINATION_REQUIRED: "Delivery destination is required.",
+    DESTINATION_INVALID: "Choose 7201, 7006, 7011, or 7016.",
+    TIME_SLOT_REQUIRED: "Choose a time slot.",
+    TIME_SLOT_UNAVAILABLE: "That time slot is no longer available.",
+    REQUEST_NOT_READY: "Request is not ready to dispatch.",
+    DELIVERY_WINDOW_NOT_READY: "This delivery window is not ready yet.",
+    REQUEST_TIME_INVALID: "The selected delivery window is invalid.",
+    REQUEST_NOT_FOUND: "Request was not found.",
+    REQUEST_NOT_ABORTED: "This request is not waiting for Home confirmation.",
+    ESTOP_ACTIVE: "Release the E-stop after confirming the robot is safe.",
+    DRAWER_NOT_MAPPED: "Drawer is not mapped to a GPIO line.",
+    DRAWER_NOT_LOCKED: "Close and secure the drawer before dispatching. The lock sensor must report Locked.",
+    TASK_ALREADY_ACTIVE: "A delivery is already active.",
+    TASK_ACTIVE: "Finish or cancel the active delivery first.",
+    BATTERY_LOW: "Battery is too low to start a new delivery.",
+    FAULT_ACTIVE: "Clear the fault before dispatching.",
+    RETURN_HOME_NOT_AVAILABLE: "Cancel & Return Home is not available in the current state.",
+    RETURN_HOME_SEND_FAILED: "The return Home command could not be sent.",
+    HOME_CONFIRM_NOT_AVAILABLE: "Physical Home confirmation is not available in the current state.",
+    ESTOP_REQUIRED_FOR_HOME_CONFIRM: "Press the E-stop before confirming that the robot is physically Home.",
+    NAV_CANCEL_FAILED: "The old navigation task could not be closed. Keep the E-stop pressed and try again.",
+    NAV_PAUSE_PENDING: "MailRover is still confirming that the old navigation goal is stopped. Wait a moment and try again.",
+    RESUME_NOT_AVAILABLE: "This delivery is not waiting for an E-stop recovery decision.",
+    RESUME_SEND_FAILED: "The navigation bridge could not resume the journey.",
+    MANUAL_RECOVERY_ACTIVE: "Exit manual recovery before starting autonomous navigation.",
+    MANUAL_RECOVERY_NOT_AVAILABLE: "Manual recovery is available only after a mid-delivery E-stop.",
+    MANUAL_RECOVERY_NOT_ACTIVE: "Manual recovery is not active.",
+    NAVIGATION_ACTIVE: "Autonomous navigation is still active. Wait for the pause to finish.",
+    PAUSE_CONFIRMATION_PENDING: "Nav2 is still confirming that the previous goal is stopped.",
+    SAFETY_STATE_CHANGED: "The safety state changed. Manual controls were not enabled.",
+  };
+  return map[error] || error || "Action failed.";
+}
+
+let estopStopped = false;
+let drawerReadyForDispatch = false;
+let nextActionHandler = null;
+let latestStatus = null;
+let estopAlertAcknowledgedTask = null;
+let recoveryAlertWasActive = false;
+let recoveryVibrated = false;
+let teleopHoldTimer = null;
+let teleopHeldAction = null;
+
+const returnHomeStates = new Set([
+  'TASK_ACTIVE',
+  'RECOVERING',
+  'BLOCKED',
+  'FAULT',
+  'E_STOPPED_AWAITING_OPERATOR',
+  'ABORTED_WAITING_OPERATOR',
+  'RETURN_ABORTED'
+]);
+
+const confirmHomeStates = new Set([
+  'E_STOPPED_AWAITING_OPERATOR',
+  'ABORTED_WAITING_OPERATOR',
+  'RETURN_ABORTED',
+  'FAULT',
+  'BLOCKED'
+]);
+
+function pillForStatus(status) {
+  if (status === "SCHEDULED") return '<span class="pill info">Scheduled</span>';
+  if (status === "DISPATCHED") return '<span class="pill info">In Transit</span>';
+  if (status === "ARRIVED") return '<span class="pill ok">Arrived</span>';
+  if (status === "RETURNING") return '<span class="pill info">Returning Home</span>';
+  if (status === "PAUSED") return '<span class="pill danger">Paused by E-stop</span>';
+  if (status === "COMPLETED") return '<span class="pill ok">Completed</span>';
+  if (status === "ABORTED") return '<span class="pill danger">Needs Attention</span>';
+  if (status === "CANCELED") return '<span class="pill danger">Canceled</span>';
+  return '<span class="pill warn">Notified</span>';
+}
+
+function packageInstruction(req) {
+  if (req.status === 'NOTIFIED') return 'Waiting for the recipient to choose a delivery time.';
+  if (req.status === 'SCHEDULED' && req.can_dispatch) return 'Next: unlock the drawer, load the package, close it, then dispatch.';
+  if (req.status === 'SCHEDULED') return req.dispatch_ready_at
+    ? `Scheduled. Dispatch becomes available at ${escapeHtml(req.dispatch_ready_at)}.`
+    : 'Scheduled. Wait for the delivery window.';
+  if (req.status === 'DISPATCHED') return 'Robot is traveling to the recipient.';
+  if (req.status === 'ARRIVED') return 'Robot arrived. Waiting for the recipient to retrieve the package.';
+  if (req.status === 'RETURNING') return 'Package retrieved. Robot is returning Home.';
+  if (req.status === 'PAUSED') return 'Emergency stop recovery decision required.';
+  if (req.status === 'ABORTED') return 'Robot needs administrator attention.';
+  if (req.status === 'COMPLETED') return 'Delivery and return Home confirmed.';
+  if (req.status === 'CANCELED') return 'This request was canceled.';
+  return 'Request received.';
+}
+
+function renderPackageCard(req) {
+    const dispatchButton = req.status === "SCHEDULED" && req.can_dispatch
+      ? (
+          estopStopped
+            ? `<button disabled title="Release the E-stop after confirming the robot is safe">Dispatch</button>`
+            : (
+                drawerReadyForDispatch
+                  ? `<button onclick="dispatchPackage('${req.request_id}')">Dispatch to ${escapeHtml(req.destination)}</button>`
+                  : `<button disabled title="Close and secure the drawer before dispatching">Close drawer to dispatch</button>`
+              )
+        )
+      : "";
+    const estopDispatchInfo = req.status === "SCHEDULED" && req.can_dispatch && estopStopped
+      ? "E-stop is active. Confirm safety and release it before dispatch."
+      : "";
+    const drawerDispatchInfo = req.status === "SCHEDULED" && req.can_dispatch && !drawerReadyForDispatch
+      ? "The drawer must be physically closed and the lock sensor must report Locked."
+      : "";
+    const cancelButton = ["NOTIFIED", "SCHEDULED"].includes(req.status)
+      ? `<button class="danger" onclick="cancelPackage('${req.request_id}')">Cancel</button>`
+      : "";
+    const confirmHomeButton = req.status === "ABORTED"
+      ? `<button class="secondary" onclick="confirmPackageHome('${req.request_id}')">At Home &amp; Complete</button>`
+      : "";
+    const dispatchInfo = req.status === "SCHEDULED" && !req.can_dispatch && req.dispatch_ready_at
+      ? `Dispatch ready at ${escapeHtml(req.dispatch_ready_at)}`
+      : "";
+    const slot = escapeHtml(req.requested_slot || "Waiting for recipient");
+    const destination = escapeHtml(req.destination || "No destination yet");
+    const cancelInfo = req.can_cancel && req.cancel_deadline ? `Cancel by ${escapeHtml(req.cancel_deadline)}` : "";
+    const label = escapeHtml(req.package_label || "Mail/package");
+    const name = escapeHtml(req.recipient_name || "Resident");
+    const email = escapeHtml(req.recipient_email);
+    const actionable = req.status === 'SCHEDULED' && req.can_dispatch ? ' actionable' : '';
+    return `
+      <div class="requestItem${actionable}">
+        <div>
+          <strong>${name}</strong>
+          <span class="meta">${email}</span>
+          <span class="meta">${label}</span>
+        </div>
+        <div>
+          <strong>${slot}</strong>
+          <span class="meta">${destination}</span>
+          <span class="meta">${cancelInfo}</span>
+          <span class="meta">${dispatchInfo}</span>
+          <span class="meta">${estopDispatchInfo}</span>
+          <span class="meta">${drawerDispatchInfo}</span>
+          <span class="actionHint">${packageInstruction(req)}</span>
+        </div>
+        <div class="requestActions">${pillForStatus(req.status)}${dispatchButton}${cancelButton}${confirmHomeButton}</div>
+      </div>
+    `;
+}
+
+function renderPackages(data) {
+  const box = document.getElementById('packageRequests');
+  const existingHistory = document.getElementById('pastDeliveriesDetails');
+  const historyWasOpen = Boolean(existingHistory && existingHistory.open);
+  const requests = data.requests || [];
+  const current = requests.filter(req => !['COMPLETED', 'CANCELED'].includes(req.status));
+  const history = requests.filter(req => ['COMPLETED', 'CANCELED'].includes(req.status));
+
+  const currentHtml = current.length
+    ? `<h3>Current requests</h3>${current.map(renderPackageCard).join('')}`
+    : '<div class="emptyState">No current requests. Start with Step 1 above.</div>';
+
+  const historyHtml = history.length
+    ? `<details id="pastDeliveriesDetails" class="historyDetails"><summary>Past deliveries (${history.length})</summary><div class="requestList">${history.map(renderPackageCard).join('')}</div></details>`
+    : '';
+
+  box.innerHTML = currentHtml + historyHtml;
+
+  const updatedHistory = document.getElementById('pastDeliveriesDetails');
+  if (updatedHistory) updatedHistory.open = historyWasOpen;
+}
+
+function focusPanel(id) {
+  const panel = document.getElementById(id);
+  if (!panel) return;
+  panel.scrollIntoView({behavior: 'smooth', block: 'start'});
+  panel.classList.remove('focusFlash');
+  window.setTimeout(() => panel.classList.add('focusFlash'), 20);
+}
+
+function setGuideStep(currentStep) {
+  document.getElementById('currentStepBadge').textContent = currentStep;
+  for (let step = 1; step <= 6; step += 1) {
+    const item = document.getElementById(`guideStep${step}`);
+    item.className = 'guideStep';
+    if (step < currentStep) item.classList.add('done');
+    if (step === currentStep) item.classList.add('active');
+  }
+}
+
+function configureGuide(step, title, description, buttonLabel, handler, disabled = false) {
+  setGuideStep(step);
+  setText('nextActionTitle', title);
+  setText('nextActionDescription', description);
+  const button = document.getElementById('nextActionButton');
+  button.textContent = buttonLabel;
+  button.disabled = disabled;
+  nextActionHandler = disabled ? null : handler;
+}
+
+function runNextAction() {
+  if (nextActionHandler) nextActionHandler();
+}
+
+function actualWorkflowStep(s, requests) {
+  if (s.active_task_id) {
+    return ['RETURNING_TO_LOADING', 'RETURNING_TO_LOADING_BAY', 'RETURN_ABORTED'].includes(s.task_state) || s.estop_interrupted_mission_type === 'return'
+      ? 6
+      : 5;
+  }
+
+  const scheduled = requests.find(req => req.status === 'SCHEDULED');
+  if (scheduled) {
+    return s.loading_started && drawerReadyForDispatch ? 4 : 3;
+  }
+
+  if (requests.some(req => req.status === 'NOTIFIED')) return 2;
+  return 1;
+}
+
+function updateGuide(s, packageData) {
+  const requests = packageData.requests || [];
+  const scheduled = requests.find(req => req.status === 'SCHEDULED');
+  const waiting = requests.find(req => req.status === 'NOTIFIED');
+  const returning = ['RETURNING_TO_LOADING', 'RETURNING_TO_LOADING_BAY'].includes(s.task_state);
+  const arrived = ['ARRIVED_AUTH_REQUIRED', 'AWAITING_RELOCK'].includes(s.task_state);
+  const returnFailed = s.task_state === 'RETURN_ABORTED';
+  const needsHelp = ['FAULT', 'BLOCKED', 'ABORTED_WAITING_OPERATOR', 'RETURN_ABORTED'].includes(s.task_state);
+  const stoppingSafely = ['SAFE_HOLD', 'ABORTING', 'RETURN_ABORTING', 'CANCELING'].includes(s.task_state);
+  const estopDecision = s.task_state === 'E_STOPPED_AWAITING_OPERATOR';
+  const manualRecovery = s.task_state === 'MANUAL_RECOVERY';
+
+  if (estopStopped) {
+    const currentWorkflowStep = actualWorkflowStep(s, requests);
+    configureGuide(
+      currentWorkflowStep,
+      'E-stop is active',
+      `Workflow is paused at Step ${currentWorkflowStep}. Confirm the robot and surrounding area are safe, then release the physical E-stop to continue.`,
+      'Waiting for E-stop release',
+      null,
+      true
+    );
+    return;
+  }
+
+  if (s.active_task_id) {
+    if (manualRecovery) {
+      configureGuide(actualWorkflowStep(s, requests), 'Manual recovery is active', 'Keep MailRover in sight. Hold a direction to move and exit manual mode before choosing autonomous Continue or Return Home.', 'View manual controls', () => focusPanel('manualRecoveryPanel'));
+    } else if (estopDecision) {
+      configureGuide(actualWorkflowStep(s, requests), 'Choose the safe recovery action', 'After inspecting the robot, continue its interrupted journey, send it Home, or use supervised manual recovery.', 'Review recovery choices', () => showEstopRecoveryModal(true));
+    } else if (returning) {
+      configureGuide(6, 'Robot is returning Home', 'No action is needed. Keep this page open until the return is confirmed.', 'View live return', () => focusPanel('livePanel'));
+    } else if (returnFailed) {
+      configureGuide(6, `Return Home stopped after ${s.route_recovery_count || 10} attempts`, 'MailRover will not retry automatically. Inspect the robot and route before choosing any further action. Manual assistance may be required.', 'View stopped robot', () => focusPanel('livePanel'));
+    } else if (arrived) {
+      configureGuide(5, 'Robot has arrived', 'The recipient has their unlock instructions. Wait while they retrieve the package and secure the drawer.', 'View live delivery', () => focusPanel('livePanel'));
+    } else if (stoppingSafely) {
+      configureGuide(5, 'Robot is stopping safely', 'Do not dispatch another task. Review the live prompt and wait for the safety operation to finish.', 'View safety status', () => focusPanel('livePanel'));
+    } else if (needsHelp) {
+      configureGuide(5, 'Robot needs attention', 'Review the live status. If it is safe to do so, use Cancel & Return Home.', 'View robot status', () => focusPanel('livePanel'));
+    } else {
+      configureGuide(5, 'Delivery is in progress', `MailRover is traveling to ${s.destination || 'the destination'}. Monitor it below; completion will not occur until it returns Home.`, 'View live delivery', () => focusPanel('livePanel'));
+    }
+    return;
+  }
+
+  if (scheduled) {
+    if (scheduled.can_dispatch) {
+      if (s.loading_started && drawerReadyForDispatch) {
+        configureGuide(4, `Ready to dispatch to ${scheduled.destination}`, 'The drawer is closed and the lock sensor reports Locked. Complete the safety check, then use the highlighted Dispatch button.', 'Go to Dispatch', () => focusPanel('requestsPanel'));
+      } else if (s.loading_started) {
+        configureGuide(3, `Secure the package for ${scheduled.recipient_name}`, 'Close the drawer completely. Step 4 will become available only after the physical lock sensor reports Locked.', 'Waiting for drawer lock', null, true);
+      } else {
+        configureGuide(3, `Load the package for ${scheduled.recipient_name}`, `Destination: ${scheduled.destination}. Unlock the drawer, load the package, and close it securely.`, 'Unlock drawer now', () => openLockerForLoading(true));
+      }
+    } else {
+      configureGuide(3, `Delivery is scheduled for ${scheduled.recipient_name}`, 'Wait until the dispatch time shown on the request. You can prepare the package when the window approaches.', 'View scheduled request', () => focusPanel('requestsPanel'));
+    }
+    return;
+  }
+
+  if (waiting) {
+    configureGuide(2, `Waiting for ${waiting.recipient_name}`, 'The scheduling link has been sent. No action is needed until the recipient chooses a time.', 'View waiting request', () => focusPanel('requestsPanel'));
+    return;
+  }
+
+  configureGuide(1, 'Log the newly received package', 'Unlock the drawer, load and close it, then enter the recipient details and send their scheduling link.', 'Start package intake', () => focusPanel('intakePanel'));
+}
+
+function showEstopRecoveryModal(force = false) {
+  if (!latestStatus || latestStatus.task_state !== 'E_STOPPED_AWAITING_OPERATOR') return;
+  if (force) estopAlertAcknowledgedTask = null;
+  document.getElementById('estopRecoveryModal').classList.add('show');
+}
+
+function acknowledgeEstopAlert() {
+  if (!latestStatus) return;
+  estopAlertAcknowledgedTask = latestStatus.active_task_id;
+  document.getElementById('estopRecoveryModal').classList.remove('show');
+}
+
+function updateRecoveryUi(s) {
+  const paused = s.task_state === 'E_STOPPED_AWAITING_OPERATOR';
+  const manual = s.task_state === 'MANUAL_RECOVERY' && Boolean(s.manual_recovery_active);
+  const recoveryActive = paused || manual;
+  const modal = document.getElementById('estopRecoveryModal');
+  const panel = document.getElementById('manualRecoveryPanel');
+
+  panel.hidden = !recoveryActive;
+  document.getElementById('manualStartArea').hidden = manual || estopStopped;
+  document.getElementById('manualControls').hidden = !manual;
+  document.getElementById('startManualButton').disabled = estopStopped || !paused || Boolean(s.nav_pause_pending);
+
+  if (!recoveryActive) {
+    modal.classList.remove('show');
+    estopAlertAcknowledgedTask = null;
+    recoveryAlertWasActive = false;
+    recoveryVibrated = false;
+    stopTeleopHold(false);
+    return;
+  }
+
+  if (manual) {
+    modal.classList.remove('show');
+    recoveryAlertWasActive = true;
+    return;
+  }
+
+  const task = s.active_task_id;
+  if (!recoveryAlertWasActive) {
+    estopAlertAcknowledgedTask = null;
+    recoveryVibrated = false;
+  }
+  recoveryAlertWasActive = true;
+
+  const released = !estopStopped;
+  const pauseConfirmed = !Boolean(s.nav_pause_pending);
+  const choicesReady = released && pauseConfirmed;
+  document.getElementById('resumeDeliveryButton').disabled = !choicesReady;
+  document.getElementById('modalReturnHomeButton').disabled = !choicesReady;
+  document.getElementById('modalManualButton').disabled = !choicesReady;
+  document.getElementById('acknowledgeEstopButton').hidden = released;
+  document.getElementById('estopPressedInstruction').textContent = released
+    ? (pauseConfirmed
+      ? 'E-stop released. Select exactly one recovery action. The robot will not move until you choose.'
+      : 'E-stop released. Waiting for Nav2 to confirm the previous goal is stopped…')
+    : 'Keep the E-stop pressed while investigating. Recovery choices unlock only after the physical E-stop is released.';
+  document.getElementById('estopRecoveryText').textContent = released
+    ? `MailRover task ${task || ''} remains stopped. Confirm the route is clear, then choose how it should proceed.`
+    : `MailRover task ${task || ''} stopped during motion. Go to the robot and investigate before taking any action.`;
+
+  // Acknowledgement may hide the alert while the operator walks to the robot.
+  // Releasing E-stop always brings the decision window back.
+  if (released || estopAlertAcknowledgedTask !== task) modal.classList.add('show');
+  else modal.classList.remove('show');
+
+  if (!recoveryVibrated) {
+    recoveryVibrated = true;
+    if (navigator.vibrate) navigator.vibrate([500, 180, 500, 180, 850]);
+  }
+}
+
+async function resumeAfterEstop() {
+  const confirmed = window.confirm('Continue the interrupted journey from MailRover\'s current pose? Confirm the robot and route are safe.');
+  if (!confirmed) return;
+  document.getElementById('estopRecoveryModal').classList.remove('show');
+  await runAction('/admin/delivery/resume_after_estop', {method: 'POST'}, 'Journey resumed from the current pose.');
+  getStatus();
+}
+
+async function returnHomeAfterEstop() {
+  const confirmed = window.confirm('Cancel the interrupted journey and command MailRover to return Home from its current pose?');
+  if (!confirmed) return;
+  document.getElementById('estopRecoveryModal').classList.remove('show');
+  await runAction('/admin/delivery/cancel_return_home', {method: 'POST'}, 'Interrupted goal canceled. MailRover is returning Home.');
+  getStatus();
+}
+
+function openManualRecovery() {
+  document.getElementById('estopRecoveryModal').classList.remove('show');
+  focusPanel('manualRecoveryPanel');
+}
+
+async function startManualRecovery() {
+  const confirmed = window.confirm(
+    'Enable manual recovery?\n\nNav2 obstacle avoidance will be bypassed. You must be beside the robot, keep it in sight, and be ready to press the physical E-stop.'
+  );
+  if (!confirmed) return;
+  const result = await runAction('/admin/manual-recovery/start', {method: 'POST'}, 'Manual recovery enabled. Hold a direction to move.');
+  if (result && result.ok) focusPanel('manualRecoveryPanel');
+  getStatus();
+}
+
+async function sendTeleop(action) {
+  try {
+    const response = await fetch('/admin/manual-recovery/command', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({action}),
+      keepalive: action === 'stop'
+    });
+    const result = await response.json();
+    if (!response.ok || !result.ok) {
+      document.getElementById('manualMsg').textContent = errorText(result.error || result.message);
+      stopTeleopHold(false);
+    }
+  } catch (error) {
+    document.getElementById('manualMsg').textContent = 'Control connection lost. The deadman timer has stopped the robot.';
+    stopTeleopHold(false);
+  }
+}
+
+function startTeleopHold(action) {
+  if (!latestStatus || latestStatus.task_state !== 'MANUAL_RECOVERY' || estopStopped) return;
+  if (action === 'stop') {
+    stopTeleopHold(true);
+    return;
+  }
+  if (teleopHeldAction === action) return;
+  stopTeleopHold(true);
+  teleopHeldAction = action;
+  sendTeleop(action);
+  teleopHoldTimer = window.setInterval(() => sendTeleop(action), 100);
+}
+
+function stopTeleopHold(sendStop = true) {
+  if (teleopHoldTimer) window.clearInterval(teleopHoldTimer);
+  teleopHoldTimer = null;
+  const wasMoving = Boolean(teleopHeldAction);
+  teleopHeldAction = null;
+  if (sendStop && (wasMoving || (latestStatus && latestStatus.task_state === 'MANUAL_RECOVERY'))) {
+    sendTeleop('stop');
+  }
+}
+
+async function exitManualRecovery() {
+  stopTeleopHold(true);
+  await runAction('/admin/manual-recovery/stop', {method: 'POST'}, 'Manual motion stopped. Choose Continue or Return Home.');
+  getStatus();
+}
+
+async function getStatus() {
+  try {
+    const [statusRes, healthRes, packageRes] = await Promise.all([
+      fetch('/status'),
+      fetch('/admin/health'),
+      fetch('/admin/packages')
+    ]);
+    const s = await statusRes.json();
+    latestStatus = s;
+    const h = await healthRes.json();
+    const packages = await packageRes.json();
+
+    setText('taskState', readableState(s.task_state));
+    setPill('taskPill', s.comm_ok ? 'Connection OK' : 'Connection Lost', s.comm_ok ? 'ok' : 'danger');
+
+    setText('emailState', boolText(h.email.enabled));
+    const emailReady = h.email.enabled && h.email.smtp_host && h.email.smtp_password_set;
+    setPill('emailPill', emailReady ? 'SMTP Ready' : 'Needs Setup', emailReady ? 'ok' : 'warn');
+
+    setText('hardwareState', h.mode === 'hardware' ? 'Hardware Mode' : 'Development Mode');
+    setPill('hardwarePill', h.hardware.solenoid_gpio_enabled ? 'Solenoid GPIO' : 'Dev Simulation', h.hardware.solenoid_gpio_enabled ? 'ok' : 'warn');
+
+    setText('navState', readableState(s.nav_status));
+
+    const estop = h.hardware.estop || {};
+    estopStopped = Boolean(estop.stopped);
+    drawerReadyForDispatch = !Boolean(s.lock_feedback_required) || s.lock_state === 'LOCKED';
+    if (estop.state === "UNKNOWN") {
+      setPill('estopPill', 'E-stop Unknown', 'warn');
+    } else if (estopStopped) {
+      setPill('estopPill', 'E-stop Stopped', 'danger');
+    } else {
+      setPill('estopPill', 'E-stop Ready', 'ok');
+    }
+
+    const batteryPercent = Math.max(0, Math.min(100, Number(s.battery_percent) || 0));
+    const batteryAdcOk = Boolean(s.battery_adc_ok);
+    const batteryVoltage = Number(s.battery_voltage_mv) > 0
+      ? `${(Number(s.battery_voltage_mv) / 1000).toFixed(2)} V`
+      : '';
+    const batteryLevel = !batteryAdcOk
+      ? 'warn'
+      : (batteryPercent < Number(s.critical_battery_percent)
+        ? 'danger'
+        : (batteryPercent < Number(s.low_battery_block_percent) ? 'warn' : 'ok'));
+    setPill(
+      'batteryPill',
+      `Battery ${batteryPercent}%`,
+      batteryLevel
+    );
+    setText('batteryVoltage', batteryVoltage || 'Unavailable');
+    setText(
+      'batteryReadingSource',
+      batteryAdcOk ? 'Live ADC' : (batteryVoltage ? 'Last valid reading' : 'ADC unavailable')
+    );
+
+    setText('activeTask', s.active_task_id);
+    setText('destination', s.destination);
+    setText('recipient', s.recipient_id);
+    setText('drawer', s.drawer_id ? `${s.drawer_id} active` : '-');
+    setText('lockState', s.lock_state);
+    setText('prompt', s.drawer_prompt);
+
+    setText('smtpHost', h.email.smtp_host);
+    setText('emailFrom', h.email.from);
+    setText('adminPassword', h.security.admin_password_set ? 'Configured' : 'Missing');
+    setText('serviceKey', h.security.service_key_set ? 'Configured' : 'Missing');
+    setText('mappedDrawers', (h.hardware.mapped_drawers || []).join(', '));
+    setText('dispatchTiming', h.workflow.enforce_delivery_window ? `Window enforced (${h.workflow.dispatch_lead_minutes} min lead)` : 'Demo immediate dispatch');
+    setText('powerButton', estop.state || '-');
+
+    const cancelReturnButton = document.getElementById('cancelReturnHomeButton');
+    const canReturnHome = Boolean(s.active_task_id) && returnHomeStates.has(s.task_state) && !estopStopped && !Boolean(s.nav_pause_pending);
+    cancelReturnButton.disabled = !canReturnHome;
+    cancelReturnButton.hidden = !canReturnHome;
+    cancelReturnButton.title = canReturnHome
+      ? 'Cancel the current navigation goal and return Home'
+      : (estopStopped ? 'Release the E-stop after the robot is safe' : 'Available during an active delivery');
+
+    const confirmHomeButton = document.getElementById('confirmHomeCompleteButton');
+    const canOfferHomeConfirmation = Boolean(s.active_task_id) && confirmHomeStates.has(s.task_state);
+    const canConfirmHome = canOfferHomeConfirmation && estopStopped;
+    confirmHomeButton.hidden = !canOfferHomeConfirmation;
+    confirmHomeButton.disabled = !canConfirmHome;
+    confirmHomeButton.title = canConfirmHome
+      ? 'Use only after physically confirming the robot is at Home and the package was delivered'
+      : 'Press the E-stop before confirming physical Home';
+
+    if (packages.ok) {
+      renderPackages(packages);
+      updateGuide(s, packages);
+    }
+    updateRecoveryUi(s);
+  } catch (e) {
+    setPill('batteryPill', 'Battery unavailable', 'warn');
+    configureGuide(1, 'MailRover is offline', 'Check that the app is running, then refresh this page.', 'Waiting for connection', null, true);
+  }
+}
+
+async function runAction(path, options = {}, successText = "Action complete.") {
+  const msg = document.getElementById('msg');
+  msg.textContent = "Working...";
+  msg.className = "message";
+
+  try {
+    const r = await fetch(path, options);
+    const res = await r.json();
+    if (res.ok) {
+      msg.textContent = successText;
+      msg.className = "message ok";
+    } else {
+      msg.textContent = errorText(res.error);
+      msg.className = "message danger";
+    }
+    getStatus();
+    return res;
+  } catch (e) {
+    msg.textContent = "Network error.";
+    msg.className = "message danger";
+  }
+  getStatus();
+  return null;
+}
+
+async function receivePackage() {
+  const msg = document.getElementById('packageMsg');
+  const recipientName = document.getElementById('packageRecipientName').value.trim();
+  const recipientEmail = document.getElementById('packageRecipientEmail').value.trim();
+
+  if (!recipientName) {
+    msg.textContent = "Enter the recipient's name to continue.";
+    msg.className = "message danger";
+    document.getElementById('packageRecipientName').focus();
+    return;
+  }
+
+  if (!recipientEmail || !document.getElementById('packageRecipientEmail').checkValidity()) {
+    msg.textContent = "Enter a valid recipient email address.";
+    msg.className = "message danger";
+    document.getElementById('packageRecipientEmail').focus();
+    return;
+  }
+
+  msg.textContent = "Sending notification...";
+  msg.className = "message";
+
+  const payload = {
+    recipient_name: recipientName,
+    recipient_email: recipientEmail,
+    destination: document.getElementById('packageDestination').value,
+    package_label: document.getElementById('packageLabel').value
+  };
+
+  try {
+    const r = await fetch('/package/receive', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+    const res = await r.json();
+    if (res.ok) {
+      msg.textContent = "Recipient notified. Step 2: wait for them to choose a delivery time.";
+      msg.className = "message ok";
+      document.getElementById('packageRecipientName').value = "";
+      document.getElementById('packageRecipientEmail').value = "";
+      document.getElementById('packageDestination').selectedIndex = 0;
+      document.getElementById('packageLabel').value = "";
+    } else {
+      msg.textContent = errorText(res.error);
+      msg.className = "message danger";
+    }
+  } catch (e) {
+    msg.textContent = "Network error.";
+    msg.className = "message danger";
+  }
+
+  getStatus();
+}
+
+async function dispatchPackage(requestId) {
+  const msg = document.getElementById('packageMsg');
+  if (!window.confirm('Final safety check:\n\n• Package is inside the drawer\n• Drawer is fully closed and locked\n• Route is clear\n• E-stop is ready\n\nDispatch MailRover now?')) return;
+  msg.textContent = "Dispatching delivery...";
+  msg.className = "message";
+
+  try {
+    const r = await fetch(`/package/${requestId}/dispatch`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({drawer_id: "D1"})
+    });
+    const res = await r.json();
+    if (res.ok) {
+      msg.textContent = "Delivery dispatched. Step 5: monitor the live delivery below.";
+      msg.className = "message ok";
+      window.setTimeout(() => focusPanel('livePanel'), 350);
+    } else {
+      msg.textContent = res.message || errorText(res.error);
+      msg.className = "message danger";
+    }
+  } catch (e) {
+    msg.textContent = "Network error.";
+    msg.className = "message danger";
+  }
+
+  getStatus();
+}
+
+async function cancelPackage(requestId) {
+  const msg = document.getElementById('packageMsg');
+  if (!window.confirm("Cancel this delivery request?")) return;
+
+  msg.textContent = "Canceling request...";
+  msg.className = "message";
+
+  try {
+    const r = await fetch(`/package/${requestId}/admin_cancel`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'}
+    });
+    const res = await r.json();
+    if (res.ok) {
+      msg.textContent = "Request canceled.";
+      msg.className = "message ok";
+    } else {
+      msg.textContent = errorText(res.error);
+      msg.className = "message danger";
+    }
+  } catch (e) {
+    msg.textContent = "Network error.";
+    msg.className = "message danger";
+  }
+
+  getStatus();
+}
+
+function confirmPackageHome(requestId) {
+  const confirmed = window.confirm(
+    'Confirm the package was delivered and the robot is physically at Home.\n\n' +
+    'Keep the E-stop pressed. This will move the Needs Attention record to Completed.'
+  );
+  if (!confirmed) return;
+
+  runAction(
+    `/package/${requestId}/confirm_home_complete`,
+    {method: 'POST'},
+    'The delivery was marked Completed and moved to Past deliveries.'
+  );
+}
+
+async function openLockerForLoading(showDispatchAfter = false) {
+  const result = await runAction('/admin/drawer/pulse_unlock', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({drawer_id: "D1"})
+  }, "Drawer unlock pulse sent. Place the package inside, then close it fully.");
+  if (result && result.ok && showDispatchAfter) window.setTimeout(() => focusPanel('requestsPanel'), 350);
+}
+
+function cancelAndReturnHome() {
+  if (!window.confirm('Cancel the current navigation goal and return the robot Home?')) return;
+
+  runAction('/admin/delivery/cancel_return_home', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'}
+  }, 'Current goal canceled. Robot is returning Home.');
+}
+
+function confirmHomeComplete() {
+  const confirmed = window.confirm(
+    'Confirm BOTH conditions:\n\n' +
+    '1. The package was delivered.\n' +
+    '2. The robot is physically at Home/loading bay.\n\n' +
+    'The E-stop must remain pressed. This will close the preserved task.'
+  );
+
+  if (!confirmed) return;
+
+  runAction(
+    '/admin/delivery/confirm_home_complete',
+    {method: 'POST'},
+    'Home confirmed. The completed delivery was closed and MailRover is ready for the next package.'
+  );
+}
+
+document.querySelectorAll('[data-teleop]').forEach(button => {
+  const action = button.dataset.teleop;
+  button.addEventListener('pointerdown', event => {
+    event.preventDefault();
+    button.setPointerCapture?.(event.pointerId);
+    startTeleopHold(action);
+  });
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(name => {
+    button.addEventListener(name, () => stopTeleopHold(true));
+  });
+});
+
+const teleopKeyMap = {
+  w: 'forward',
+  s: 'backward',
+  a: 'left',
+  d: 'right'
+};
+
+window.addEventListener('keydown', event => {
+  const tag = document.activeElement?.tagName?.toLowerCase();
+  if (['input', 'select', 'textarea'].includes(tag)) return;
+  if (!latestStatus || latestStatus.task_state !== 'MANUAL_RECOVERY') return;
+  if (event.code === 'Space') {
+    event.preventDefault();
+    stopTeleopHold(true);
+    return;
+  }
+  const action = teleopKeyMap[event.key.toLowerCase()];
+  if (action) {
+    event.preventDefault();
+    startTeleopHold(action);
+  }
+});
+
+window.addEventListener('keyup', event => {
+  const action = teleopKeyMap[event.key.toLowerCase()];
+  if (action && teleopHeldAction === action) {
+    event.preventDefault();
+    stopTeleopHold(true);
+  }
+});
+
+window.addEventListener('blur', () => stopTeleopHold(true));
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopTeleopHold(true);
+});
+window.addEventListener('beforeunload', () => stopTeleopHold(true));
+
+getStatus();
+setInterval(getStatus, 1000);
+</script>
+</body>
+</html>

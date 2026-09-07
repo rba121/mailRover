@@ -1,0 +1,106 @@
+[INFO] [1785902818.660636045] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785902818.833358365] [controller_server]: Creating controller server
+[INFO] [1785902820.229168101] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785902820.242917021] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1785902820.848246096] [controller_server]: Configuring controller interface
+[INFO] [1785902820.849104175] [controller_server]: getting progress checker plugins..
+[INFO] [1785902820.852423580] [controller_server]: getting goal checker plugins..
+[INFO] [1785902820.856220710] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1785902820.857982107] [local_costmap.local_costmap]: Configuring
+[INFO] [1785902820.900054779] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1785902820.957733676] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1785902821.004416593] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1785902821.004520075] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1785902821.012570874] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1785902821.117393801] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1785902821.119922258] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1785902821.124511411] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1785902821.127743112] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1785902821.140591027] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1785902821.167990515] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1785902821.184764728] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1785902821.184889469] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1785902821.200440639] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1785902821.200529139] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1785902821.200562288] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1785902821.206765744] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1785902821.206862652] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1785902821.213074924] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1785902821.213177017] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1785902821.223289345] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1785902821.223966589] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1785902821.230184286] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1785902821.233459525] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1785902821.233549451] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1785902821.234381844] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1785902821.234522567] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1785902821.238625588] [controller_server]: Optimizer reset
+[INFO] [1785902821.267298952] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1785902821.268655348] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1785902823.818519695] [controller_server]: Activating
+[INFO] [1785902823.818579454] [local_costmap.local_costmap]: Activating
+[INFO] [1785902823.818595566] [local_costmap.local_costmap]: Checking transform
+[INFO] [1785902823.818800956] [local_costmap.local_costmap]: start
+[WARN] [1785902824.025251479] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1785902824.025511592] [controller_server]: Optimizer reset
+[INFO] [1785902824.027188619] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1785902824.027279804] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1785902861.068254734] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1785902861.068372901] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1785902861.068403087] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1785902862.268731705] [controller_server]: Passing new path to controller.
+[INFO] [1785902863.368694641] [controller_server]: Passing new path to controller.
+[INFO] [1785902864.468693095] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1785902864.468775670] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1785902864.469512470] [controller_server]: Optimizer reset
+[INFO] [1785902915.784627679] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785902916.985417763] [controller_server]: Passing new path to controller.
+[INFO] [1785902918.085170308] [controller_server]: Passing new path to controller.
+[INFO] [1785902919.185466246] [controller_server]: Passing new path to controller.
+[INFO] [1785902920.384920175] [controller_server]: Passing new path to controller.
+[INFO] [1785902921.484982111] [controller_server]: Passing new path to controller.
+[INFO] [1785902922.687504926] [controller_server]: Passing new path to controller.
+[INFO] [1785902923.785096313] [controller_server]: Passing new path to controller.
+[INFO] [1785902924.885007896] [controller_server]: Passing new path to controller.
+[INFO] [1785902925.987746401] [controller_server]: Passing new path to controller.
+[INFO] [1785902927.090551833] [controller_server]: Passing new path to controller.
+[INFO] [1785902928.285882575] [controller_server]: Passing new path to controller.
+[INFO] [1785902929.386205827] [controller_server]: Passing new path to controller.
+[INFO] [1785902930.484909368] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1785902930.484988016] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1785902930.485404426] [controller_server]: Optimizer reset
+[INFO] [1785902986.933480272] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785902988.035008364] [controller_server]: Passing new path to controller.
+[INFO] [1785902989.233722419] [controller_server]: Passing new path to controller.
+[INFO] [1785902990.333770540] [controller_server]: Passing new path to controller.
+[INFO] [1785902991.433753920] [controller_server]: Passing new path to controller.
+[INFO] [1785902992.533714115] [controller_server]: Passing new path to controller.
+[INFO] [1785902993.633717681] [controller_server]: Passing new path to controller.
+[INFO] [1785902994.734340435] [controller_server]: Passing new path to controller.
+[INFO] [1785902995.933890272] [controller_server]: Passing new path to controller.
+[INFO] [1785902997.033713077] [controller_server]: Passing new path to controller.
+[INFO] [1785902998.133697957] [controller_server]: Passing new path to controller.
+[INFO] [1785902999.138203716] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1785902999.138296939] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1785902999.159641526] [controller_server]: Optimizer reset
+[INFO] [1785903076.393350662] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785903078.893830079] [controller_server]: Passing new path to controller.
+[INFO] [1785903094.347283244] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1785903094.347424004] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1785903094.347546986] [controller_server]: Deactivating
+[WARN] [1785903094.347574190] [controller_server]: [follow_path] [ActionServer] Requested to deactivate server but goal is still executing. Should check if action server is running before deactivating.
+[WARN] [1785903094.400933473] [controller_server]: [follow_path] [ActionServer] Stopping the thread per request.
+[WARN] [1785903094.401017769] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1785903094.409045809] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[INFO] [1785903094.409150736] [local_costmap.local_costmap]: Deactivating
+[INFO] [1785903094.428449146] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1785903094.678337589] [controller_server]: Cleaning up
+[INFO] [1785903094.829097707] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[INFO] [1785903094.829820470] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1785903096.148444527] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

@@ -1,0 +1,16 @@
+[Unit]
+Description=MailRover Flask App
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=mypi
+WorkingDirectory=/home/mypi/mailrover
+EnvironmentFile=/home/mypi/mailrover/.env
+ExecStart=/home/mypi/mailrover/.venv/bin/python /home/mypi/mailrover/app.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

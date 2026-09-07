@@ -1,0 +1,32 @@
+[INFO] [1784079518.582373924] [bt_navigator]: 
+	bt_navigator lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784079518.586724596] [bt_navigator]: Creating
+[INFO] [1784079522.586214925] [bt_navigator]: Configuring
+[INFO] [1784079522.630205458] [bt_navigator]: Creating navigator id navigate_to_pose of type nav2_bt_navigator::NavigateToPoseNavigator
+[INFO] [1784079522.918942317] [bt_navigator]: Creating navigator id navigate_through_poses of type nav2_bt_navigator::NavigateThroughPosesNavigator
+[INFO] [1784079526.704750358] [bt_navigator]: Activating
+[INFO] [1784079527.260744504] [bt_navigator]: Creating bond (bt_navigator) to lifecycle manager.
+[INFO] [1784079571.186533473] [bt_navigator]: Begin navigating from current location (6.15, -5.64) to (8.12, -18.80)
+[WARN] [1784079572.286148657] [bt_navigator_navigate_to_pose_rclcpp_node]: Timed out while waiting for action server to acknowledge goal request for compute_path_to_pose
+[ERROR] [1784079572.316137904] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to cancel action server for follow_path
+[ERROR] [1784079572.341463090] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!
+[WARN] [1784079572.341863111] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.
+[ERROR] [1784079572.369017362] [bt_navigator]: Goal failed
+[INFO] [1784079593.089044236] [bt_navigator]: Begin navigating from current location (6.18, -5.83) to (8.12, -18.80)
+[WARN] [1784079594.189767574] [bt_navigator_navigate_to_pose_rclcpp_node]: Timed out while waiting for action server to acknowledge goal request for compute_path_to_pose
+[ERROR] [1784079594.217738876] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!
+[WARN] [1784079594.219235731] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.
+[ERROR] [1784079594.221111185] [bt_navigator]: Goal failed
+[WARN] [1784079672.881495179] [bt_navigator.rclcpp_action]: Failed to send goal response 4cda4f32-567f-482a-a06a-c809f3728d2c (timeout): client will not receive response, at ./src/rmw_response.cpp:153, at ./src/rcl/service.c:400
+[INFO] [1784079795.910055925] [bt_navigator]: Begin navigating from current location (6.18, -6.03) to (8.12, -18.80)
+[INFO] [1784079952.716884856] [bt_navigator]: [navigate_to_pose] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1784079952.742377771] [bt_navigator]: Goal canceled
+[INFO] [1784080089.970105229] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784080089.970286193] [bt_navigator]: Running Nav2 LifecycleNode rcl preshutdown (bt_navigator)
+[INFO] [1784080089.970431157] [bt_navigator]: Deactivating
+[INFO] [1784080089.970494824] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.
+[INFO] [1784080090.072812387] [bt_navigator]: Cleaning up
+[INFO] [1784080092.220380347] [bt_navigator]: Completed Cleaning up
+[INFO] [1784080092.220468514] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.

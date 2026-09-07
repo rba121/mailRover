@@ -1,0 +1,2884 @@
+from flask import Flask, request, jsonify, render_template, abort, redirect, session, url_for
+from dataclasses import dataclass, asdict
+from datetime import datetime, timedelta
+import hashlib
+import hmac
+import json
+import os
+import secrets
+import sqlite3
+import time
+import threading
+import urllib.error
+import urllib.request
+
+import config
+from services.uart_bridge import UARTBridge
+from services.logger import AsyncLogger
+from services.watchdog import CommWatchdog
+from services.emailer import Emailer
+from adapters.motion_adapter import MotionAdapter
+from adapters.gpio_adapter import GPIOAdapter
+
+STATE_LOCK = threading.Lock()
+
+app = Flask(__name__, template_folder="templates")
+app.secret_key = config.SALT
+
+logger = AsyncLogger(config.LOG_DIR, config.LOG_FILE)
+emailer = Emailer(config, logger)
+motion = MotionAdapter()
+gpio = GPIOAdapter()
+
+# Spring solenoid locks should stay unpowered by default. The app only pulses
+# the MOSFET/solenoid briefly when an authorized unlock action occurs.
+try:
+    gpio.ensure_locked()
+    logger.log("STARTUP_LOCK_SAFE", "solenoid GPIO lines set low")
+except Exception as e:
+    logger.log("STARTUP_LOCK_SAFE_FAIL", f"err={e}")
+
+
+@dataclass
+class State:
+    # TODO: replace with real ADC read from electronics subsystem
+    battery_percent: int = 82
+
+    # task / workflow
+    task_state: str = "READY_FOR_LOADING"
+    active_task_id: str = None
+    drawer_id: str = None
+    destination: str = ""
+    recipient_id: str = ""
+    recipient_email: str = ""
+    package_request_id: str = ""
+    tracking_token: str = None
+    tracking_url: str = ""
+    tracking_email_sent: bool = False
+    unlock_email_sent: bool = False
+    task_pin_hash: str = None
+    unlock_pin_plain: str = ""
+    lock_state: str = "LOCKED"
+    unlock_pulse_sent: bool = False
+    lock_unlocked_confirmed: bool = False
+
+    # navigation / UART health
+    last_nav_msg_time: datetime = None
+    nav_status: str = "IDLE"
+    obstacle_status: str = "CLEAR"
+    reroute_status: str = "IDLE"
+    route_recovery_count: int = 0
+    recovery_limit: int = 10
+
+    abort_reason: str = ""
+    abort_x: float = None
+    abort_y: float = None
+    abort_yaw: float = None
+    abort_notification: bool = False
+
+    last_obstacle_event: str = ""
+
+    # unlock workflow
+    drawer_prompt: str = ""
+
+    # derived from motion adapter
+    moving: bool = False
+    arrived: bool = False
+    fault: bool = False
+
+    # auth
+    auth_required: bool = False
+    auth_ok: bool = False
+    failed_attempts: int = 0
+    lockout_until: datetime = None
+
+    # comm
+    comm_ok: bool = True
+    last_ui_ping: datetime = None
+    safe_hold_prev_state: str = None
+
+    def __post_init__(self):
+        if not self.drawer_prompt:
+            self.drawer_prompt = "Ready. Pulse unlock only when loading, then close the drawer before dispatch."
+
+
+STATE = State()
+UNLOCK_TIMEOUT_SECONDS = 30
+ESTOP_MONITOR_INTERVAL_SECONDS = 0.10
+DESTINATION_CHOICES = ("7004", "7006", "7011", "7016", "Home")
+ACTIVE_PACKAGE_STATUSES = {"DISPATCHED", "ARRIVED", "RETURNING"}
+ADMIN_RETURN_HOME_STATES = {
+    "TASK_ACTIVE",
+    "RECOVERING",
+    "BLOCKED",
+    "FAULT",
+    "E_STOPPED_AWAITING_OPERATOR",
+    "ABORTED_WAITING_OPERATOR",
+    "RETURN_ABORTED",
+}
+ADMIN_CONFIRM_HOME_STATES = {
+    "E_STOPPED_AWAITING_OPERATOR",
+    "ABORTED_WAITING_OPERATOR",
+    "RETURN_ABORTED",
+    "FAULT",
+    "BLOCKED",
+}
+
+# Tasks whose Nav2 motion was paused by the E-stop, but whose delivery
+# records are preserved so an operator can command Return Home.
+PENDING_NAV_CANCELS = set()
+PENDING_NAV_CANCELS_LOCK = threading.Lock()
+
+
+@dataclass
+class PackageRequest:
+    request_id: str
+    token: str
+    recipient_name: str
+    recipient_email: str
+    package_label: str = ""
+    destination: str = ""
+    requested_slot: str = ""
+    status: str = "NOTIFIED"
+    dispatch_task_id: str = ""
+    created_at: datetime = None
+    scheduled_at: datetime = None
+    dispatched_at: datetime = None
+
+
+PACKAGE_REQUESTS = {}
+
+
+def now():
+    return datetime.now()
+
+
+def parse_datetime(value: str):
+    if not value:
+        return None
+    return datetime.fromisoformat(value)
+
+
+def package_db_connect():
+    db_dir = os.path.dirname(config.PACKAGE_DB_PATH)
+    if db_dir:
+        os.makedirs(db_dir, exist_ok=True)
+    conn = sqlite3.connect(config.PACKAGE_DB_PATH)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def init_package_db():
+    with package_db_connect() as conn:
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS package_requests (
+                request_id TEXT PRIMARY KEY,
+                token TEXT NOT NULL UNIQUE,
+                recipient_name TEXT NOT NULL,
+                recipient_email TEXT NOT NULL,
+                package_label TEXT NOT NULL DEFAULT '',
+                destination TEXT NOT NULL DEFAULT '',
+                requested_slot TEXT NOT NULL DEFAULT '',
+                status TEXT NOT NULL,
+                dispatch_task_id TEXT NOT NULL DEFAULT '',
+                created_at TEXT,
+                scheduled_at TEXT,
+                dispatched_at TEXT
+            )
+            """
+        )
+
+
+def row_to_package_request(row) -> PackageRequest:
+    return PackageRequest(
+        request_id=row["request_id"],
+        token=row["token"],
+        recipient_name=row["recipient_name"],
+        recipient_email=row["recipient_email"],
+        package_label=row["package_label"],
+        destination=row["destination"],
+        requested_slot=row["requested_slot"],
+        status=row["status"],
+        dispatch_task_id=row["dispatch_task_id"],
+        created_at=parse_datetime(row["created_at"]),
+        scheduled_at=parse_datetime(row["scheduled_at"]),
+        dispatched_at=parse_datetime(row["dispatched_at"]),
+    )
+
+
+def load_package_requests():
+    init_package_db()
+    with package_db_connect() as conn:
+        rows = conn.execute("SELECT * FROM package_requests").fetchall()
+
+    PACKAGE_REQUESTS.clear()
+    for row in rows:
+        req = row_to_package_request(row)
+        PACKAGE_REQUESTS[req.request_id] = req
+
+    logger.log("PACKAGE_DB_LOADED", f"count={len(PACKAGE_REQUESTS)} path={config.PACKAGE_DB_PATH}")
+
+
+def clear_pending_package_requests_on_startup():
+    if not getattr(config, "CLEAR_PENDING_ON_STARTUP", False):
+        return
+
+    init_package_db()
+    with package_db_connect() as conn:
+        result = conn.execute(
+            """
+            UPDATE package_requests
+            SET status = 'ABORTED'
+            WHERE status IN ('DISPATCHED', 'ARRIVED', 'RETURNING')
+            """
+        )
+
+    logger.log(
+        "PACKAGE_DB_INTERRUPTED_RECONCILED",
+        f"count={result.rowcount}",
+    )
+
+
+def save_package_request(req: PackageRequest):
+    init_package_db()
+    with package_db_connect() as conn:
+        conn.execute(
+            """
+            INSERT INTO package_requests (
+                request_id,
+                token,
+                recipient_name,
+                recipient_email,
+                package_label,
+                destination,
+                requested_slot,
+                status,
+                dispatch_task_id,
+                created_at,
+                scheduled_at,
+                dispatched_at
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(request_id) DO UPDATE SET
+                token=excluded.token,
+                recipient_name=excluded.recipient_name,
+                recipient_email=excluded.recipient_email,
+                package_label=excluded.package_label,
+                destination=excluded.destination,
+                requested_slot=excluded.requested_slot,
+                status=excluded.status,
+                dispatch_task_id=excluded.dispatch_task_id,
+                created_at=excluded.created_at,
+                scheduled_at=excluded.scheduled_at,
+                dispatched_at=excluded.dispatched_at
+            """,
+            (
+                req.request_id,
+                req.token,
+                req.recipient_name,
+                req.recipient_email,
+                req.package_label,
+                req.destination,
+                req.requested_slot,
+                req.status,
+                req.dispatch_task_id,
+                req.created_at.isoformat(timespec="seconds") if req.created_at else None,
+                req.scheduled_at.isoformat(timespec="seconds") if req.scheduled_at else None,
+                req.dispatched_at.isoformat(timespec="seconds") if req.dispatched_at else None,
+            ),
+        )
+
+
+def update_active_package_status(status: str):
+    """Persist the package status that belongs to the active robot task."""
+    package_request = PACKAGE_REQUESTS.get(STATE.package_request_id)
+    if not package_request:
+        return None
+
+    package_request.status = status
+    save_package_request(package_request)
+    return package_request
+
+
+clear_pending_package_requests_on_startup()
+load_package_requests()
+
+
+def hash_pin(pin: str) -> str:
+    return hashlib.sha256((config.SALT + pin).encode()).hexdigest()
+
+
+def generate_tracking_token() -> str:
+    return secrets.token_urlsafe(24)
+
+
+def generate_request_id() -> str:
+    return f"MR{int(time.time())}{secrets.randbelow(1000):03d}"
+
+
+def generate_unlock_pin() -> str:
+    return f"{secrets.randbelow(1_000_000):06d}"
+
+
+def tracking_url_for(token: str) -> str:
+    return app_base_url() + f"/track/{token}"
+
+
+def package_request_url_for(token: str) -> str:
+    return app_base_url() + f"/request/{token}"
+
+
+def package_cancel_url_for(token: str) -> str:
+    return app_base_url() + f"/request/{token}/cancel"
+
+
+def app_base_url() -> str:
+    return getattr(config, "PUBLIC_BASE_URL", "") or request.url_root.rstrip("/")
+
+
+def logo_url() -> str:
+    return "cid:mailrover-logo"
+
+
+def branded_email_html(title: str, body_html: str, action_url: str = "", action_label: str = "") -> str:
+    action_html = ""
+    if action_url and action_label:
+        action_html = (
+            '<table role="presentation" cellspacing="0" cellpadding="0" style="margin:24px 0 12px;">'
+            '<tr><td style="background:#0f766e;border-radius:8px;">'
+            f'<a href="{action_url}" style="color:#ffffff;text-decoration:none;'
+            f'padding:12px 16px;font-weight:700;display:inline-block;">{action_label}</a>'
+            '</td></tr></table>'
+            f'<p style="font-size:14px;color:#626970;">If the button does not open, use this link:<br>'
+            f'<a href="{action_url}" style="color:#1d4ed8;">{action_url}</a></p>'
+        )
+    return (
+        '<div style="font-family:Arial,sans-serif;color:#151719;line-height:1.5;'
+        'max-width:560px;margin:0 auto;">'
+        f'<div style="padding:18px 0;border-bottom:1px solid #dde1e3;">'
+        f'<img src="{logo_url()}" alt="Rover Autonomous Systems" '
+        f'style="width:180px;max-width:100%;height:auto;background:#ffffff;border-radius:6px;">'
+        f'</div>'
+        f'<h1 style="font-size:22px;margin:22px 0 10px;">{title}</h1>'
+        f'{body_html}'
+        f'{action_html}'
+        '<p style="color:#626970;font-size:13px;margin-top:26px;">MailRover secure autonomous delivery</p>'
+        '</div>'
+    )
+
+
+def valid_email(value: str) -> bool:
+    value = (value or "").strip()
+    return "@" in value and "." in value.rsplit("@", 1)[-1]
+
+
+def admin_auth_configured() -> bool:
+    return bool(getattr(config, "ADMIN_PASSWORD", ""))
+
+
+def admin_is_authenticated() -> bool:
+    if not admin_auth_configured():
+        return True
+    return bool(session.get("admin_authenticated"))
+
+
+def require_admin_page():
+    if admin_is_authenticated():
+        return None
+    return redirect(url_for("login", next=request.path))
+
+
+def service_key_configured() -> bool:
+    return bool(getattr(config, "SERVICE_KEY", ""))
+
+
+def request_service_key() -> str:
+    return (
+        request.headers.get("X-MailRover-Service-Key")
+        or request.args.get("service_key")
+        or ""
+    )
+
+
+def require_service_key():
+    expected = getattr(config, "SERVICE_KEY", "")
+    if not expected:
+        logger.log("SERVICE_KEY_WARN", "SERVICE_KEY not configured; dev route allowed")
+        return None
+
+    provided = request_service_key()
+    if hmac.compare_digest(provided, expected):
+        return None
+
+    logger.log("SERVICE_KEY_DENIED", f"path={request.path}")
+    return jsonify({"ok": False, "error": "SERVICE_KEY_REQUIRED"}), 401
+
+
+def in_lockout():
+    return STATE.lockout_until is not None and now() < STATE.lockout_until
+
+
+def comm_is_fresh() -> bool:
+    if STATE.last_ui_ping is None:
+        return False
+    age = (now() - STATE.last_ui_ping).total_seconds()
+    return age <= config.COMM_TIMEOUT_SECONDS
+
+
+def nav_is_fresh() -> bool:
+    if STATE.last_nav_msg_time is None:
+        return False
+    age = (now() - STATE.last_nav_msg_time).total_seconds()
+    return age <= config.COMM_TIMEOUT_SECONDS
+
+
+def battery_is_low_for_new_tasks() -> bool:
+    return STATE.battery_percent < config.LOW_BATTERY_BLOCK_PERCENT
+
+
+def battery_is_critical() -> bool:
+    return STATE.battery_percent < config.CRITICAL_BATTERY_PERCENT
+
+
+def estop_status() -> dict:
+    if not hasattr(gpio, "read_estop"):
+        logger.log("ESTOP_READ_FALLBACK", "GPIOAdapter has no read_estop; treating E-stop as ready")
+        return {
+            "configured": False,
+            "gpio": getattr(config, "ESTOP_GPIO", 18),
+            "raw": None,
+            "stopped": False,
+            "state": "UNKNOWN",
+        }
+
+    try:
+        return gpio.read_estop()
+    except Exception as e:
+        logger.log("ESTOP_READ_FAIL", f"err={e}")
+        return {
+            "configured": True,
+            "gpio": getattr(config, "ESTOP_GPIO", 18),
+            "raw": None,
+            "stopped": False,
+            "state": "UNKNOWN",
+        }
+
+
+def estop_is_stopped() -> bool:
+    return bool(estop_status().get("stopped"))
+
+
+def lock_feedback_required() -> bool:
+    return bool(getattr(config, "LOCK_FEEDBACK_REQUIRED", False))
+
+
+def enter_safe_hold(reason: str):
+    if STATE.task_state != "SAFE_HOLD":
+        STATE.safe_hold_prev_state = STATE.task_state
+
+    STATE.task_state = "SAFE_HOLD"
+    STATE.drawer_prompt = f"Safe hold active: {reason}"
+
+    motion.moving = False
+    motion.arrived = False
+
+    if STATE.drawer_id in ["D1", "D2", "D3", "D4"]:
+        try:
+            gpio.lock_drawer(STATE.drawer_id)
+            logger.log("SAFE_HOLD_LOCK_SAFE", f"drawer={STATE.drawer_id}")
+        except Exception as e:
+            logger.log("SAFE_HOLD_LOCK_ERROR", f"drawer={STATE.drawer_id} err={e}")
+
+    logger.log("SAFE_HOLD_ENTER", reason)
+
+
+def on_comm_lost():
+    with STATE_LOCK:
+        STATE.comm_ok = False
+        logger.log("COMM_LOST", f"UI polling timeout (>{config.COMM_TIMEOUT_SECONDS}s)")
+        enter_safe_hold("UI communication lost")
+
+
+def on_comm_restored():
+    with STATE_LOCK:
+        STATE.comm_ok = True
+        logger.log("COMM_RESTORED", "UI polling resumed")
+
+        if STATE.task_state != "SAFE_HOLD":
+            return
+
+        prev = STATE.safe_hold_prev_state
+
+        if prev == "ARRIVED_AUTH_REQUIRED":
+            STATE.task_state = "ARRIVED_AUTH_REQUIRED"
+            STATE.drawer_prompt = "Communication restored. Enter PIN to unlock drawer."
+        elif prev == "TASK_ACTIVE":
+            STATE.task_state = "TASK_ACTIVE"
+            STATE.drawer_prompt = "Communication restored. Task is active."
+        else:
+            STATE.task_state = "IDLE"
+            STATE.drawer_prompt = "Ready for a new delivery task."
+
+        STATE.safe_hold_prev_state = None
+
+
+watchdog = CommWatchdog(
+    config.COMM_TIMEOUT_SECONDS,
+    on_comm_lost,
+    on_comm_restored
+)
+
+
+def refresh_from_adapters():
+    m = motion.get_state()
+    STATE.moving = m["moving"]
+    STATE.arrived = m["arrived"]
+    STATE.fault = m["fault"]
+
+    if STATE.drawer_id:
+        gpio_lock_state = gpio.read_lock_state(STATE.drawer_id)
+        if gpio_lock_state in ["LOCKED", "UNLOCKED"]:
+            handle_lock_state(gpio_lock_state)
+
+
+def mark_ui_contact():
+    STATE.last_ui_ping = now()
+    watchdog.ping()
+
+
+def handle_ready_for_loading():
+    """
+    Loading flow for a spring solenoid lock:
+    - GPIO stays low unless a user requests a short unlock pulse.
+    - Staff pulse-unlocks the drawer from admin, loads the package, closes it.
+    - Task creation requires the drawer to be closed before dispatch.
+    """
+    if STATE.task_state != "READY_FOR_LOADING":
+        return
+
+    STATE.drawer_prompt = "Ready. Pulse unlock only when loading, then close the drawer before dispatch."
+
+
+def next_day_slots() -> list:
+    slot_date = (now() + timedelta(days=1)).date().isoformat()
+    windows = [
+        "09:00-10:00",
+        "10:00-11:00",
+        "11:00-12:00",
+        "13:00-14:00",
+        "14:00-15:00",
+        "15:00-16:00",
+    ]
+    return [f"{slot_date} {window}" for window in windows]
+
+
+def slot_start_time(slot: str):
+    try:
+        date_part, window = slot.split(" ", 1)
+        start_part = window.split("-", 1)[0]
+        return datetime.fromisoformat(f"{date_part}T{start_part}:00")
+    except Exception:
+        return None
+
+
+def cancel_deadline_for_slot(slot: str):
+    start = slot_start_time(slot)
+    if not start:
+        return None
+    return start - timedelta(hours=getattr(config, "CANCEL_CUTOFF_HOURS", 6))
+
+
+def can_cancel_request(req: PackageRequest) -> bool:
+    if req.status != "SCHEDULED" or not req.requested_slot:
+        return False
+
+    deadline = cancel_deadline_for_slot(req.requested_slot)
+    if not deadline:
+        return False
+
+    return now() <= deadline
+
+
+def dispatch_ready_time_for_slot(slot: str):
+    start = slot_start_time(slot)
+    if not start:
+        return None
+    return start - timedelta(minutes=getattr(config, "DISPATCH_LEAD_MINUTES", 15))
+
+
+def can_dispatch_request(req: PackageRequest) -> tuple:
+    if req.status != "SCHEDULED" or not req.requested_slot:
+        return False, "REQUEST_NOT_READY"
+
+    if not getattr(config, "ENFORCE_DELIVERY_WINDOW", False):
+        return True, "DEMO_EARLY_DISPATCH_ALLOWED"
+
+    ready_at = dispatch_ready_time_for_slot(req.requested_slot)
+    if not ready_at:
+        return False, "REQUEST_TIME_INVALID"
+
+    if now() < ready_at:
+        return False, "DELIVERY_WINDOW_NOT_READY"
+
+    return True, "DELIVERY_WINDOW_READY"
+
+
+def available_slots() -> list:
+    used = {
+        req.requested_slot
+        for req in PACKAGE_REQUESTS.values()
+        if req.requested_slot
+        and req.status in {"SCHEDULED", *ACTIVE_PACKAGE_STATUSES}
+    }
+    return [slot for slot in next_day_slots() if slot not in used]
+
+
+def find_package_request_by_token(token: str):
+    for req in PACKAGE_REQUESTS.values():
+        if hmac.compare_digest(req.token, token):
+            return req
+    return None
+
+
+def serialize_package_request(req: PackageRequest) -> dict:
+    cancel_deadline = cancel_deadline_for_slot(req.requested_slot)
+    dispatch_ready_at = dispatch_ready_time_for_slot(req.requested_slot)
+    can_dispatch, dispatch_reason = can_dispatch_request(req)
+    return {
+        "request_id": req.request_id,
+        "token": req.token,
+        "recipient_name": req.recipient_name,
+        "recipient_email": req.recipient_email,
+        "package_label": req.package_label,
+        "destination": req.destination,
+        "requested_slot": req.requested_slot,
+        "status": req.status,
+        "dispatch_task_id": req.dispatch_task_id,
+        "created_at": req.created_at.isoformat(timespec="seconds") if req.created_at else None,
+        "scheduled_at": req.scheduled_at.isoformat(timespec="seconds") if req.scheduled_at else None,
+        "dispatched_at": req.dispatched_at.isoformat(timespec="seconds") if req.dispatched_at else None,
+        "cancel_deadline": cancel_deadline.isoformat(timespec="seconds") if cancel_deadline else None,
+        "can_cancel": can_cancel_request(req),
+        "dispatch_ready_at": dispatch_ready_at.isoformat(timespec="seconds") if dispatch_ready_at else None,
+        "can_dispatch": can_dispatch,
+        "dispatch_reason": dispatch_reason,
+    }
+
+
+def send_package_received_email(req: PackageRequest) -> dict:
+    schedule_url = package_request_url_for(req.token)
+    label = req.package_label or "mail/package"
+    destination_line = f"\nDelivery destination on file: {req.destination}\n" if req.destination else ""
+    destination_html = f"<p>Delivery destination on file: {req.destination}</p>" if req.destination else ""
+    result = emailer.send(
+        req.recipient_email,
+        "You have mail at the front desk",
+        (
+            f"Hello {req.recipient_name or 'there'},\n\n"
+            f"You have {label} waiting at the front desk.\n\n"
+            f"{destination_line}"
+            "You can pick it up in person, or request MailRover delivery for available times here:\n"
+            f"{schedule_url}"
+        ),
+        (
+            branded_email_html(
+                "You have mail at the front desk",
+                (
+                    f"<p>Hello {req.recipient_name or 'there'},</p>"
+                    f"<p>You have {label} waiting at the front desk.</p>"
+                    f"{destination_html}"
+                    "<p>You can pick it up in person, or request MailRover delivery for available times here:</p>"
+                ),
+                schedule_url,
+                "Choose a delivery time",
+            )
+        ),
+    )
+    logger.log(
+        "PACKAGE_RECEIVED_EMAIL_STATUS",
+        f"request={req.request_id} to={req.recipient_email} ok={result.get('ok')} mode={result.get('mode')}"
+    )
+    return result
+
+
+def send_delivery_scheduled_email(req: PackageRequest) -> dict:
+    cancel_url = package_cancel_url_for(req.token)
+    cancel_deadline = cancel_deadline_for_slot(req.requested_slot)
+    deadline_text = (
+        cancel_deadline.strftime("%Y-%m-%d %H:%M")
+        if cancel_deadline else "6 hours before your delivery window"
+    )
+    result = emailer.send(
+        req.recipient_email,
+        "MailRover delivery scheduled",
+        (
+            f"Your MailRover delivery is scheduled for {req.requested_slot}.\n\n"
+            f"You may cancel until {deadline_text}.\n"
+            f"Cancel your delivery here: {cancel_url}\n\n"
+            "You will receive another email when MailRover is on the way."
+        ),
+        (
+            branded_email_html(
+                "MailRover delivery scheduled",
+                (
+                    f"<p>Your MailRover delivery is scheduled for <strong>{req.requested_slot}</strong>.</p>"
+                    f"<p>Destination: <strong>{req.destination}</strong></p>"
+                    f"<p>You may cancel until <strong>{deadline_text}</strong>.</p>"
+                    "<p>You will receive another email when MailRover is on the way.</p>"
+                ),
+                cancel_url,
+                "Cancel delivery",
+            )
+        ),
+    )
+    logger.log(
+        "PACKAGE_SCHEDULE_EMAIL_STATUS",
+        f"request={req.request_id} to={req.recipient_email} ok={result.get('ok')} mode={result.get('mode')}"
+    )
+    return result
+
+
+def send_tracking_email() -> dict:
+    if not STATE.recipient_email or not STATE.tracking_url:
+        return {"ok": False, "error": "MISSING_TRACKING_EMAIL_DETAILS"}
+
+    result = emailer.send(
+        STATE.recipient_email,
+        "MailRover is on the way",
+        (
+            "MailRover is on the way with your delivery and should arrive soon.\n\n"
+            f"Track your delivery here: {STATE.tracking_url}\n\n"
+            "For security, your unlock code will be sent separately when the rover arrives."
+        ),
+        (
+            branded_email_html(
+                "MailRover is on the way",
+                (
+                    "<p>MailRover is on the way with your delivery and should arrive soon.</p>"
+                    f"<p>Destination: <strong>{STATE.destination}</strong></p>"
+                    "<p>For security, your unlock code will be sent separately when the rover arrives.</p>"
+                ),
+                STATE.tracking_url,
+                "Track your delivery",
+            )
+        ),
+    )
+    STATE.tracking_email_sent = bool(result.get("ok"))
+    logger.log(
+        "TRACKING_EMAIL_STATUS",
+        f"task={STATE.active_task_id} to={STATE.recipient_email} ok={result.get('ok')} mode={result.get('mode')}"
+    )
+    return result
+
+
+def send_unlock_email() -> dict:
+    if STATE.unlock_email_sent:
+        return {"ok": True, "mode": "already_sent"}
+
+    if not STATE.recipient_email:
+        return {"ok": False, "error": "MISSING_RECIPIENT_EMAIL"}
+
+    result = emailer.send(
+        STATE.recipient_email,
+        "MailRover has arrived",
+        (
+            "MailRover has arrived with your delivery.\n\n"
+            f"Your one-time unlock code is: {STATE.unlock_pin_plain}\n\n"
+            f"Open your tracking page to unlock the drawer: {STATE.tracking_url}"
+        ),
+        (
+            branded_email_html(
+                "MailRover has arrived",
+                (
+                    "<p>MailRover has arrived with your delivery.</p>"
+                    f"<p>Destination: <strong>{STATE.destination}</strong></p>"
+                    f"<p>Your one-time unlock code is: <strong>{STATE.unlock_pin_plain}</strong></p>"
+                ),
+                STATE.tracking_url,
+                "Open tracking page",
+            )
+        ),
+    )
+    STATE.unlock_email_sent = bool(result.get("ok"))
+    logger.log(
+        "UNLOCK_EMAIL_STATUS",
+        f"task={STATE.active_task_id} to={STATE.recipient_email} ok={result.get('ok')} mode={result.get('mode')}"
+    )
+    return result
+
+
+def reset_to_idle_after_complete(message=None):
+    completed_drawer = STATE.drawer_id
+
+    STATE.task_state = "READY_FOR_LOADING"
+    STATE.drawer_prompt = message or "Ready. Pulse unlock only when loading, then close the drawer before dispatch."
+
+    STATE.safe_hold_prev_state = None
+
+    STATE.auth_required = False
+    STATE.auth_ok = False
+    STATE.failed_attempts = 0
+    STATE.lockout_until = None
+
+    STATE.active_task_id = None
+    STATE.drawer_id = None
+    STATE.destination = ""
+    STATE.recipient_id = ""
+    STATE.recipient_email = ""
+    STATE.package_request_id = ""
+    STATE.tracking_token = None
+    STATE.tracking_url = ""
+    STATE.tracking_email_sent = False
+    STATE.unlock_email_sent = False
+    STATE.task_pin_hash = None
+    STATE.unlock_pin_plain = ""
+    STATE.lock_state = "LOCKED"
+    STATE.unlock_pulse_sent = False
+    STATE.lock_unlocked_confirmed = False
+
+    STATE.nav_status = "IDLE"
+    STATE.last_nav_msg_time = None
+
+    STATE.comm_ok = True
+    STATE.last_ui_ping = None
+
+    motion.moving = False
+    motion.arrived = False
+    motion.fault = False
+
+    if completed_drawer in ["D1", "D2", "D3", "D4"]:
+        try:
+            gpio.lock_drawer(completed_drawer)
+            logger.log("IDLE_LOCK_SAFE", f"drawer={completed_drawer}")
+        except Exception as e:
+            logger.log("IDLE_LOCK_SAFE_FAIL", f"drawer={completed_drawer} err={e}")
+    else:
+        try:
+            gpio.ensure_locked()
+            logger.log("IDLE_LOCK_SAFE", "all mapped drawer solenoid GPIO lines set low")
+        except Exception as e:
+            logger.log("IDLE_LOCK_SAFE_FAIL", f"err={e}")
+
+
+def handle_uart_message(msg: dict):
+    """
+    Handles incoming UART messages from Raspberry Pi ROS side.
+    Expected format:
+      STATUS|<task_id>|MOVING
+      STATUS|<task_id>|ARRIVED
+      STATUS|<task_id>|FAULT
+      STATUS|<task_id>|BLOCKED
+      STATUS|<task_id>|CANCELED
+      STATUS|<task_id>|IDLE
+    """
+    with STATE_LOCK:
+        if msg.get("type") == "LOCK":
+            task_id = msg.get("task_id")
+            lock_state = msg.get("lock_state", "").upper()
+
+            STATE.last_nav_msg_time = now()
+
+            if not STATE.active_task_id or task_id != STATE.active_task_id:
+                logger.log("UART_LOCK_IGNORED", f"stale_or_unknown task={task_id} state={lock_state}")
+                return
+
+            handle_lock_state(lock_state)
+            return
+
+        if msg.get("type") != "STATUS":
+            return
+
+        task_id = msg.get("task_id")
+        status = msg.get("status", "").upper()
+        try:
+            recovery_count = int(
+                msg.get(
+                    "recovery_count",
+                    STATE.route_recovery_count,
+                )
+            )
+        except (TypeError, ValueError):
+            recovery_count = STATE.route_recovery_count
+
+        try:
+            recovery_limit = int(
+                msg.get(
+                    "recovery_limit",
+                    STATE.recovery_limit,
+                )
+            )
+        except (TypeError, ValueError):
+            recovery_limit = STATE.recovery_limit
+
+        STATE.route_recovery_count = recovery_count
+        STATE.recovery_limit = recovery_limit
+
+        STATE.last_nav_msg_time = now()
+        STATE.nav_status = status
+
+        if not STATE.active_task_id or task_id != STATE.active_task_id:
+            logger.log("UART_IGNORED", f"stale_or_unknown task={task_id} status={status}")
+            return
+
+        if status in ["LOCKED", "LOCK_LOCKED"]:
+            handle_lock_state("LOCKED")
+            return
+
+        if status in ["UNLOCKED", "LOCK_UNLOCKED"]:
+            handle_lock_state("UNLOCKED")
+            return
+
+        if status == "MOVING":
+            motion.moving = True
+            motion.arrived = False
+            motion.fault = False
+
+            STATE.task_state = "TASK_ACTIVE"
+            STATE.reroute_status = "IDLE"
+            update_active_package_status("DISPATCHED")
+            STATE.drawer_prompt = (
+                "Robot moving to delivery destination."
+            )
+
+        elif status == "RETRYING":
+            motion.moving = False
+            motion.arrived = False
+            motion.fault = False
+
+            # The delivery remains active. The bridge is resending
+            # the same destination to Nav2.
+            STATE.task_state = "TASK_ACTIVE"
+            STATE.reroute_status = "RETRYING"
+            if "recovery_count" not in msg:
+                STATE.route_recovery_count += 1
+            STATE.last_obstacle_event = (
+                "Navigation goal aborted. "
+                "Automatically retrying the same destination."
+            )
+            STATE.drawer_prompt = (
+                "Navigation was interrupted. "
+                "MailRover is retrying the destination automatically."
+            )
+
+        elif status == "ARRIVED":
+            motion.moving = False
+            motion.arrived = True
+            motion.fault = False
+
+            STATE.task_state = "ARRIVED_AUTH_REQUIRED"
+            STATE.auth_required = True
+            update_active_package_status("ARRIVED")
+
+            send_unlock_email()
+
+            STATE.drawer_prompt = (
+                "Arrived. Unlock code sent to recipient email."
+            )
+
+        elif status in ["RETURNING", "RETURN_RECOVERING"]:
+            motion.moving = True
+            motion.arrived = False
+            motion.fault = False
+
+            STATE.task_state = "RETURNING_TO_LOADING"
+            STATE.auth_required = False
+            STATE.auth_ok = False
+            update_active_package_status("RETURNING")
+
+            if status == "RETURN_RECOVERING":
+                STATE.drawer_prompt = (
+                    "Return recovery in progress: "
+                    f"{STATE.route_recovery_count}/"
+                    f"{STATE.recovery_limit}"
+                )
+            else:
+                STATE.drawer_prompt = (
+                    "Robot returning Home to the loading bay."
+                )
+
+        elif status == "RETURNED":
+            motion.moving = False
+            motion.arrived = True
+            motion.fault = False
+            update_active_package_status("COMPLETED")
+
+            logger.log(
+                "RETURN_TO_LOADING_COMPLETE",
+                f"task={STATE.active_task_id}",
+            )
+
+            reset_to_idle_after_complete(
+                "Robot returned to loading bay. Ready for loading."
+            )
+
+        elif status == "RECOVERING":
+            motion.moving = True
+            motion.arrived = False
+            motion.fault = False
+
+            STATE.task_state = "RECOVERING"
+            STATE.drawer_prompt = (
+                "Navigation recovery in progress: "
+                f"{STATE.route_recovery_count}/"
+                f"{STATE.recovery_limit}"
+            )
+
+        elif status == "ABORTING":
+            motion.moving = False
+            motion.arrived = False
+            motion.fault = False
+
+            STATE.task_state = "ABORTING"
+            STATE.drawer_prompt = (
+                "Recovery limit reached. "
+                "Stopping the robot."
+            )
+
+        elif status == "ABORTED":
+            motion.moving = False
+            motion.arrived = False
+            motion.fault = False
+
+            STATE.task_state = "ABORTED_WAITING_OPERATOR"
+            STATE.abort_reason = (
+                msg.get("reason")
+                or "RECOVERY_LIMIT"
+            )
+            STATE.abort_x = msg.get("x")
+            STATE.abort_y = msg.get("y")
+            STATE.abort_yaw = msg.get("yaw")
+            STATE.abort_notification = True
+
+            STATE.drawer_prompt = (
+                "Delivery aborted after "
+                f"{STATE.route_recovery_count}/"
+                f"{STATE.recovery_limit} recoveries. "
+                "Waiting for administrator."
+            )
+
+            if STATE.drawer_id in config.DRAWER_IDS:
+                gpio.lock_drawer(STATE.drawer_id)
+
+            if STATE.package_request_id in PACKAGE_REQUESTS:
+                package = PACKAGE_REQUESTS[
+                    STATE.package_request_id
+                ]
+                package.status = "ABORTED"
+                save_package_request(package)
+
+            logger.log(
+                "DELIVERY_ABORTED",
+                (
+                    f"task={STATE.active_task_id} "
+                    f"recoveries={STATE.route_recovery_count}/"
+                    f"{STATE.recovery_limit} "
+                    f"x={STATE.abort_x} "
+                    f"y={STATE.abort_y} "
+                    f"yaw={STATE.abort_yaw}"
+                )
+            )
+
+        elif status == "RETURN_ABORTING":
+            motion.moving = False
+            motion.arrived = False
+            motion.fault = False
+
+            STATE.task_state = "RETURN_ABORTING"
+            STATE.drawer_prompt = (
+                "Return recovery limit reached. "
+                "Stopping the robot."
+            )
+
+        elif status == "RETURN_ABORTED":
+            motion.moving = False
+            motion.arrived = False
+            motion.fault = False
+
+            STATE.task_state = "RETURN_ABORTED"
+            STATE.abort_reason = (
+                msg.get("reason")
+                or "RETURN_FAILED"
+            )
+            STATE.abort_x = msg.get("x")
+            STATE.abort_y = msg.get("y")
+            STATE.abort_yaw = msg.get("yaw")
+            STATE.abort_notification = True
+
+            STATE.drawer_prompt = (
+                "Robot stopped after "
+                f"{STATE.route_recovery_count}/"
+                f"{STATE.recovery_limit} failed return attempts. "
+                "It will not retry automatically. "
+                "Manual assistance is required."
+            )
+
+        elif status == "FAULT":
+            motion.moving = False
+            motion.arrived = False
+            motion.fault = True
+
+            STATE.task_state = "FAULT"
+            STATE.drawer_prompt = "Navigation fault active."
+
+        elif status == "BLOCKED":
+            motion.moving = False
+            motion.arrived = False
+            motion.fault = False
+
+            STATE.task_state = "BLOCKED"
+            STATE.obstacle_status = "OBSTACLE_DETECTED"
+            STATE.reroute_status = "REROUTING"
+            STATE.last_obstacle_event = (
+                "Obstacle detected. Replanning route."
+            )
+            STATE.drawer_prompt = (
+                "Obstacle detected. Mail-Rover is calculating "
+                "an alternate route."
+            )
+
+        elif status == "CANCELED":
+            motion.moving = False
+            motion.arrived = False
+            motion.fault = False
+
+            reset_to_idle_after_complete(
+                "Task canceled by navigation system."
+            )
+
+        elif status == "IDLE":
+            motion.moving = False
+            motion.arrived = False
+            motion.fault = False
+
+            reset_to_idle_after_complete()
+
+
+def send_task_to_nav_bridge(
+    task_id: str,
+    destination: str,
+    drawer_id: str,
+    mission_type: str = "delivery",
+) -> bool:
+    if not getattr(config, "NAV_BRIDGE_ENABLED", False):
+        return True
+
+    payload = json.dumps({
+        "task_id": task_id,
+        "destination": destination,
+        "drawer_id": drawer_id,
+        "mission_type": mission_type,
+    }).encode("utf-8")
+
+    headers = {
+        "Content-Type": "application/json",
+        "X-MailRover-Service-Key": getattr(
+            config,
+            "SERVICE_KEY",
+            "",
+        ),
+    }
+
+    req = urllib.request.Request(
+        getattr(
+            config,
+            "NAV_BRIDGE_URL",
+            "http://127.0.0.1:8765/task",
+        ),
+        data=payload,
+        headers=headers,
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(
+            req,
+            timeout=getattr(
+                config,
+                "NAV_BRIDGE_TIMEOUT_SEC",
+                2.0,
+            ),
+        ) as response:
+            ok = 200 <= response.status < 300
+
+            logger.log(
+                "NAV_BRIDGE_TASK_SEND",
+                (
+                    f"task={task_id} "
+                    f"destination={destination} "
+                    f"mission_type={mission_type} "
+                    f"ok={ok}"
+                ),
+            )
+
+            return ok
+
+    except Exception as e:
+        logger.log(
+            "NAV_BRIDGE_TASK_FAIL",
+            (
+                f"task={task_id} "
+                f"destination={destination} "
+                f"mission_type={mission_type} "
+                f"err={e}"
+            ),
+        )
+        return False
+
+def send_cancel_to_nav_bridge(
+    task_id: str,
+    reason: str = "E_STOP",
+) -> bool:
+    if not getattr(config, "NAV_BRIDGE_ENABLED", False):
+        return True
+
+    task_url = getattr(
+        config,
+        "NAV_BRIDGE_URL",
+        "http://127.0.0.1:8765/task",
+    )
+
+    cancel_url = task_url.rsplit("/", 1)[0] + "/cancel"
+
+    payload = json.dumps({
+        "task_id": task_id,
+        "reason": reason,
+    }).encode("utf-8")
+
+    headers = {
+        "Content-Type": "application/json",
+        "X-MailRover-Service-Key": getattr(
+            config,
+            "SERVICE_KEY",
+            "",
+        ),
+    }
+
+    req = urllib.request.Request(
+        cancel_url,
+        data=payload,
+        headers=headers,
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(
+            req,
+            timeout=getattr(
+                config,
+                "NAV_BRIDGE_TIMEOUT_SEC",
+                2.0,
+            ),
+        ) as response:
+            ok = 200 <= response.status < 300
+
+            logger.log(
+                "NAV_BRIDGE_CANCEL",
+                (
+                    f"task={task_id} "
+                    f"reason={reason} "
+                    f"ok={ok}"
+                ),
+            )
+
+            return ok
+
+    except Exception as e:
+        logger.log(
+            "NAV_BRIDGE_CANCEL_FAIL",
+            (
+                f"task={task_id} "
+                f"reason={reason} "
+                f"err={e}"
+            ),
+        )
+        return False
+
+
+def send_pause_to_nav_bridge(
+    task_id: str,
+    reason: str = "E_STOP",
+) -> bool:
+    """Stop the current Nav2 goal without permanently canceling the task."""
+    if not getattr(config, "NAV_BRIDGE_ENABLED", False):
+        return True
+
+    task_url = getattr(
+        config,
+        "NAV_BRIDGE_URL",
+        "http://127.0.0.1:8765/task",
+    )
+    pause_url = task_url.rsplit("/", 1)[0] + "/pause"
+    payload = json.dumps({
+        "task_id": task_id,
+        "reason": reason,
+    }).encode("utf-8")
+    headers = {
+        "Content-Type": "application/json",
+        "X-MailRover-Service-Key": getattr(config, "SERVICE_KEY", ""),
+    }
+    req = urllib.request.Request(
+        pause_url,
+        data=payload,
+        headers=headers,
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(
+            req,
+            timeout=getattr(config, "NAV_BRIDGE_TIMEOUT_SEC", 2.0),
+        ) as response:
+            ok = 200 <= response.status < 300
+            logger.log(
+                "NAV_BRIDGE_PAUSE",
+                f"task={task_id} reason={reason} ok={ok}",
+            )
+            return ok
+    except Exception as e:
+        logger.log(
+            "NAV_BRIDGE_PAUSE_FAIL",
+            f"task={task_id} reason={reason} err={e}",
+        )
+        return False
+
+
+def send_cancel_and_return_home_to_nav_bridge(
+    task_id: str,
+    drawer_id: str,
+) -> bool:
+    """Atomically replace the active delivery goal with the Home goal."""
+    if not getattr(config, "NAV_BRIDGE_ENABLED", False):
+        if uart:
+            return uart.send_return_home(task_id, drawer_id)
+
+        logger.log(
+            "NAV_RETURN_HOME_SIMULATED",
+            f"task={task_id} drawer={drawer_id}",
+        )
+        return True
+
+    task_url = getattr(
+        config,
+        "NAV_BRIDGE_URL",
+        "http://127.0.0.1:8765/task",
+    )
+    return_home_url = task_url.rsplit("/", 1)[0] + "/return-home"
+    payload = json.dumps({
+        "task_id": task_id,
+        "drawer_id": drawer_id,
+        "destination": "Home",
+    }).encode("utf-8")
+    headers = {
+        "Content-Type": "application/json",
+        "X-MailRover-Service-Key": getattr(config, "SERVICE_KEY", ""),
+    }
+    req = urllib.request.Request(
+        return_home_url,
+        data=payload,
+        headers=headers,
+        method="POST",
+    )
+
+    try:
+        with urllib.request.urlopen(
+            req,
+            timeout=getattr(config, "NAV_BRIDGE_TIMEOUT_SEC", 2.0),
+        ) as response:
+            ok = 200 <= response.status < 300
+            logger.log(
+                "NAV_BRIDGE_CANCEL_RETURN_HOME",
+                f"task={task_id} drawer={drawer_id} ok={ok}",
+            )
+            return ok
+    except Exception as e:
+        logger.log(
+            "NAV_BRIDGE_CANCEL_RETURN_HOME_FAIL",
+            f"task={task_id} drawer={drawer_id} err={e}",
+        )
+        return False
+
+uart = None
+
+
+
+def ensure_uart_started():
+    global uart
+
+    if not getattr(config, "UART_ENABLED", False):
+        return None
+
+    if uart is None:
+        uart = UARTBridge(
+            port=config.UART_PORT,
+            baudrate=config.UART_BAUDRATE,
+            on_message=handle_uart_message,
+            logger=logger
+        )
+        uart.start()
+        logger.log("UART_STARTED", "UART bridge started on task creation")
+
+    return uart
+
+def cancel_delivery_for_estop(task_id: str):
+    """
+    Stop navigation after the physical E-stop while preserving the task.
+    After the E-stop is released, the administrator can command Return Home.
+    """
+    with STATE_LOCK:
+        if STATE.active_task_id != task_id:
+            return
+
+        drawer_id = STATE.drawer_id
+        package_request_id = STATE.package_request_id
+
+        STATE.task_state = "E_STOPPED_AWAITING_OPERATOR"
+        STATE.nav_status = "E_STOPPED"
+        STATE.drawer_prompt = (
+            "Emergency stop active. Release it only after the robot is safe, "
+            "then select Cancel & Return Home."
+        )
+
+        motion.moving = False
+        motion.arrived = False
+        motion.fault = False
+
+        if drawer_id in ["D1", "D2", "D3", "D4"]:
+            try:
+                gpio.lock_drawer(drawer_id)
+                logger.log(
+                    "ESTOP_LOCK_SAFE",
+                    f"task={task_id} drawer={drawer_id}",
+                )
+            except Exception as e:
+                logger.log(
+                    "ESTOP_LOCK_FAIL",
+                    (
+                        f"task={task_id} "
+                        f"drawer={drawer_id} "
+                        f"err={e}"
+                    ),
+                )
+
+        if package_request_id in PACKAGE_REQUESTS:
+            package = PACKAGE_REQUESTS[
+                package_request_id
+            ]
+            package.status = "ABORTED"
+            save_package_request(package)
+
+            logger.log(
+                "ESTOP_PACKAGE_PAUSED",
+                (
+                    f"task={task_id} "
+                    f"request={package_request_id}"
+                ),
+            )
+
+        STATE.route_recovery_count = 0
+        STATE.abort_reason = ""
+        STATE.abort_notification = False
+
+    # Keep retrying the Nav2 pause request until the bridge acknowledges it.
+    with PENDING_NAV_CANCELS_LOCK:
+        PENDING_NAV_CANCELS.add(task_id)
+
+    nav_cancel_ok = False
+
+    for _ in range(3):
+        if send_pause_to_nav_bridge(
+            task_id,
+            "E_STOP",
+        ):
+            nav_cancel_ok = True
+            break
+
+        time.sleep(0.20)
+
+    if nav_cancel_ok:
+        with PENDING_NAV_CANCELS_LOCK:
+            PENDING_NAV_CANCELS.discard(task_id)
+
+    else:
+        logger.log(
+            "ESTOP_NAV_PAUSE_PENDING",
+            f"task={task_id}",
+        )
+
+    if uart:
+        try:
+            uart.send_task_cancel(task_id)
+        except Exception as e:
+            logger.log(
+                "ESTOP_UART_CANCEL_FAIL",
+                f"task={task_id} err={e}",
+            )
+
+    logger.log(
+        "ESTOP_DELIVERY_PAUSED",
+        (
+            f"task={task_id} "
+            f"nav_cancel_ok={nav_cancel_ok}"
+        ),
+    )
+
+
+def estop_monitor_loop():
+    """
+    Continuously watch the physical E-stop.
+
+    An E-stop that is already pressed at startup simply prevents dispatch.
+    During a delivery it pauses Nav2 and preserves Return Home as the only
+    safe follow-up mission after the E-stop is released.
+    """
+    handled_task_id = None
+
+    logger.log(
+        "ESTOP_MONITOR_STARTED",
+        (
+            "Physical E-stop monitoring active. "
+            "Startup E-stop does not create a popup."
+        ),
+    )
+
+    while True:
+        try:
+            estop = estop_status()
+            stopped = bool(estop.get("stopped"))
+
+            with STATE_LOCK:
+                active_task_id = STATE.active_task_id
+
+            if (
+                stopped
+                and active_task_id
+                and active_task_id != handled_task_id
+            ):
+                handled_task_id = active_task_id
+
+                logger.log(
+                    "ESTOP_ACTIVE_DELIVERY",
+                    (
+                        f"task={active_task_id} "
+                        f"raw={estop.get('raw')}"
+                    ),
+                )
+
+                cancel_delivery_for_estop(
+                    active_task_id
+                )
+
+            if not stopped:
+                handled_task_id = None
+
+            # Continue pause attempts after release. The old delivery goal
+            # must never resume; only an explicit Return Home may move it.
+            with PENDING_NAV_CANCELS_LOCK:
+                pending_task_ids = list(
+                    PENDING_NAV_CANCELS
+                )
+
+            for pending_task_id in pending_task_ids:
+                if send_pause_to_nav_bridge(
+                    pending_task_id,
+                    "E_STOP_RETRY",
+                ):
+                    with PENDING_NAV_CANCELS_LOCK:
+                        PENDING_NAV_CANCELS.discard(
+                            pending_task_id
+                        )
+
+                    logger.log(
+                        "ESTOP_NAV_PAUSE_CONFIRMED",
+                        f"task={pending_task_id}",
+                    )
+
+        except Exception as e:
+            logger.log(
+                "ESTOP_MONITOR_ERROR",
+                f"err={e}",
+            )
+
+        time.sleep(
+            ESTOP_MONITOR_INTERVAL_SECONDS
+        )
+
+def handle_lock_state(lock_state: str):
+    if lock_state not in ["LOCKED", "UNLOCKED"]:
+        logger.log("LOCK_STATE_IGNORED", f"state={lock_state}")
+        return
+
+    previous = STATE.lock_state
+    STATE.lock_state = lock_state
+    logger.log(
+        "LOCK_STATE",
+        f"task={STATE.active_task_id} state={lock_state} previous={previous}"
+    )
+
+    if lock_state == "UNLOCKED" and STATE.task_state == "AWAITING_RELOCK":
+        STATE.lock_unlocked_confirmed = True
+        STATE.drawer_prompt = "Drawer unlocked. Waiting for robot to confirm lock is secure again."
+        return
+
+    if (
+        lock_state == "LOCKED"
+        and STATE.task_state == "AWAITING_RELOCK"
+        and STATE.unlock_pulse_sent
+        and STATE.lock_unlocked_confirmed
+    ):
+        complete_delivery_after_unlock()
+
+def complete_delivery_after_unlock():
+    completed_task_id = STATE.active_task_id
+    completed_drawer_id = STATE.drawer_id
+
+    if uart and completed_task_id:
+        sent = False
+
+        for _ in range(3):
+            sent = uart.send_delivery_complete(
+                completed_task_id
+            )
+
+            if sent:
+                break
+
+            time.sleep(0.2)
+
+        if sent:
+            logger.log(
+                "DELIVERY_COMPLETE_SENT",
+                f"task={completed_task_id}",
+            )
+        else:
+            logger.log(
+                "DELIVERY_COMPLETE_FAIL",
+                f"task={completed_task_id}",
+            )
+    else:
+        logger.log(
+            "DELIVERY_COMPLETE_LOCAL",
+            f"task={completed_task_id}",
+        )
+
+    # Retrieval is complete, but the delivery stays active until the
+    # navigation bridge confirms that the robot has returned Home.
+    update_active_package_status("RETURNING")
+
+    # Keep the task active while the robot returns.
+    STATE.task_state = "RETURNING_TO_LOADING"
+    STATE.nav_status = "RETURN_REQUESTED"
+    STATE.drawer_prompt = (
+        "Package retrieved. Robot returning to loading bay."
+    )
+
+    STATE.auth_required = False
+    STATE.auth_ok = False
+    STATE.moving = True
+    STATE.arrived = False
+    STATE.fault = False
+
+    motion.moving = True
+    motion.arrived = False
+    motion.fault = False
+
+    return_sent = send_task_to_nav_bridge(
+        completed_task_id,
+        "Home",
+        completed_drawer_id,
+        mission_type="return",
+    )
+
+    if not return_sent:
+        STATE.task_state = "FAULT"
+        STATE.nav_status = "RETURN_SEND_FAILED"
+        STATE.drawer_prompt = (
+            "Package retrieved, but the return-to-loading "
+            "command failed."
+        )
+
+        motion.moving = False
+        motion.fault = True
+
+        logger.log(
+            "RETURN_TO_LOADING_FAIL",
+            f"task={completed_task_id}",
+        )
+
+        return
+
+    logger.log(
+        "RETURN_TO_LOADING_SENT",
+        f"task={completed_task_id}",
+    )
+
+def try_auto_unlock_after_auth() -> bool:
+    refresh_from_adapters()
+
+    if STATE.task_state != "ARRIVED_AUTH_REQUIRED":
+        return False
+
+    if STATE.fault or STATE.moving:
+        return False
+
+    if not STATE.comm_ok or not comm_is_fresh():
+        return False
+
+    if getattr(config, "UART_ENABLED", False):
+        if not (STATE.arrived or STATE.nav_status == "ARRIVED"):
+            return False
+
+    if in_lockout():
+        return False
+
+    if not STATE.auth_ok:
+        return False
+
+    if STATE.drawer_id not in ["D1", "D2", "D3", "D4"]:
+        return False
+
+    gpio.unlock_drawer(STATE.drawer_id)
+    STATE.unlock_pulse_sent = True
+    STATE.lock_state = "UNLOCK_PULSE_SENT"
+    STATE.lock_unlocked_confirmed = False
+    logger.log("AUTO_UNLOCK_GRANTED", f"task={STATE.active_task_id} drawer={STATE.drawer_id}")
+    logger.log("DRAWER_UNLOCKED", f"drawer={STATE.drawer_id} task={STATE.active_task_id}")
+
+    if lock_feedback_required():
+        STATE.task_state = "AWAITING_RELOCK"
+        STATE.auth_required = False
+        STATE.drawer_prompt = "Unlock pulse sent. Waiting for robot to confirm the lock is secure again."
+    else:
+        complete_delivery_after_unlock()
+    return True
+
+
+@app.get("/")
+def index():
+    return redirect(url_for("admin"))
+
+
+@app.get("/login")
+def login():
+    return render_template("login.html", next_url=request.args.get("next") or "/admin", error="")
+
+
+@app.post("/login")
+def login_post():
+    password = (request.form.get("password") or "").strip()
+    next_url = request.form.get("next") or "/admin"
+
+    if not admin_auth_configured():
+        session["admin_authenticated"] = True
+        return redirect(next_url)
+
+    if hmac.compare_digest(password, config.ADMIN_PASSWORD):
+        session["admin_authenticated"] = True
+        logger.log("ADMIN_LOGIN", f"path={next_url}")
+        return redirect(next_url)
+
+    logger.log("ADMIN_LOGIN_FAIL", f"path={next_url}")
+    return render_template("login.html", next_url=next_url, error="Incorrect password."), 401
+
+
+@app.post("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
+
+
+@app.get("/status")
+def status():
+    with STATE_LOCK:
+        t0 = time.time()
+
+        mark_ui_contact()
+        refresh_from_adapters()
+
+        if getattr(config, "UART_ENABLED", False):
+            if (
+                STATE.active_task_id
+                and STATE.last_nav_msg_time is not None
+                and not STATE.arrived
+                and not nav_is_fresh()
+            ):
+                enter_safe_hold("Navigation status stale")
+
+        if battery_is_critical() and STATE.active_task_id:
+            enter_safe_hold("Critical battery level")
+
+        handle_ready_for_loading()
+        payload = asdict(STATE)
+        payload["lockout_until"] = STATE.lockout_until.isoformat(timespec="seconds") if STATE.lockout_until else None
+        payload["last_ui_ping"] = STATE.last_ui_ping.isoformat(timespec="seconds") if STATE.last_ui_ping else None
+        payload["last_nav_msg_time"] = STATE.last_nav_msg_time.isoformat(timespec="seconds") if STATE.last_nav_msg_time else None
+        payload["low_battery_block_percent"] = config.LOW_BATTERY_BLOCK_PERCENT
+        payload["critical_battery_percent"] = config.CRITICAL_BATTERY_PERCENT
+        if STATE.package_request_id and STATE.package_request_id in PACKAGE_REQUESTS:
+            pkg = PACKAGE_REQUESTS[STATE.package_request_id]
+            payload["estimated_arrival"] = pkg.requested_slot or ""
+            payload["package_label"] = pkg.package_label or ""
+        else:
+            payload["estimated_arrival"] = ""
+            payload["package_label"] = ""
+        payload.pop("task_pin_hash", None)
+        payload.pop("unlock_pin_plain", None)
+        payload.pop("tracking_token", None)
+        payload.pop("tracking_url", None)
+        payload.pop("recipient_email", None)
+
+        latency_ms = int((time.time() - t0) * 1000)
+        logger.log("API_LATENCY", f"endpoint=/status latency_ms={latency_ms}")
+
+        return jsonify(payload)
+
+
+def create_delivery_task(dest: str, drawer: str, recipient_id: str, recipient_email: str, package_request_id: str = ""):
+    t0 = time.time()
+    drawer = (drawer or "D1").strip().upper()
+    dest = (dest or "").strip()
+    recipient_id = (recipient_id or "demo_user").strip()
+    recipient_email = (recipient_email or "").strip()
+    pin = generate_unlock_pin()
+
+    if dest not in DESTINATION_CHOICES:
+        logger.log("TASK_CREATE_BLOCKED", f"destination_invalid destination={dest!r}")
+        return {
+            "ok": False,
+            "error": "DESTINATION_INVALID",
+            "destinations": list(DESTINATION_CHOICES),
+        }, 400
+
+    if drawer not in config.DRAWER_IDS:
+        logger.log("TASK_CREATE_BLOCKED", f"drawer_not_mapped drawer={drawer}")
+        return {"ok": False, "error": "DRAWER_NOT_MAPPED"}, 400
+
+    if not valid_email(recipient_email):
+        logger.log(
+            "TASK_CREATE_BLOCKED",
+            "recipient_email_invalid",
+        )
+        return {
+            "ok": False,
+            "error": "RECIPIENT_EMAIL_REQUIRED",
+        }, 400
+
+    with PENDING_NAV_CANCELS_LOCK:
+        if PENDING_NAV_CANCELS:
+            logger.log(
+                "TASK_CREATE_BLOCKED",
+                "previous_navigation_cancel_pending",
+            )
+            return {
+                "ok": False,
+                "error": "NAV_CANCEL_PENDING",
+            }, 503
+
+    refresh_from_adapters()
+
+    if battery_is_low_for_new_tasks():
+        logger.log("TASK_CREATE_BLOCKED", f"battery_low percent={STATE.battery_percent}")
+        return {"ok": False, "error": "BATTERY_LOW"}, 403
+
+    if STATE.active_task_id is not None:
+        logger.log("TASK_CREATE_BLOCKED", "task_already_active")
+        return {"ok": False, "error": "TASK_ALREADY_ACTIVE"}, 400
+
+    if STATE.fault:
+        logger.log("TASK_CREATE_BLOCKED", "fault_active")
+        return {"ok": False, "error": "FAULT_ACTIVE"}, 400
+
+    STATE.active_task_id = f"T{int(time.time())}"
+    STATE.drawer_id = drawer
+    STATE.destination = dest
+    STATE.recipient_id = recipient_id
+    STATE.recipient_email = recipient_email
+    STATE.package_request_id = package_request_id
+    STATE.tracking_token = generate_tracking_token()
+    STATE.tracking_url = tracking_url_for(STATE.tracking_token)
+    STATE.task_pin_hash = hash_pin(pin)
+    STATE.unlock_pin_plain = pin
+
+    if gpio.is_drawer_unlocked(drawer):
+        gpio.lock_drawer(drawer)
+        logger.log("TASK_CREATE_LOCK", f"drawer={drawer} locked_before_uart")
+    ensure_uart_started()
+
+    STATE.task_state = "TASK_ACTIVE"
+    STATE.nav_status = "TASK_SENT"
+    STATE.last_nav_msg_time = None
+    STATE.route_recovery_count = 0
+    STATE.recovery_limit = 10
+
+    STATE.abort_reason = ""
+    STATE.abort_x = None
+    STATE.abort_y = None
+    STATE.abort_yaw = None
+    STATE.abort_notification = False
+
+    motion.moving = False
+    motion.arrived = False
+    motion.fault = False
+
+    STATE.auth_required = False
+    STATE.auth_ok = False
+    STATE.failed_attempts = 0
+    STATE.lockout_until = None
+    STATE.tracking_email_sent = False
+    STATE.unlock_email_sent = False
+    STATE.lock_state = "LOCKED"
+    STATE.unlock_pulse_sent = False
+    STATE.lock_unlocked_confirmed = False
+
+    STATE.drawer_prompt = "Task created. On-the-way email sent. Unlock code will be emailed on arrival."
+    STATE.comm_ok = True
+
+    sent = True
+    send_error = ""
+    if getattr(config, "NAV_BRIDGE_ENABLED", False):
+        sent = send_task_to_nav_bridge(
+            STATE.active_task_id,
+            STATE.destination,
+            STATE.drawer_id,
+            mission_type="delivery",
+        )
+        if not sent:
+            send_error = "NAV_BRIDGE_SEND_FAILED"
+    elif uart:
+        sent = False
+        for _ in range(3):
+            sent = uart.send_task_create(STATE.active_task_id, STATE.destination, STATE.drawer_id)
+            if sent:
+                break
+            time.sleep(0.2)
+        if not sent:
+            send_error = "UART_SEND_FAILED"
+
+    if not sent:
+        logger.log("TASK_CREATE_FAIL", f"id={STATE.active_task_id} error={send_error}")
+        reset_to_idle_after_complete("Failed to send task to navigation system.")
+        return {"ok": False, "error": send_error}, 500
+
+    motion.moving = True
+    tracking_email = send_tracking_email()
+
+    logger.log(
+        "TASK_CREATE_SENT",
+        f"id={STATE.active_task_id} dest={dest} drawer={drawer} recipient={recipient_id} email={recipient_email} package_request={package_request_id}"
+    )
+
+    latency_ms = int((time.time() - t0) * 1000)
+    logger.log("API_LATENCY", f"endpoint=create_delivery_task latency_ms={latency_ms}")
+
+    return {
+        "ok": True,
+        "ack": "TASK_CREATED",
+        "task_id": STATE.active_task_id,
+        "tracking_url": STATE.tracking_url,
+        "tracking_email": tracking_email
+    }, 200
+
+
+@app.post("/package/receive")
+def package_receive():
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    data = request.get_json(force=True)
+    recipient_name = (data.get("recipient_name") or "").strip()
+    recipient_email = (data.get("recipient_email") or "").strip()
+    package_label = (data.get("package_label") or "").strip()
+    destination = (data.get("destination") or "").strip()
+
+    if not valid_email(recipient_email):
+        return jsonify({"ok": False, "error": "RECIPIENT_EMAIL_REQUIRED"}), 400
+    if destination not in DESTINATION_CHOICES:
+        return jsonify({
+            "ok": False,
+            "error": "DESTINATION_INVALID",
+            "destinations": list(DESTINATION_CHOICES),
+        }), 400
+
+    req = PackageRequest(
+        request_id=generate_request_id(),
+        token=generate_tracking_token(),
+        recipient_name=recipient_name or "Resident",
+        recipient_email=recipient_email,
+        package_label=package_label,
+        destination=destination,
+        created_at=now(),
+    )
+
+    with STATE_LOCK:
+        PACKAGE_REQUESTS[req.request_id] = req
+        save_package_request(req)
+
+    email_result = send_package_received_email(req)
+    logger.log(
+        "PACKAGE_RECEIVED",
+        f"request={req.request_id} recipient={req.recipient_email} label={req.package_label}"
+    )
+
+    return jsonify({
+        "ok": True,
+        "request": serialize_package_request(req),
+        "email": email_result,
+    })
+
+
+@app.get("/request/<token>")
+def request_delivery(token):
+    with STATE_LOCK:
+        req = find_package_request_by_token(token)
+        if not req:
+            abort(404)
+        slots = available_slots()
+        pkg = serialize_package_request(req)
+
+    return render_template("request_delivery.html", pkg=pkg, slots=slots)
+
+
+@app.post("/request/<token>/schedule")
+def request_delivery_schedule(token):
+    data = request.form if request.form else request.get_json(force=True)
+    selected_slot = (data.get("slot") or "").strip()
+
+    if not selected_slot:
+        return jsonify({"ok": False, "error": "TIME_SLOT_REQUIRED"}), 400
+
+    with STATE_LOCK:
+        req = find_package_request_by_token(token)
+        if not req:
+            abort(404)
+
+        if req.status not in ["NOTIFIED", "SCHEDULED"]:
+            return jsonify({"ok": False, "error": "REQUEST_NOT_SCHEDULABLE"}), 400
+
+        slots = available_slots()
+        if req.requested_slot and req.requested_slot not in slots:
+            slots.append(req.requested_slot)
+
+        if selected_slot not in slots:
+            return jsonify({"ok": False, "error": "TIME_SLOT_UNAVAILABLE"}), 409
+
+        req.requested_slot = selected_slot
+        req.status = "SCHEDULED"
+        req.scheduled_at = now()
+        save_package_request(req)
+        serialized = serialize_package_request(req)
+
+    email_result = send_delivery_scheduled_email(req)
+    logger.log(
+        "PACKAGE_SCHEDULED",
+        f"request={req.request_id} slot={req.requested_slot} destination={req.destination}"
+    )
+
+    if request.form:
+        return render_template(
+            "request_delivery.html",
+            pkg=serialized,
+            slots=available_slots(),
+            scheduled=True,
+            email=email_result,
+        )
+
+    return jsonify({"ok": True, "request": serialized, "email": email_result})
+
+
+@app.get("/request/<token>/cancel")
+def request_delivery_cancel_page(token):
+    with STATE_LOCK:
+        req = find_package_request_by_token(token)
+        if not req:
+            abort(404)
+        pkg = serialize_package_request(req)
+
+    return render_template("request_delivery.html", pkg=pkg, slots=available_slots(), cancel_view=True)
+
+
+@app.post("/request/<token>/cancel")
+def request_delivery_cancel(token):
+    with STATE_LOCK:
+        req = find_package_request_by_token(token)
+        if not req:
+            abort(404)
+
+        if not can_cancel_request(req):
+            serialized = serialize_package_request(req)
+            if request.form:
+                return render_template(
+                    "request_delivery.html",
+                    pkg=serialized,
+                    slots=available_slots(),
+                    cancel_blocked=True,
+                ), 403
+            return jsonify({"ok": False, "error": "CANCEL_WINDOW_CLOSED", "request": serialized}), 403
+
+        req.status = "CANCELED"
+        save_package_request(req)
+        serialized = serialize_package_request(req)
+
+    logger.log("PACKAGE_CANCELED_BY_RECIPIENT", f"request={req.request_id}")
+
+    if request.form:
+        return render_template(
+            "request_delivery.html",
+            pkg=serialized,
+            slots=available_slots(),
+            canceled=True,
+        )
+
+    return jsonify({"ok": True, "request": serialized})
+
+
+@app.get("/admin/packages")
+def admin_packages():
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    with STATE_LOCK:
+        requests = [
+            serialize_package_request(req)
+            for req in sorted(
+                PACKAGE_REQUESTS.values(),
+                key=lambda item: item.created_at or datetime.min,
+                reverse=True,
+            )
+        ]
+        slots = available_slots()
+
+    return jsonify({"ok": True, "requests": requests, "slots": slots})
+
+
+@app.post("/package/<request_id>/admin_cancel")
+def package_admin_cancel(request_id):
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    with STATE_LOCK:
+        req = PACKAGE_REQUESTS.get(request_id)
+        if not req:
+            return jsonify({"ok": False, "error": "REQUEST_NOT_FOUND"}), 404
+
+        if req.status in ACTIVE_PACKAGE_STATUSES:
+            return jsonify({"ok": False, "error": "TASK_ACTIVE"}), 400
+
+        if req.status in ["COMPLETED", "CANCELED"]:
+            return jsonify({
+                "ok": True,
+                "request": serialize_package_request(req),
+            })
+
+        req.status = "CANCELED"
+        save_package_request(req)
+        logger.log("PACKAGE_ADMIN_CANCELED", f"request={req.request_id}")
+
+        return jsonify({
+            "ok": True,
+            "request": serialize_package_request(req),
+        })
+
+
+@app.post("/package/<request_id>/confirm_home_complete")
+def package_confirm_home_complete(request_id):
+    """Close a stale Needs Attention record after a safe restart at Home."""
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    with STATE_LOCK:
+        req = PACKAGE_REQUESTS.get(request_id)
+        if not req:
+            return jsonify({
+                "ok": False,
+                "error": "REQUEST_NOT_FOUND",
+            }), 404
+
+        if STATE.active_task_id:
+            return jsonify({
+                "ok": False,
+                "error": "TASK_ACTIVE",
+            }), 400
+
+        if req.status != "ABORTED":
+            return jsonify({
+                "ok": False,
+                "error": "REQUEST_NOT_ABORTED",
+            }), 400
+
+        estop = estop_status()
+        if not estop.get("stopped"):
+            return jsonify({
+                "ok": False,
+                "error": "ESTOP_REQUIRED_FOR_HOME_CONFIRM",
+            }), 403
+
+        req.status = "COMPLETED"
+        save_package_request(req)
+        serialized = serialize_package_request(req)
+
+    logger.log(
+        "STALE_PACKAGE_HOME_CONFIRMED",
+        f"request={request_id}",
+    )
+    return jsonify({
+        "ok": True,
+        "ack": "HOME_CONFIRMED_REQUEST_COMPLETED",
+        "request": serialized,
+    })
+
+
+@app.post("/package/<request_id>/dispatch")
+def package_dispatch(request_id):
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    data = request.get_json(silent=True) or {}
+    drawer = (data.get("drawer_id") or "D1").strip().upper()
+
+    with STATE_LOCK:
+        req = PACKAGE_REQUESTS.get(request_id)
+        if not req:
+            return jsonify({"ok": False, "error": "REQUEST_NOT_FOUND"}), 404
+
+        can_dispatch, dispatch_reason = can_dispatch_request(req)
+        if not can_dispatch:
+            return jsonify({
+                "ok": False,
+                "error": dispatch_reason,
+                "request": serialize_package_request(req),
+            }), 400
+
+        estop = estop_status()
+        if estop.get("stopped"):
+            logger.log("PACKAGE_DISPATCH_BLOCKED", f"request={req.request_id} estop=STOPPED raw={estop.get('raw')}")
+            return jsonify({
+                "ok": False,
+                "error": "ESTOP_ACTIVE",
+                "message": "Please turn the Etop off inorder to dispatch",
+                "estop": estop,
+                "request": serialize_package_request(req),
+            }), 403
+
+        payload, status_code = create_delivery_task(
+            req.destination,
+            drawer,
+            req.recipient_name,
+            req.recipient_email,
+            package_request_id=req.request_id,
+        )
+
+        if payload.get("ok"):
+            req.status = "DISPATCHED"
+            req.dispatch_task_id = payload.get("task_id")
+            req.dispatched_at = now()
+            save_package_request(req)
+            payload["request"] = serialize_package_request(req)
+
+    return jsonify(payload), status_code
+
+@app.post("/admin/delivery/return_to_loading")
+def admin_return_to_loading():
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    with STATE_LOCK:
+        if STATE.task_state not in [
+            "ABORTED_WAITING_OPERATOR",
+            "RETURN_ABORTED",
+        ]:
+            return jsonify({
+                "ok": False,
+                "error": "DELIVERY_NOT_ABORTED",
+            }), 400
+
+        if not STATE.active_task_id:
+            return jsonify({
+                "ok": False,
+                "error": "NO_ACTIVE_TASK",
+            }), 400
+
+        estop = estop_status()
+
+        if estop.get("stopped"):
+            return jsonify({
+                "ok": False,
+                "error": "ESTOP_ACTIVE",
+            }), 403
+
+        task_id = STATE.active_task_id
+        drawer_id = STATE.drawer_id or "D1"
+
+        STATE.task_state = (
+            "RETURNING_TO_LOADING_BAY"
+        )
+        STATE.nav_status = "RETURNING"
+        STATE.route_recovery_count = 0
+        STATE.abort_notification = False
+        STATE.drawer_prompt = (
+            "Sending return-to-loading-bay goal."
+        )
+        update_active_package_status("RETURNING")
+
+        sent = send_task_to_nav_bridge(
+            task_id,
+            "Home",
+            drawer_id,
+            mission_type="return",
+        )
+
+        if not sent:
+            STATE.task_state = (
+                "ABORTED_WAITING_OPERATOR"
+            )
+            STATE.nav_status = "ABORTED"
+            STATE.abort_notification = True
+            STATE.drawer_prompt = (
+                "Could not send return command "
+                "to navigation."
+            )
+
+            return jsonify({
+                "ok": False,
+                "error": "NAV_BRIDGE_SEND_FAILED",
+            }), 500
+
+        logger.log(
+            "RETURN_TO_LOADING_REQUESTED",
+            (
+                f"task={task_id} "
+                f"from_x={STATE.abort_x} "
+                f"from_y={STATE.abort_y}"
+            )
+        )
+
+        return jsonify({
+            "ok": True,
+            "ack": "RETURN_TO_LOADING_SENT",
+            "task_id": task_id,
+        })
+
+
+@app.post("/admin/delivery/cancel_return_home")
+def admin_delivery_cancel_return_home():
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    with STATE_LOCK:
+        if not STATE.active_task_id:
+            return jsonify({
+                "ok": False,
+                "error": "NO_ACTIVE_TASK",
+            }), 400
+
+        if STATE.task_state not in ADMIN_RETURN_HOME_STATES:
+            return jsonify({
+                "ok": False,
+                "error": "RETURN_HOME_NOT_AVAILABLE",
+                "state": STATE.task_state,
+            }), 400
+
+        estop = estop_status()
+        if estop.get("stopped"):
+            return jsonify({
+                "ok": False,
+                "error": "ESTOP_ACTIVE",
+            }), 403
+
+        task_id = STATE.active_task_id
+        drawer_id = STATE.drawer_id or "D1"
+        previous_state = STATE.task_state
+        previous_nav_status = STATE.nav_status
+        previous_prompt = STATE.drawer_prompt
+        package_request = PACKAGE_REQUESTS.get(STATE.package_request_id)
+        previous_package_status = (
+            package_request.status if package_request else None
+        )
+
+        if drawer_id in config.DRAWER_IDS:
+            try:
+                gpio.lock_drawer(drawer_id)
+            except Exception as e:
+                logger.log(
+                    "ADMIN_RETURN_HOME_LOCK_FAIL",
+                    f"task={task_id} drawer={drawer_id} err={e}",
+                )
+
+        STATE.task_state = "RETURNING_TO_LOADING"
+        STATE.nav_status = "RETURN_REQUESTED"
+        STATE.auth_required = False
+        STATE.auth_ok = False
+        STATE.drawer_prompt = (
+            "Canceling the current navigation goal, then returning Home."
+        )
+        motion.moving = True
+        motion.arrived = False
+        motion.fault = False
+        update_active_package_status("RETURNING")
+
+    sent = send_cancel_and_return_home_to_nav_bridge(
+        task_id,
+        drawer_id,
+    )
+
+    if not sent:
+        with STATE_LOCK:
+            if (
+                STATE.active_task_id == task_id
+                and STATE.nav_status == "RETURN_REQUESTED"
+            ):
+                STATE.task_state = previous_state
+                STATE.nav_status = previous_nav_status
+                STATE.drawer_prompt = previous_prompt
+                motion.moving = False
+
+                if package_request and previous_package_status:
+                    package_request.status = previous_package_status
+                    save_package_request(package_request)
+
+        return jsonify({
+            "ok": False,
+            "error": "RETURN_HOME_SEND_FAILED",
+        }), 502
+
+    logger.log(
+        "ADMIN_CANCEL_RETURN_HOME_REQUESTED",
+        f"task={task_id} drawer={drawer_id}",
+    )
+    return jsonify({
+        "ok": True,
+        "ack": "CANCEL_RETURN_HOME_REQUESTED",
+        "task_id": task_id,
+    }), 202
+
+
+@app.post("/admin/delivery/confirm_home_complete")
+def admin_delivery_confirm_home_complete():
+    """Close a preserved task after physical Home has been confirmed."""
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    with STATE_LOCK:
+        if not STATE.active_task_id:
+            return jsonify({
+                "ok": False,
+                "error": "NO_ACTIVE_TASK",
+            }), 400
+
+        if STATE.task_state not in ADMIN_CONFIRM_HOME_STATES:
+            return jsonify({
+                "ok": False,
+                "error": "HOME_CONFIRM_NOT_AVAILABLE",
+                "state": STATE.task_state,
+            }), 400
+
+        estop = estop_status()
+        if not estop.get("stopped"):
+            return jsonify({
+                "ok": False,
+                "error": "ESTOP_REQUIRED_FOR_HOME_CONFIRM",
+            }), 403
+
+        task_id = STATE.active_task_id
+        drawer_id = STATE.drawer_id
+        package_request_id = STATE.package_request_id
+        previous_state = STATE.task_state
+        previous_nav_status = STATE.nav_status
+        previous_prompt = STATE.drawer_prompt
+
+        if drawer_id in config.DRAWER_IDS:
+            try:
+                gpio.lock_drawer(drawer_id)
+            except Exception as e:
+                logger.log(
+                    "ADMIN_CONFIRM_HOME_LOCK_FAIL",
+                    f"task={task_id} drawer={drawer_id} err={e}",
+                )
+
+        STATE.task_state = "CONFIRMING_HOME_COMPLETE"
+        STATE.nav_status = "CANCELING_STALE_NAVIGATION"
+        STATE.drawer_prompt = (
+            "Confirming Home and closing the completed delivery."
+        )
+        motion.moving = False
+        motion.arrived = False
+        motion.fault = False
+
+    canceled = send_cancel_to_nav_bridge(
+        task_id,
+        "ADMIN_CONFIRMED_PHYSICAL_HOME",
+    )
+
+    if not canceled:
+        with STATE_LOCK:
+            if STATE.active_task_id == task_id:
+                STATE.task_state = previous_state
+                STATE.nav_status = previous_nav_status
+                STATE.drawer_prompt = previous_prompt
+
+        return jsonify({
+            "ok": False,
+            "error": "NAV_CANCEL_FAILED",
+        }), 502
+
+    with STATE_LOCK:
+        package_request = PACKAGE_REQUESTS.get(package_request_id)
+        if package_request:
+            package_request.status = "COMPLETED"
+            save_package_request(package_request)
+
+        reset_to_idle_after_complete(
+            "Administrator confirmed the robot is physically Home. "
+            "Ready for the next package."
+        )
+
+    logger.log(
+        "ADMIN_PHYSICAL_HOME_CONFIRMED",
+        f"task={task_id} request={package_request_id}",
+    )
+    return jsonify({
+        "ok": True,
+        "ack": "HOME_CONFIRMED_TASK_COMPLETED",
+        "task_id": task_id,
+    })
+
+@app.post("/task/cancel")
+def task_cancel():
+    with STATE_LOCK:
+        t0 = time.time()
+
+        if STATE.active_task_id and uart:
+            sent = uart.send_task_cancel(STATE.active_task_id)
+            if not sent:
+                logger.log("TASK_CANCEL_FAIL", f"id={STATE.active_task_id} uart_send_failed")
+                return jsonify({"ok": False, "error": "UART_SEND_FAILED"}), 500
+
+        if STATE.drawer_id in ["D1", "D2", "D3", "D4"]:
+            gpio.lock_drawer(STATE.drawer_id)
+
+        if STATE.package_request_id in PACKAGE_REQUESTS:
+            PACKAGE_REQUESTS[STATE.package_request_id].status = "CANCELED"
+            save_package_request(PACKAGE_REQUESTS[STATE.package_request_id])
+
+        logger.log("TASK_CANCEL", f"id={STATE.active_task_id}")
+
+        motion.moving = False
+        motion.arrived = False
+        motion.fault = False
+
+        reset_to_idle_after_complete("Task canceled. Ready for loading again.")
+
+        latency_ms = int((time.time() - t0) * 1000)
+        logger.log("API_LATENCY", f"endpoint=/task/cancel latency_ms={latency_ms}")
+        return jsonify({"ok": True, "ack": "TASK_CANCELED"})
+
+
+@app.post("/navigation/status")
+def navigation_status():
+    blocked = require_service_key()
+    if blocked:
+        return blocked
+
+    data = request.get_json(force=True)
+    task_id = (data.get("task_id") or "").strip()
+    status = (data.get("status") or "").strip().upper()
+
+    if not task_id or not status:
+        return jsonify({"ok": False, "error": "TASK_ID_AND_STATUS_REQUIRED"}), 400
+
+    logger.log(
+        "NAV_BRIDGE_STATUS",
+        (
+            f"task={task_id} "
+            f"status={status} "
+            f"recoveries={data.get('recovery_count')}/"
+            f"{data.get('recovery_limit')}"
+        )
+    )
+
+    navigation_message = dict(data)
+    navigation_message["type"] = "STATUS"
+    navigation_message["task_id"] = task_id
+    navigation_message["status"] = status
+
+    handle_uart_message(navigation_message)
+
+    return jsonify({"ok": True, "ack": "STATUS_RECEIVED"})
+
+
+@app.post("/auth/verify")
+def auth_verify():
+    with STATE_LOCK:
+        t0 = time.time()
+        mark_ui_contact()
+        refresh_from_adapters()
+
+        if in_lockout():
+            logger.log("AUTH_BLOCKED", "lockout active")
+            return jsonify({"ok": False, "error": "LOCKOUT_ACTIVE"}), 403
+
+        if not STATE.comm_ok or not comm_is_fresh():
+            logger.log("AUTH_BLOCKED", "comm_lost")
+            return jsonify({"ok": False, "error": "COMM_LOST"}), 403
+
+        if STATE.task_state != "ARRIVED_AUTH_REQUIRED":
+            logger.log("AUTH_BLOCKED", f"invalid_state state={STATE.task_state}")
+            return jsonify({"ok": False, "error": "INVALID_STATE", "state": STATE.task_state}), 403
+
+        data = request.get_json(force=True)
+        pin = (data.get("pin") or "").strip()
+
+        if not pin:
+            return jsonify({"ok": False, "error": "PIN_REQUIRED"}), 400
+
+        pin_hash = hash_pin(pin)
+
+        if pin_hash == STATE.task_pin_hash:
+            STATE.auth_ok = True
+            STATE.failed_attempts = 0
+            logger.log("AUTH_SUCCESS", f"task={STATE.active_task_id} drawer={STATE.drawer_id}")
+
+            auto_unlocked = try_auto_unlock_after_auth()
+
+            latency_ms = int((time.time() - t0) * 1000)
+            logger.log("API_LATENCY", f"endpoint=/auth/verify latency_ms={latency_ms}")
+
+            return jsonify({"ok": True, "ack": "AUTH_OK", "auto_unlocked": auto_unlocked})
+
+        STATE.failed_attempts += 1
+        logger.log("AUTH_FAIL", f"attempts={STATE.failed_attempts} task={STATE.active_task_id}")
+
+        if STATE.failed_attempts >= 3:
+            STATE.lockout_until = now() + timedelta(seconds=config.LOCKOUT_SECONDS)
+            logger.log("LOCKOUT_TRIGGERED", f"until={STATE.lockout_until.isoformat(timespec='seconds')}")
+
+        latency_ms = int((time.time() - t0) * 1000)
+        logger.log("API_LATENCY", f"endpoint=/auth/verify latency_ms={latency_ms}")
+
+        return jsonify({
+            "ok": False,
+            "error": "INVALID_PIN",
+            "attempts_remaining": max(0, 3 - STATE.failed_attempts)
+        }), 403
+
+
+@app.post("/drawer/unlock")
+def drawer_unlock():
+    with STATE_LOCK:
+        t0 = time.time()
+        mark_ui_contact()
+        refresh_from_adapters()
+
+        if STATE.task_state != "ARRIVED_AUTH_REQUIRED":
+            return jsonify({"ok": False, "error": "INVALID_STATE", "state": STATE.task_state}), 403
+
+        if in_lockout():
+            return jsonify({"ok": False, "error": "LOCKOUT_ACTIVE"}), 403
+
+        if not STATE.auth_ok:
+            return jsonify({"ok": False, "error": "AUTH_REQUIRED"}), 403
+
+        if STATE.fault or STATE.moving:
+            return jsonify({"ok": False, "error": "BUSY_OR_FAULT"}), 403
+
+        if not STATE.comm_ok or not comm_is_fresh():
+            return jsonify({"ok": False, "error": "COMM_LOST"}), 403
+
+        if getattr(config, "UART_ENABLED", False):
+            if not (STATE.arrived or STATE.nav_status == "ARRIVED"):
+                return jsonify({"ok": False, "error": "NOT_ARRIVED"}), 403
+
+        gpio.unlock_drawer(STATE.drawer_id)
+        STATE.unlock_pulse_sent = True
+        STATE.lock_state = "UNLOCK_PULSE_SENT"
+        STATE.lock_unlocked_confirmed = False
+        logger.log("DRAWER_UNLOCKED", f"drawer={STATE.drawer_id} task={STATE.active_task_id}")
+        if lock_feedback_required():
+            STATE.task_state = "AWAITING_RELOCK"
+            STATE.auth_required = False
+            STATE.drawer_prompt = "Unlock pulse sent. Waiting for robot to confirm the lock is secure again."
+        else:
+            complete_delivery_after_unlock()
+
+        latency_ms = int((time.time() - t0) * 1000)
+        logger.log("API_LATENCY", f"endpoint=/drawer/unlock latency_ms={latency_ms}")
+
+        return jsonify({"ok": True, "ack": "DRAWER_UNLOCKED"})
+
+
+@app.post("/admin/drawer/pulse_unlock")
+def admin_drawer_pulse_unlock():
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    with STATE_LOCK:
+        data = request.get_json(silent=True) or {}
+        drawer = (data.get("drawer_id") or "D1").strip().upper()
+
+        if drawer not in config.DRAWER_IDS:
+            return jsonify({"ok": False, "error": "DRAWER_NOT_MAPPED"}), 400
+
+        if STATE.active_task_id or STATE.task_state not in ["READY_FOR_LOADING", "IDLE"]:
+            return jsonify({"ok": False, "error": "TASK_ACTIVE"}), 403
+
+        gpio.unlock_drawer(drawer)
+        refresh_from_adapters()
+        logger.log("ADMIN_LOAD_UNLOCK_PULSE", f"drawer={drawer}")
+
+        return jsonify({
+            "ok": True,
+            "ack": "UNLOCK_PULSE_SENT",
+            "drawer_id": drawer,
+            "pulse_seconds": getattr(config, "UNLOCK_PULSE_SEC", 0.50),
+        })
+
+
+def mark_active_delivery_arrived(log_event: str, ack: str):
+    if not STATE.active_task_id:
+        return jsonify({
+            "ok": False,
+            "error": "NO_ACTIVE_TASK"
+        }), 400
+
+    motion.moving = False
+    motion.arrived = True
+    motion.fault = False
+
+    STATE.moving = False
+    STATE.arrived = True
+    STATE.fault = False
+    STATE.task_state = "ARRIVED_AUTH_REQUIRED"
+    STATE.nav_status = "ARRIVED"
+    STATE.auth_required = True
+    STATE.drawer_prompt = "Arrived. Unlock code sent to recipient email."
+
+    unlock_email = send_unlock_email()
+
+    logger.log(
+        log_event,
+        f"task={STATE.active_task_id} unlock_email_ok={unlock_email.get('ok')}"
+    )
+
+    return jsonify({
+        "ok": True,
+        "ack": ack,
+        "unlock_email": unlock_email
+    })
+
+
+@app.post("/admin/delivery/mark_arrived")
+def admin_delivery_mark_arrived():
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    with STATE_LOCK:
+        return mark_active_delivery_arrived("ADMIN_ARRIVAL_MARKED", "ARRIVAL_MARKED")
+
+
+@app.get("/dispatch")
+def dispatch():
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+    return redirect(url_for("admin"))
+
+
+@app.get("/receiver/<task_id>")
+def receiver(task_id):
+    if STATE.active_task_id != task_id:
+        abort(404)
+    return render_template("receiver.html", task_id=task_id)
+
+
+@app.get("/track/<token>")
+def track(token):
+    with STATE_LOCK:
+        if not STATE.tracking_token or token != STATE.tracking_token:
+            abort(404)
+        return render_template("receiver.html", task_id=STATE.active_task_id)
+
+
+@app.get("/admin")
+def admin():
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+    return render_template(
+        "admin.html",
+        service_key=config.SERVICE_KEY,
+        destination_choices=DESTINATION_CHOICES,
+    )
+
+
+@app.get("/admin/health")
+def admin_health():
+    blocked = require_admin_page()
+    if blocked:
+        return blocked
+
+    with STATE_LOCK:
+        refresh_from_adapters()
+        payload = {
+            "email": {
+                "enabled": bool(config.EMAIL_ENABLED),
+                "smtp_host": config.SMTP_HOST,
+                "smtp_username_set": bool(config.SMTP_USERNAME),
+                "smtp_password_set": bool(config.SMTP_PASSWORD),
+                "from": config.EMAIL_FROM,
+                "last_tracking_email_sent": STATE.tracking_email_sent,
+                "last_unlock_email_sent": STATE.unlock_email_sent,
+            },
+            "security": {
+                "admin_password_set": bool(config.ADMIN_PASSWORD),
+                "service_key_set": bool(config.SERVICE_KEY),
+            },
+            "hardware": {
+                "solenoid_gpio_enabled": bool(config.USE_REAL_GPIO_ACTUATORS),
+                "lock_feedback_required": lock_feedback_required(),
+                "lock_state": STATE.lock_state,
+                "mapped_drawers": config.DRAWER_IDS,
+                "solenoid_unlock_lines": config.SOLENOID_UNLOCK_LINE_MAP,
+                "power_button": gpio.read_power_button(),
+                "estop": estop_status(),
+            },
+            "workflow": {
+                "enforce_delivery_window": bool(getattr(config, "ENFORCE_DELIVERY_WINDOW", False)),
+                "dispatch_lead_minutes": getattr(config, "DISPATCH_LEAD_MINUTES", 15),
+            },
+            "navigation": {
+                "uart_enabled": bool(config.UART_ENABLED),
+                "uart_port": config.UART_PORT,
+                "uart_baudrate": config.UART_BAUDRATE,
+                "nav_status": STATE.nav_status,
+                "moving": STATE.moving,
+                "arrived": STATE.arrived,
+                "fault": STATE.fault,
+            },
+            "mode": "hardware" if config.USE_REAL_GPIO_ACTUATORS else "development",
+        }
+        return jsonify(payload)
+
+
+_estop_monitor_thread = threading.Thread(
+    target=estop_monitor_loop,
+    name="mailrover-estop-monitor",
+    daemon=True,
+)
+_estop_monitor_thread.start()
+
+
+if __name__ == "__main__":
+    app.run(
+        host=config.HOST,
+        port=config.PORT,
+        debug=False,
+    )

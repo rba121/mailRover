@@ -1,0 +1,31 @@
+[INFO] [1786097228.820986069] [map_server]: 
+	map_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786097228.821350126] [map_server]: Creating
+[INFO] [1786097228.935189366] [map_server]: Configuring
+[INFO] [1786097228.935306311] [map_io]: Loading yaml file: /home/mypi/maps/TASCmap.yaml
+[INFO] [1786097228.935762813] [map_io]: resolution: 0.05
+[INFO] [1786097228.935791461] [map_io]: origin[0]: -20.847
+[INFO] [1786097228.935802369] [map_io]: origin[1]: -87.971
+[INFO] [1786097228.935810425] [map_io]: origin[2]: 0
+[INFO] [1786097228.935818388] [map_io]: free_thresh: 0.196
+[INFO] [1786097228.935825073] [map_io]: occupied_thresh: 0.65
+[INFO] [1786097228.935833221] [map_io]: mode: trinary
+[INFO] [1786097228.935841184] [map_io]: negate: 0
+[INFO] [1786097228.936209130] [map_io]: Loading image_file: /home/mypi/maps/TASCmap4.pgm
+[INFO] [1786097229.061562026] [map_io]: Read map /home/mypi/maps/TASCmap4.pgm: 1552 X 2299 map @ 0.05 m/cell
+[INFO] [1786097229.125694954] [map_server]: Activating
+[INFO] [1786097229.134941727] [map_server]: Creating bond (map_server) to lifecycle manager.
+[WARN] [1786097409.909113809] [rcl_lifecycle]: No transition matching 1 found for current state active
+[WARN] [1786097409.909148032] [rcl_lifecycle]: No transition matching 1 found for current state active
+[ERROR] [1786097409.909162254] [map_server]: Unable to start transition 1 from current state active: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[WARN] [1786097409.931928158] [rcl_lifecycle]: No transition matching 3 found for current state active
+[WARN] [1786097409.931964787] [rcl_lifecycle]: No transition matching 3 found for current state active
+[ERROR] [1786097409.931974676] [map_server]: Unable to start transition 3 from current state active: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[INFO] [1786097472.224852447] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786097472.225014504] [map_server]: Running Nav2 LifecycleNode rcl preshutdown (map_server)
+[INFO] [1786097472.225119060] [map_server]: Deactivating
+[INFO] [1786097472.225153134] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[INFO] [1786097472.251111703] [map_server]: Cleaning up
+[INFO] [1786097472.251190426] [map_server]: Destroying bond (map_server) to lifecycle manager.

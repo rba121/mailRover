@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+cd /home/mypi/mailrover
+
+set -a
+source /home/mypi/mailrover/.env
+set +a
+
+source /opt/ros/jazzy/setup.bash
+source /home/mypi/ros2_ws/install/setup.bash
+
+exec /usr/bin/python3 /home/mypi/mailrover/scripts/ros2_nav_bridge.py

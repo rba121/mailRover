@@ -1,0 +1,73 @@
+[INFO] [1786022798.166999649] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786022798.264349146] [controller_server]: Creating controller server
+[INFO] [1786022798.354255509] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786022798.355677536] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1786022798.515953563] [controller_server]: Configuring controller interface
+[INFO] [1786022798.516015915] [controller_server]: getting progress checker plugins..
+[INFO] [1786022798.516601751] [controller_server]: getting goal checker plugins..
+[INFO] [1786022798.516823012] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1786022798.516931975] [local_costmap.local_costmap]: Configuring
+[INFO] [1786022798.539808730] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1786022798.545817893] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1786022798.571398348] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1786022798.571488793] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1786022798.572200871] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786022798.624178860] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1786022798.625537145] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1786022798.627522323] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1786022798.628739792] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1786022798.632073866] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1786022798.636944078] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1786022798.641437325] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1786022798.641521733] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1786022798.645405421] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1786022798.645483347] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1786022798.645519829] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1786022798.646025868] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1786022798.646933725] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1786022798.648195158] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1786022798.648272603] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1786022798.652927425] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1786022798.653019685] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1786022798.653832448] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1786022798.658285806] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1786022798.658657364] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1786022798.660643393] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1786022798.661353434] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1786022798.663555835] [controller_server]: Optimizer reset
+[INFO] [1786022798.679552923] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1786022798.679625127] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1786022799.650462616] [controller_server]: Activating
+[INFO] [1786022799.650527691] [local_costmap.local_costmap]: Activating
+[INFO] [1786022799.650548784] [local_costmap.local_costmap]: Checking transform
+[INFO] [1786022799.650612858] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1786022800.150677396] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1786022800.650659064] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1786022801.150609879] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1786022801.650652435] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1786022802.150658732] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1786022802.650666622] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1786022803.150650586] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+[INFO] [1786022803.650682550] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "base_footprint" passed to canTransform argument source_frame - frame does not exist
+[INFO] [1786022804.150641439] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "base_footprint" passed to canTransform argument source_frame - frame does not exist
+[INFO] [1786022804.650642681] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "base_footprint" passed to canTransform argument source_frame - frame does not exist
+[INFO] [1786022805.150658163] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "base_footprint" passed to canTransform argument source_frame - frame does not exist
+[INFO] [1786022805.650660182] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "base_footprint" passed to canTransform argument source_frame - frame does not exist
+[INFO] [1786022806.150643516] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "base_footprint" passed to canTransform argument source_frame - frame does not exist
+[INFO] [1786022806.650662054] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Invalid frame ID "base_footprint" passed to canTransform argument source_frame - frame does not exist
+[INFO] [1786022807.150827685] [local_costmap.local_costmap]: start
+[WARN] [1786022807.354528654] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1786022807.354845026] [controller_server]: Optimizer reset
+[INFO] [1786022807.355487956] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1786022807.355543808] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1786022814.168746757] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786022813.863 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786022821.874764769] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786022821.569 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786022828.551257283] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786022828.246 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786022832.789270168] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786022832.484 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786022838.128455332] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786022837.823 for reason 'the timestamp on the message is earlier than all the data in the transform cache'

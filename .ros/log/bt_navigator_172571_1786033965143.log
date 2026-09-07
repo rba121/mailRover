@@ -1,0 +1,22 @@
+[INFO] [1786033966.274689424] [bt_navigator]: 
+	bt_navigator lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786033966.296242543] [bt_navigator]: Creating
+[INFO] [1786033967.754799504] [bt_navigator]: Configuring
+[INFO] [1786033967.778084744] [bt_navigator]: Creating navigator id navigate_to_pose of type nav2_bt_navigator::NavigateToPoseNavigator
+[INFO] [1786033967.991588777] [bt_navigator]: Creating navigator id navigate_through_poses of type nav2_bt_navigator::NavigateThroughPosesNavigator
+[INFO] [1786033973.217409530] [bt_navigator]: Activating
+[INFO] [1786033973.513417391] [bt_navigator]: Creating bond (bt_navigator) to lifecycle manager.
+[INFO] [1786034752.175748646] [bt_navigator]: Begin navigating from current location (24.36, -44.70) to (38.11, -58.03)
+[ERROR] [1786034761.765411919] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!
+[ERROR] [1786034900.890717858] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!
+[WARN] [1786034916.345143290] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.
+[ERROR] [1786034916.345587848] [bt_navigator]: Goal failed
+[INFO] [1786034918.779121575] [bt_navigator]: Begin navigating from current location (24.40, -45.17) to (38.11, -58.03)
+[INFO] [1786035056.500560893] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786035056.500721524] [bt_navigator]: Running Nav2 LifecycleNode rcl preshutdown (bt_navigator)
+[INFO] [1786035056.500879377] [bt_navigator]: Deactivating
+[WARN] [1786035056.500911821] [bt_navigator]: [navigate_to_pose] [ActionServer] Requested to deactivate server but goal is still executing. Should check if action server is running before deactivating.
+[ERROR] [1786035056.528900032] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to cancel action server for spin
+[ERROR] [1786035056.551158044] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for spin in node halt!

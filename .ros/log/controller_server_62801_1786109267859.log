@@ -1,0 +1,241 @@
+[INFO] [1786109268.776300717] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786109268.814499214] [controller_server]: Creating controller server
+[INFO] [1786109269.252759313] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786109269.254710861] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1786109269.767261035] [controller_server]: Configuring controller interface
+[INFO] [1786109269.767331499] [controller_server]: getting progress checker plugins..
+[INFO] [1786109269.767958039] [controller_server]: getting goal checker plugins..
+[INFO] [1786109269.769769234] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1786109269.770478571] [local_costmap.local_costmap]: Configuring
+[INFO] [1786109269.810929209] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1786109269.818299637] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1786109269.857132952] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1786109269.858274773] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1786109269.860305394] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786109269.959481101] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1786109269.960123512] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1786109269.961101554] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1786109269.966620805] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1786109269.971248755] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1786109269.990913562] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1786109269.993948652] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1786109269.994024467] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1786109269.994803546] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1786109269.994850750] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1786109269.994884527] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1786109269.995259770] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1786109269.995298604] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1786109269.996816741] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1786109269.999202772] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1786109270.005710566] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1786109270.005784863] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1786109270.009249918] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1786109270.015974842] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1786109270.016077065] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1786109270.016493493] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1786109270.016605216] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1786109270.020343143] [controller_server]: Optimizer reset
+[INFO] [1786109270.049727464] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1786109270.049808427] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1786109271.727481594] [controller_server]: Activating
+[INFO] [1786109271.727560613] [local_costmap.local_costmap]: Activating
+[INFO] [1786109271.727576909] [local_costmap.local_costmap]: Checking transform
+[INFO] [1786109271.728061541] [local_costmap.local_costmap]: start
+[WARN] [1786109271.930180825] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1786109271.930528975] [controller_server]: Optimizer reset
+[INFO] [1786109271.931783723] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1786109271.931860038] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1786109420.968611370] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786109420.968714871] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1786109420.968740445] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1786109422.069694010] [controller_server]: Passing new path to controller.
+[INFO] [1786109423.169229326] [controller_server]: Passing new path to controller.
+[INFO] [1786109424.269658907] [controller_server]: Passing new path to controller.
+[INFO] [1786109425.370794288] [controller_server]: Passing new path to controller.
+[INFO] [1786109426.469867953] [controller_server]: Passing new path to controller.
+[INFO] [1786109427.570543368] [controller_server]: Passing new path to controller.
+[INFO] [1786109428.670232148] [controller_server]: Passing new path to controller.
+[INFO] [1786109429.769099942] [controller_server]: Passing new path to controller.
+[INFO] [1786109430.969776203] [controller_server]: Passing new path to controller.
+[INFO] [1786109431.969370396] [controller_server]: Passing new path to controller.
+[INFO] [1786109433.071028039] [controller_server]: Passing new path to controller.
+[INFO] [1786109434.169502349] [controller_server]: Passing new path to controller.
+[INFO] [1786109435.269265000] [controller_server]: Passing new path to controller.
+[INFO] [1786109436.369303912] [controller_server]: Passing new path to controller.
+[INFO] [1786109437.369135477] [controller_server]: Passing new path to controller.
+[INFO] [1786109438.469715614] [controller_server]: Passing new path to controller.
+[INFO] [1786109439.569973749] [controller_server]: Passing new path to controller.
+[INFO] [1786109440.671110037] [controller_server]: Passing new path to controller.
+[INFO] [1786109441.769684977] [controller_server]: Passing new path to controller.
+[INFO] [1786109442.770714253] [controller_server]: Passing new path to controller.
+[INFO] [1786109443.869829307] [controller_server]: Passing new path to controller.
+[INFO] [1786109444.970675316] [controller_server]: Passing new path to controller.
+[INFO] [1786109446.070807895] [controller_server]: Passing new path to controller.
+[ERROR] [1786109446.173507293] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109446.035143 but the latest data is at time 1786109445.983374, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109446.173708998] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109446.174341353] [controller_server]: Optimizer reset
+[WARN] [1786109446.174394668] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109448.607731241] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786109449.209771585] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109449.101687 but the latest data is at time 1786109449.057659, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109449.209980697] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109449.210289829] [controller_server]: Optimizer reset
+[WARN] [1786109449.210329199] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109451.625664948] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109452.725920454] [controller_server]: Passing new path to controller.
+[INFO] [1786109453.825888328] [controller_server]: Passing new path to controller.
+[ERROR] [1786109454.227727961] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109454.101660 but the latest data is at time 1786109454.047093, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109454.227936129] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109454.228269612] [controller_server]: Optimizer reset
+[WARN] [1786109454.228314835] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109456.644030067] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109457.744301332] [controller_server]: Passing new path to controller.
+[INFO] [1786109458.844358003] [controller_server]: Passing new path to controller.
+[INFO] [1786109459.944349859] [controller_server]: Passing new path to controller.
+[INFO] [1786109460.944285573] [controller_server]: Passing new path to controller.
+[ERROR] [1786109461.546549270] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109461.435161 but the latest data is at time 1786109461.349160, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109461.546703937] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109461.546939494] [controller_server]: Optimizer reset
+[WARN] [1786109461.546974087] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109463.971208257] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109465.071704263] [controller_server]: Passing new path to controller.
+[INFO] [1786109466.272302079] [controller_server]: Passing new path to controller.
+[INFO] [1786109467.272162070] [controller_server]: Passing new path to controller.
+[ERROR] [1786109467.676891424] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109467.536858 but the latest data is at time 1786109467.490192, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109467.677100017] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109467.677440112] [controller_server]: Optimizer reset
+[WARN] [1786109467.677481871] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109470.149688443] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109471.249954986] [controller_server]: Passing new path to controller.
+[INFO] [1786109472.349970564] [controller_server]: Passing new path to controller.
+[INFO] [1786109473.449952290] [controller_server]: Passing new path to controller.
+[INFO] [1786109474.550027757] [controller_server]: Passing new path to controller.
+[INFO] [1786109475.652771036] [controller_server]: Passing new path to controller.
+[INFO] [1786109476.749938135] [controller_server]: Passing new path to controller.
+[INFO] [1786109477.950142764] [controller_server]: Passing new path to controller.
+[INFO] [1786109479.351650850] [controller_server]: Passing new path to controller.
+[INFO] [1786109480.549942486] [controller_server]: Passing new path to controller.
+[INFO] [1786109481.549956737] [controller_server]: Passing new path to controller.
+[INFO] [1786109482.649956648] [controller_server]: Passing new path to controller.
+[INFO] [1786109483.850525131] [controller_server]: Passing new path to controller.
+[WARN] [1786109485.056568959] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.3788 Hz.
+[INFO] [1786109485.160133269] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786109485.160879681] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786109485.173414770] [controller_server]: Optimizer reset
+[INFO] [1786109487.580137674] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786109487.882405112] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109487.768443 but the latest data is at time 1786109487.751760, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109487.882550391] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109487.882910671] [controller_server]: Optimizer reset
+[WARN] [1786109487.882953190] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109490.303550746] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786109491.005936974] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109490.901665 but the latest data is at time 1786109490.877153, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109491.006110290] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109491.006435385] [controller_server]: Optimizer reset
+[WARN] [1786109491.006477718] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109493.453598814] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109494.553971543] [controller_server]: Passing new path to controller.
+[INFO] [1786109495.653953213] [controller_server]: Passing new path to controller.
+[INFO] [1786109496.753979884] [controller_server]: Passing new path to controller.
+[ERROR] [1786109497.155507015] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109497.035249 but the latest data is at time 1786109496.947960, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109497.155662627] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109497.155971796] [controller_server]: Optimizer reset
+[WARN] [1786109497.156015870] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109499.584755232] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109500.685005256] [controller_server]: Passing new path to controller.
+[INFO] [1786109501.784982204] [controller_server]: Passing new path to controller.
+[INFO] [1786109502.885005264] [controller_server]: Passing new path to controller.
+[ERROR] [1786109503.286420098] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109503.168379 but the latest data is at time 1786109503.146258, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109503.286597470] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109503.286944750] [controller_server]: Optimizer reset
+[WARN] [1786109503.286995657] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109505.724925127] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786109506.426608999] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109506.301684 but the latest data is at time 1786109506.247474, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109506.426754537] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109506.427074410] [controller_server]: Optimizer reset
+[WARN] [1786109506.427113465] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109508.847257538] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109509.947497006] [controller_server]: Passing new path to controller.
+[INFO] [1786109511.047503658] [controller_server]: Passing new path to controller.
+[INFO] [1786109512.147506681] [controller_server]: Passing new path to controller.
+[INFO] [1786109513.247569537] [controller_server]: Passing new path to controller.
+[INFO] [1786109514.347486004] [controller_server]: Passing new path to controller.
+[INFO] [1786109515.347484440] [controller_server]: Passing new path to controller.
+[INFO] [1786109516.447512296] [controller_server]: Passing new path to controller.
+[INFO] [1786109517.547481892] [controller_server]: Passing new path to controller.
+[INFO] [1786109518.647499804] [controller_server]: Passing new path to controller.
+[INFO] [1786109519.747500067] [controller_server]: Passing new path to controller.
+[INFO] [1786109520.848125593] [controller_server]: Passing new path to controller.
+[INFO] [1786109521.947515427] [controller_server]: Passing new path to controller.
+[INFO] [1786109523.147484147] [controller_server]: Passing new path to controller.
+[INFO] [1786109524.247483706] [controller_server]: Passing new path to controller.
+[INFO] [1786109525.347502636] [controller_server]: Passing new path to controller.
+[INFO] [1786109526.447515233] [controller_server]: Passing new path to controller.
+[INFO] [1786109527.547509255] [controller_server]: Passing new path to controller.
+[ERROR] [1786109527.849995584] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109527.735257 but the latest data is at time 1786109527.693733, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109527.850173585] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109527.850517087] [controller_server]: Optimizer reset
+[WARN] [1786109527.850560605] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109530.398439625] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109531.498706983] [controller_server]: Passing new path to controller.
+[INFO] [1786109532.698685573] [controller_server]: Passing new path to controller.
+[INFO] [1786109533.798908819] [controller_server]: Passing new path to controller.
+[INFO] [1786109534.798680809] [controller_server]: Passing new path to controller.
+[INFO] [1786109535.898701906] [controller_server]: Passing new path to controller.
+[INFO] [1786109536.998680614] [controller_server]: Passing new path to controller.
+[INFO] [1786109538.098698858] [controller_server]: Passing new path to controller.
+[ERROR] [1786109538.500295509] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109538.368366 but the latest data is at time 1786109538.276325, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109538.500458658] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109538.501455608] [controller_server]: Optimizer reset
+[WARN] [1786109538.501519108] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109540.906814078] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786109541.408279036] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109541.301678 but the latest data is at time 1786109541.214856, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109541.408433426] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109541.408731631] [controller_server]: Optimizer reset
+[WARN] [1786109541.408771798] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109543.817442139] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786109544.418924127] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109544.301682 but the latest data is at time 1786109544.287436, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109544.419066499] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109544.419366019] [controller_server]: Optimizer reset
+[WARN] [1786109544.419425890] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109546.859716465] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109547.959951211] [controller_server]: Passing new path to controller.
+[INFO] [1786109549.059942012] [controller_server]: Passing new path to controller.
+[INFO] [1786109550.159938645] [controller_server]: Passing new path to controller.
+[ERROR] [1786109550.562342170] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109550.435422 but the latest data is at time 1786109550.433036, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109550.562506320] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109550.562832395] [controller_server]: Optimizer reset
+[WARN] [1786109550.562873303] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109552.996631397] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109554.096871995] [controller_server]: Passing new path to controller.
+[INFO] [1786109555.196878629] [controller_server]: Passing new path to controller.
+[ERROR] [1786109555.598365242] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109555.468328 but the latest data is at time 1786109555.447448, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109555.598534039] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109555.598822670] [controller_server]: Optimizer reset
+[WARN] [1786109555.598863244] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109558.023574195] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786109558.625060072] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109558.501673 but the latest data is at time 1786109558.448643, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109558.625207777] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109558.625484093] [controller_server]: Optimizer reset
+[WARN] [1786109558.625519927] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109561.054257085] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109562.154518887] [controller_server]: Passing new path to controller.
+[INFO] [1786109563.254521761] [controller_server]: Passing new path to controller.
+[INFO] [1786109564.354493450] [controller_server]: Passing new path to controller.
+[ERROR] [1786109564.857015544] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109564.736558 but the latest data is at time 1786109564.638101, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109564.857240008] [controller_server]: Unable to transform goal pose into costmap frame
+[INFO] [1786109564.857690011] [controller_server]: Optimizer reset
+[WARN] [1786109564.857756141] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786109567.299676485] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786109568.399921305] [controller_server]: Passing new path to controller.
+[INFO] [1786109569.499879661] [controller_server]: Passing new path to controller.
+[INFO] [1786109570.599879017] [controller_server]: Passing new path to controller.
+[INFO] [1786109571.699884502] [controller_server]: Passing new path to controller.
+[INFO] [1786109572.699879661] [controller_server]: Passing new path to controller.
+[INFO] [1786109573.799879887] [controller_server]: Passing new path to controller.
+[ERROR] [1786109574.101160468] [controller_server]: Exception in transformPose: Lookup would require extrapolation into the future.  Requested time 1786109573.968331 but the latest data is at time 1786109573.880374, when looking up transform from frame [map] to frame [odom]
+[ERROR] [1786109574.101318302] [controller_server]: Unable to transform goal pose into costmap frame

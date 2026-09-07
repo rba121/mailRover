@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schedule MailRover Delivery</title>
+  <style>
+    :root {
+      --bg: #f6f7f4;
+      --panel: #ffffff;
+      --ink: #151719;
+      --muted: #626970;
+      --line: #dde1e3;
+      --primary: #0f766e;
+      --accent: #1d4ed8;
+      --ok: #157347;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    main {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .logo {
+      width: 124px;
+      max-width: 42vw;
+      height: auto;
+      border-radius: 6px;
+      background: #ffffff;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 22px rgba(21, 23, 25, 0.06);
+      padding: 22px;
+    }
+
+    h1, h2 { margin: 0; letter-spacing: 0; }
+    h1 { font-size: 1.45rem; line-height: 1.15; }
+    h2 { font-size: 1.08rem; margin-top: 22px; }
+
+    .subtle {
+      color: var(--muted);
+      line-height: 1.5;
+      margin-top: 6px;
+    }
+
+    .summary {
+      display: grid;
+      gap: 10px;
+      margin: 20px 0;
+      border-top: 1px solid #eef0f1;
+      border-bottom: 1px solid #eef0f1;
+      padding: 14px 0;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .row strong {
+      color: var(--ink);
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-weight: 800;
+      margin-top: 14px;
+    }
+
+    input, select {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #cbd1d5;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font: inherit;
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    button {
+      min-height: 44px;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 18px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 850;
+      color: #ffffff;
+      background: var(--primary);
+    }
+
+    .success {
+      border: 1px solid #b7dec8;
+      background: #f0fbf4;
+      color: var(--ok);
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 18px;
+      font-weight: 800;
+    }
+
+    .danger {
+      border: 1px solid #efb5ae;
+      background: #fff4f2;
+      color: #b42318;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 18px;
+      font-weight: 800;
+    }
+
+    .secondary {
+      background: #ffffff;
+      color: var(--ink);
+      border: 1px solid #cbd1d5;
+    }
+
+    @media (max-width: 560px) {
+      main { padding: 14px; }
+      .panel { padding: 18px; }
+      .row { display: grid; }
+      .row strong { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">
+      <img class="logo" src="/static/images/rover-logo.png" alt="Rover Autonomous Systems">
+      <div>
+        <h1>Schedule Your MailRover Delivery</h1>
+        <div class="subtle">Choose an available delivery window for tomorrow.</div>
+      </div>
+    </div>
+
+    <section class="panel">
+      {% if canceled or pkg.status == "CANCELED" %}
+        <h2>Delivery Canceled</h2>
+        <p class="subtle">Your MailRover delivery request has been canceled. Your mail will remain available at the front desk.</p>
+        <div class="danger">Canceled</div>
+      {% elif cancel_blocked %}
+        <h2>Cancellation Window Closed</h2>
+        <p class="subtle">This delivery can no longer be canceled online because it is within 6 hours of the selected delivery window. Please contact the front desk.</p>
+        <div class="danger">{{ pkg.requested_slot or "Scheduled" }}</div>
+      {% elif cancel_view %}
+        <h2>Cancel Delivery?</h2>
+        <p class="subtle">This will cancel your scheduled MailRover delivery. Your mail will remain available at the front desk.</p>
+        <div class="summary">
+          <div class="row"><span>Delivery window</span><strong>{{ pkg.requested_slot }}</strong></div>
+          <div class="row"><span>Cancel by</span><strong>{{ pkg.cancel_deadline or "6 hours before delivery" }}</strong></div>
+        </div>
+        {% if pkg.can_cancel %}
+          <form method="post" action="/request/{{ pkg.token }}/cancel">
+            <input type="hidden" name="confirm" value="1">
+            <button type="submit">Cancel Delivery</button>
+          </form>
+        {% else %}
+          <div class="danger">Cancellation is no longer available online.</div>
+        {% endif %}
+      {% elif scheduled or pkg.status in ["SCHEDULED", "DISPATCHED", "COMPLETED"] %}
+        <h2>Delivery Request Confirmed</h2>
+        <p class="subtle">Your request has been logged. You will receive an email when MailRover is on the way, then another email when it arrives with your unlock instructions.</p>
+        <div class="success">{{ pkg.requested_slot or "Scheduled" }}</div>
+        {% if pkg.can_cancel %}
+          <form method="get" action="/request/{{ pkg.token }}/cancel">
+            <button class="secondary" type="submit">Cancel Delivery</button>
+          </form>
+        {% endif %}
+      {% else %}
+        <h2>You Have Mail Waiting</h2>
+        <p class="subtle">You can pick it up at the front desk, or request MailRover delivery for available times here.</p>
+
+        <div class="summary">
+          <div class="row"><span>Recipient</span><strong>{{ pkg.recipient_name }}</strong></div>
+          <div class="row"><span>Item</span><strong>{{ pkg.package_label or "Mail/package" }}</strong></div>
+          <div class="row"><span>Delivery destination</span><strong>{{ pkg.destination }}</strong></div>
+        </div>
+
+        <form method="post" action="/request/{{ pkg.token if pkg.token else '' }}/schedule">
+          <label>
+            Time slot
+            <select name="slot" required>
+              <option value="">Select a time</option>
+              {% for slot in slots %}
+                <option value="{{ slot }}">{{ slot }}</option>
+              {% endfor %}
+            </select>
+          </label>
+          <button type="submit">Request Delivery</button>
+        </form>
+      {% endif %}
+    </section>
+  </main>
+</body>
+</html>

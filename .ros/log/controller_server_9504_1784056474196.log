@@ -1,0 +1,926 @@
+[INFO] [1784056475.874166691] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784056475.887728443] [controller_server]: Creating controller server
+[INFO] [1784056477.020838323] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784056477.022519313] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1784056477.536004483] [controller_server]: Configuring controller interface
+[INFO] [1784056477.536079447] [controller_server]: getting progress checker plugins..
+[INFO] [1784056477.545328214] [controller_server]: getting goal checker plugins..
+[INFO] [1784056477.555205207] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1784056477.559641674] [local_costmap.local_costmap]: Configuring
+[INFO] [1784056477.649648893] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1784056477.668780191] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1784056477.754370000] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1784056477.754467705] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1784056477.764396957] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1784056477.958711578] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1784056477.965729465] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1784056477.973651559] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1784056477.981974100] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1784056477.984767040] [controller_server]: Created controller : FollowPath of type nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1784056478.014731353] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1784056481.125039539] [controller_server]: Activating
+[INFO] [1784056481.125115187] [local_costmap.local_costmap]: Activating
+[INFO] [1784056481.125143724] [local_costmap.local_costmap]: Checking transform
+[INFO] [1784056481.125432503] [local_costmap.local_costmap]: start
+[INFO] [1784056481.336848542] [controller_server]: Activating controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1784056481.336942487] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1784056505.896941717] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056505.897041292] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1784056505.897069199] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1784056506.997299029] [controller_server]: Passing new path to controller.
+[INFO] [1784056507.997394868] [controller_server]: Passing new path to controller.
+[INFO] [1784056509.097465475] [controller_server]: Passing new path to controller.
+[INFO] [1784056510.097334220] [controller_server]: Passing new path to controller.
+[INFO] [1784056511.097742652] [controller_server]: Passing new path to controller.
+[INFO] [1784056512.197685425] [controller_server]: Passing new path to controller.
+[INFO] [1784056513.197298928] [controller_server]: Passing new path to controller.
+[INFO] [1784056514.297312739] [controller_server]: Passing new path to controller.
+[INFO] [1784056515.297499059] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1784056515.297595059] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1784056602.514824671] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784056603.615061279] [controller_server]: Passing new path to controller.
+[INFO] [1784056604.615026284] [controller_server]: Passing new path to controller.
+[INFO] [1784056605.615026121] [controller_server]: Passing new path to controller.
+[INFO] [1784056606.715062821] [controller_server]: Passing new path to controller.
+[INFO] [1784056607.715072640] [controller_server]: Passing new path to controller.
+[INFO] [1784056608.715027552] [controller_server]: Passing new path to controller.
+[INFO] [1784056609.815060141] [controller_server]: Passing new path to controller.
+[INFO] [1784056610.815022978] [controller_server]: Passing new path to controller.
+[INFO] [1784056611.815060594] [controller_server]: Passing new path to controller.
+[INFO] [1784056612.915065034] [controller_server]: Passing new path to controller.
+[INFO] [1784056613.915057595] [controller_server]: Passing new path to controller.
+[INFO] [1784056614.915069155] [controller_server]: Passing new path to controller.
+[INFO] [1784056616.015066687] [controller_server]: Passing new path to controller.
+[INFO] [1784056617.015060766] [controller_server]: Passing new path to controller.
+[INFO] [1784056618.015032808] [controller_server]: Passing new path to controller.
+[INFO] [1784056619.115022507] [controller_server]: Passing new path to controller.
+[INFO] [1784056620.115060845] [controller_server]: Passing new path to controller.
+[INFO] [1784056621.115061738] [controller_server]: Passing new path to controller.
+[INFO] [1784056622.115040521] [controller_server]: Passing new path to controller.
+[INFO] [1784056623.215058591] [controller_server]: Passing new path to controller.
+[INFO] [1784056624.215059391] [controller_server]: Passing new path to controller.
+[INFO] [1784056625.215025748] [controller_server]: Passing new path to controller.
+[INFO] [1784056626.315018651] [controller_server]: Passing new path to controller.
+[INFO] [1784056627.315066896] [controller_server]: Passing new path to controller.
+[WARN] [1784056628.215325096] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1784056628.315069771] [controller_server]: Passing new path to controller.
+[WARN] [1784056628.316896503] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056628.515258347] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056628.715248385] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056629.015245414] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056629.115227628] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056629.215279545] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056629.215380657] [controller_server]: Controller patience exceeded
+[WARN] [1784056629.215497639] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056629.231386180] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056629.233430912] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784056629.333635515] [controller_server]: Passing new path to controller.
+[WARN] [1784056629.335992545] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056629.336276417] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.7339 Hz.
+[WARN] [1784056629.336493400] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056629.436676892] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056629.536992533] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056629.537109348] [controller_server]: Controller patience exceeded
+[WARN] [1784056629.538037241] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056629.557080724] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056629.628409593] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056629.738878654] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056629.739214841] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.0329 Hz.
+[WARN] [1784056629.739463046] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056629.839691649] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056629.941816854] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056629.941919022] [controller_server]: Controller patience exceeded
+[WARN] [1784056629.942096930] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056629.956994170] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056629.961963490] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056630.132321642] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056630.132568662] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.8646 Hz.
+[WARN] [1784056630.132769126] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056630.232924136] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056630.332918016] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056630.332997572] [controller_server]: Controller patience exceeded
+[WARN] [1784056630.333126369] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056645.410666078] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784056646.511380799] [controller_server]: Passing new path to controller.
+[INFO] [1784056647.510966005] [controller_server]: Passing new path to controller.
+[INFO] [1784056648.511876329] [controller_server]: Passing new path to controller.
+[INFO] [1784056649.611406137] [controller_server]: Passing new path to controller.
+[WARN] [1784056650.111950855] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056650.212591664] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056650.312041264] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056650.312124079] [controller_server]: Controller patience exceeded
+[WARN] [1784056650.312271543] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056650.327821897] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056650.331971455] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056650.533943632] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 4.9543 Hz.
+[INFO] [1784056650.634835516] [controller_server]: Passing new path to controller.
+[INFO] [1784056651.634870317] [controller_server]: Passing new path to controller.
+[INFO] [1784056652.634889618] [controller_server]: Passing new path to controller.
+[INFO] [1784056653.634835030] [controller_server]: Passing new path to controller.
+[INFO] [1784056654.734874470] [controller_server]: Passing new path to controller.
+[WARN] [1784056655.235214928] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1784056655.734935142] [controller_server]: Passing new path to controller.
+[INFO] [1784056656.734872294] [controller_server]: Passing new path to controller.
+[INFO] [1784056657.835252996] [controller_server]: Passing new path to controller.
+[INFO] [1784056658.834873998] [controller_server]: Passing new path to controller.
+[INFO] [1784056659.835414098] [controller_server]: Passing new path to controller.
+[WARN] [1784056660.335304516] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056660.435285785] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056660.635362953] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1784056660.934880943] [controller_server]: Passing new path to controller.
+[INFO] [1784056661.934842021] [controller_server]: Passing new path to controller.
+[INFO] [1784056662.934878063] [controller_server]: Passing new path to controller.
+[INFO] [1784056663.934870253] [controller_server]: Passing new path to controller.
+[INFO] [1784056665.034875212] [controller_server]: Passing new path to controller.
+[WARN] [1784056665.436634130] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056665.536129340] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056665.635322272] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1784056666.034869809] [controller_server]: Passing new path to controller.
+[INFO] [1784056667.034882925] [controller_server]: Passing new path to controller.
+[INFO] [1784056668.134872068] [controller_server]: Passing new path to controller.
+[INFO] [1784056669.135026722] [controller_server]: Passing new path to controller.
+[INFO] [1784056670.134833337] [controller_server]: Passing new path to controller.
+[WARN] [1784056670.435792148] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056670.534971487] [controller_server]: Failed to make progress
+[WARN] [1784056670.535192118] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056670.568172095] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056687.679381848] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056687.680065111] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056687.780518937] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056687.882727143] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056687.980650717] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056687.980753699] [controller_server]: Controller patience exceeded
+[WARN] [1784056687.983108710] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056687.997862486] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056688.002278064] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056688.132864983] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056688.133088077] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 7.6518 Hz.
+[WARN] [1784056688.133468190] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056688.233610033] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056688.333586987] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056688.333668210] [controller_server]: Controller patience exceeded
+[WARN] [1784056688.333799563] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056688.371522063] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056689.607216577] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056689.607776709] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056689.707820608] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056689.808434658] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056689.907934461] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056689.908031814] [controller_server]: Controller patience exceeded
+[WARN] [1784056689.908218407] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056689.927413224] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056689.929591382] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056690.130225516] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056690.130456406] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 4.9823 Hz.
+[WARN] [1784056690.131028927] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056690.230998326] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056690.231098678] [controller_server]: Controller patience exceeded
+[WARN] [1784056690.231255031] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056705.322223953] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056705.322750512] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056705.422767503] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056705.522799476] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056705.622768967] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056705.622858393] [controller_server]: Controller patience exceeded
+[WARN] [1784056705.622981801] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056705.639419715] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056705.644404147] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056705.735169723] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056705.745151605] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056705.845027707] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056705.944985661] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056705.945065550] [controller_server]: Controller patience exceeded
+[WARN] [1784056705.945207495] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056718.686662192] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056718.687329028] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056718.787637928] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056718.887389807] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056718.987823412] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056718.987947635] [controller_server]: Controller patience exceeded
+[WARN] [1784056718.988137061] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056719.006426818] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056719.007560935] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056719.139455916] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056719.139739213] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 7.5727 Hz.
+[WARN] [1784056719.140232901] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056719.243323778] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056719.341466352] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056719.341601501] [controller_server]: Controller patience exceeded
+[WARN] [1784056719.341770780] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056719.356414407] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056719.616649871] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056719.617986989] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056719.719964212] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056719.818397306] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056719.919430821] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056719.919554396] [controller_server]: Controller patience exceeded
+[WARN] [1784056719.919733878] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056719.938989843] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056719.944023997] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056720.134753416] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056720.135157547] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2355 Hz.
+[WARN] [1784056720.137695523] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056720.236388341] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056720.337816524] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056720.341851118] [controller_server]: Controller patience exceeded
+[WARN] [1784056720.342055175] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056735.416789592] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056735.420651111] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056735.517798847] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056735.619043770] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056735.719201855] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056735.719334615] [controller_server]: Controller patience exceeded
+[WARN] [1784056735.719520616] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056735.741751966] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056735.744470368] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056735.935870975] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056735.936166847] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2268 Hz.
+[WARN] [1784056735.936690127] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056736.038467775] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056736.139918329] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056736.140050644] [controller_server]: Controller patience exceeded
+[WARN] [1784056736.140228497] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056736.166196865] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056737.616612101] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056737.617670587] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056737.719376346] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056737.819491338] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056737.918322101] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056737.918450620] [controller_server]: Controller patience exceeded
+[WARN] [1784056737.918646696] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056737.938662998] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056737.944152265] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056738.134871221] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056738.135156222] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2391 Hz.
+[WARN] [1784056738.138032088] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056738.238842157] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056738.336168339] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056738.337287289] [controller_server]: Controller patience exceeded
+[WARN] [1784056738.338646259] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056753.427830895] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056753.428466527] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056753.528656445] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056753.628479954] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056753.728616520] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056753.728714428] [controller_server]: Controller patience exceeded
+[WARN] [1784056753.729093152] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056753.746530590] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056753.747796077] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056753.938686830] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056753.939328666] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2243 Hz.
+[WARN] [1784056753.940113855] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056754.041243389] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056754.140070560] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056754.140179227] [controller_server]: Controller patience exceeded
+[WARN] [1784056754.140332617] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056754.166212503] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056755.616619924] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056755.617324186] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056755.719428058] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056755.818584379] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056755.917650828] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056755.917784551] [controller_server]: Controller patience exceeded
+[WARN] [1784056755.917955496] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056755.938396467] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056755.940585515] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056756.131285489] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056756.131563083] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2396 Hz.
+[WARN] [1784056756.132082918] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056756.232205392] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056756.332203327] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056756.332291661] [controller_server]: Controller patience exceeded
+[WARN] [1784056756.332472199] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056771.412171122] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056771.413244886] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056771.512863598] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056771.612850867] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056771.712885173] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056771.712965859] [controller_server]: Controller patience exceeded
+[WARN] [1784056771.713108489] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056771.727516800] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056771.729811478] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056771.930533279] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056771.930804317] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 4.9784 Hz.
+[WARN] [1784056771.931296431] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056772.031474201] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056772.031562442] [controller_server]: Controller patience exceeded
+[WARN] [1784056772.031713795] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056808.797312034] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056808.798125186] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056808.898227715] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056808.998135076] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056809.098094993] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056809.098180142] [controller_server]: Controller patience exceeded
+[WARN] [1784056809.098326791] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056809.120332380] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056809.121485071] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056809.132351198] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056809.222323048] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056809.322324687] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056809.422288345] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056809.422410679] [controller_server]: Controller patience exceeded
+[WARN] [1784056809.422573902] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056809.438959760] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056809.627791947] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056809.628594803] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056809.729184426] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056809.828588266] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056809.929199075] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056809.929283428] [controller_server]: Controller patience exceeded
+[WARN] [1784056809.929448040] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056809.947017496] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056809.948024020] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056810.139888018] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056810.140168723] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2083 Hz.
+[WARN] [1784056810.143422720] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056810.242296391] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056810.341836213] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056810.341958640] [controller_server]: Controller patience exceeded
+[WARN] [1784056810.342126456] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056825.428378411] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056825.429175340] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056825.529152017] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056825.629178730] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056825.729182888] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056825.729289018] [controller_server]: Controller patience exceeded
+[WARN] [1784056825.729451741] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056825.747585090] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056825.748698058] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056825.939713811] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056825.941919766] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.1791 Hz.
+[WARN] [1784056825.944723021] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056826.043170856] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056826.142784401] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056826.142879883] [controller_server]: Controller patience exceeded
+[WARN] [1784056826.143074866] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056826.167612838] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056827.618037629] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056827.621372645] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056827.719935518] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056827.819827676] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056827.920019112] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056827.920125168] [controller_server]: Controller patience exceeded
+[WARN] [1784056827.920373929] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056827.938766038] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056827.940974141] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056828.131788819] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056828.132083487] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2361 Hz.
+[WARN] [1784056828.132701453] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056828.232767574] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056828.332741454] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056828.332822973] [controller_server]: Controller patience exceeded
+[WARN] [1784056828.332955752] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056843.407223759] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056843.407891040] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056843.508107143] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056843.608065727] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056843.707994477] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056843.708097478] [controller_server]: Controller patience exceeded
+[WARN] [1784056843.708247515] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056843.728511022] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056843.731333481] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784056843.932117319] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056843.932353449] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 4.9778 Hz.
+[WARN] [1784056843.932923249] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784056844.033994208] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784056844.034111931] [controller_server]: Controller patience exceeded
+[WARN] [1784056844.037594670] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784056844.368762556] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784056845.617977618] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784056846.719456473] [controller_server]: Passing new path to controller.
+[INFO] [1784056847.718293824] [controller_server]: Passing new path to controller.
+[INFO] [1784056848.718223328] [controller_server]: Passing new path to controller.
+[INFO] [1784056849.819061568] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1784056849.819135717] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1784057143.708403846] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784057144.808722158] [controller_server]: Passing new path to controller.
+[INFO] [1784057145.808741070] [controller_server]: Passing new path to controller.
+[INFO] [1784057146.808779741] [controller_server]: Passing new path to controller.
+[INFO] [1784057147.909197239] [controller_server]: Passing new path to controller.
+[WARN] [1784057148.809773274] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1784057148.909981840] [controller_server]: Passing new path to controller.
+[WARN] [1784057148.912536408] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1784057149.908749913] [controller_server]: Passing new path to controller.
+[INFO] [1784057151.008729038] [controller_server]: Passing new path to controller.
+[INFO] [1784057151.009426319] [controller_server]: Reached the goal!
+[INFO] [1784057182.476687052] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057182.477166536] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057182.577509677] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057182.677872299] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057182.778531757] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057182.778638053] [controller_server]: Controller patience exceeded
+[WARN] [1784057182.778841591] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057182.789786979] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057182.790967447] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057182.931504786] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057182.931762509] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 7.1103 Hz.
+[WARN] [1784057182.932076918] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057183.032629671] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057183.132970664] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057183.133812428] [controller_server]: Controller patience exceeded
+[WARN] [1784057183.133998651] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057183.149602931] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057183.629779642] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057183.630195458] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057183.730264987] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057183.830276293] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057183.930311192] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057183.930422729] [controller_server]: Controller patience exceeded
+[WARN] [1784057183.930565675] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057183.949557175] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057183.950465143] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057184.130971566] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057184.131252772] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.5346 Hz.
+[WARN] [1784057184.131593884] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057184.231705061] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057184.331669386] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057184.331750460] [controller_server]: Controller patience exceeded
+[WARN] [1784057184.331885461] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057199.409772560] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057199.410302581] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057199.510368850] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057199.610328786] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057199.710415240] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057199.710526537] [controller_server]: Controller patience exceeded
+[WARN] [1784057199.710738279] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057199.729554890] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057199.730759062] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057199.931268233] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057199.931556141] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 4.9828 Hz.
+[WARN] [1784057199.931843772] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057200.031982672] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057200.032065654] [controller_server]: Controller patience exceeded
+[WARN] [1784057200.032214062] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057200.072692742] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057201.642017414] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057201.642711158] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057201.742773242] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057201.843181902] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057201.942818039] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057201.942911299] [controller_server]: Controller patience exceeded
+[WARN] [1784057201.943083874] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057201.961094018] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057201.962621062] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057202.133362234] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057202.133621125] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.8519 Hz.
+[WARN] [1784057202.133878533] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057202.234100933] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057202.334022220] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057202.334103609] [controller_server]: Controller patience exceeded
+[WARN] [1784057202.334247388] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057217.409816068] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057217.410383089] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057217.510473044] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057217.610631740] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057217.710616342] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057217.710742528] [controller_server]: Controller patience exceeded
+[WARN] [1784057217.712248461] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057217.729800029] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057217.731222702] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057217.931705039] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057217.931931781] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 4.9850 Hz.
+[WARN] [1784057217.932188041] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057218.032338515] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057218.032438960] [controller_server]: Controller patience exceeded
+[WARN] [1784057218.032615979] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057218.069999681] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057219.643601114] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057219.644068117] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057219.744867093] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057219.844661954] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057219.944137406] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057219.944236925] [controller_server]: Controller patience exceeded
+[WARN] [1784057219.944415518] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057219.960078799] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057219.961373527] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057220.132899925] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057220.133117056] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.8265 Hz.
+[WARN] [1784057220.133398409] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057220.233521845] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057220.333519966] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057220.333609670] [controller_server]: Controller patience exceeded
+[WARN] [1784057220.334011246] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057235.409819817] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057235.410535320] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057235.510422663] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057235.610701063] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057235.710388108] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057235.710508127] [controller_server]: Controller patience exceeded
+[WARN] [1784057235.710862777] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057235.729625962] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784057235.731164358] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784057235.931747029] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057235.931990771] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 4.9860 Hz.
+[WARN] [1784057235.932239105] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1784057236.032377690] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1784057236.032453375] [controller_server]: Controller patience exceeded
+[WARN] [1784057236.032579283] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784057321.008974832] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784057322.209163857] [controller_server]: Passing new path to controller.
+[INFO] [1784057323.409164474] [controller_server]: Passing new path to controller.
+[INFO] [1784057324.609165850] [controller_server]: Passing new path to controller.
+[INFO] [1784057325.709172160] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1784057325.709251309] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[WARN] [1784057550.125914117] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057550.325861544] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057550.526843809] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057550.725873286] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057550.929021932] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057551.125875196] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057551.325876789] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057551.525883401] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057551.726200015] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057551.925864310] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057552.125866071] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057552.326004813] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057552.525886980] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057552.726133723] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057552.925926056] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057553.125898983] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057553.325879928] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057553.526206745] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057553.726057708] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057553.925842171] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057554.125966636] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057554.327559033] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057554.526941216] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057554.728288187] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057554.926058232] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057555.125941881] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057555.329066712] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057555.527238352] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057555.746700597] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057555.931146929] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057556.127176317] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057556.329787776] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057556.528064546] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057556.731078302] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057556.925984741] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057557.127624046] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057557.328365847] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057557.526762025] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057557.726077208] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057557.925823319] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057558.129326652] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057558.328648557] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057558.527871461] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057558.725872286] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057558.926329956] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057559.125952677] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057559.325860770] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057559.525858975] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057559.725903068] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057559.926247830] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057560.127067650] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057560.326747631] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057560.526472204] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057560.726006462] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057560.926063667] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057561.126303706] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057561.326434875] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057561.525898780] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057561.725959318] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057561.927000547] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057562.127133863] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057562.327273291] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057562.526272583] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057562.726133935] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057562.925962046] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057563.126195641] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057563.325835807] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057563.525884011] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057563.726025402] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057563.925891458] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057564.127975080] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057564.327651987] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057564.528458399] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057564.727398524] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057564.925947037] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057565.126532633] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057565.326795339] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057565.529932411] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057565.730022060] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057565.926311284] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057566.126601527] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057566.325948987] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057566.526012600] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057566.726698641] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057566.925999898] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057567.126517642] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057567.326748996] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057567.528929100] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057567.740053137] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784057567.925866457] [local_costmap.local_costmap]: Sensor origin at (6.52, -0.28 0.72) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[INFO] [1784057684.753768164] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784057685.854034327] [controller_server]: Passing new path to controller.
+[INFO] [1784057686.855328153] [controller_server]: Passing new path to controller.
+[INFO] [1784057687.954030698] [controller_server]: Passing new path to controller.
+[INFO] [1784057688.954036666] [controller_server]: Passing new path to controller.
+[INFO] [1784057690.054051384] [controller_server]: Passing new path to controller.
+[INFO] [1784057691.054023536] [controller_server]: Passing new path to controller.
+[INFO] [1784057692.054046689] [controller_server]: Passing new path to controller.
+[INFO] [1784057693.055486441] [controller_server]: Passing new path to controller.
+[INFO] [1784057694.154049615] [controller_server]: Passing new path to controller.
+[INFO] [1784057695.154056120] [controller_server]: Passing new path to controller.
+[INFO] [1784057696.154036439] [controller_server]: Passing new path to controller.
+[INFO] [1784057697.254097602] [controller_server]: Passing new path to controller.
+[INFO] [1784057698.254280978] [controller_server]: Passing new path to controller.
+[INFO] [1784057699.354029806] [controller_server]: Passing new path to controller.
+[INFO] [1784057700.353989291] [controller_server]: Passing new path to controller.
+[INFO] [1784057701.354034926] [controller_server]: Passing new path to controller.
+[INFO] [1784057702.454023514] [controller_server]: Passing new path to controller.
+[INFO] [1784057703.454031334] [controller_server]: Passing new path to controller.
+[INFO] [1784057704.454009356] [controller_server]: Passing new path to controller.
+[INFO] [1784057705.554022686] [controller_server]: Passing new path to controller.
+[INFO] [1784057706.553992172] [controller_server]: Passing new path to controller.
+[INFO] [1784057707.554016287] [controller_server]: Passing new path to controller.
+[INFO] [1784057708.554022810] [controller_server]: Passing new path to controller.
+[INFO] [1784057709.654053288] [controller_server]: Passing new path to controller.
+[INFO] [1784057710.654145719] [controller_server]: Passing new path to controller.
+[INFO] [1784057711.654240520] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1784057711.654368613] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[WARN] [1784058056.925843500] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058057.126120966] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058057.334103228] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058057.526581877] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058057.726143635] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058057.926773602] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058058.126570620] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058058.326734474] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058058.525839582] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058058.726020046] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058058.925826991] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058059.126102493] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058059.325988919] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058059.527319112] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058059.727218168] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058059.925962589] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058060.127216892] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058060.327411616] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058060.525895536] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058060.727686175] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058060.931159860] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058061.126180206] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058061.327069415] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058061.526264560] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058061.726081801] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058061.930040544] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058062.126684621] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058062.326014526] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058062.525833470] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058062.734144234] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058062.928814709] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058063.126740477] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058063.325898104] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058063.526775998] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058063.726163144] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058063.927577485] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058064.126335665] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058064.325805589] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058064.528925346] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058064.726810393] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058064.931374564] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058065.127276934] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058065.327105489] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058065.528857017] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058065.728371368] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058065.925876467] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058066.126765491] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058066.326061063] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058066.526152527] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058066.731560592] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058066.940949139] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058067.126134567] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058067.326405643] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058067.528118652] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058067.726043069] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058067.926920778] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058068.126378573] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058068.337723351] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058068.553488652] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058068.732320216] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058068.926868116] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058069.127156433] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[WARN] [1784058069.327120896] [local_costmap.local_costmap]: Sensor origin at (4.40, -0.63 0.73) is out of map bounds (-1.45, -1.50, 0.00) to (1.52, 1.47, 0.78). The costmap cannot raytrace for it.
+[INFO] [1784058091.413787885] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784058092.514536440] [controller_server]: Passing new path to controller.
+[INFO] [1784058093.514534204] [controller_server]: Passing new path to controller.
+[INFO] [1784058094.514535320] [controller_server]: Passing new path to controller.
+[INFO] [1784058095.614532260] [controller_server]: Passing new path to controller.
+[INFO] [1784058096.614533542] [controller_server]: Passing new path to controller.
+[INFO] [1784058097.614538214] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1784058097.614611529] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1784058769.867249855] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784058770.968583845] [controller_server]: Passing new path to controller.
+[INFO] [1784058771.968996822] [controller_server]: Passing new path to controller.
+[INFO] [1784058772.967691084] [controller_server]: Passing new path to controller.
+[INFO] [1784058774.068634183] [controller_server]: Passing new path to controller.
+[INFO] [1784058775.067923060] [controller_server]: Passing new path to controller.
+[INFO] [1784058776.067940701] [controller_server]: Passing new path to controller.
+[INFO] [1784058777.068785068] [controller_server]: Passing new path to controller.
+[INFO] [1784058778.167635099] [controller_server]: Passing new path to controller.
+[INFO] [1784058779.167615036] [controller_server]: Passing new path to controller.
+[INFO] [1784058780.167614751] [controller_server]: Passing new path to controller.
+[INFO] [1784058781.168462359] [controller_server]: Passing new path to controller.
+[INFO] [1784058782.267693577] [controller_server]: Passing new path to controller.
+[INFO] [1784058783.268733668] [controller_server]: Passing new path to controller.
+[INFO] [1784058784.267787915] [controller_server]: Passing new path to controller.
+[INFO] [1784058785.368317641] [controller_server]: Passing new path to controller.
+[INFO] [1784058786.369278213] [controller_server]: Passing new path to controller.
+[INFO] [1784058787.368659609] [controller_server]: Passing new path to controller.
+[INFO] [1784058788.469099927] [controller_server]: Passing new path to controller.
+[INFO] [1784058789.468263451] [controller_server]: Passing new path to controller.
+[ERROR] [1784058789.868642562] [controller_server]: Failed to make progress
+[WARN] [1784058789.869277917] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784058789.886563573] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784058789.888003656] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784058790.488624525] [controller_server]: Passing new path to controller.
+[INFO] [1784058791.488587462] [controller_server]: Passing new path to controller.
+[INFO] [1784058792.488611102] [controller_server]: Passing new path to controller.
+[INFO] [1784058793.588259342] [controller_server]: Passing new path to controller.
+[INFO] [1784058794.588438539] [controller_server]: Passing new path to controller.
+[INFO] [1784058795.588637125] [controller_server]: Passing new path to controller.
+[INFO] [1784058796.588337912] [controller_server]: Passing new path to controller.
+[INFO] [1784058797.688318005] [controller_server]: Passing new path to controller.
+[INFO] [1784058798.688255627] [controller_server]: Passing new path to controller.
+[INFO] [1784058799.688545454] [controller_server]: Passing new path to controller.
+[INFO] [1784058800.688904189] [controller_server]: Passing new path to controller.
+[INFO] [1784058801.788261779] [controller_server]: Passing new path to controller.
+[INFO] [1784058802.788371253] [controller_server]: Passing new path to controller.
+[INFO] [1784058803.788490376] [controller_server]: Passing new path to controller.
+[INFO] [1784058804.888870694] [controller_server]: Passing new path to controller.
+[INFO] [1784058805.888574481] [controller_server]: Passing new path to controller.
+[INFO] [1784058806.888575028] [controller_server]: Passing new path to controller.
+[INFO] [1784058807.888729299] [controller_server]: Passing new path to controller.
+[INFO] [1784058808.988541058] [controller_server]: Passing new path to controller.
+[INFO] [1784058809.988255530] [controller_server]: Passing new path to controller.
+[ERROR] [1784058809.989975615] [controller_server]: Failed to make progress
+[WARN] [1784058809.990163486] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784058810.016629640] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784058811.616862092] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784058812.717986692] [controller_server]: Passing new path to controller.
+[INFO] [1784058813.717118605] [controller_server]: Passing new path to controller.
+[INFO] [1784058814.717449025] [controller_server]: Passing new path to controller.
+[INFO] [1784058815.817601675] [controller_server]: Passing new path to controller.
+[INFO] [1784058816.817179832] [controller_server]: Passing new path to controller.
+[INFO] [1784058817.817608901] [controller_server]: Passing new path to controller.
+[INFO] [1784058818.817622875] [controller_server]: Passing new path to controller.
+[WARN] [1784058819.819525230] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1784058819.917434893] [controller_server]: Passing new path to controller.
+[INFO] [1784058820.917367014] [controller_server]: Passing new path to controller.
+[INFO] [1784058821.917407877] [controller_server]: Passing new path to controller.
+[INFO] [1784058822.917272461] [controller_server]: Passing new path to controller.
+[INFO] [1784058824.017233869] [controller_server]: Passing new path to controller.
+[INFO] [1784058825.017288862] [controller_server]: Passing new path to controller.
+[INFO] [1784058826.018578658] [controller_server]: Passing new path to controller.
+[INFO] [1784058827.117905748] [controller_server]: Passing new path to controller.
+[INFO] [1784058828.118155001] [controller_server]: Passing new path to controller.
+[INFO] [1784058829.118461754] [controller_server]: Passing new path to controller.
+[INFO] [1784058830.117467259] [controller_server]: Passing new path to controller.
+[INFO] [1784058831.217107721] [controller_server]: Passing new path to controller.
+[ERROR] [1784058831.617380867] [controller_server]: Failed to make progress
+[WARN] [1784058831.617640406] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784058831.637414521] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784058831.638512898] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784058831.739702802] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.8925 Hz.
+[INFO] [1784058832.240201940] [controller_server]: Passing new path to controller.
+[INFO] [1784058833.241543810] [controller_server]: Passing new path to controller.
+[INFO] [1784058834.241078874] [controller_server]: Passing new path to controller.
+[INFO] [1784058835.240207287] [controller_server]: Passing new path to controller.
+[INFO] [1784058836.340703995] [controller_server]: Passing new path to controller.
+[INFO] [1784058837.340475856] [controller_server]: Passing new path to controller.
+[INFO] [1784058838.340363718] [controller_server]: Passing new path to controller.
+[INFO] [1784058839.440262107] [controller_server]: Passing new path to controller.
+[INFO] [1784058840.440296859] [controller_server]: Passing new path to controller.
+[INFO] [1784058841.441259542] [controller_server]: Passing new path to controller.
+[INFO] [1784058842.440537419] [controller_server]: Passing new path to controller.
+[INFO] [1784058843.540923033] [controller_server]: Passing new path to controller.
+[INFO] [1784058844.540830747] [controller_server]: Passing new path to controller.
+[INFO] [1784058845.540769998] [controller_server]: Passing new path to controller.
+[INFO] [1784058846.640664610] [controller_server]: Passing new path to controller.
+[INFO] [1784058847.640355674] [controller_server]: Passing new path to controller.
+[INFO] [1784058848.640941781] [controller_server]: Passing new path to controller.
+[INFO] [1784058849.641052718] [controller_server]: Passing new path to controller.
+[INFO] [1784058850.740184344] [controller_server]: Passing new path to controller.
+[INFO] [1784058851.740869914] [controller_server]: Passing new path to controller.
+[ERROR] [1784058851.741407621] [controller_server]: Failed to make progress
+[WARN] [1784058851.741595029] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784058866.827378636] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784058867.927580897] [controller_server]: Passing new path to controller.
+[INFO] [1784058868.927594241] [controller_server]: Passing new path to controller.
+[INFO] [1784058869.927826920] [controller_server]: Passing new path to controller.
+[INFO] [1784058871.027582808] [controller_server]: Passing new path to controller.
+[INFO] [1784058872.027584616] [controller_server]: Passing new path to controller.
+[INFO] [1784058873.027658460] [controller_server]: Passing new path to controller.
+[INFO] [1784058874.129922993] [controller_server]: Passing new path to controller.
+[INFO] [1784058875.127768732] [controller_server]: Passing new path to controller.
+[INFO] [1784058876.127883910] [controller_server]: Passing new path to controller.
+[INFO] [1784058877.227600761] [controller_server]: Passing new path to controller.
+[INFO] [1784058878.227670939] [controller_server]: Passing new path to controller.
+[INFO] [1784058879.229234181] [controller_server]: Passing new path to controller.
+[INFO] [1784058880.227739850] [controller_server]: Passing new path to controller.
+[INFO] [1784058881.328413632] [controller_server]: Passing new path to controller.
+[INFO] [1784058882.329852596] [controller_server]: Passing new path to controller.
+[INFO] [1784058883.327700964] [controller_server]: Passing new path to controller.
+[INFO] [1784058884.427747114] [controller_server]: Passing new path to controller.
+[INFO] [1784058885.427717198] [controller_server]: Passing new path to controller.
+[INFO] [1784058886.427578468] [controller_server]: Passing new path to controller.
+[ERROR] [1784058886.827664428] [controller_server]: Failed to make progress
+[WARN] [1784058886.827872763] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784058886.846753021] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784058886.847811045] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784058887.448014468] [controller_server]: Passing new path to controller.
+[INFO] [1784058888.548013432] [controller_server]: Passing new path to controller.
+[INFO] [1784058889.548016905] [controller_server]: Passing new path to controller.
+[INFO] [1784058890.548016805] [controller_server]: Passing new path to controller.
+[INFO] [1784058891.648012454] [controller_server]: Passing new path to controller.
+[INFO] [1784058892.648051206] [controller_server]: Passing new path to controller.
+[INFO] [1784058893.647983846] [controller_server]: Passing new path to controller.
+[INFO] [1784058894.648010727] [controller_server]: Passing new path to controller.
+[INFO] [1784058895.748018191] [controller_server]: Passing new path to controller.
+[INFO] [1784058896.748015906] [controller_server]: Passing new path to controller.
+[INFO] [1784058897.748016898] [controller_server]: Passing new path to controller.
+[INFO] [1784058898.848021417] [controller_server]: Passing new path to controller.
+[INFO] [1784058899.848018039] [controller_server]: Passing new path to controller.
+[INFO] [1784058900.848012587] [controller_server]: Passing new path to controller.
+[INFO] [1784058902.048014800] [controller_server]: Passing new path to controller.
+[INFO] [1784058903.248013939] [controller_server]: Passing new path to controller.
+[INFO] [1784058904.248021857] [controller_server]: Passing new path to controller.
+[INFO] [1784058905.248011664] [controller_server]: Passing new path to controller.
+[INFO] [1784058906.348021072] [controller_server]: Passing new path to controller.
+[ERROR] [1784058906.948105698] [controller_server]: Failed to make progress
+[WARN] [1784058906.948301403] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784058906.977224479] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784058907.608824695] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784058908.709086160] [controller_server]: Passing new path to controller.
+[INFO] [1784058909.709080430] [controller_server]: Passing new path to controller.
+[INFO] [1784058910.709113960] [controller_server]: Passing new path to controller.
+[INFO] [1784058911.809025053] [controller_server]: Passing new path to controller.
+[INFO] [1784058912.809090860] [controller_server]: Passing new path to controller.
+[INFO] [1784058913.809193094] [controller_server]: Passing new path to controller.
+[INFO] [1784058914.809141771] [controller_server]: Passing new path to controller.
+[INFO] [1784058915.909082716] [controller_server]: Passing new path to controller.
+[INFO] [1784058916.909612619] [controller_server]: Passing new path to controller.
+[INFO] [1784058917.909063756] [controller_server]: Passing new path to controller.
+[INFO] [1784058919.009207721] [controller_server]: Passing new path to controller.
+[INFO] [1784058920.009150176] [controller_server]: Passing new path to controller.
+[INFO] [1784058921.009082686] [controller_server]: Passing new path to controller.
+[INFO] [1784058922.009056252] [controller_server]: Passing new path to controller.
+[INFO] [1784058923.109107957] [controller_server]: Passing new path to controller.
+[INFO] [1784058924.109033301] [controller_server]: Passing new path to controller.
+[INFO] [1784058925.109178109] [controller_server]: Passing new path to controller.
+[INFO] [1784058926.110206996] [controller_server]: Passing new path to controller.
+[INFO] [1784058927.209047953] [controller_server]: Passing new path to controller.
+[ERROR] [1784058927.609138377] [controller_server]: Failed to make progress
+[WARN] [1784058927.609390822] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784058927.627135704] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1784058927.628885177] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1784058927.739871342] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.0195 Hz.
+[INFO] [1784058928.240508073] [controller_server]: Passing new path to controller.
+[INFO] [1784058929.240158230] [controller_server]: Passing new path to controller.
+[INFO] [1784058930.240527021] [controller_server]: Passing new path to controller.
+[INFO] [1784058931.342748979] [controller_server]: Passing new path to controller.
+[INFO] [1784058932.340592237] [controller_server]: Passing new path to controller.
+[INFO] [1784058933.340685341] [controller_server]: Passing new path to controller.
+[INFO] [1784058934.341847506] [controller_server]: Passing new path to controller.
+[INFO] [1784058935.441267078] [controller_server]: Passing new path to controller.
+[INFO] [1784058936.440082341] [controller_server]: Passing new path to controller.
+[INFO] [1784058937.440908986] [controller_server]: Passing new path to controller.
+[INFO] [1784058938.540543207] [controller_server]: Passing new path to controller.
+[INFO] [1784058939.540169271] [controller_server]: Passing new path to controller.
+[INFO] [1784058940.540720730] [controller_server]: Passing new path to controller.
+[INFO] [1784058941.640448822] [controller_server]: Passing new path to controller.
+[INFO] [1784058942.642126620] [controller_server]: Passing new path to controller.
+[INFO] [1784058943.640101675] [controller_server]: Passing new path to controller.
+[INFO] [1784058944.740143287] [controller_server]: Passing new path to controller.
+[INFO] [1784058945.740918950] [controller_server]: Passing new path to controller.
+[INFO] [1784058946.741882448] [controller_server]: Passing new path to controller.
+[ERROR] [1784058947.740220635] [controller_server]: Failed to make progress
+[WARN] [1784058947.740875861] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1784058947.746813506] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1784058948.847040416] [controller_server]: Passing new path to controller.
+[INFO] [1784058949.847035353] [controller_server]: Passing new path to controller.
+[INFO] [1784058950.847022789] [controller_server]: Passing new path to controller.
+[INFO] [1784058951.947044809] [controller_server]: Passing new path to controller.
+[INFO] [1784058952.947024671] [controller_server]: Passing new path to controller.
+[INFO] [1784058953.947027034] [controller_server]: Passing new path to controller.
+[INFO] [1784058954.947024341] [controller_server]: Passing new path to controller.
+[INFO] [1784058955.399818960] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784058955.400048388] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1784058955.400198370] [controller_server]: Deactivating
+[WARN] [1784058955.401784583] [controller_server]: [follow_path] [ActionServer] Requested to deactivate server but goal is still executing. Should check if action server is running before deactivating.
+[WARN] [1784058955.448419095] [controller_server]: [follow_path] [ActionServer] Stopping the thread per request.
+[INFO] [1784058955.448515559] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1784058955.451167167] [controller_server]: Deactivating controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1784058955.451332020] [local_costmap.local_costmap]: Deactivating
+[INFO] [1784058955.528913490] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1784058955.641155274] [controller_server]: Cleaning up
+[INFO] [1784058955.641251589] [controller_server]: Cleaning up controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1784058955.645823264] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1784058956.857773213] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

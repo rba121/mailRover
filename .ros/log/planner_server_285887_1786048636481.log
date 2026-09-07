@@ -1,0 +1,36 @@
+[INFO] [1786048636.843738706] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786048636.848451009] [planner_server]: Creating
+[INFO] [1786048636.908340980] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786048636.915049386] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1786048638.447319416] [planner_server]: Configuring
+[INFO] [1786048638.447381842] [global_costmap.global_costmap]: Configuring
+[INFO] [1786048638.476938631] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1786048638.488721787] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1786048638.495136674] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1786048638.495224859] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1786048638.499977422] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1786048638.516424881] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1786048638.517534239] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1786048638.522574822] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786048638.595627011] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1786048638.595737308] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1786048638.596684147] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1786048638.605917493] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 1552 X 2299 at 0.050000 m/pix
+[INFO] [1786048639.662367386] [planner_server]: Activating
+[INFO] [1786048639.662442294] [global_costmap.global_costmap]: Activating
+[INFO] [1786048639.662462442] [global_costmap.global_costmap]: Checking transform
+[INFO] [1786048639.662589313] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786048639.634346 but the earliest data is at time 1786048640.485930, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786048640.162728896] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786048640.134443 but the earliest data is at time 1786048640.485930, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786048640.662760385] [global_costmap.global_costmap]: start
+[INFO] [1786048644.065040097] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1786048644.071500484] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1786050388.456194655] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786050386.414 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786051149.370429277] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786051147.366 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786051764.175688432] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786051762.145 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786052092.984611149] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1786052090.980 for reason 'the timestamp on the message is earlier than all the data in the transform cache'

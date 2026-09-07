@@ -1,0 +1,18 @@
+[INFO] [1786032553.531789057] [collision_monitor]: 
+	collision_monitor lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786032555.526154536] [collision_monitor]: Configuring
+[INFO] [1786032555.536896632] [collision_monitor]: [scan]: Creating Scan
+[INFO] [1786032555.544827010] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[INFO] [1786032555.545224623] [collision_monitor]: [FootprintApproach]: Polygon points are not defined. Using dynamic subscription instead.
+[INFO] [1786032555.546920521] [collision_monitor]: [FootprintApproach]: Making footprint subscriber on /local_costmap/published_footprint topic
+[INFO] [1786032560.095390177] [collision_monitor]: Activating
+[INFO] [1786032560.095494826] [collision_monitor]: Creating bond (collision_monitor) to lifecycle manager.
+[INFO] [1786032628.816988524] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786032628.817133265] [collision_monitor]: Running Nav2 LifecycleNode rcl preshutdown (collision_monitor)
+[INFO] [1786032628.817223599] [collision_monitor]: Deactivating
+[INFO] [1786032628.817252525] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.
+[WARN] [1786032628.820977528] [rcl_lifecycle]: No transition matching 4 found for current state deactivating
+[WARN] [1786032628.821016528] [rcl_lifecycle]: No transition matching 4 found for current state deactivating
+[ERROR] [1786032628.821031250] [collision_monitor]: Unable to start transition 4 from current state deactivating: Transition is not registered., at ./src/rcl_lifecycle.c:355

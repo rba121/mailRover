@@ -1,0 +1,45 @@
+[INFO] [1786118943.471194158] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786118943.482991025] [planner_server]: Creating
+[INFO] [1786118943.940576036] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786118943.941671640] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1786118944.899540791] [planner_server]: Configuring
+[INFO] [1786118944.899607865] [global_costmap.global_costmap]: Configuring
+[INFO] [1786118944.918181744] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1786118944.925369716] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1786118944.929350079] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1786118944.929440597] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1786118944.930361017] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1786118944.938742166] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1786118944.938841110] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1786118944.939771067] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786118945.008167604] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1786118945.008242863] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1786118945.011144511] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1786118945.900541440] [planner_server]: Activating
+[INFO] [1786118945.900690346] [global_costmap.global_costmap]: Activating
+[INFO] [1786118945.900722994] [global_costmap.global_costmap]: Checking transform
+[INFO] [1786118945.900886067] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786118945.886596 but the earliest data is at time 1786118946.888203, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786118946.040474235] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 1552 X 2299 at 0.050000 m/pix
+[INFO] [1786118946.400880969] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786118946.385107 but the earliest data is at time 1786118946.888203, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786118946.900867297] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786118946.885237 but the earliest data is at time 1786118946.888203, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786118947.401007235] [global_costmap.global_costmap]: start
+[INFO] [1786118947.652950970] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1786118947.657886493] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[ERROR] [1786119743.208407843] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786119731.138470 but the earliest data is at time 1786119733.185194, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1786119745.214700622] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786119731.138470 but the earliest data is at time 1786119735.156697, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1786119747.221183235] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786119731.138470 but the earliest data is at time 1786119737.185468, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1786119749.228979354] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786119731.138470 but the earliest data is at time 1786119739.218308, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1786119751.233459051] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786119731.138470 but the earliest data is at time 1786119741.185454, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1786119753.240739204] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1786119731.138470 but the earliest data is at time 1786119743.218306, when looking up transform from frame [base_footprint] to frame [map]
+

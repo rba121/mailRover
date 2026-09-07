@@ -1,0 +1,26 @@
+[INFO] [1784070785.207503038] [collision_monitor]: 
+	collision_monitor lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784070789.658903667] [collision_monitor]: Configuring
+[INFO] [1784070789.695215260] [collision_monitor]: [scan]: Creating Scan
+[INFO] [1784070789.712820544] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[INFO] [1784070789.714653776] [collision_monitor]: [FootprintApproach]: Polygon points are not defined. Using dynamic subscription instead.
+[INFO] [1784070789.723178232] [collision_monitor]: [FootprintApproach]: Making footprint subscriber on /local_costmap/published_footprint topic
+[INFO] [1784070789.732997824] [collision_monitor]: [FrontStopZone]: Creating Polygon
+[INFO] [1784070793.484483932] [collision_monitor]: Activating
+[INFO] [1784070793.484674322] [collision_monitor]: Creating bond (collision_monitor) to lifecycle manager.
+[INFO] [1784070815.655010667] [collision_monitor]: Robot to stop due to FrontStopZone polygon
+[INFO] [1784070840.535444202] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784070840.535574481] [collision_monitor]: Running Nav2 LifecycleNode rcl preshutdown (collision_monitor)
+[INFO] [1784070840.535677648] [collision_monitor]: Deactivating
+[INFO] [1784070840.535720778] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.
+[INFO] [1784070840.568588203] [collision_monitor]: Robot to stop due to FrontStopZone polygon
+[WARN] [1784070840.568691944] [LifecyclePublisher]: Trying to publish message on the topic '/collision_monitor_state', but the publisher is not activated
+[WARN] [1784070840.568713926] [LifecyclePublisher]: Trying to publish message on the topic '/cmd_vel', but the publisher is not activated
+[WARN] [1784070840.568727148] [LifecyclePublisher]: Trying to publish message on the topic '/FrontStopZone', but the publisher is not activated
+[INFO] [1784070840.597433106] [collision_monitor]: Cleaning up
+[INFO] [1784070840.597534439] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[INFO] [1784070840.597567292] [collision_monitor]: [FrontStopZone]: Destroying Polygon
+[INFO] [1784070840.597591977] [collision_monitor]: [scan]: Destroying Scan
+[INFO] [1784070840.727696892] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.

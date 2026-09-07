@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MailRover Admin</title>
+  <style>
+    :root {
+      --bg: #f6f7f4;
+      --panel: #ffffff;
+      --ink: #151719;
+      --muted: #626970;
+      --line: #dde1e3;
+      --primary: #0f766e;
+      --accent: #1d4ed8;
+      --danger: #b42318;
+      --warn: #b45309;
+      --ok: #157347;
+      --shadow: 0 8px 22px rgba(21, 23, 25, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    button { font: inherit; }
+
+    .app {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .topStatus {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .logo {
+      width: 122px;
+      max-width: 36vw;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      background: #ffffff;
+    }
+
+    h1, h2, h3 { margin: 0; letter-spacing: 0; }
+    h1 { font-size: 1.28rem; line-height: 1.1; }
+    h2 { font-size: 1.05rem; }
+    h3 { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; }
+
+    .subtle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .pill {
+      display: inline-flex;
+      min-height: 30px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: white;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .pill.ok { color: var(--ok); border-color: #b7dec8; background: #f0fbf4; }
+    .pill.warn { color: var(--warn); border-color: #f0c37b; background: #fff8eb; }
+    .pill.danger { color: var(--danger); border-color: #efb5ae; background: #fff4f2; }
+    .pill.info { color: var(--accent); border-color: #b8c7f4; background: #f1f5ff; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 14px;
+      margin-top: 14px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .metric {
+      display: grid;
+      gap: 8px;
+      min-height: 96px;
+    }
+
+    .metric strong {
+      font-size: 1.15rem;
+      overflow-wrap: anywhere;
+    }
+
+    .rows {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid #eef0f1;
+      padding-top: 10px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .row strong {
+      color: var(--ink);
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .requestActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .formGrid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+      align-items: end;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    input, select {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid #cbd1d5;
+      border-radius: 8px;
+      padding: 9px 11px;
+      font: inherit;
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    .requestList {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .requestItem {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      border-top: 1px solid #eef0f1;
+      padding-top: 12px;
+    }
+
+    .requestItem strong,
+    .requestItem span {
+      display: block;
+      overflow-wrap: anywhere;
+    }
+
+    .requestItem .meta {
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-top: 3px;
+    }
+
+    button {
+      min-height: 42px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 9px 13px;
+      cursor: pointer;
+      font-weight: 800;
+      color: #ffffff;
+      background: var(--primary);
+    }
+
+    button.secondary {
+      background: #ffffff;
+      color: var(--ink);
+      border-color: #cbd1d5;
+    }
+
+    button.danger {
+      background: #ffffff;
+      color: var(--danger);
+      border-color: #efb5ae;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      background: #a7adb7;
+      color: #ffffff;
+      border-color: #a7adb7;
+      opacity: 0.9;
+    }
+
+    .message {
+      min-height: 22px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .message.ok { color: var(--ok); }
+    .message.danger { color: var(--danger); }
+
+    @media (max-width: 900px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .grid { grid-template-columns: 1fr 1fr; }
+      .layout { grid-template-columns: 1fr; }
+      .formGrid { grid-template-columns: 1fr; }
+      .requestItem { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .app { padding: 14px; }
+      .grid { grid-template-columns: 1fr; }
+      .row { display: grid; }
+      .row strong { text-align: left; }
+      .requestActions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <img class="logo" src="/static/images/rover-logo.png" alt="Rover Autonomous Systems">
+        <div>
+          <h1>MailRover Admin</h1>
+          <div class="subtle">Front desk intake, scheduling, dispatch, and delivery handoff</div>
+        </div>
+      </div>
+      <div class="topStatus">
+        <div id="estopPill" class="pill">E-stop Checking</div>
+        <div id="modePill" class="pill">Checking</div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="panel metric">
+        <h3>Task State</h3>
+        <strong id="taskState">-</strong>
+        <span id="taskPill" class="pill">-</span>
+      </div>
+      <div class="panel metric">
+        <h3>Email</h3>
+        <strong id="emailState">-</strong>
+        <span id="emailPill" class="pill">-</span>
+      </div>
+      <div class="panel metric">
+        <h3>Hardware</h3>
+        <strong id="hardwareState">-</strong>
+        <span id="hardwarePill" class="pill">-</span>
+      </div>
+      <div class="panel metric">
+        <h3>Navigation</h3>
+        <strong id="navState">-</strong>
+        <span id="navPill" class="pill">-</span>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:14px;">
+      <h2>Front Desk Intake</h2>
+      <div class="subtle">Log received mail and send the recipient a scheduling link.</div>
+      <div class="formGrid">
+        <label>
+          Recipient name
+          <input id="packageRecipientName" placeholder="Simon Amanu">
+        </label>
+        <label>
+          Recipient email
+          <input id="packageRecipientEmail" type="email" placeholder="name@example.com">
+        </label>
+        <label>
+          Delivery destination 
+          <select id="packageDestination" required>
+           <option value="">Select a room</option>
+           <option value="7004">Room 7004</option>
+           <option value="7006">Room 7006</option>
+           <option value="7011">Room 7011</option>
+           <option value="7016">Room 7016</option>
+          </select>
+         </label>
+          <input id="packageDestination" placeholder="Room 7011,7016 or 7006">
+        </label>
+        <label>
+          Package note
+          <input id="packageLabel" placeholder="Small parcel, envelope, locker item">
+        </label>
+      </div>
+      <div class="actions" style="max-width:240px;">
+        <button onclick="receivePackage()">Notify Recipient</button>
+      </div>
+      <div id="packageMsg" class="message"></div>
+    </section>
+
+    <section class="panel" style="margin-top:14px;">
+      <h2>Scheduled Requests</h2>
+      <div class="subtle">When the delivery window arrives, load the robot, close the drawer, then dispatch from here.</div>
+      <div id="packageRequests" class="requestList">Loading...</div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <h2>Live Delivery</h2>
+        <div class="rows">
+          <div class="row"><span>Active Task</span><strong id="activeTask">-</strong></div>
+          <div class="row"><span>Destination</span><strong id="destination">-</strong></div>
+          <div class="row"><span>Recipient</span><strong id="recipient">-</strong></div>
+          <div class="row"><span>Drawer</span><strong id="drawer">-</strong></div>
+          <div class="row"><span>Lock</span><strong id="lockState">-</strong></div>
+          <div class="row"><span>E-stop</span><strong id="powerButton">-</strong></div>
+          <div class="row"><span>Prompt</span><strong id="prompt">-</strong></div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2>Delivery Controls</h2>
+        <div class="subtle">Use these during loading and arrival handoff.</div>
+        <div class="actions">
+          <button onclick="openLockerForLoading()">Unlock</button>
+          <button class="secondary" onclick="markArrived()">Mark Arrived</button>
+        </div>
+        <div id="msg" class="message"></div>
+      </aside>
+    </section>
+
+    <section class="panel" style="margin-top:14px;">
+      <h2>System Readiness</h2>
+      <div class="rows">
+        <div class="row"><span>SMTP Host</span><strong id="smtpHost">-</strong></div>
+        <div class="row"><span>Email From</span><strong id="emailFrom">-</strong></div>
+        <div class="row"><span>Mapped Drawers</span><strong id="mappedDrawers">-</strong></div>
+        <div class="row"><span>Dispatch Timing</span><strong id="dispatchTiming">-</strong></div>
+        <div class="row"><span>Admin Access</span><strong id="adminPassword">-</strong></div>
+        <div class="row"><span>Arrival Control</span><strong id="serviceKey">-</strong></div>
+        <div class="row"><span>UART</span><strong id="uart">-</strong></div>
+      </div>
+    </section>
+  </main>
+
+<script>
+function setText(id, value) {
+  document.getElementById(id).textContent = value === undefined || value === null || value === "" ? "-" : value;
+}
+
+function setPill(id, text, tone = "") {
+  const el = document.getElementById(id);
+  el.textContent = text;
+  el.className = "pill" + (tone ? ` ${tone}` : "");
+}
+
+function boolText(value) {
+  return value ? "Enabled" : "Disabled";
+}
+
+function escapeHtml(value) {
+  return String(value || "").replace(/[&<>"']/g, ch => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  })[ch]);
+}
+
+function errorText(error) {
+  const map = {
+    NO_ACTIVE_TASK: "No active delivery.",
+    SERVICE_KEY_REQUIRED: "Service key required.",
+    RECIPIENT_EMAIL_REQUIRED: "Recipient email is required.",
+    DESTINATION_REQUIRED: "Delivery destination is required.",
+    TIME_SLOT_REQUIRED: "Choose a time slot.",
+    TIME_SLOT_UNAVAILABLE: "That time slot is no longer available.",
+    REQUEST_NOT_READY: "Request is not ready to dispatch.",
+    DELIVERY_WINDOW_NOT_READY: "This delivery window is not ready yet.",
+    REQUEST_TIME_INVALID: "The selected delivery window is invalid.",
+    REQUEST_NOT_FOUND: "Request was not found.",
+    ESTOP_ACTIVE: "Please turn the Etop off inorder to dispatch",
+    DRAWER_NOT_MAPPED: "Drawer is not mapped to a GPIO line.",
+    TASK_ALREADY_ACTIVE: "A delivery is already active.",
+    TASK_ACTIVE: "Finish or cancel the active delivery first.",
+    BATTERY_LOW: "Battery is too low to start a new delivery.",
+    FAULT_ACTIVE: "Clear the fault before dispatching.",
+  };
+  return map[error] || error || "Action failed.";
+}
+
+let estopStopped = false;
+
+async function readJsonResponse(response) {
+  const text = await response.text();
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    return {
+      ok: false,
+      error: response.ok ? "INVALID_RESPONSE" : `SERVER_ERROR_${response.status}`,
+      message: text ? text.slice(0, 140) : `Server returned HTTP ${response.status}.`
+    };
+  }
+}
+
+function pillForStatus(status) {
+  if (status === "SCHEDULED") return '<span class="pill info">Scheduled</span>';
+  if (status === "DISPATCHED") return '<span class="pill ok">Dispatched</span>';
+  if (status === "COMPLETED") return '<span class="pill ok">Completed</span>';
+  if (status === "CANCELED") return '<span class="pill danger">Canceled</span>';
+  return '<span class="pill warn">Notified</span>';
+}
+
+function renderPackages(data) {
+  const box = document.getElementById('packageRequests');
+  const requests = data.requests || [];
+  if (!requests.length) {
+    box.textContent = "No package requests yet.";
+    return;
+  }
+
+  box.innerHTML = requests.map(req => {
+    const dispatchButton = req.status === "SCHEDULED" && req.can_dispatch
+      ? (
+          estopStopped
+            ? `<button disabled title="Please turn the Etop off inorder to dispatch">Dispatch</button>`
+            : `<button onclick="dispatchPackage('${req.request_id}')">Dispatch</button>`
+        )
+      : "";
+    const estopDispatchInfo = req.status === "SCHEDULED" && req.can_dispatch && estopStopped
+      ? "Please turn the Etop off inorder to dispatch"
+      : "";
+    const cancelButton = ["NOTIFIED", "SCHEDULED"].includes(req.status)
+      ? `<button class="danger" onclick="cancelPackage('${req.request_id}')">Cancel</button>`
+      : "";
+    const dispatchInfo = req.status === "SCHEDULED" && !req.can_dispatch && req.dispatch_ready_at
+      ? `Dispatch ready at ${escapeHtml(req.dispatch_ready_at)}`
+      : "";
+    const slot = escapeHtml(req.requested_slot || "Waiting for recipient");
+    const destination = escapeHtml(req.destination || "No destination yet");
+    const cancelInfo = req.can_cancel && req.cancel_deadline ? `Cancel by ${escapeHtml(req.cancel_deadline)}` : "";
+    const label = escapeHtml(req.package_label || "Mail/package");
+    const name = escapeHtml(req.recipient_name || "Resident");
+    const email = escapeHtml(req.recipient_email);
+    return `
+      <div class="requestItem">
+        <div>
+          <strong>${name}</strong>
+          <span class="meta">${email}</span>
+          <span class="meta">${label}</span>
+        </div>
+        <div>
+          <strong>${slot}</strong>
+          <span class="meta">${destination}</span>
+          <span class="meta">${cancelInfo}</span>
+          <span class="meta">${dispatchInfo}</span>
+          <span class="meta">${estopDispatchInfo}</span>
+        </div>
+        <div class="requestActions">${pillForStatus(req.status)}${dispatchButton}${cancelButton}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+async function getStatus() {
+  try {
+    const [statusRes, healthRes, packageRes] = await Promise.all([
+      fetch('/status'),
+      fetch('/admin/health'),
+      fetch('/admin/packages')
+    ]);
+    const s = await statusRes.json();
+    const h = await healthRes.json();
+    const packages = await packageRes.json();
+
+    setText('taskState', s.task_state);
+    setPill('taskPill', s.comm_ok ? 'Connection OK' : 'Connection Lost', s.comm_ok ? 'ok' : 'danger');
+
+    setText('emailState', boolText(h.email.enabled));
+    const emailReady = h.email.enabled && h.email.smtp_host && h.email.smtp_password_set;
+    setPill('emailPill', emailReady ? 'SMTP Ready' : 'Needs Setup', emailReady ? 'ok' : 'warn');
+
+    setText('hardwareState', h.mode === 'hardware' ? 'Hardware' : 'Development');
+    setPill('hardwarePill', h.hardware.solenoid_gpio_enabled ? 'Solenoid GPIO' : 'Dev Simulation', h.hardware.solenoid_gpio_enabled ? 'ok' : 'warn');
+
+    setText('navState', s.nav_status);
+    setPill('navPill', h.navigation.uart_enabled ? 'UART Enabled' : 'UART Off', h.navigation.uart_enabled ? 'ok' : 'warn');
+
+    setPill('modePill', h.mode === 'hardware' ? 'Hardware Mode' : 'Development Mode', h.mode === 'hardware' ? 'ok' : 'warn');
+    const estop = h.hardware.estop || {};
+    estopStopped = Boolean(estop.stopped);
+    if (estop.state === "UNKNOWN") {
+      setPill('estopPill', 'E-stop Unknown', 'warn');
+    } else if (estopStopped) {
+      setPill('estopPill', 'E-stop Stopped', 'danger');
+    } else {
+      setPill('estopPill', 'E-stop Ready', 'ok');
+    }
+
+    setText('activeTask', s.active_task_id);
+    setText('destination', s.destination);
+    setText('recipient', s.recipient_id);
+    setText('drawer', s.drawer_id ? `${s.drawer_id} active` : '-');
+    setText('lockState', s.lock_state);
+    setText('prompt', s.drawer_prompt);
+
+    setText('smtpHost', h.email.smtp_host);
+    setText('emailFrom', h.email.from);
+    setText('adminPassword', h.security.admin_password_set ? 'Configured' : 'Missing');
+    setText('serviceKey', h.security.service_key_set ? 'Configured' : 'Missing');
+    setText('mappedDrawers', (h.hardware.mapped_drawers || []).join(', '));
+    setText('dispatchTiming', h.workflow.enforce_delivery_window ? `Window enforced (${h.workflow.dispatch_lead_minutes} min lead)` : 'Demo immediate dispatch');
+    setText('powerButton', estop.state || '-');
+    setText('uart', h.navigation.uart_enabled ? `${h.navigation.uart_port} @ ${h.navigation.uart_baudrate}` : 'Disabled');
+
+    if (packages.ok) renderPackages(packages);
+  } catch (e) {
+    setPill('modePill', 'Offline', 'danger');
+  }
+}
+
+async function runAction(path, options = {}, successText = "Action complete.") {
+  const msg = document.getElementById('msg');
+  msg.textContent = "Working...";
+  msg.className = "message";
+
+  try {
+    const r = await fetch(path, options);
+    const res = await readJsonResponse(r);
+    if (res.ok) {
+      msg.textContent = successText;
+      msg.className = "message ok";
+    } else {
+      msg.textContent = errorText(res.error);
+      msg.className = "message danger";
+    }
+  } catch (e) {
+    msg.textContent = "Network error.";
+    msg.className = "message danger";
+  }
+
+  getStatus();
+}
+
+async function receivePackage() {
+  const msg = document.getElementById('packageMsg');
+  msg.textContent = "Sending notification...";
+  msg.className = "message";
+
+  const payload = {
+    recipient_name: document.getElementById('packageRecipientName').value,
+    recipient_email: document.getElementById('packageRecipientEmail').value,
+    destination: document.getElementById('packageDestination').value,
+    package_label: document.getElementById('packageLabel').value
+  };
+
+  try {
+    const r = await fetch('/package/receive', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+    const res = await readJsonResponse(r);
+    if (res.ok) {
+      msg.textContent = "Recipient notified.";
+      msg.className = "message ok";
+      document.getElementById('packageRecipientName').value = "";
+      document.getElementById('packageRecipientEmail').value = "";
+      document.getElementById('packageDestination').value = "";
+      document.getElementById('packageLabel').value = "";
+    } else {
+      msg.textContent = res.message || errorText(res.error);
+      msg.className = "message danger";
+    }
+  } catch (e) {
+    msg.textContent = "Network error. Check that the MailRover app is still running.";
+    msg.className = "message danger";
+  }
+
+  getStatus();
+}
+
+async function dispatchPackage(requestId) {
+  const msg = document.getElementById('packageMsg');
+  msg.textContent = "Dispatching delivery...";
+  msg.className = "message";
+
+  try {
+    const r = await fetch(`/package/${requestId}/dispatch`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({drawer_id: "D1"})
+    });
+    const res = await readJsonResponse(r);
+    if (res.ok) {
+      msg.textContent = "Delivery dispatched.";
+      msg.className = "message ok";
+    } else {
+      msg.textContent = res.message || errorText(res.error);
+      msg.className = "message danger";
+    }
+  } catch (e) {
+    msg.textContent = "Network error.";
+    msg.className = "message danger";
+  }
+
+  getStatus();
+}
+
+async function cancelPackage(requestId) {
+  const msg = document.getElementById('packageMsg');
+  if (!window.confirm("Cancel this delivery request?")) return;
+
+  msg.textContent = "Canceling request...";
+  msg.className = "message";
+
+  try {
+    const r = await fetch(`/package/${requestId}/admin_cancel`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'}
+    });
+    const res = await readJsonResponse(r);
+    if (res.ok) {
+      msg.textContent = "Request canceled.";
+      msg.className = "message ok";
+    } else {
+      msg.textContent = errorText(res.error);
+      msg.className = "message danger";
+    }
+  } catch (e) {
+    msg.textContent = "Network error.";
+    msg.className = "message danger";
+  }
+
+  getStatus();
+}
+
+function openLockerForLoading() {
+  runAction('/admin/drawer/pulse_unlock', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({drawer_id: "D1"})
+  }, "Locker unlocked for loading.");
+}
+
+function markArrived() {
+  runAction('/admin/delivery/mark_arrived', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'}
+  }, "Arrival marked. Unlock email sent.");
+}
+
+getStatus();
+setInterval(getStatus, 1000);
+</script>
+</body>
+</html>

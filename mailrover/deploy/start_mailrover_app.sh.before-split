@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+cd /home/mypi/mailrover
+
+set -a
+source /home/mypi/mailrover/.env
+set +a
+
+exec /home/mypi/mailrover/.venv/bin/python /home/mypi/mailrover/app.py

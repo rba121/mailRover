@@ -1,0 +1,26 @@
+[INFO] [1785999924.646658680] [bt_navigator]: 
+	bt_navigator lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785999924.660842509] [bt_navigator]: Creating
+[INFO] [1785999926.819582620] [bt_navigator]: Configuring
+[INFO] [1785999926.859429484] [bt_navigator]: Creating navigator id navigate_to_pose of type nav2_bt_navigator::NavigateToPoseNavigator
+[INFO] [1785999927.231308881] [bt_navigator]: Creating navigator id navigate_through_poses of type nav2_bt_navigator::NavigateThroughPosesNavigator
+[INFO] [1785999932.078492780] [bt_navigator]: Activating
+[INFO] [1785999932.436033809] [bt_navigator]: Creating bond (bt_navigator) to lifecycle manager.
+[INFO] [1786000982.693724657] [bt_navigator]: Begin navigating from current location (23.84, -45.27) to (42.06, -67.94)
+[INFO] [1786001333.667136705] [bt_navigator]: Goal succeeded
+[INFO] [1786001381.215022188] [bt_navigator]: Begin navigating from current location (42.07, -68.08) to (24.36, -44.68)
+[INFO] [1786001740.897219202] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786001740.897345425] [bt_navigator]: Running Nav2 LifecycleNode rcl preshutdown (bt_navigator)
+[INFO] [1786001740.897476463] [bt_navigator]: Deactivating
+[WARN] [1786001740.901769469] [bt_navigator]: [navigate_to_pose] [ActionServer] Requested to deactivate server but goal is still executing. Should check if action server is running before deactivating.
+[ERROR] [1786001740.943620134] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for compute_path_to_pose in node halt!
+[ERROR] [1786001740.967929792] [bt_navigator_navigate_to_pose_rclcpp_node]: Failed to cancel action server for follow_path
+[WARN] [1786001740.983430140] [bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786001740.989323452] [bt_navigator]: Goal canceled
+[WARN] [1786001740.989435804] [bt_navigator]: [navigate_to_pose] [ActionServer] Stopping the thread per request.
+[INFO] [1786001740.990708367] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.
+[INFO] [1786001741.002974067] [bt_navigator]: Cleaning up
+[INFO] [1786001742.037660473] [bt_navigator]: Completed Cleaning up
+[INFO] [1786001742.037994531] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.

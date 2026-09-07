@@ -1,0 +1,56 @@
+[INFO] [1784066943.199944106] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784066943.311409292] [planner_server]: Creating
+[INFO] [1784066945.484777173] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784066945.488144414] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1784066946.832224402] [planner_server]: Configuring
+[INFO] [1784066946.832307440] [global_costmap.global_costmap]: Configuring
+[INFO] [1784066946.916218359] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1784066946.957912613] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1784066946.969237547] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1784066946.969327381] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1784066946.979690162] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1784066947.037424933] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1784066947.037488989] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1784066947.040873638] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[ERROR] [1784066947.177228501] [global_costmap.global_costmap]: The configured inflation radius (0.200) is smaller than the computed inscribed radius (0.235) of your footprint, it is highly recommended to set inflation radius to be at least as big as the inscribed radius to avoid collisions
+[INFO] [1784066947.233188614] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 514 X 677 at 0.050000 m/pix
+[INFO] [1784066947.234260639] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1784066947.234609881] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1784066947.248413385] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1784066950.252932336] [planner_server]: Activating
+[INFO] [1784066950.252999058] [global_costmap.global_costmap]: Activating
+[INFO] [1784066950.253021929] [global_costmap.global_costmap]: Checking transform
+[INFO] [1784066950.253235282] [global_costmap.global_costmap]: start
+[INFO] [1784066952.308075122] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1784066952.315466405] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[INFO] [1784067011.042718007] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1784067012.044123132] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (-18.86, -42.42): "Costmap timed out waiting for update"
+[WARN] [1784067012.044212837] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1784067012.058612122] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1784067012.267575451] [planner_server]: Planner loop missed its desired rate of 5.0000 Hz. Current loop rate is 4.8104 Hz
+[INFO] [1784067043.149149168] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1784067044.156778180] [planner_server]: GridBased plugin failed to plan from (0.00, 0.00) to (-18.86, -42.42): "Costmap timed out waiting for update"
+[WARN] [1784067044.156960478] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1784067044.168652859] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1784067071.564464015] [planner_server]: GridBased plugin failed to plan from (-15.42, -43.48) to (-18.86, -42.42): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1784067071.564716239] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1784067071.579645082] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[WARN] [1784067072.270697119] [planner_server]: GridBased plugin failed to plan from (-15.34, -43.43) to (-18.86, -42.42): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1784067072.270811194] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1784067179.031137026] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784067179.031223026] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1784067179.031314360] [planner_server]: Deactivating
+[INFO] [1784067179.031426287] [global_costmap.global_costmap]: Deactivating
+[INFO] [1784067180.254965427] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1784067180.255498504] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1784067180.266619067] [planner_server]: Cleaning up
+[INFO] [1784067180.389556577] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1784067180.439216284] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1784067180.444364627] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1784067180.574641438] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

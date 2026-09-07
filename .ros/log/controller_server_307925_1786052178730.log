@@ -1,0 +1,66 @@
+[INFO] [1786052179.719926915] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786052179.756868395] [controller_server]: Creating controller server
+[INFO] [1786052179.894475983] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786052179.898148096] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1786052180.216665251] [controller_server]: Configuring controller interface
+[INFO] [1786052180.217258606] [controller_server]: getting progress checker plugins..
+[INFO] [1786052180.218981171] [controller_server]: getting goal checker plugins..
+[INFO] [1786052180.223448418] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1786052180.227292180] [local_costmap.local_costmap]: Configuring
+[INFO] [1786052180.309030535] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1786052180.318656088] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1786052180.357536357] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1786052180.357628580] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1786052180.361489360] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786052180.451452835] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1786052180.454427444] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1786052180.457264108] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1786052180.459848159] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1786052180.463712051] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1786052180.471262851] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1786052180.481311758] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1786052180.481434296] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1786052180.489738453] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1786052180.489814416] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1786052180.489844176] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1786052180.490263659] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1786052180.490312215] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1786052180.498249833] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1786052180.498354982] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1786052180.499251227] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1786052180.499310579] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1786052180.505143648] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1786052180.515688391] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1786052180.515780781] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1786052180.518372906] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1786052180.518537592] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1786052180.519664450] [controller_server]: Optimizer reset
+[INFO] [1786052180.540426879] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1786052180.540487583] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1786052181.844502718] [controller_server]: Activating
+[INFO] [1786052181.845108148] [local_costmap.local_costmap]: Activating
+[INFO] [1786052181.845140889] [local_costmap.local_costmap]: Checking transform
+[INFO] [1786052181.845210556] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to odom to become available, tf error: Could not find a connection between 'odom' and 'base_footprint' because they are not part of the same tree.Tf has two or more unconnected trees.
+[INFO] [1786052182.345414948] [local_costmap.local_costmap]: start
+[WARN] [1786052182.397209695] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1786052182.397429900] [controller_server]: Optimizer reset
+[INFO] [1786052182.397748643] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1786052182.397790328] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1786053323.872924404] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786053321.868 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786053358.841037779] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786053356.834 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786053972.677242514] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786053970.671 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786054925.973600983] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786054923.969 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786056173.640526921] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786056171.635 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786057245.006964999] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786057243.001 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786057639.574745656] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786057637.564 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786057951.940332809] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786057949.936 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786058177.406433658] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786058175.401 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786058564.074040200] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786058562.069 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786059111.808683342] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786059109.802 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786059952.111496284] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786059950.101 for reason 'the timestamp on the message is earlier than all the data in the transform cache'

@@ -1,0 +1,25 @@
+[INFO] [1786043685.923575259] [amcl]: 
+	amcl lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786043685.925500029] [amcl]: Creating
+[INFO] [1786043686.776788404] [amcl]: Configuring
+[INFO] [1786043686.776919626] [amcl]: initTransforms
+[INFO] [1786043686.798840600] [amcl]: initPubSub
+[INFO] [1786043686.818624116] [amcl]: Subscribed to map topic.
+[INFO] [1786043686.871754577] [amcl]: Received a 1552 X 2299 map @ 0.050 m/pix
+[INFO] [1786043686.957937553] [amcl]: Activating
+[INFO] [1786043686.958014313] [amcl]: Creating bond (amcl) to lifecycle manager.
+[INFO] [1786043686.958856725] [amcl]: createLaserObject
+[WARN] [1786043689.058799449] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[INFO] [1786043689.784073923] [amcl]: initialPoseReceived
+[WARN] [1786043689.784250257] [amcl]: Failed to transform initial pose in time (Lookup would require extrapolation into the future.  Requested time 1786043689.784144 but the latest data is at time 1786043689.757090, when looking up transform from frame [base_footprint] to frame [odom])
+[INFO] [1786043689.784297220] [amcl]: Setting pose (1786043689.784283): 24.355 -44.681 -1.010
+[INFO] [1786045004.994608932] [amcl]: Message Filter dropping message: frame 'laser' at time 1786045002.989 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786045578.062388530] [amcl]: Message Filter dropping message: frame 'laser' at time 1786045576.057 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786048450.892592706] [amcl]: Message Filter dropping message: frame 'laser' at time 1786048448.887 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786048584.220443797] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786048584.220556075] [amcl]: Running Nav2 LifecycleNode rcl preshutdown (amcl)
+[INFO] [1786048584.220666002] [amcl]: Deactivating
+[INFO] [1786048584.220703594] [amcl]: Destroying bond (amcl) to lifecycle manager.
+[INFO] [1786048584.233605886] [amcl]: Cleaning up

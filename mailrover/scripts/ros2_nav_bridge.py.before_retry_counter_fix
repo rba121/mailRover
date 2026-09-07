@@ -1,0 +1,1015 @@
+#!/usr/bin/env python3
+
+import json
+import math
+import os
+import re
+import threading
+import urllib.error
+import urllib.request
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+from typing import Any
+
+import rclpy
+import yaml
+from action_msgs.msg import GoalStatus
+from geometry_msgs.msg import PoseStamped
+from nav2_msgs.action import NavigateToPose
+from rclpy.action import ActionClient
+from rclpy.node import Node
+
+
+DEFAULT_ROOM_MAP = (
+    Path(__file__).resolve().parents[1]
+    / "maps"
+    / "room_map.yaml"
+)
+
+
+def yaw_to_quaternion(yaw: float) -> dict[str, float]:
+    half = yaw / 2.0
+    return {
+        "x": 0.0,
+        "y": 0.0,
+        "z": math.sin(half),
+        "w": math.cos(half),
+    }
+
+
+def quaternion_to_yaw(x: float, y: float, z: float, w: float) -> float:
+    siny_cosp = 2.0 * ((w * z) + (x * y))
+    cosy_cosp = 1.0 - 2.0 * ((y * y) + (z * z))
+    return math.atan2(siny_cosp, cosy_cosp)
+
+
+def normalize_room(value: str) -> str:
+    value = (value or "").strip()
+    match = re.search(r"\d+", value)
+    return match.group(0) if match else value
+
+
+def normalize_alias(value: str) -> str:
+    return re.sub(
+        r"[^a-z0-9]+",
+        "_",
+        (value or "").strip().lower(),
+    ).strip("_")
+
+
+class MailRoverNavBridge(Node):
+    def __init__(self) -> None:
+        super().__init__("mailrover_nav_bridge")
+
+        self._action_client = ActionClient(
+            self,
+            NavigateToPose,
+            "navigate_to_pose",
+        )
+
+        self._lock = threading.Lock()
+
+        self._active_task_id: str | None = None
+        self._active_mission_type: str | None = None
+        self._active_goal_handle = None
+        self._active_target: dict[str, Any] | None = None
+
+        self._recovery_count = 0
+        self._goal_recovery_base = 0
+        self._maximum_recoveries = int(
+            os.environ.get("NAV_MAX_RECOVERIES", "10")
+        )
+
+        self._recovery_abort_requested = False
+        self._last_pose: dict[str, float] | None = None
+
+        self._room_map = self._load_room_map()
+        self._rooms = self._room_map.get("rooms", {})
+
+        self._app_status_url = os.environ.get(
+            "MAILROVER_STATUS_URL",
+            "http://127.0.0.1:8000/navigation/status",
+        )
+
+        self._service_key = os.environ.get(
+            "SERVICE_KEY",
+            "",
+        )
+
+        self.get_logger().info(
+            "Navigation recovery limit: "
+            f"{self._maximum_recoveries}"
+        )
+
+    def _load_room_map(self) -> dict[str, Any]:
+        map_path = Path(
+            os.environ.get(
+                "ROOM_MAP_PATH",
+                str(DEFAULT_ROOM_MAP),
+            )
+        )
+
+        with map_path.open("r", encoding="utf-8") as file:
+            room_map = yaml.safe_load(file) or {}
+
+        rooms = room_map.get("rooms", {})
+
+        self.get_logger().info(
+            f"Loaded {len(rooms)} room targets from {map_path}"
+        )
+
+        if not room_map.get("loading_station"):
+            self.get_logger().warning(
+                "No loading_station target exists in room_map.yaml"
+            )
+
+        return room_map
+
+    def target_for_destination(
+        self,
+        destination: str,
+    ) -> tuple[str, dict[str, Any] | None]:
+        room = normalize_room(destination)
+        target = self._rooms.get(room)
+
+        if target:
+            return room, target
+
+        alias = normalize_alias(destination)
+
+        loading_aliases = {
+            "loading",
+            "loading_station",
+            "loading_bay",
+            "load_station",
+            "load_bay",
+        }
+
+        if alias in loading_aliases:
+            return (
+                "loading_station",
+                self._room_map.get("loading_station"),
+            )
+
+        return room, None
+
+    def dispatch_task(
+        self,
+        task_id: str,
+        destination: str,
+        drawer_id: str,
+        mission_type: str = "delivery",
+    ) -> tuple[bool, str]:
+        mission_type = (
+            mission_type or "delivery"
+        ).strip().lower()
+
+        if mission_type not in {"delivery", "return"}:
+            self.report_status(
+                task_id,
+                "FAULT",
+                reason="INVALID_MISSION_TYPE",
+            )
+            return False, "INVALID_MISSION_TYPE"
+
+        room, target = self.target_for_destination(destination)
+
+        if not target:
+            self.get_logger().error(
+                f"No target for destination={destination!r}"
+            )
+            self.report_status(
+                task_id,
+                "FAULT",
+                reason=f"ROOM_NOT_MAPPED:{room}",
+            )
+            return False, f"ROOM_NOT_MAPPED:{room}"
+
+        with self._lock:
+            if self._active_task_id is not None:
+                self.get_logger().error(
+                    "Navigation mission rejected because another "
+                    "mission is active"
+                )
+                return False, "MISSION_ALREADY_ACTIVE"
+
+            self._active_task_id = task_id
+            self._active_mission_type = mission_type
+            self._active_goal_handle = None
+            self._active_target = dict(target)
+
+            self._recovery_count = 0
+            self._goal_recovery_base = 0
+            self._recovery_abort_requested = False
+            self._last_pose = None
+
+        self.get_logger().info(
+            f"Dispatching task={task_id} "
+            f"mission_type={mission_type} "
+            f"drawer={drawer_id} "
+            f"destination={destination} "
+            f"room={room}"
+        )
+
+        if mission_type == "return":
+            self.report_status(
+                task_id,
+                "RETURNING",
+                recovery_count=0,
+                recovery_limit=self._maximum_recoveries,
+                mission_type=mission_type,
+            )
+        else:
+            self.report_status(
+                task_id,
+                "MOVING",
+                recovery_count=0,
+                recovery_limit=self._maximum_recoveries,
+                mission_type=mission_type,
+            )
+
+        if not self._action_client.wait_for_server(
+            timeout_sec=5.0
+        ):
+            self.report_status(
+                task_id,
+                "FAULT",
+                reason="NAV2_ACTION_SERVER_UNAVAILABLE",
+            )
+            self._clear_active_task()
+            return False, "NAV2_ACTION_SERVER_UNAVAILABLE"
+
+        goal = NavigateToPose.Goal()
+        goal.pose = self._target_pose(target)
+
+        future = self._action_client.send_goal_async(
+            goal,
+            feedback_callback=lambda feedback: (
+                self._navigation_feedback_callback(
+                    task_id,
+                    mission_type,
+                    feedback,
+                )
+            ),
+        )
+
+        future.add_done_callback(
+            lambda result: self._goal_response_callback(
+                task_id,
+                mission_type,
+                result,
+            )
+        )
+
+        return True, "GOAL_SENT"
+
+    def _target_pose(
+        self,
+        target: dict[str, Any],
+    ) -> PoseStamped:
+        pose = PoseStamped()
+
+        pose.header.frame_id = os.environ.get(
+            "NAV_FRAME_ID",
+            "map",
+        )
+
+        pose.header.stamp = self.get_clock().now().to_msg()
+
+        pose.pose.position.x = float(target["x"])
+        pose.pose.position.y = float(target["y"])
+        pose.pose.position.z = 0.0
+
+        quaternion = yaw_to_quaternion(
+            float(target["yaw"])
+        )
+
+        pose.pose.orientation.x = quaternion["x"]
+        pose.pose.orientation.y = quaternion["y"]
+        pose.pose.orientation.z = quaternion["z"]
+        pose.pose.orientation.w = quaternion["w"]
+
+        return pose
+
+    def _goal_response_callback(
+        self,
+        task_id: str,
+        mission_type: str,
+        future,
+    ) -> None:
+        try:
+            goal_handle = future.result()
+        except Exception as exc:
+            self.get_logger().error(
+                f"Could not send Nav2 goal: {exc}"
+            )
+            self._retry_active_goal(
+                task_id,
+                mission_type,
+                "GOAL_SEND_FAILED",
+            )
+            return
+
+        if not goal_handle.accepted:
+            self.get_logger().error(
+                f"Nav2 rejected task={task_id}"
+            )
+            self._retry_active_goal(
+                task_id,
+                mission_type,
+                "GOAL_REJECTED",
+            )
+            return
+
+        with self._lock:
+            if task_id != self._active_task_id:
+                return
+
+            self._active_goal_handle = goal_handle
+
+            should_cancel = (
+                self._recovery_count
+                >= self._maximum_recoveries
+                and not self._recovery_abort_requested
+            )
+
+            if should_cancel:
+                self._recovery_abort_requested = True
+
+        self.get_logger().info(
+            f"Nav2 accepted task={task_id} "
+            f"mission_type={mission_type}"
+        )
+
+        if should_cancel:
+            self._request_recovery_limit_cancel(
+                task_id,
+                mission_type,
+            )
+
+        result_future = goal_handle.get_result_async()
+
+        result_future.add_done_callback(
+            lambda result: self._result_callback(
+                task_id,
+                mission_type,
+                result,
+            )
+        )
+
+    def _navigation_feedback_callback(
+        self,
+        task_id: str,
+        mission_type: str,
+        feedback_message,
+    ) -> None:
+        feedback = feedback_message.feedback
+
+        goal_recovery_count = int(
+            feedback.number_of_recoveries
+        )
+
+        pose = feedback.current_pose.pose
+
+        current_pose = {
+            "x": float(pose.position.x),
+            "y": float(pose.position.y),
+            "yaw": quaternion_to_yaw(
+                float(pose.orientation.x),
+                float(pose.orientation.y),
+                float(pose.orientation.z),
+                float(pose.orientation.w),
+            ),
+        }
+
+        report_counter = False
+        request_cancel = False
+
+        with self._lock:
+            if task_id != self._active_task_id:
+                return
+
+            recovery_count = (
+                self._goal_recovery_base
+                + goal_recovery_count
+            )
+
+            self._last_pose = current_pose
+
+            if recovery_count != self._recovery_count:
+                self._recovery_count = recovery_count
+                report_counter = True
+
+            if (
+                recovery_count >= self._maximum_recoveries
+                and not self._recovery_abort_requested
+                and self._active_goal_handle is not None
+            ):
+                self._recovery_abort_requested = True
+                request_cancel = True
+
+        if report_counter:
+            status = (
+                "RETURN_RECOVERING"
+                if mission_type == "return"
+                else "RECOVERING"
+            )
+
+            self.get_logger().warning(
+                f"Recovery task={task_id}: "
+                f"{recovery_count}/"
+                f"{self._maximum_recoveries}"
+            )
+
+            self.report_status(
+                task_id,
+                status,
+                recovery_count=recovery_count,
+                recovery_limit=self._maximum_recoveries,
+                mission_type=mission_type,
+                **current_pose,
+            )
+
+        if request_cancel:
+            self._request_recovery_limit_cancel(
+                task_id,
+                mission_type,
+            )
+
+    def _request_recovery_limit_cancel(
+        self,
+        task_id: str,
+        mission_type: str,
+    ) -> None:
+        with self._lock:
+            goal_handle = self._active_goal_handle
+            recovery_count = self._recovery_count
+            current_pose = dict(self._last_pose or {})
+
+        if goal_handle is None:
+            return
+
+        status = (
+            "RETURN_ABORTING"
+            if mission_type == "return"
+            else "ABORTING"
+        )
+
+        self.get_logger().error(
+            f"Recovery limit reached for task={task_id}: "
+            f"{recovery_count}/"
+            f"{self._maximum_recoveries}. "
+            "Canceling Nav2 goal."
+        )
+
+        self.report_status(
+            task_id,
+            status,
+            reason="RECOVERY_LIMIT",
+            recovery_count=recovery_count,
+            recovery_limit=self._maximum_recoveries,
+            mission_type=mission_type,
+            **current_pose,
+        )
+
+        cancel_future = goal_handle.cancel_goal_async()
+
+        cancel_future.add_done_callback(
+            lambda result: self._cancel_response_callback(
+                task_id,
+                result,
+            )
+        )
+
+    def _cancel_response_callback(
+        self,
+        task_id: str,
+        future,
+    ) -> None:
+        try:
+            response = future.result()
+            accepted = bool(response.goals_canceling)
+
+            self.get_logger().warning(
+                f"Recovery-limit cancellation "
+                f"task={task_id} accepted={accepted}"
+            )
+        except Exception as exc:
+            self.get_logger().error(
+                f"Cancellation response failed "
+                f"task={task_id}: {exc}"
+            )
+
+    def _result_callback(
+        self,
+        task_id: str,
+        mission_type: str,
+        future,
+    ) -> None:
+        try:
+            result = future.result()
+            result_status = result.status
+        except Exception as exc:
+            self.get_logger().error(
+                f"Could not read Nav2 result: {exc}"
+            )
+            self._retry_active_goal(
+                task_id,
+                mission_type,
+                "RESULT_READ_FAILED",
+            )
+            return
+
+        with self._lock:
+            recovery_count = self._recovery_count
+            recovery_limit_reached = (
+                self._recovery_abort_requested
+                or recovery_count
+                >= self._maximum_recoveries
+            )
+            current_pose = dict(self._last_pose or {})
+
+        details = {
+            "recovery_count": recovery_count,
+            "recovery_limit": self._maximum_recoveries,
+            "mission_type": mission_type,
+            **current_pose,
+        }
+
+        if result_status == GoalStatus.STATUS_SUCCEEDED:
+            if mission_type == "return":
+                self.get_logger().info(
+                    f"Returned to loading bay: {task_id}"
+                )
+                self.report_status(
+                    task_id,
+                    "RETURNED",
+                    **details,
+                )
+            else:
+                self.get_logger().info(
+                    f"Arrived at destination: {task_id}"
+                )
+                self.report_status(
+                    task_id,
+                    "ARRIVED",
+                    **details,
+                )
+
+            self._clear_active_task()
+            return
+
+        if recovery_limit_reached:
+            if mission_type == "return":
+                final_status = "RETURN_ABORTED"
+            else:
+                final_status = "ABORTED"
+
+            self.get_logger().error(
+                f"{final_status} task={task_id}: "
+                f"recoveries={recovery_count}/"
+                f"{self._maximum_recoveries}"
+            )
+
+            self.report_status(
+                task_id,
+                final_status,
+                reason="RECOVERY_LIMIT",
+                **details,
+            )
+
+            self._clear_active_task()
+            return
+
+        if result_status == GoalStatus.STATUS_CANCELED:
+            self.report_status(
+                task_id,
+                "CANCELED",
+                reason="GOAL_CANCELED",
+                **details,
+            )
+            self._clear_active_task()
+            return
+
+        self._retry_active_goal(
+            task_id,
+            mission_type,
+            f"NAV2_STATUS_{result_status}",
+        )
+
+    def _retry_active_goal(
+        self,
+        task_id: str,
+        mission_type: str,
+        reason: str,
+    ) -> None:
+        with self._lock:
+            if task_id != self._active_task_id:
+                return
+
+            retry_count = min(
+                self._recovery_count + 1,
+                self._maximum_recoveries,
+            )
+
+            target = dict(self._active_target or {})
+            current_pose = dict(self._last_pose or {})
+
+            self._recovery_count = retry_count
+            self._goal_recovery_base = retry_count
+            self._active_goal_handle = None
+
+        details = {
+            "recovery_count": retry_count,
+            "recovery_limit": self._maximum_recoveries,
+            "mission_type": mission_type,
+            **current_pose,
+        }
+
+        if (
+            retry_count >= self._maximum_recoveries
+            or not target
+        ):
+            final_status = (
+                "RETURN_ABORTED"
+                if mission_type == "return"
+                else "ABORTED"
+            )
+
+            final_reason = (
+                "RECOVERY_LIMIT"
+                if retry_count >= self._maximum_recoveries
+                else "TARGET_MISSING"
+            )
+
+            self.get_logger().error(
+                f"{final_status} task={task_id}: "
+                f"{final_reason}, recoveries="
+                f"{retry_count}/{self._maximum_recoveries}"
+            )
+
+            self.report_status(
+                task_id,
+                final_status,
+                reason=final_reason,
+                **details,
+            )
+
+            self._clear_active_task()
+            return
+
+        retry_status = (
+            "RETURN_RECOVERING"
+            if mission_type == "return"
+            else "RECOVERING"
+        )
+
+        self.get_logger().warning(
+            f"Retrying task={task_id} after {reason}: "
+            f"{retry_count}/{self._maximum_recoveries}"
+        )
+
+        self.report_status(
+            task_id,
+            retry_status,
+            reason=reason,
+            **details,
+        )
+
+        try:
+            retry_delay = max(
+                0.1,
+                float(
+                    os.environ.get(
+                        "NAV_GOAL_RETRY_DELAY_SEC",
+                        "1.0",
+                    )
+                ),
+            )
+        except ValueError:
+            retry_delay = 1.0
+
+        retry_timer = threading.Timer(
+            retry_delay,
+            self._send_retry_goal,
+            args=(task_id, mission_type, target),
+        )
+        retry_timer.daemon = True
+        retry_timer.start()
+
+    def _send_retry_goal(
+        self,
+        task_id: str,
+        mission_type: str,
+        target: dict[str, Any],
+    ) -> None:
+        with self._lock:
+            if (
+                task_id != self._active_task_id
+                or mission_type
+                != self._active_mission_type
+                or self._recovery_abort_requested
+            ):
+                return
+
+        if not self._action_client.wait_for_server(
+            timeout_sec=5.0
+        ):
+            self._retry_active_goal(
+                task_id,
+                mission_type,
+                "NAV2_ACTION_SERVER_UNAVAILABLE",
+            )
+            return
+
+        goal = NavigateToPose.Goal()
+        goal.pose = self._target_pose(target)
+
+        future = self._action_client.send_goal_async(
+            goal,
+            feedback_callback=lambda feedback: (
+                self._navigation_feedback_callback(
+                    task_id,
+                    mission_type,
+                    feedback,
+                )
+            ),
+        )
+
+        future.add_done_callback(
+            lambda result: self._goal_response_callback(
+                task_id,
+                mission_type,
+                result,
+            )
+        )
+
+    def _clear_active_task(self) -> None:
+        with self._lock:
+            self._active_task_id = None
+            self._active_mission_type = None
+            self._active_goal_handle = None
+            self._active_target = None
+            self._recovery_count = 0
+            self._goal_recovery_base = 0
+            self._recovery_abort_requested = False
+            self._last_pose = None
+
+    def report_status(
+        self,
+        task_id: str,
+        status: str,
+        **details,
+    ) -> None:
+        payload_data = {
+            "task_id": task_id,
+            "status": status,
+        }
+
+        payload_data.update(details)
+
+        payload = json.dumps(payload_data).encode(
+            "utf-8"
+        )
+
+        headers = {
+            "Content-Type": "application/json",
+            "X-MailRover-Service-Key": self._service_key,
+        }
+
+        request_object = urllib.request.Request(
+            self._app_status_url,
+            data=payload,
+            headers=headers,
+            method="POST",
+        )
+
+        try:
+            with urllib.request.urlopen(
+                request_object,
+                timeout=2.0,
+            ) as response:
+                self.get_logger().info(
+                    f"Reported {status} "
+                    f"for task={task_id}: "
+                    f"HTTP {response.status}"
+                )
+        except (
+            urllib.error.URLError,
+            TimeoutError,
+        ) as exc:
+            self.get_logger().error(
+                f"Could not report {status} "
+                f"for task={task_id}: {exc}"
+            )
+
+
+class BridgeRequestHandler(BaseHTTPRequestHandler):
+    bridge_node: MailRoverNavBridge | None = None
+    service_key = ""
+
+    def do_POST(self) -> None:
+        if self.path != "/task":
+            self._send_json(
+                404,
+                {
+                    "ok": False,
+                    "error": "NOT_FOUND",
+                },
+            )
+            return
+
+        if self.service_key:
+            provided = self.headers.get(
+                "X-MailRover-Service-Key",
+                "",
+            )
+
+            if provided != self.service_key:
+                self._send_json(
+                    401,
+                    {
+                        "ok": False,
+                        "error": "SERVICE_KEY_REQUIRED",
+                    },
+                )
+                return
+
+        try:
+            length = int(
+                self.headers.get(
+                    "Content-Length",
+                    "0",
+                )
+            )
+
+            data = json.loads(
+                self.rfile.read(length).decode(
+                    "utf-8"
+                )
+            )
+        except Exception:
+            self._send_json(
+                400,
+                {
+                    "ok": False,
+                    "error": "INVALID_JSON",
+                },
+            )
+            return
+
+        task_id = (
+            data.get("task_id") or ""
+        ).strip()
+
+        destination = (
+            data.get("destination") or ""
+        ).strip()
+
+        drawer_id = (
+            data.get("drawer_id") or ""
+        ).strip()
+
+        mission_type = (
+            data.get("mission_type")
+            or "delivery"
+        ).strip().lower()
+
+        if not task_id or not destination:
+            self._send_json(
+                400,
+                {
+                    "ok": False,
+                    "error": (
+                        "TASK_ID_AND_DESTINATION_REQUIRED"
+                    ),
+                },
+            )
+            return
+
+        if mission_type not in {
+            "delivery",
+            "return",
+        }:
+            self._send_json(
+                400,
+                {
+                    "ok": False,
+                    "error": "INVALID_MISSION_TYPE",
+                },
+            )
+            return
+
+        if self.bridge_node is None:
+            self._send_json(
+                503,
+                {
+                    "ok": False,
+                    "error": "BRIDGE_NOT_READY",
+                },
+            )
+            return
+
+        thread = threading.Thread(
+            target=self.bridge_node.dispatch_task,
+            args=(
+                task_id,
+                destination,
+                drawer_id,
+                mission_type,
+            ),
+            daemon=True,
+        )
+
+        thread.start()
+
+        self._send_json(
+            202,
+            {
+                "ok": True,
+                "message": "TASK_ACCEPTED",
+                "task_id": task_id,
+                "destination": destination,
+                "mission_type": mission_type,
+            },
+        )
+
+    def log_message(self, fmt, *args) -> None:
+        return
+
+    def _send_json(
+        self,
+        status: int,
+        payload: dict[str, Any],
+    ) -> None:
+        body = json.dumps(payload).encode(
+            "utf-8"
+        )
+
+        self.send_response(status)
+        self.send_header(
+            "Content-Type",
+            "application/json",
+        )
+        self.send_header(
+            "Content-Length",
+            str(len(body)),
+        )
+        self.end_headers()
+
+        try:
+            self.wfile.write(body)
+        except BrokenPipeError:
+            pass
+
+
+def main() -> None:
+    rclpy.init()
+
+    node = MailRoverNavBridge()
+
+    BridgeRequestHandler.bridge_node = node
+    BridgeRequestHandler.service_key = os.environ.get(
+        "SERVICE_KEY",
+        "",
+    )
+
+    host = os.environ.get(
+        "NAV_BRIDGE_HOST",
+        "127.0.0.1",
+    )
+
+    port = int(
+        os.environ.get(
+            "NAV_BRIDGE_PORT",
+            "8765",
+        )
+    )
+
+    server = ThreadingHTTPServer(
+        (host, port),
+        BridgeRequestHandler,
+    )
+
+    thread = threading.Thread(
+        target=server.serve_forever,
+        daemon=True,
+    )
+
+    thread.start()
+
+    node.get_logger().info(
+        "MailRover navigation bridge listening "
+        f"on http://{host}:{port}/task"
+    )
+
+    try:
+        rclpy.spin(node)
+    finally:
+        server.shutdown()
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

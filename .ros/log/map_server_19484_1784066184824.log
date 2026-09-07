@@ -1,0 +1,28 @@
+[INFO] [1784066184.886650065] [map_server]: 
+	map_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784066184.886856603] [map_server]: Creating
+[INFO] [1784066185.026816969] [map_server]: Configuring
+[INFO] [1784066185.026951266] [map_io]: Loading yaml file: /home/mypi/maps/goodpitmap.yaml
+[INFO] [1784066185.029648485] [map_io]: resolution: 0.05
+[INFO] [1784066185.029703578] [map_io]: origin[0]: -24.223
+[INFO] [1784066185.029715078] [map_io]: origin[1]: -54.064
+[INFO] [1784066185.029722411] [map_io]: origin[2]: 0
+[INFO] [1784066185.029729318] [map_io]: free_thresh: 0.196
+[INFO] [1784066185.029735189] [map_io]: occupied_thresh: 0.65
+[INFO] [1784066185.029744078] [map_io]: mode: trinary
+[INFO] [1784066185.029751633] [map_io]: negate: 0
+[INFO] [1784066185.030143339] [map_io]: Loading image_file: /home/mypi/maps/goodpitmap.pgm
+[INFO] [1784066185.046463487] [map_io]: Read map /home/mypi/maps/goodpitmap.pgm: 514 X 677 map @ 0.05 m/cell
+[INFO] [1784066185.111506318] [map_server]: Activating
+[INFO] [1784066185.113467959] [map_server]: Creating bond (map_server) to lifecycle manager.
+[WARN] [1784066529.298715018] [rcl_lifecycle]: No transition matching 1 found for current state active
+[WARN] [1784066529.298749036] [rcl_lifecycle]: No transition matching 1 found for current state active
+[ERROR] [1784066529.298762888] [map_server]: Unable to start transition 1 from current state active: Transition is not registered., at ./src/rcl_lifecycle.c:355
+[INFO] [1784066914.758905058] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784066914.759065263] [map_server]: Running Nav2 LifecycleNode rcl preshutdown (map_server)
+[INFO] [1784066914.759195930] [map_server]: Deactivating
+[INFO] [1784066914.759229356] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[INFO] [1784066914.778111037] [map_server]: Cleaning up
+[INFO] [1784066914.778218612] [map_server]: Destroying bond (map_server) to lifecycle manager.

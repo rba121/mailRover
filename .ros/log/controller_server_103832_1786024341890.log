@@ -1,0 +1,595 @@
+[INFO] [1786024342.189564155] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786024342.226526617] [controller_server]: Creating controller server
+[INFO] [1786024342.648072244] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786024342.666524178] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1786024342.867378502] [controller_server]: Configuring controller interface
+[INFO] [1786024342.867439891] [controller_server]: getting progress checker plugins..
+[INFO] [1786024342.870010294] [controller_server]: getting goal checker plugins..
+[INFO] [1786024342.870691612] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1786024342.871304542] [local_costmap.local_costmap]: Configuring
+[INFO] [1786024342.927638739] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1786024342.953927346] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1786024342.995648390] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1786024342.996392764] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1786024343.015871390] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786024343.220900792] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1786024343.225271168] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1786024343.228189758] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1786024343.237330234] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1786024343.244677663] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1786024343.253238914] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1786024343.259224798] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1786024343.259319854] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1786024343.263647767] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1786024343.264454086] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1786024343.264488809] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1786024343.267549288] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1786024343.267617307] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1786024343.270439767] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1786024343.270513119] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1786024343.271108715] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1786024343.271161049] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1786024343.271758997] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1786024343.278427070] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1786024343.278509682] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1786024343.279022481] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1786024343.279243630] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1786024343.283234319] [controller_server]: Optimizer reset
+[INFO] [1786024343.305013827] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1786024343.305092105] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1786024345.285367148] [controller_server]: Activating
+[INFO] [1786024345.285509168] [local_costmap.local_costmap]: Activating
+[INFO] [1786024345.285539001] [local_costmap.local_costmap]: Checking transform
+[INFO] [1786024345.285766243] [local_costmap.local_costmap]: start
+[WARN] [1786024345.490563718] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1786024345.490858108] [controller_server]: Optimizer reset
+[INFO] [1786024345.491522538] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1786024345.491581223] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1786024523.152219096] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786024522.847 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786024738.163928145] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786024738.164051627] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1786024738.164117053] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1786024739.264590207] [controller_server]: Passing new path to controller.
+[INFO] [1786024740.364587339] [controller_server]: Passing new path to controller.
+[INFO] [1786024741.464593249] [controller_server]: Passing new path to controller.
+[INFO] [1786024742.564594640] [controller_server]: Passing new path to controller.
+[INFO] [1786024743.664648920] [controller_server]: Passing new path to controller.
+[INFO] [1786024744.765493409] [controller_server]: Passing new path to controller.
+[INFO] [1786024745.864587795] [controller_server]: Passing new path to controller.
+[INFO] [1786024746.964587020] [controller_server]: Passing new path to controller.
+[INFO] [1786024748.064769505] [controller_server]: Passing new path to controller.
+[INFO] [1786024749.167400077] [controller_server]: Passing new path to controller.
+[INFO] [1786024750.265042308] [controller_server]: Passing new path to controller.
+[INFO] [1786024751.365454405] [controller_server]: Passing new path to controller.
+[INFO] [1786024752.465186850] [controller_server]: Passing new path to controller.
+[INFO] [1786024753.564612461] [controller_server]: Passing new path to controller.
+[INFO] [1786024754.664861465] [controller_server]: Passing new path to controller.
+[INFO] [1786024755.765771046] [controller_server]: Passing new path to controller.
+[INFO] [1786024756.864961581] [controller_server]: Passing new path to controller.
+[INFO] [1786024757.964837101] [controller_server]: Passing new path to controller.
+[INFO] [1786024759.064980142] [controller_server]: Passing new path to controller.
+[INFO] [1786024760.165921705] [controller_server]: Passing new path to controller.
+[INFO] [1786024761.264617756] [controller_server]: Passing new path to controller.
+[INFO] [1786024762.264579983] [controller_server]: Passing new path to controller.
+[INFO] [1786024763.465443654] [controller_server]: Passing new path to controller.
+[INFO] [1786024764.566642922] [controller_server]: Passing new path to controller.
+[INFO] [1786024765.565925405] [controller_server]: Passing new path to controller.
+[INFO] [1786024766.664546585] [controller_server]: Passing new path to controller.
+[ERROR] [1786024767.464758154] [controller_server]: Failed to make progress
+[INFO] [1786024767.465582696] [controller_server]: Optimizer reset
+[WARN] [1786024767.465662733] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786024767.484782746] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024767.487240704] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024767.787502585] [controller_server]: Passing new path to controller.
+[INFO] [1786024768.793471216] [controller_server]: Passing new path to controller.
+[INFO] [1786024769.887487575] [controller_server]: Passing new path to controller.
+[INFO] [1786024770.987501299] [controller_server]: Passing new path to controller.
+[INFO] [1786024772.087496894] [controller_server]: Passing new path to controller.
+[INFO] [1786024773.187500063] [controller_server]: Passing new path to controller.
+[ERROR] [1786024773.587597737] [controller_server]: Failed to make progress
+[INFO] [1786024773.587947331] [controller_server]: Optimizer reset
+[WARN] [1786024773.587983091] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786024773.605558910] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024779.946957496] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024781.047358130] [controller_server]: Passing new path to controller.
+[INFO] [1786024781.149309230] [controller_server]: Optimizer reset
+[INFO] [1786024781.152255099] [controller_server]: Optimizer reset
+[WARN] [1786024781.152440451] [controller_server]: Optimizer fail to compute path
+[INFO] [1786024781.249526191] [controller_server]: Optimizer reset
+[INFO] [1786024781.252411893] [controller_server]: Optimizer reset
+[WARN] [1786024781.252561671] [controller_server]: Optimizer fail to compute path
+[INFO] [1786024781.349575096] [controller_server]: Optimizer reset
+[INFO] [1786024781.352928078] [controller_server]: Optimizer reset
+[WARN] [1786024781.353187931] [controller_server]: Optimizer fail to compute path
+[ERROR] [1786024781.353283357] [controller_server]: Controller patience exceeded
+[INFO] [1786024781.353601322] [controller_server]: Optimizer reset
+[WARN] [1786024781.353638063] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786024781.365663611] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024781.368907944] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024781.491183286] [controller_server]: Optimizer reset
+[INFO] [1786024781.493271594] [controller_server]: Optimizer reset
+[WARN] [1786024781.493387909] [controller_server]: Optimizer fail to compute path
+[WARN] [1786024781.493674151] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 8.0284 Hz.
+[INFO] [1786024781.496013775] [controller_server]: Optimizer reset
+[INFO] [1786024781.500817246] [controller_server]: Optimizer reset
+[WARN] [1786024781.501011970] [controller_server]: Optimizer fail to compute path
+[INFO] [1786024781.598264525] [controller_server]: Optimizer reset
+[INFO] [1786024781.601988250] [controller_server]: Optimizer reset
+[WARN] [1786024781.602148251] [controller_server]: Optimizer fail to compute path
+[INFO] [1786024781.696818996] [controller_server]: Optimizer reset
+[INFO] [1786024781.699193509] [controller_server]: Optimizer reset
+[WARN] [1786024781.699668937] [controller_server]: Optimizer fail to compute path
+[ERROR] [1786024781.699747327] [controller_server]: Controller patience exceeded
+[INFO] [1786024781.700090921] [controller_server]: Optimizer reset
+[WARN] [1786024781.700139699] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786024781.715475469] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024788.346929009] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024789.447245865] [controller_server]: Passing new path to controller.
+[INFO] [1786024790.547242849] [controller_server]: Passing new path to controller.
+[INFO] [1786024791.647251537] [controller_server]: Passing new path to controller.
+[INFO] [1786024792.747246391] [controller_server]: Passing new path to controller.
+[INFO] [1786024793.847242634] [controller_server]: Passing new path to controller.
+[ERROR] [1786024794.447337542] [controller_server]: Failed to make progress
+[INFO] [1786024794.447838674] [controller_server]: Optimizer reset
+[WARN] [1786024794.447888953] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786024794.464230080] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024794.465852311] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024794.966183630] [controller_server]: Passing new path to controller.
+[INFO] [1786024796.066230355] [controller_server]: Passing new path to controller.
+[INFO] [1786024797.066366269] [controller_server]: Passing new path to controller.
+[INFO] [1786024798.166226419] [controller_server]: Passing new path to controller.
+[INFO] [1786024799.266228273] [controller_server]: Passing new path to controller.
+[INFO] [1786024800.366240554] [controller_server]: Passing new path to controller.
+[INFO] [1786024801.469095924] [controller_server]: Passing new path to controller.
+[INFO] [1786024802.567244601] [controller_server]: Passing new path to controller.
+[INFO] [1786024803.666981269] [controller_server]: Passing new path to controller.
+[INFO] [1786024804.770771199] [controller_server]: Passing new path to controller.
+[INFO] [1786024805.866233140] [controller_server]: Passing new path to controller.
+[INFO] [1786024806.966240439] [controller_server]: Passing new path to controller.
+[INFO] [1786024807.966276333] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786024807.966366315] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786024807.973746504] [controller_server]: Optimizer reset
+[INFO] [1786024810.519453530] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024811.619932813] [controller_server]: Passing new path to controller.
+[INFO] [1786024812.719928797] [controller_server]: Passing new path to controller.
+[INFO] [1786024813.819943003] [controller_server]: Passing new path to controller.
+[INFO] [1786024814.919932727] [controller_server]: Passing new path to controller.
+[INFO] [1786024816.019934378] [controller_server]: Passing new path to controller.
+[INFO] [1786024817.119936288] [controller_server]: Passing new path to controller.
+[INFO] [1786024817.458597474] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786024817.146 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786024817.556269180] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 3.0248 Hz.
+[INFO] [1786024818.257302663] [controller_server]: Passing new path to controller.
+[INFO] [1786024819.357298592] [controller_server]: Passing new path to controller.
+[INFO] [1786024820.457249187] [controller_server]: Passing new path to controller.
+[INFO] [1786024821.457299081] [controller_server]: Passing new path to controller.
+[INFO] [1786024822.557302269] [controller_server]: Passing new path to controller.
+[INFO] [1786024823.657299123] [controller_server]: Passing new path to controller.
+[INFO] [1786024824.757300274] [controller_server]: Passing new path to controller.
+[INFO] [1786024825.857303961] [controller_server]: Passing new path to controller.
+[INFO] [1786024826.159498205] [controller_server]: Optimizer reset
+[INFO] [1786024826.161974107] [controller_server]: Optimizer reset
+[WARN] [1786024826.162169812] [controller_server]: Optimizer fail to compute path
+[INFO] [1786024826.259490091] [controller_server]: Optimizer reset
+[INFO] [1786024826.261922882] [controller_server]: Optimizer reset
+[WARN] [1786024826.262105253] [controller_server]: Optimizer fail to compute path
+[INFO] [1786024826.359984349] [controller_server]: Optimizer reset
+[INFO] [1786024826.362410381] [controller_server]: Optimizer reset
+[WARN] [1786024826.362575882] [controller_server]: Optimizer fail to compute path
+[ERROR] [1786024826.362683531] [controller_server]: Controller patience exceeded
+[INFO] [1786024826.364773413] [controller_server]: Optimizer reset
+[WARN] [1786024826.364875228] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786024826.385641232] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024826.386953035] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024826.500725534] [controller_server]: Optimizer reset
+[INFO] [1786024826.503126177] [controller_server]: Optimizer reset
+[WARN] [1786024826.503246345] [controller_server]: Optimizer fail to compute path
+[WARN] [1786024826.503556550] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 8.5910 Hz.
+[INFO] [1786024826.505843266] [controller_server]: Optimizer reset
+[INFO] [1786024826.508323669] [controller_server]: Optimizer reset
+[WARN] [1786024826.508466670] [controller_server]: Optimizer fail to compute path
+[INFO] [1786024826.605767096] [controller_server]: Optimizer reset
+[INFO] [1786024826.608064812] [controller_server]: Optimizer reset
+[WARN] [1786024826.608201480] [controller_server]: Optimizer fail to compute path
+[INFO] [1786024826.705836649] [controller_server]: Optimizer reset
+[INFO] [1786024826.708161180] [controller_server]: Optimizer reset
+[WARN] [1786024826.708284644] [controller_server]: Optimizer fail to compute path
+[ERROR] [1786024826.708350089] [controller_server]: Controller patience exceeded
+[INFO] [1786024826.708865943] [controller_server]: Optimizer reset
+[WARN] [1786024826.708919777] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786024826.725799907] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024833.056523434] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024834.156829679] [controller_server]: Passing new path to controller.
+[INFO] [1786024835.256842904] [controller_server]: Passing new path to controller.
+[INFO] [1786024836.356826036] [controller_server]: Passing new path to controller.
+[INFO] [1786024837.456828538] [controller_server]: Passing new path to controller.
+[INFO] [1786024838.556826485] [controller_server]: Passing new path to controller.
+[ERROR] [1786024839.056934581] [controller_server]: Failed to make progress
+[INFO] [1786024839.057280898] [controller_server]: Optimizer reset
+[WARN] [1786024839.057321454] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786024839.073466358] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024839.076281262] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024839.576604378] [controller_server]: Passing new path to controller.
+[INFO] [1786024840.676604010] [controller_server]: Passing new path to controller.
+[INFO] [1786024841.776599994] [controller_server]: Passing new path to controller.
+[INFO] [1786024843.846508317] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024843.876604817] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786024843.876676651] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786024843.877148875] [controller_server]: Optimizer reset
+[INFO] [1786024851.682540382] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024859.072633039] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024863.811989831] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024868.622695850] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024869.722990725] [controller_server]: Passing new path to controller.
+[INFO] [1786024870.822948690] [controller_server]: Passing new path to controller.
+[INFO] [1786024871.922993322] [controller_server]: Passing new path to controller.
+[INFO] [1786024873.022990917] [controller_server]: Passing new path to controller.
+[INFO] [1786024874.122992772] [controller_server]: Passing new path to controller.
+[INFO] [1786024875.122990833] [controller_server]: Passing new path to controller.
+[INFO] [1786024876.222966002] [controller_server]: Passing new path to controller.
+[INFO] [1786024877.322990912] [controller_server]: Passing new path to controller.
+[INFO] [1786024878.422989525] [controller_server]: Passing new path to controller.
+[INFO] [1786024879.522991565] [controller_server]: Passing new path to controller.
+[INFO] [1786024880.622991363] [controller_server]: Passing new path to controller.
+[INFO] [1786024881.722946754] [controller_server]: Passing new path to controller.
+[INFO] [1786024882.822987979] [controller_server]: Passing new path to controller.
+[INFO] [1786024883.823008911] [controller_server]: Passing new path to controller.
+[INFO] [1786024884.922942339] [controller_server]: Passing new path to controller.
+[INFO] [1786024886.022945897] [controller_server]: Passing new path to controller.
+[INFO] [1786024887.122937788] [controller_server]: Passing new path to controller.
+[INFO] [1786024888.222989661] [controller_server]: Passing new path to controller.
+[INFO] [1786024889.223131686] [controller_server]: Passing new path to controller.
+[INFO] [1786024890.422989240] [controller_server]: Passing new path to controller.
+[INFO] [1786024891.422951190] [controller_server]: Passing new path to controller.
+[INFO] [1786024892.522990248] [controller_server]: Passing new path to controller.
+[INFO] [1786024893.622993769] [controller_server]: Passing new path to controller.
+[INFO] [1786024894.722991494] [controller_server]: Passing new path to controller.
+[INFO] [1786024895.822988645] [controller_server]: Passing new path to controller.
+[INFO] [1786024896.922944351] [controller_server]: Passing new path to controller.
+[INFO] [1786024898.022988594] [controller_server]: Passing new path to controller.
+[INFO] [1786024899.023000470] [controller_server]: Passing new path to controller.
+[INFO] [1786024900.222992766] [controller_server]: Passing new path to controller.
+[INFO] [1786024901.323013046] [controller_server]: Passing new path to controller.
+[INFO] [1786024902.422986252] [controller_server]: Passing new path to controller.
+[INFO] [1786024903.522991680] [controller_server]: Passing new path to controller.
+[INFO] [1786024904.622987590] [controller_server]: Passing new path to controller.
+[INFO] [1786024905.723000944] [controller_server]: Passing new path to controller.
+[INFO] [1786024906.927294986] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786024906.927381061] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786024906.933523335] [controller_server]: Optimizer reset
+[INFO] [1786024909.575200891] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786024910.776594250] [controller_server]: Passing new path to controller.
+[INFO] [1786024911.776271198] [controller_server]: Passing new path to controller.
+[INFO] [1786024912.876247478] [controller_server]: Passing new path to controller.
+[INFO] [1786024913.977285301] [controller_server]: Passing new path to controller.
+[INFO] [1786024915.075709221] [controller_server]: Passing new path to controller.
+[WARN] [1786024916.179169928] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 3.3001 Hz.
+[INFO] [1786024916.279343963] [controller_server]: Passing new path to controller.
+[INFO] [1786024918.779353680] [controller_server]: Passing new path to controller.
+[INFO] [1786024919.779350538] [controller_server]: Passing new path to controller.
+[INFO] [1786024920.879365040] [controller_server]: Passing new path to controller.
+[INFO] [1786024921.979357432] [controller_server]: Passing new path to controller.
+[INFO] [1786024923.079351452] [controller_server]: Passing new path to controller.
+[INFO] [1786024924.079345995] [controller_server]: Passing new path to controller.
+[INFO] [1786024925.179352461] [controller_server]: Passing new path to controller.
+[INFO] [1786024926.279354833] [controller_server]: Passing new path to controller.
+[INFO] [1786024927.379367984] [controller_server]: Passing new path to controller.
+[INFO] [1786024928.479341394] [controller_server]: Passing new path to controller.
+[INFO] [1786024929.479349844] [controller_server]: Passing new path to controller.
+[INFO] [1786024930.579353902] [controller_server]: Passing new path to controller.
+[INFO] [1786024931.679352108] [controller_server]: Passing new path to controller.
+[INFO] [1786024932.779351999] [controller_server]: Passing new path to controller.
+[INFO] [1786024933.879326279] [controller_server]: Passing new path to controller.
+[INFO] [1786024934.979339171] [controller_server]: Passing new path to controller.
+[INFO] [1786024935.979346102] [controller_server]: Passing new path to controller.
+[INFO] [1786024937.079350401] [controller_server]: Passing new path to controller.
+[INFO] [1786024938.179362904] [controller_server]: Passing new path to controller.
+[ERROR] [1786024938.180009741] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786024938.180408909] [controller_server]: Optimizer reset
+[WARN] [1786024938.180460262] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786024941.646675187] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024951.315185634] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024953.141995725] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786024952.830 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786024957.978013625] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024961.125129992] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786024960.812 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786024964.346515306] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024971.096193814] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024977.336340267] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024984.086110109] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024990.946515932] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786024997.683211276] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025004.359772936] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025014.546482727] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025020.075943198] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025024.456739824] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786025025.556975328] [controller_server]: Passing new path to controller.
+[INFO] [1786025026.656974460] [controller_server]: Passing new path to controller.
+[INFO] [1786025027.756976036] [controller_server]: Passing new path to controller.
+[INFO] [1786025028.856972502] [controller_server]: Passing new path to controller.
+[INFO] [1786025029.956944430] [controller_server]: Passing new path to controller.
+[INFO] [1786025030.956948769] [controller_server]: Passing new path to controller.
+[INFO] [1786025032.056974494] [controller_server]: Passing new path to controller.
+[INFO] [1786025034.146375536] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025034.156953094] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786025034.157023132] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786025034.157422967] [controller_server]: Optimizer reset
+[INFO] [1786025040.977796273] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025047.626290889] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025055.104101605] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025061.931442949] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025068.178925387] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025075.015379449] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025091.155402589] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025091.205219068] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786025090.902 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786025111.124915718] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025127.264765376] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025143.415827652] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025147.358987268] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786025147.055 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786025159.051818027] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025175.201854186] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025181.136307468] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786025180.829 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786025190.301578673] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025205.719343842] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025221.869376853] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025237.082673448] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025252.376663804] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025271.954308916] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025288.092148656] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025304.232171519] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025320.369233328] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025335.702788273] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025352.382840379] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025368.543257040] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025384.688100836] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025400.828831777] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025416.988105024] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025435.725148234] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025451.875140318] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025468.037082025] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025484.170698871] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025500.310051878] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025512.594749907] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786025512.290 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786025515.735627331] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025531.953907034] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025548.114185990] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025564.318087595] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025580.464740550] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025599.050422460] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025615.197246786] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025631.352854087] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025647.512565559] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025663.743210367] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025679.063856815] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025695.213341932] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025711.362717735] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025727.517571031] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025743.668431379] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025762.381258954] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025778.531414595] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025794.698241568] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025810.841749634] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025826.971869275] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025842.401934091] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025858.549340864] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025874.709383189] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025890.857013871] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025907.006270914] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025925.724419000] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025941.876418651] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025958.036662032] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025974.228499272] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786025990.367917335] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026005.720659113] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026021.871026625] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026038.019810424] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026054.170449438] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026070.315579587] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026089.051559624] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026105.211417281] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026121.352394074] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026137.501628895] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026153.651909628] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026169.077012250] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026185.225359955] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026201.365479762] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026217.539454126] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026233.698051072] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026252.489454081] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026269.067203933] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026285.207159943] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026301.360435637] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026317.536272530] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026333.685211497] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026349.077818236] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026365.226260608] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026381.376198099] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026397.522659497] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026417.085596262] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026432.390423572] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026447.692107902] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786026447.386 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786026448.547722104] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026464.685307045] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026480.835989170] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026496.992483605] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026512.384076467] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026528.533538493] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026544.668897996] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026560.821935374] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026580.557811705] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026593.043302812] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786026592.732 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786026596.697229101] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026612.377145351] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026628.537672882] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026633.388682220] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786026633.085 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786026644.701433394] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026660.851843443] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026677.011565358] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026692.374844676] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026708.524333677] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026724.675788633] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026744.236269872] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026760.375965967] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026775.744432071] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026791.905235042] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026808.055263990] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026824.210243002] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026840.358784331] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026855.718622110] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026871.866875419] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026888.009812772] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026907.585432465] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026923.735473951] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026939.056863722] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026955.206899448] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026971.352658520] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786026987.489182727] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027003.641152316] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027019.081437964] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027035.245026117] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027061.389516541] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027090.974775052] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027116.160810232] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027132.312645653] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027158.475110584] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027184.630365993] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027200.789547306] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027216.931996565] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027232.401960599] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027248.552664199] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027260.522596874] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786027260.216 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786027264.691945717] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027284.255680141] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027300.469638997] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027306.974334541] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786027306.667 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786027313.332403555] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027316.870653865] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027322.389998091] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027328.002075865] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027332.512949941] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786027333.613232967] [controller_server]: Passing new path to controller.
+[INFO] [1786027334.713237639] [controller_server]: Passing new path to controller.
+[INFO] [1786027335.813270292] [controller_server]: Passing new path to controller.
+[INFO] [1786027336.913237761] [controller_server]: Passing new path to controller.
+[INFO] [1786027338.013237784] [controller_server]: Passing new path to controller.
+[INFO] [1786027339.113236234] [controller_server]: Passing new path to controller.
+[INFO] [1786027341.141906616] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027341.213234786] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786027341.213302361] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786027341.213823679] [controller_server]: Optimizer reset
+[INFO] [1786027348.259171664] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027357.610372633] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027364.344187717] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027374.023498549] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027390.164068890] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027405.747267715] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027421.884215091] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027438.017390353] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027454.212758792] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027470.349188832] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027485.719123981] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027501.869115522] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027518.018539041] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027537.674207341] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027539.017136148] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786027538.711 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786027553.862407185] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027570.021289589] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027585.756173713] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027601.900567093] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027618.050936413] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027634.298226415] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027638.060897684] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027654.280789091] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027670.420799336] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027685.731873310] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027701.871903925] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027718.020674514] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027734.171102835] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027750.318016636] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027765.717999693] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027782.012811759] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027801.593708591] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027817.756599817] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027833.897530774] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027850.047516429] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027865.755048883] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027881.900888701] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027898.051917454] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027914.203471933] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027930.348471097] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027945.730876720] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027965.917273986] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027982.057718200] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786027998.217640225] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028013.450986376] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028029.057362976] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028045.197396724] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028061.458686216] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028077.603570176] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028093.743563739] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028109.054789950] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028128.651709130] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028144.801626803] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028154.267422288] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786028153.958 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786028170.953407124] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028197.091026126] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028223.549778068] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028248.770642806] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786028248.466 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786028249.066743737] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028255.266981421] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786028254.961 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786028255.419016834] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028281.648154915] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028307.831191131] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028333.980267752] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028363.570782886] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028375.632135382] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786028375.326 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786028388.742175851] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028404.892281711] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028431.056587082] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028439.757002066] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786028439.453 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786028457.212233536] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028483.341895179] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028509.057864558] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028535.303900158] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028561.455422626] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028568.818968934] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786028568.515 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786028587.596697556] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028617.293276812] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028643.443775052] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028669.076535694] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028695.229611892] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028706.107802488] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786028705.798 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786028715.888299858] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786028715.581 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786028721.420777968] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028747.570852576] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028773.743852514] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028799.076546037] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028825.218117541] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028851.398139535] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028880.946871944] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028907.092701842] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028932.388120971] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028958.626336805] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786028984.776299799] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029011.008971881] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029037.171818706] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029063.321679404] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029089.063846777] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029115.217754257] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029144.887571779] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029171.037558699] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029197.187558306] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029223.356501313] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029249.054685535] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029270.189019689] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786029269.882 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786029275.266565409] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029301.425830715] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029327.567764425] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029353.724788847] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029379.051835021] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029408.880299030] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786029435.024724494] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap

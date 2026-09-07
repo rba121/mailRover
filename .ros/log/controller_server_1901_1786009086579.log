@@ -1,0 +1,1473 @@
+[INFO] [1786009087.219415962] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786009087.341160432] [controller_server]: Creating controller server
+[INFO] [1786009087.576291860] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786009087.597797152] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1786009088.230104898] [controller_server]: Configuring controller interface
+[INFO] [1786009088.230151991] [controller_server]: getting progress checker plugins..
+[INFO] [1786009088.230692531] [controller_server]: getting goal checker plugins..
+[INFO] [1786009088.231406832] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1786009088.231514721] [local_costmap.local_costmap]: Configuring
+[INFO] [1786009088.284632568] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1786009088.331401397] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1786009088.388145395] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1786009088.388218006] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1786009088.392030843] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786009088.458129340] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1786009088.459511663] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1786009088.464276728] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1786009088.464897213] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1786009088.479744615] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1786009088.489376189] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1786009088.502639952] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1786009088.502721156] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1786009088.505048892] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1786009088.505129170] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1786009088.505162041] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1786009088.505516561] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1786009088.505559228] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1786009088.505943379] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1786009088.505984342] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1786009088.509070749] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1786009088.509356491] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1786009088.510671221] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1786009088.512376990] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1786009088.512445768] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1786009088.513731220] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1786009088.513940870] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1786009088.515251192] [controller_server]: Optimizer reset
+[INFO] [1786009088.534670491] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1786009088.534737195] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1786009090.766848112] [controller_server]: Activating
+[INFO] [1786009090.767021724] [local_costmap.local_costmap]: Activating
+[INFO] [1786009090.767052428] [local_costmap.local_costmap]: Checking transform
+[INFO] [1786009090.767308559] [local_costmap.local_costmap]: start
+[WARN] [1786009090.973536003] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1786009090.973921005] [controller_server]: Optimizer reset
+[INFO] [1786009090.977821158] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1786009090.977899214] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1786009336.698954878] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786009336.699107914] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1786009336.699143340] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1786009337.899557956] [controller_server]: Passing new path to controller.
+[INFO] [1786009338.999550308] [controller_server]: Passing new path to controller.
+[INFO] [1786009339.999545637] [controller_server]: Passing new path to controller.
+[INFO] [1786009341.100156562] [controller_server]: Passing new path to controller.
+[INFO] [1786009342.199551415] [controller_server]: Passing new path to controller.
+[INFO] [1786009343.299549193] [controller_server]: Passing new path to controller.
+[INFO] [1786009344.399561304] [controller_server]: Passing new path to controller.
+[INFO] [1786009345.499545823] [controller_server]: Passing new path to controller.
+[INFO] [1786009346.599554231] [controller_server]: Passing new path to controller.
+[INFO] [1786009347.699546083] [controller_server]: Passing new path to controller.
+[INFO] [1786009348.799547121] [controller_server]: Passing new path to controller.
+[INFO] [1786009349.999551830] [controller_server]: Passing new path to controller.
+[INFO] [1786009350.999549121] [controller_server]: Passing new path to controller.
+[INFO] [1786009352.099546047] [controller_server]: Passing new path to controller.
+[INFO] [1786009353.199550455] [controller_server]: Passing new path to controller.
+[INFO] [1786009354.299564437] [controller_server]: Passing new path to controller.
+[INFO] [1786009355.399547400] [controller_server]: Passing new path to controller.
+[INFO] [1786009356.499565956] [controller_server]: Passing new path to controller.
+[INFO] [1786009357.699561721] [controller_server]: Passing new path to controller.
+[INFO] [1786009358.799558906] [controller_server]: Passing new path to controller.
+[INFO] [1786009359.899549814] [controller_server]: Passing new path to controller.
+[INFO] [1786009360.999548499] [controller_server]: Passing new path to controller.
+[INFO] [1786009362.099580166] [controller_server]: Passing new path to controller.
+[INFO] [1786009363.199563963] [controller_server]: Passing new path to controller.
+[INFO] [1786009364.299573204] [controller_server]: Passing new path to controller.
+[INFO] [1786009365.401521034] [controller_server]: Passing new path to controller.
+[INFO] [1786009366.601607798] [controller_server]: Passing new path to controller.
+[INFO] [1786009367.799562696] [controller_server]: Passing new path to controller.
+[INFO] [1786009368.899586234] [controller_server]: Passing new path to controller.
+[INFO] [1786009369.999558716] [controller_server]: Passing new path to controller.
+[INFO] [1786009371.099548253] [controller_server]: Passing new path to controller.
+[INFO] [1786009371.945499665] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009371.641 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009372.299551666] [controller_server]: Passing new path to controller.
+[INFO] [1786009373.299547291] [controller_server]: Passing new path to controller.
+[INFO] [1786009374.399550735] [controller_server]: Passing new path to controller.
+[INFO] [1786009375.499568587] [controller_server]: Passing new path to controller.
+[INFO] [1786009376.599563236] [controller_server]: Passing new path to controller.
+[INFO] [1786009377.699560810] [controller_server]: Passing new path to controller.
+[INFO] [1786009378.799548033] [controller_server]: Passing new path to controller.
+[INFO] [1786009379.899552366] [controller_server]: Passing new path to controller.
+[INFO] [1786009380.999543070] [controller_server]: Passing new path to controller.
+[INFO] [1786009382.099542941] [controller_server]: Passing new path to controller.
+[INFO] [1786009383.199546145] [controller_server]: Passing new path to controller.
+[INFO] [1786009384.299550275] [controller_server]: Passing new path to controller.
+[INFO] [1786009385.399545720] [controller_server]: Passing new path to controller.
+[INFO] [1786009386.499550313] [controller_server]: Passing new path to controller.
+[INFO] [1786009387.599549906] [controller_server]: Passing new path to controller.
+[INFO] [1786009388.699546580] [controller_server]: Passing new path to controller.
+[INFO] [1786009389.899553141] [controller_server]: Passing new path to controller.
+[INFO] [1786009390.999552681] [controller_server]: Passing new path to controller.
+[INFO] [1786009391.931112769] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009391.623 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009392.099547425] [controller_server]: Passing new path to controller.
+[INFO] [1786009393.199563965] [controller_server]: Passing new path to controller.
+[INFO] [1786009394.199542670] [controller_server]: Passing new path to controller.
+[INFO] [1786009395.299546414] [controller_server]: Passing new path to controller.
+[INFO] [1786009396.399545880] [controller_server]: Passing new path to controller.
+[INFO] [1786009397.499550772] [controller_server]: Passing new path to controller.
+[INFO] [1786009398.599554534] [controller_server]: Passing new path to controller.
+[INFO] [1786009399.699554963] [controller_server]: Passing new path to controller.
+[INFO] [1786009400.799547633] [controller_server]: Passing new path to controller.
+[INFO] [1786009401.899569136] [controller_server]: Passing new path to controller.
+[INFO] [1786009403.099550623] [controller_server]: Passing new path to controller.
+[INFO] [1786009404.199566570] [controller_server]: Passing new path to controller.
+[INFO] [1786009405.299563573] [controller_server]: Passing new path to controller.
+[INFO] [1786009406.399541336] [controller_server]: Passing new path to controller.
+[INFO] [1786009407.399545541] [controller_server]: Passing new path to controller.
+[INFO] [1786009408.499539859] [controller_server]: Passing new path to controller.
+[INFO] [1786009409.699552456] [controller_server]: Passing new path to controller.
+[INFO] [1786009410.799977683] [controller_server]: Passing new path to controller.
+[INFO] [1786009412.000042929] [controller_server]: Passing new path to controller.
+[INFO] [1786009412.999548151] [controller_server]: Passing new path to controller.
+[INFO] [1786009414.199522971] [controller_server]: Passing new path to controller.
+[INFO] [1786009415.199554657] [controller_server]: Passing new path to controller.
+[INFO] [1786009416.399570310] [controller_server]: Passing new path to controller.
+[INFO] [1786009417.499520961] [controller_server]: Passing new path to controller.
+[INFO] [1786009418.602707120] [controller_server]: Passing new path to controller.
+[INFO] [1786009419.799554192] [controller_server]: Passing new path to controller.
+[INFO] [1786009420.899562917] [controller_server]: Passing new path to controller.
+[INFO] [1786009422.000068088] [controller_server]: Passing new path to controller.
+[INFO] [1786009423.099586312] [controller_server]: Passing new path to controller.
+[INFO] [1786009424.299593244] [controller_server]: Passing new path to controller.
+[INFO] [1786009425.399550247] [controller_server]: Passing new path to controller.
+[INFO] [1786009426.499544676] [controller_server]: Passing new path to controller.
+[INFO] [1786009427.599545031] [controller_server]: Passing new path to controller.
+[INFO] [1786009428.599816847] [controller_server]: Passing new path to controller.
+[INFO] [1786009429.699553924] [controller_server]: Passing new path to controller.
+[INFO] [1786009430.799543742] [controller_server]: Passing new path to controller.
+[INFO] [1786009431.899543411] [controller_server]: Passing new path to controller.
+[ERROR] [1786009431.902725215] [controller_server]: Failed to make progress
+[INFO] [1786009431.904259311] [controller_server]: Optimizer reset
+[WARN] [1786009431.904343626] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009431.930212647] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009431.931942021] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009433.032255469] [controller_server]: Passing new path to controller.
+[INFO] [1786009434.132223102] [controller_server]: Passing new path to controller.
+[INFO] [1786009435.132672604] [controller_server]: Passing new path to controller.
+[INFO] [1786009437.253419877] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009437.332198739] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786009437.332314628] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786009437.333096167] [controller_server]: Optimizer reset
+[INFO] [1786009444.584200368] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009449.384156129] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009454.704195484] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009460.645278089] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009466.295454824] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009473.836546326] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009474.937040976] [controller_server]: Passing new path to controller.
+[INFO] [1786009476.037077383] [controller_server]: Passing new path to controller.
+[INFO] [1786009478.137043346] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786009478.137124050] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786009478.137703700] [controller_server]: Optimizer reset
+[INFO] [1786009481.599450294] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009484.030291496] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009485.130553848] [controller_server]: Passing new path to controller.
+[INFO] [1786009486.230556440] [controller_server]: Passing new path to controller.
+[INFO] [1786009487.330548199] [controller_server]: Passing new path to controller.
+[INFO] [1786009488.430571680] [controller_server]: Passing new path to controller.
+[INFO] [1786009489.530570160] [controller_server]: Passing new path to controller.
+[INFO] [1786009490.630562975] [controller_server]: Passing new path to controller.
+[INFO] [1786009491.730572548] [controller_server]: Passing new path to controller.
+[INFO] [1786009492.830567325] [controller_server]: Passing new path to controller.
+[INFO] [1786009493.930559361] [controller_server]: Passing new path to controller.
+[INFO] [1786009494.930566344] [controller_server]: Passing new path to controller.
+[INFO] [1786009496.030556177] [controller_server]: Passing new path to controller.
+[INFO] [1786009497.130548713] [controller_server]: Passing new path to controller.
+[INFO] [1786009498.230540749] [controller_server]: Passing new path to controller.
+[INFO] [1786009499.330560656] [controller_server]: Passing new path to controller.
+[INFO] [1786009500.430558470] [controller_server]: Passing new path to controller.
+[INFO] [1786009501.530574433] [controller_server]: Passing new path to controller.
+[INFO] [1786009502.531316140] [controller_server]: Passing new path to controller.
+[INFO] [1786009503.730559913] [controller_server]: Passing new path to controller.
+[INFO] [1786009504.830711580] [controller_server]: Passing new path to controller.
+[INFO] [1786009505.933528182] [controller_server]: Passing new path to controller.
+[INFO] [1786009507.030740819] [controller_server]: Passing new path to controller.
+[INFO] [1786009508.130562873] [controller_server]: Passing new path to controller.
+[INFO] [1786009509.230792299] [controller_server]: Passing new path to controller.
+[INFO] [1786009510.431080946] [controller_server]: Passing new path to controller.
+[INFO] [1786009511.430833928] [controller_server]: Passing new path to controller.
+[INFO] [1786009512.631523243] [controller_server]: Passing new path to controller.
+[INFO] [1786009513.730970203] [controller_server]: Passing new path to controller.
+[INFO] [1786009514.830682164] [controller_server]: Passing new path to controller.
+[INFO] [1786009515.930551200] [controller_server]: Passing new path to controller.
+[INFO] [1786009516.026913907] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009515.722 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009516.930564720] [controller_server]: Passing new path to controller.
+[INFO] [1786009518.031421203] [controller_server]: Passing new path to controller.
+[INFO] [1786009519.130558265] [controller_server]: Passing new path to controller.
+[INFO] [1786009520.333773152] [controller_server]: Passing new path to controller.
+[INFO] [1786009521.330544377] [controller_server]: Passing new path to controller.
+[INFO] [1786009522.632372769] [controller_server]: Passing new path to controller.
+[INFO] [1786009523.730587604] [controller_server]: Passing new path to controller.
+[INFO] [1786009524.830561855] [controller_server]: Passing new path to controller.
+[INFO] [1786009525.830564983] [controller_server]: Passing new path to controller.
+[INFO] [1786009526.930575160] [controller_server]: Passing new path to controller.
+[INFO] [1786009528.030549911] [controller_server]: Passing new path to controller.
+[INFO] [1786009529.130558069] [controller_server]: Passing new path to controller.
+[INFO] [1786009530.230565023] [controller_server]: Passing new path to controller.
+[INFO] [1786009531.330563070] [controller_server]: Passing new path to controller.
+[INFO] [1786009532.430556636] [controller_server]: Passing new path to controller.
+[INFO] [1786009533.430596487] [controller_server]: Passing new path to controller.
+[INFO] [1786009534.530636367] [controller_server]: Passing new path to controller.
+[INFO] [1786009535.630577673] [controller_server]: Passing new path to controller.
+[INFO] [1786009536.730545127] [controller_server]: Passing new path to controller.
+[INFO] [1786009537.830619323] [controller_server]: Passing new path to controller.
+[INFO] [1786009538.930562758] [controller_server]: Passing new path to controller.
+[INFO] [1786009540.030562639] [controller_server]: Passing new path to controller.
+[INFO] [1786009541.130577445] [controller_server]: Passing new path to controller.
+[INFO] [1786009542.230557325] [controller_server]: Passing new path to controller.
+[INFO] [1786009543.330565928] [controller_server]: Passing new path to controller.
+[INFO] [1786009544.430566456] [controller_server]: Passing new path to controller.
+[INFO] [1786009545.430552881] [controller_server]: Passing new path to controller.
+[INFO] [1786009546.530550298] [controller_server]: Passing new path to controller.
+[INFO] [1786009547.630546142] [controller_server]: Passing new path to controller.
+[INFO] [1786009548.730559374] [controller_server]: Passing new path to controller.
+[INFO] [1786009549.831518240] [controller_server]: Passing new path to controller.
+[INFO] [1786009550.930557653] [controller_server]: Passing new path to controller.
+[INFO] [1786009552.030559422] [controller_server]: Passing new path to controller.
+[INFO] [1786009553.130544876] [controller_server]: Passing new path to controller.
+[INFO] [1786009554.130554931] [controller_server]: Passing new path to controller.
+[INFO] [1786009555.230567848] [controller_server]: Passing new path to controller.
+[INFO] [1786009556.430568314] [controller_server]: Passing new path to controller.
+[INFO] [1786009557.530576361] [controller_server]: Passing new path to controller.
+[INFO] [1786009558.631361133] [controller_server]: Passing new path to controller.
+[INFO] [1786009559.731264735] [controller_server]: Passing new path to controller.
+[INFO] [1786009560.830694335] [controller_server]: Passing new path to controller.
+[INFO] [1786009561.930917513] [controller_server]: Passing new path to controller.
+[INFO] [1786009563.031474655] [controller_server]: Passing new path to controller.
+[INFO] [1786009564.130521846] [controller_server]: Passing new path to controller.
+[INFO] [1786009565.431833810] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786009565.431914792] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786009565.432365590] [controller_server]: Optimizer reset
+[INFO] [1786009567.964365900] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009569.064589707] [controller_server]: Passing new path to controller.
+[INFO] [1786009570.264587839] [controller_server]: Passing new path to controller.
+[INFO] [1786009571.364578386] [controller_server]: Passing new path to controller.
+[INFO] [1786009572.364586459] [controller_server]: Passing new path to controller.
+[INFO] [1786009573.564676314] [controller_server]: Passing new path to controller.
+[INFO] [1786009574.664696064] [controller_server]: Passing new path to controller.
+[INFO] [1786009575.764575463] [controller_server]: Passing new path to controller.
+[INFO] [1786009576.864540417] [controller_server]: Passing new path to controller.
+[INFO] [1786009577.964573575] [controller_server]: Passing new path to controller.
+[INFO] [1786009578.964580556] [controller_server]: Passing new path to controller.
+[INFO] [1786009580.064573973] [controller_server]: Passing new path to controller.
+[INFO] [1786009581.164576649] [controller_server]: Passing new path to controller.
+[INFO] [1786009582.264576862] [controller_server]: Passing new path to controller.
+[INFO] [1786009583.364579257] [controller_server]: Passing new path to controller.
+[INFO] [1786009584.464590282] [controller_server]: Passing new path to controller.
+[INFO] [1786009585.564592973] [controller_server]: Passing new path to controller.
+[INFO] [1786009586.564548237] [controller_server]: Passing new path to controller.
+[INFO] [1786009586.568195201] [controller_server]: Reached the goal!
+[INFO] [1786009586.568506499] [controller_server]: Optimizer reset
+[INFO] [1786009592.360991589] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009592.056 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009614.940617174] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009614.637 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009625.862753520] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009626.963063787] [controller_server]: Passing new path to controller.
+[INFO] [1786009628.063103831] [controller_server]: Passing new path to controller.
+[INFO] [1786009629.163089504] [controller_server]: Passing new path to controller.
+[INFO] [1786009630.263040714] [controller_server]: Passing new path to controller.
+[INFO] [1786009631.363105998] [controller_server]: Passing new path to controller.
+[INFO] [1786009632.463103097] [controller_server]: Passing new path to controller.
+[INFO] [1786009633.563085659] [controller_server]: Passing new path to controller.
+[INFO] [1786009634.663091091] [controller_server]: Passing new path to controller.
+[INFO] [1786009635.763108208] [controller_server]: Passing new path to controller.
+[INFO] [1786009636.763132416] [controller_server]: Passing new path to controller.
+[INFO] [1786009637.863450054] [controller_server]: Passing new path to controller.
+[INFO] [1786009638.963647320] [controller_server]: Passing new path to controller.
+[INFO] [1786009640.063085027] [controller_server]: Passing new path to controller.
+[INFO] [1786009641.163038182] [controller_server]: Passing new path to controller.
+[INFO] [1786009642.263131836] [controller_server]: Passing new path to controller.
+[INFO] [1786009643.363093972] [controller_server]: Passing new path to controller.
+[INFO] [1786009644.463042404] [controller_server]: Passing new path to controller.
+[INFO] [1786009645.563046410] [controller_server]: Passing new path to controller.
+[INFO] [1786009646.663126306] [controller_server]: Passing new path to controller.
+[INFO] [1786009647.763799000] [controller_server]: Passing new path to controller.
+[INFO] [1786009648.863130381] [controller_server]: Passing new path to controller.
+[INFO] [1786009649.863083972] [controller_server]: Passing new path to controller.
+[INFO] [1786009650.963126543] [controller_server]: Passing new path to controller.
+[INFO] [1786009652.063099725] [controller_server]: Passing new path to controller.
+[INFO] [1786009653.165540034] [controller_server]: Passing new path to controller.
+[INFO] [1786009654.263521981] [controller_server]: Passing new path to controller.
+[INFO] [1786009655.464614872] [controller_server]: Passing new path to controller.
+[INFO] [1786009656.564024143] [controller_server]: Passing new path to controller.
+[INFO] [1786009657.663388728] [controller_server]: Passing new path to controller.
+[INFO] [1786009658.764658288] [controller_server]: Passing new path to controller.
+[INFO] [1786009659.863987059] [controller_server]: Passing new path to controller.
+[INFO] [1786009661.063486606] [controller_server]: Passing new path to controller.
+[INFO] [1786009662.063519031] [controller_server]: Passing new path to controller.
+[INFO] [1786009663.163120766] [controller_server]: Passing new path to controller.
+[INFO] [1786009664.363552134] [controller_server]: Passing new path to controller.
+[INFO] [1786009665.463966393] [controller_server]: Passing new path to controller.
+[INFO] [1786009666.563602406] [controller_server]: Passing new path to controller.
+[INFO] [1786009667.763551012] [controller_server]: Passing new path to controller.
+[INFO] [1786009668.863875603] [controller_server]: Passing new path to controller.
+[INFO] [1786009669.963869508] [controller_server]: Passing new path to controller.
+[INFO] [1786009671.165271011] [controller_server]: Passing new path to controller.
+[INFO] [1786009672.263427034] [controller_server]: Passing new path to controller.
+[INFO] [1786009673.363110954] [controller_server]: Passing new path to controller.
+[INFO] [1786009674.463080673] [controller_server]: Passing new path to controller.
+[INFO] [1786009675.563099541] [controller_server]: Passing new path to controller.
+[INFO] [1786009676.663275631] [controller_server]: Passing new path to controller.
+[INFO] [1786009677.763240406] [controller_server]: Passing new path to controller.
+[INFO] [1786009678.863102698] [controller_server]: Passing new path to controller.
+[INFO] [1786009679.963172732] [controller_server]: Passing new path to controller.
+[INFO] [1786009680.963270343] [controller_server]: Passing new path to controller.
+[INFO] [1786009682.063098802] [controller_server]: Passing new path to controller.
+[INFO] [1786009683.163132317] [controller_server]: Passing new path to controller.
+[INFO] [1786009684.263115870] [controller_server]: Passing new path to controller.
+[INFO] [1786009685.363215293] [controller_server]: Passing new path to controller.
+[ERROR] [1786009686.372207033] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786009686.384822002] [controller_server]: Optimizer reset
+[WARN] [1786009686.384928632] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009688.829841422] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009689.930111291] [controller_server]: Passing new path to controller.
+[INFO] [1786009691.030091658] [controller_server]: Passing new path to controller.
+[INFO] [1786009692.130102303] [controller_server]: Passing new path to controller.
+[INFO] [1786009693.230093874] [controller_server]: Passing new path to controller.
+[INFO] [1786009694.330812227] [controller_server]: Passing new path to controller.
+[INFO] [1786009695.430098386] [controller_server]: Passing new path to controller.
+[INFO] [1786009696.531109093] [controller_server]: Passing new path to controller.
+[INFO] [1786009697.630112140] [controller_server]: Passing new path to controller.
+[INFO] [1786009698.730105970] [controller_server]: Passing new path to controller.
+[INFO] [1786009699.830117096] [controller_server]: Passing new path to controller.
+[INFO] [1786009700.930100723] [controller_server]: Passing new path to controller.
+[INFO] [1786009702.030099923] [controller_server]: Passing new path to controller.
+[INFO] [1786009703.130102457] [controller_server]: Passing new path to controller.
+[INFO] [1786009704.231125479] [controller_server]: Passing new path to controller.
+[INFO] [1786009705.430410303] [controller_server]: Passing new path to controller.
+[INFO] [1786009706.530814098] [controller_server]: Passing new path to controller.
+[INFO] [1786009707.630102813] [controller_server]: Passing new path to controller.
+[INFO] [1786009708.730225311] [controller_server]: Passing new path to controller.
+[INFO] [1786009709.730692775] [controller_server]: Passing new path to controller.
+[INFO] [1786009710.930747845] [controller_server]: Passing new path to controller.
+[INFO] [1786009712.030142920] [controller_server]: Passing new path to controller.
+[INFO] [1786009713.130108512] [controller_server]: Passing new path to controller.
+[INFO] [1786009714.330863962] [controller_server]: Passing new path to controller.
+[INFO] [1786009715.430224458] [controller_server]: Passing new path to controller.
+[INFO] [1786009716.530997277] [controller_server]: Passing new path to controller.
+[INFO] [1786009717.630138345] [controller_server]: Passing new path to controller.
+[INFO] [1786009718.730122381] [controller_server]: Passing new path to controller.
+[INFO] [1786009719.830598680] [controller_server]: Passing new path to controller.
+[INFO] [1786009720.930844626] [controller_server]: Passing new path to controller.
+[INFO] [1786009722.030098139] [controller_server]: Passing new path to controller.
+[INFO] [1786009723.043819128] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009722.736 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009723.130123305] [controller_server]: Passing new path to controller.
+[INFO] [1786009724.230947476] [controller_server]: Passing new path to controller.
+[INFO] [1786009725.330089063] [controller_server]: Passing new path to controller.
+[INFO] [1786009726.430093785] [controller_server]: Passing new path to controller.
+[INFO] [1786009727.530087210] [controller_server]: Passing new path to controller.
+[INFO] [1786009728.630131025] [controller_server]: Passing new path to controller.
+[INFO] [1786009729.730120506] [controller_server]: Passing new path to controller.
+[INFO] [1786009730.830189432] [controller_server]: Passing new path to controller.
+[INFO] [1786009731.930135634] [controller_server]: Passing new path to controller.
+[INFO] [1786009733.031774125] [controller_server]: Passing new path to controller.
+[INFO] [1786009734.130261486] [controller_server]: Passing new path to controller.
+[INFO] [1786009735.230829804] [controller_server]: Passing new path to controller.
+[INFO] [1786009736.330236337] [controller_server]: Passing new path to controller.
+[INFO] [1786009737.431086804] [controller_server]: Passing new path to controller.
+[INFO] [1786009738.431532879] [controller_server]: Passing new path to controller.
+[INFO] [1786009739.530742096] [controller_server]: Passing new path to controller.
+[INFO] [1786009740.630378630] [controller_server]: Passing new path to controller.
+[INFO] [1786009741.730250332] [controller_server]: Passing new path to controller.
+[INFO] [1786009742.830099609] [controller_server]: Passing new path to controller.
+[INFO] [1786009743.930096405] [controller_server]: Passing new path to controller.
+[INFO] [1786009745.030135886] [controller_server]: Passing new path to controller.
+[INFO] [1786009746.130143700] [controller_server]: Passing new path to controller.
+[INFO] [1786009747.230086273] [controller_server]: Passing new path to controller.
+[INFO] [1786009748.330099588] [controller_server]: Passing new path to controller.
+[INFO] [1786009749.430101328] [controller_server]: Passing new path to controller.
+[INFO] [1786009750.530281180] [controller_server]: Passing new path to controller.
+[INFO] [1786009751.530082047] [controller_server]: Passing new path to controller.
+[INFO] [1786009752.630100065] [controller_server]: Passing new path to controller.
+[INFO] [1786009753.730105324] [controller_server]: Passing new path to controller.
+[INFO] [1786009754.830090138] [controller_server]: Passing new path to controller.
+[INFO] [1786009755.930106767] [controller_server]: Passing new path to controller.
+[INFO] [1786009757.031195533] [controller_server]: Passing new path to controller.
+[INFO] [1786009758.131110717] [controller_server]: Passing new path to controller.
+[INFO] [1786009759.230121618] [controller_server]: Passing new path to controller.
+[INFO] [1786009760.330100876] [controller_server]: Passing new path to controller.
+[INFO] [1786009761.430151635] [controller_server]: Passing new path to controller.
+[INFO] [1786009762.530094246] [controller_server]: Passing new path to controller.
+[INFO] [1786009763.630107930] [controller_server]: Passing new path to controller.
+[INFO] [1786009764.730219912] [controller_server]: Passing new path to controller.
+[INFO] [1786009765.830120985] [controller_server]: Passing new path to controller.
+[INFO] [1786009766.930088707] [controller_server]: Passing new path to controller.
+[INFO] [1786009767.998889107] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009767.691 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009768.030139280] [controller_server]: Passing new path to controller.
+[INFO] [1786009769.130544208] [controller_server]: Passing new path to controller.
+[INFO] [1786009770.330262856] [controller_server]: Passing new path to controller.
+[INFO] [1786009771.430109002] [controller_server]: Passing new path to controller.
+[INFO] [1786009772.530784839] [controller_server]: Passing new path to controller.
+[INFO] [1786009773.630577708] [controller_server]: Passing new path to controller.
+[INFO] [1786009774.730108575] [controller_server]: Passing new path to controller.
+[INFO] [1786009775.830692541] [controller_server]: Passing new path to controller.
+[INFO] [1786009776.930099094] [controller_server]: Passing new path to controller.
+[INFO] [1786009776.985969889] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009776.682 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009777.930089473] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786009777.930150695] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786009777.930643494] [controller_server]: Optimizer reset
+[INFO] [1786009780.451618496] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009781.551847050] [controller_server]: Passing new path to controller.
+[INFO] [1786009782.652119178] [controller_server]: Passing new path to controller.
+[INFO] [1786009783.751828747] [controller_server]: Passing new path to controller.
+[INFO] [1786009784.851831133] [controller_server]: Passing new path to controller.
+[INFO] [1786009785.951823501] [controller_server]: Passing new path to controller.
+[INFO] [1786009787.851825309] [controller_server]: Passing new path to controller.
+[INFO] [1786009789.851834382] [controller_server]: Passing new path to controller.
+[INFO] [1786009790.951828861] [controller_server]: Passing new path to controller.
+[INFO] [1786009792.051832006] [controller_server]: Passing new path to controller.
+[INFO] [1786009793.151991967] [controller_server]: Passing new path to controller.
+[INFO] [1786009794.151874382] [controller_server]: Passing new path to controller.
+[INFO] [1786009795.251832453] [controller_server]: Passing new path to controller.
+[INFO] [1786009796.351832802] [controller_server]: Passing new path to controller.
+[INFO] [1786009797.451822466] [controller_server]: Passing new path to controller.
+[INFO] [1786009798.551822018] [controller_server]: Passing new path to controller.
+[INFO] [1786009799.651822311] [controller_server]: Passing new path to controller.
+[INFO] [1786009800.751831975] [controller_server]: Passing new path to controller.
+[INFO] [1786009801.751824354] [controller_server]: Passing new path to controller.
+[INFO] [1786009802.851825092] [controller_server]: Passing new path to controller.
+[INFO] [1786009803.951828330] [controller_server]: Passing new path to controller.
+[INFO] [1786009805.051826216] [controller_server]: Passing new path to controller.
+[INFO] [1786009806.151826250] [controller_server]: Passing new path to controller.
+[INFO] [1786009807.252089600] [controller_server]: Passing new path to controller.
+[INFO] [1786009808.351961485] [controller_server]: Passing new path to controller.
+[ERROR] [1786009808.352466821] [controller_server]: Failed to make progress
+[INFO] [1786009808.352970343] [controller_server]: Optimizer reset
+[WARN] [1786009808.353010899] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009808.378510190] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009808.379285102] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786009808.582160464] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 4.9315 Hz.
+[INFO] [1786009809.382340128] [controller_server]: Passing new path to controller.
+[INFO] [1786009810.482353384] [controller_server]: Passing new path to controller.
+[INFO] [1786009811.582339140] [controller_server]: Passing new path to controller.
+[INFO] [1786009812.682341804] [controller_server]: Passing new path to controller.
+[INFO] [1786009813.782355338] [controller_server]: Passing new path to controller.
+[ERROR] [1786009814.582419909] [controller_server]: Failed to make progress
+[INFO] [1786009814.582791689] [controller_server]: Optimizer reset
+[WARN] [1786009814.582829281] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009814.596297413] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009820.722352842] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009821.822551766] [controller_server]: Passing new path to controller.
+[INFO] [1786009822.922554744] [controller_server]: Passing new path to controller.
+[INFO] [1786009824.023180912] [controller_server]: Passing new path to controller.
+[INFO] [1786009825.122568164] [controller_server]: Passing new path to controller.
+[INFO] [1786009826.322559372] [controller_server]: Passing new path to controller.
+[INFO] [1786009827.422608721] [controller_server]: Passing new path to controller.
+[INFO] [1786009828.522699718] [controller_server]: Passing new path to controller.
+[INFO] [1786009829.622562066] [controller_server]: Passing new path to controller.
+[INFO] [1786009830.722554341] [controller_server]: Passing new path to controller.
+[INFO] [1786009831.822555005] [controller_server]: Passing new path to controller.
+[INFO] [1786009832.822557402] [controller_server]: Passing new path to controller.
+[INFO] [1786009833.922540733] [controller_server]: Passing new path to controller.
+[INFO] [1786009835.022555100] [controller_server]: Passing new path to controller.
+[INFO] [1786009836.122537986] [controller_server]: Passing new path to controller.
+[INFO] [1786009837.222566964] [controller_server]: Passing new path to controller.
+[INFO] [1786009838.322565739] [controller_server]: Passing new path to controller.
+[INFO] [1786009839.422592440] [controller_server]: Passing new path to controller.
+[INFO] [1786009840.522538696] [controller_server]: Passing new path to controller.
+[INFO] [1786009841.623182303] [controller_server]: Passing new path to controller.
+[INFO] [1786009842.722601823] [controller_server]: Passing new path to controller.
+[INFO] [1786009843.722541867] [controller_server]: Passing new path to controller.
+[INFO] [1786009844.822558890] [controller_server]: Passing new path to controller.
+[INFO] [1786009845.922542618] [controller_server]: Passing new path to controller.
+[INFO] [1786009847.022558845] [controller_server]: Passing new path to controller.
+[INFO] [1786009848.122553387] [controller_server]: Passing new path to controller.
+[INFO] [1786009849.222573541] [controller_server]: Passing new path to controller.
+[INFO] [1786009850.322541916] [controller_server]: Passing new path to controller.
+[INFO] [1786009851.422561384] [controller_server]: Passing new path to controller.
+[INFO] [1786009852.422559113] [controller_server]: Passing new path to controller.
+[INFO] [1786009853.522569618] [controller_server]: Passing new path to controller.
+[INFO] [1786009854.622563679] [controller_server]: Passing new path to controller.
+[INFO] [1786009855.722554036] [controller_server]: Passing new path to controller.
+[INFO] [1786009856.822540208] [controller_server]: Passing new path to controller.
+[ERROR] [1786009856.822902673] [controller_server]: Failed to make progress
+[INFO] [1786009856.823252415] [controller_server]: Optimizer reset
+[WARN] [1786009856.823290916] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009856.850529275] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009856.852156711] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786009856.974793728] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 8.1619 Hz.
+[INFO] [1786009857.875476406] [controller_server]: Passing new path to controller.
+[INFO] [1786009858.975475985] [controller_server]: Passing new path to controller.
+[INFO] [1786009860.075459694] [controller_server]: Passing new path to controller.
+[INFO] [1786009861.175479255] [controller_server]: Passing new path to controller.
+[INFO] [1786009862.275497946] [controller_server]: Passing new path to controller.
+[ERROR] [1786009862.975564789] [controller_server]: Failed to make progress
+[INFO] [1786009862.975924273] [controller_server]: Optimizer reset
+[WARN] [1786009862.975954829] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009862.986734131] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009868.585144647] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009869.685348949] [controller_server]: Passing new path to controller.
+[INFO] [1786009870.785329343] [controller_server]: Passing new path to controller.
+[INFO] [1786009871.985371570] [controller_server]: Passing new path to controller.
+[INFO] [1786009872.985337687] [controller_server]: Passing new path to controller.
+[INFO] [1786009874.086123030] [controller_server]: Passing new path to controller.
+[INFO] [1786009875.185869997] [controller_server]: Passing new path to controller.
+[INFO] [1786009876.285335184] [controller_server]: Passing new path to controller.
+[INFO] [1786009877.385325467] [controller_server]: Passing new path to controller.
+[INFO] [1786009878.485327731] [controller_server]: Passing new path to controller.
+[INFO] [1786009879.585325533] [controller_server]: Passing new path to controller.
+[INFO] [1786009880.685328094] [controller_server]: Passing new path to controller.
+[INFO] [1786009881.785333636] [controller_server]: Passing new path to controller.
+[INFO] [1786009882.785324587] [controller_server]: Passing new path to controller.
+[INFO] [1786009883.885353851] [controller_server]: Passing new path to controller.
+[INFO] [1786009884.985342690] [controller_server]: Passing new path to controller.
+[INFO] [1786009886.085334362] [controller_server]: Passing new path to controller.
+[INFO] [1786009887.185329459] [controller_server]: Passing new path to controller.
+[INFO] [1786009888.285334465] [controller_server]: Passing new path to controller.
+[INFO] [1786009889.385322581] [controller_server]: Passing new path to controller.
+[INFO] [1786009890.385339495] [controller_server]: Passing new path to controller.
+[INFO] [1786009891.485331185] [controller_server]: Passing new path to controller.
+[INFO] [1786009892.585344616] [controller_server]: Passing new path to controller.
+[INFO] [1786009893.685331084] [controller_server]: Passing new path to controller.
+[ERROR] [1786009894.085432858] [controller_server]: Failed to make progress
+[INFO] [1786009894.085809490] [controller_server]: Optimizer reset
+[WARN] [1786009894.085846212] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009894.097082869] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009894.097875781] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009894.798048810] [controller_server]: Passing new path to controller.
+[INFO] [1786009895.798048965] [controller_server]: Passing new path to controller.
+[INFO] [1786009896.898050785] [controller_server]: Passing new path to controller.
+[INFO] [1786009897.998076124] [controller_server]: Passing new path to controller.
+[INFO] [1786009899.098071370] [controller_server]: Passing new path to controller.
+[INFO] [1786009900.198065893] [controller_server]: Passing new path to controller.
+[ERROR] [1786009900.198451247] [controller_server]: Failed to make progress
+[INFO] [1786009900.198795823] [controller_server]: Optimizer reset
+[WARN] [1786009900.198835379] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009900.221442823] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009902.741655150] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009903.841847063] [controller_server]: Passing new path to controller.
+[INFO] [1786009904.941855939] [controller_server]: Passing new path to controller.
+[INFO] [1786009906.041864302] [controller_server]: Passing new path to controller.
+[INFO] [1786009907.141877972] [controller_server]: Passing new path to controller.
+[INFO] [1786009908.241842790] [controller_server]: Passing new path to controller.
+[INFO] [1786009909.341844646] [controller_server]: Passing new path to controller.
+[INFO] [1786009910.441873723] [controller_server]: Passing new path to controller.
+[INFO] [1786009911.541845356] [controller_server]: Passing new path to controller.
+[INFO] [1786009912.641860211] [controller_server]: Passing new path to controller.
+[INFO] [1786009913.741855955] [controller_server]: Passing new path to controller.
+[INFO] [1786009914.841863384] [controller_server]: Passing new path to controller.
+[INFO] [1786009915.941842091] [controller_server]: Passing new path to controller.
+[ERROR] [1786009916.341939474] [controller_server]: Failed to make progress
+[INFO] [1786009916.342326161] [controller_server]: Optimizer reset
+[WARN] [1786009916.342360661] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009916.355993077] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009916.356820786] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009917.057010205] [controller_server]: Passing new path to controller.
+[INFO] [1786009918.158018122] [controller_server]: Passing new path to controller.
+[INFO] [1786009919.257022804] [controller_server]: Passing new path to controller.
+[INFO] [1786009920.357036048] [controller_server]: Passing new path to controller.
+[INFO] [1786009921.457015274] [controller_server]: Passing new path to controller.
+[ERROR] [1786009922.457898326] [controller_server]: Failed to make progress
+[INFO] [1786009922.458638627] [controller_server]: Optimizer reset
+[WARN] [1786009922.458707868] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009922.498087643] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009926.675817497] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009927.776040928] [controller_server]: Passing new path to controller.
+[INFO] [1786009928.876063950] [controller_server]: Passing new path to controller.
+[INFO] [1786009929.976040453] [controller_server]: Passing new path to controller.
+[INFO] [1786009931.076070586] [controller_server]: Passing new path to controller.
+[INFO] [1786009932.176051775] [controller_server]: Passing new path to controller.
+[INFO] [1786009933.276093019] [controller_server]: Passing new path to controller.
+[INFO] [1786009934.376064152] [controller_server]: Passing new path to controller.
+[INFO] [1786009935.376070051] [controller_server]: Passing new path to controller.
+[INFO] [1786009936.476065221] [controller_server]: Passing new path to controller.
+[INFO] [1786009937.576063520] [controller_server]: Passing new path to controller.
+[INFO] [1786009938.676085783] [controller_server]: Passing new path to controller.
+[INFO] [1786009939.776047416] [controller_server]: Passing new path to controller.
+[INFO] [1786009940.876064419] [controller_server]: Passing new path to controller.
+[INFO] [1786009941.876039725] [controller_server]: Passing new path to controller.
+[INFO] [1786009942.976064506] [controller_server]: Passing new path to controller.
+[INFO] [1786009944.076066676] [controller_server]: Passing new path to controller.
+[INFO] [1786009945.176047790] [controller_server]: Passing new path to controller.
+[INFO] [1786009946.276069461] [controller_server]: Passing new path to controller.
+[INFO] [1786009947.276051396] [controller_server]: Passing new path to controller.
+[INFO] [1786009948.376063807] [controller_server]: Passing new path to controller.
+[INFO] [1786009949.476062384] [controller_server]: Passing new path to controller.
+[INFO] [1786009950.576043684] [controller_server]: Passing new path to controller.
+[INFO] [1786009951.676052928] [controller_server]: Passing new path to controller.
+[INFO] [1786009952.676043104] [controller_server]: Passing new path to controller.
+[INFO] [1786009953.776062441] [controller_server]: Passing new path to controller.
+[INFO] [1786009954.876067722] [controller_server]: Passing new path to controller.
+[INFO] [1786009955.976042170] [controller_server]: Passing new path to controller.
+[INFO] [1786009957.076062896] [controller_server]: Passing new path to controller.
+[INFO] [1786009957.998965809] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009957.690 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009958.176117492] [controller_server]: Passing new path to controller.
+[INFO] [1786009959.276077754] [controller_server]: Passing new path to controller.
+[INFO] [1786009960.376073739] [controller_server]: Passing new path to controller.
+[INFO] [1786009961.476242225] [controller_server]: Passing new path to controller.
+[INFO] [1786009962.576052523] [controller_server]: Passing new path to controller.
+[INFO] [1786009963.091930828] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009962.782 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009963.676039897] [controller_server]: Passing new path to controller.
+[INFO] [1786009964.776048641] [controller_server]: Passing new path to controller.
+[INFO] [1786009965.876729056] [controller_server]: Passing new path to controller.
+[ERROR] [1786009965.877135040] [controller_server]: Failed to make progress
+[INFO] [1786009965.878253991] [controller_server]: Optimizer reset
+[WARN] [1786009965.880169799] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009965.912397531] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009965.915242752] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009967.015446256] [controller_server]: Passing new path to controller.
+[INFO] [1786009968.115558575] [controller_server]: Passing new path to controller.
+[INFO] [1786009969.215457855] [controller_server]: Passing new path to controller.
+[INFO] [1786009970.315451692] [controller_server]: Passing new path to controller.
+[INFO] [1786009971.315438174] [controller_server]: Passing new path to controller.
+[ERROR] [1786009972.015545116] [controller_server]: Failed to make progress
+[INFO] [1786009972.015949748] [controller_server]: Optimizer reset
+[WARN] [1786009972.015993841] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009972.029424879] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009977.330471800] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009977.968581156] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786009977.665 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786009978.431872870] [controller_server]: Passing new path to controller.
+[INFO] [1786009979.530719388] [controller_server]: Passing new path to controller.
+[INFO] [1786009980.730748859] [controller_server]: Passing new path to controller.
+[INFO] [1786009981.730717289] [controller_server]: Passing new path to controller.
+[INFO] [1786009982.830714777] [controller_server]: Passing new path to controller.
+[INFO] [1786009983.930682820] [controller_server]: Passing new path to controller.
+[INFO] [1786009985.030722863] [controller_server]: Passing new path to controller.
+[INFO] [1786009986.130739277] [controller_server]: Passing new path to controller.
+[INFO] [1786009987.130722429] [controller_server]: Passing new path to controller.
+[INFO] [1786009988.230718880] [controller_server]: Passing new path to controller.
+[INFO] [1786009989.330715867] [controller_server]: Passing new path to controller.
+[INFO] [1786009990.430722577] [controller_server]: Passing new path to controller.
+[INFO] [1786009991.530727565] [controller_server]: Passing new path to controller.
+[INFO] [1786009992.630756942] [controller_server]: Passing new path to controller.
+[INFO] [1786009993.730723262] [controller_server]: Passing new path to controller.
+[INFO] [1786009994.730728729] [controller_server]: Passing new path to controller.
+[INFO] [1786009995.830741143] [controller_server]: Passing new path to controller.
+[INFO] [1786009996.930739908] [controller_server]: Passing new path to controller.
+[INFO] [1786009998.030724137] [controller_server]: Passing new path to controller.
+[ERROR] [1786009998.530823260] [controller_server]: Failed to make progress
+[INFO] [1786009998.531296373] [controller_server]: Optimizer reset
+[WARN] [1786009998.531341707] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786009998.532382361] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786009998.533849777] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786009999.034196845] [controller_server]: Passing new path to controller.
+[INFO] [1786010000.134033406] [controller_server]: Passing new path to controller.
+[INFO] [1786010001.234318988] [controller_server]: Passing new path to controller.
+[INFO] [1786010002.334046567] [controller_server]: Passing new path to controller.
+[INFO] [1786010003.434138129] [controller_server]: Passing new path to controller.
+[INFO] [1786010004.536201332] [controller_server]: Passing new path to controller.
+[ERROR] [1786010004.634755400] [controller_server]: Failed to make progress
+[INFO] [1786010004.635207958] [controller_server]: Optimizer reset
+[WARN] [1786010004.635250884] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010004.645587386] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010010.046101548] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010011.146302240] [controller_server]: Passing new path to controller.
+[INFO] [1786010012.246649545] [controller_server]: Passing new path to controller.
+[INFO] [1786010013.346344382] [controller_server]: Passing new path to controller.
+[INFO] [1786010014.548958794] [controller_server]: Passing new path to controller.
+[INFO] [1786010015.647011641] [controller_server]: Passing new path to controller.
+[INFO] [1786010016.746390533] [controller_server]: Passing new path to controller.
+[INFO] [1786010017.847243914] [controller_server]: Passing new path to controller.
+[INFO] [1786010018.946897622] [controller_server]: Passing new path to controller.
+[INFO] [1786010020.046312922] [controller_server]: Passing new path to controller.
+[INFO] [1786010021.146320113] [controller_server]: Passing new path to controller.
+[INFO] [1786010022.246424249] [controller_server]: Passing new path to controller.
+[INFO] [1786010023.346304496] [controller_server]: Passing new path to controller.
+[INFO] [1786010024.549234076] [controller_server]: Passing new path to controller.
+[INFO] [1786010026.146386892] [controller_server]: Passing new path to controller.
+[INFO] [1786010027.246403621] [controller_server]: Passing new path to controller.
+[INFO] [1786010028.346288867] [controller_server]: Passing new path to controller.
+[INFO] [1786010029.113527999] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786010028.808 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786010029.446314929] [controller_server]: Passing new path to controller.
+[INFO] [1786010030.546278398] [controller_server]: Passing new path to controller.
+[INFO] [1786010031.646317219] [controller_server]: Passing new path to controller.
+[INFO] [1786010032.746316781] [controller_server]: Passing new path to controller.
+[INFO] [1786010033.846266565] [controller_server]: Passing new path to controller.
+[INFO] [1786010034.946284923] [controller_server]: Passing new path to controller.
+[INFO] [1786010035.946312431] [controller_server]: Passing new path to controller.
+[INFO] [1786010037.046274310] [controller_server]: Passing new path to controller.
+[INFO] [1786010038.146275393] [controller_server]: Passing new path to controller.
+[INFO] [1786010039.246307531] [controller_server]: Passing new path to controller.
+[INFO] [1786010040.346312207] [controller_server]: Passing new path to controller.
+[INFO] [1786010041.446275123] [controller_server]: Passing new path to controller.
+[INFO] [1786010042.546279206] [controller_server]: Passing new path to controller.
+[INFO] [1786010043.646310381] [controller_server]: Passing new path to controller.
+[INFO] [1786010044.746674707] [controller_server]: Passing new path to controller.
+[INFO] [1786010045.846306380] [controller_server]: Passing new path to controller.
+[INFO] [1786010046.846303156] [controller_server]: Passing new path to controller.
+[INFO] [1786010047.946307591] [controller_server]: Passing new path to controller.
+[INFO] [1786010049.046310822] [controller_server]: Passing new path to controller.
+[INFO] [1786010050.846321277] [controller_server]: Passing new path to controller.
+[INFO] [1786010052.746306114] [controller_server]: Passing new path to controller.
+[INFO] [1786010053.846305641] [controller_server]: Passing new path to controller.
+[INFO] [1786010054.946306594] [controller_server]: Passing new path to controller.
+[ERROR] [1786010055.246419850] [controller_server]: Failed to make progress
+[INFO] [1786010055.246809833] [controller_server]: Optimizer reset
+[WARN] [1786010055.246848797] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010055.262937885] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010055.263899594] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786010055.375897652] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 8.9353 Hz.
+[INFO] [1786010056.076110637] [controller_server]: Passing new path to controller.
+[INFO] [1786010057.076137468] [controller_server]: Passing new path to controller.
+[INFO] [1786010058.176093143] [controller_server]: Passing new path to controller.
+[INFO] [1786010059.276111097] [controller_server]: Passing new path to controller.
+[INFO] [1786010060.376140476] [controller_server]: Passing new path to controller.
+[ERROR] [1786010061.376751236] [controller_server]: Failed to make progress
+[INFO] [1786010061.377240887] [controller_server]: Optimizer reset
+[WARN] [1786010061.377294091] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010063.931196733] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010065.032368433] [controller_server]: Passing new path to controller.
+[INFO] [1786010066.131401770] [controller_server]: Passing new path to controller.
+[INFO] [1786010067.331562309] [controller_server]: Passing new path to controller.
+[INFO] [1786010068.331403547] [controller_server]: Passing new path to controller.
+[INFO] [1786010069.533250243] [controller_server]: Passing new path to controller.
+[ERROR] [1786010069.931586778] [controller_server]: Failed to make progress
+[INFO] [1786010069.932158096] [controller_server]: Optimizer reset
+[WARN] [1786010069.932209355] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010069.948398926] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010069.952084464] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010070.552316050] [controller_server]: Passing new path to controller.
+[INFO] [1786010071.652288725] [controller_server]: Passing new path to controller.
+[INFO] [1786010072.752246622] [controller_server]: Passing new path to controller.
+[INFO] [1786010073.852297816] [controller_server]: Passing new path to controller.
+[INFO] [1786010074.952288566] [controller_server]: Passing new path to controller.
+[INFO] [1786010076.055156776] [controller_server]: Passing new path to controller.
+[ERROR] [1786010076.056733321] [controller_server]: Failed to make progress
+[INFO] [1786010076.059588170] [controller_server]: Optimizer reset
+[WARN] [1786010076.059685115] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010076.090821564] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010082.717982839] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010083.818147830] [controller_server]: Passing new path to controller.
+[INFO] [1786010084.918173821] [controller_server]: Passing new path to controller.
+[INFO] [1786010086.018199570] [controller_server]: Passing new path to controller.
+[INFO] [1786010087.118188394] [controller_server]: Passing new path to controller.
+[INFO] [1786010088.218169810] [controller_server]: Passing new path to controller.
+[ERROR] [1786010088.718264661] [controller_server]: Failed to make progress
+[INFO] [1786010088.718647552] [controller_server]: Optimizer reset
+[WARN] [1786010088.718686145] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010088.736114704] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010088.736940264] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010089.337112793] [controller_server]: Passing new path to controller.
+[INFO] [1786010090.437119042] [controller_server]: Passing new path to controller.
+[INFO] [1786010091.437117837] [controller_server]: Passing new path to controller.
+[INFO] [1786010092.537123845] [controller_server]: Passing new path to controller.
+[INFO] [1786010093.637095984] [controller_server]: Passing new path to controller.
+[INFO] [1786010094.737108937] [controller_server]: Passing new path to controller.
+[ERROR] [1786010094.837230467] [controller_server]: Failed to make progress
+[INFO] [1786010094.837625877] [controller_server]: Optimizer reset
+[WARN] [1786010094.837668673] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010094.852408198] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010100.383153837] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010101.483332087] [controller_server]: Passing new path to controller.
+[INFO] [1786010102.583336614] [controller_server]: Passing new path to controller.
+[INFO] [1786010103.683348790] [controller_server]: Passing new path to controller.
+[INFO] [1786010104.783339854] [controller_server]: Passing new path to controller.
+[INFO] [1786010105.883334252] [controller_server]: Passing new path to controller.
+[ERROR] [1786010106.383411140] [controller_server]: Failed to make progress
+[INFO] [1786010106.383764827] [controller_server]: Optimizer reset
+[WARN] [1786010106.383799198] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010106.399539988] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010106.400923477] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786010106.572913012] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.8175 Hz.
+[INFO] [1786010106.973095575] [controller_server]: Passing new path to controller.
+[INFO] [1786010108.073045861] [controller_server]: Passing new path to controller.
+[INFO] [1786010109.173091481] [controller_server]: Passing new path to controller.
+[INFO] [1786010110.273088879] [controller_server]: Passing new path to controller.
+[INFO] [1786010111.373094554] [controller_server]: Passing new path to controller.
+[INFO] [1786010112.373088849] [controller_server]: Passing new path to controller.
+[ERROR] [1786010112.573194538] [controller_server]: Failed to make progress
+[INFO] [1786010112.573830634] [controller_server]: Optimizer reset
+[WARN] [1786010112.573933653] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010112.574957862] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010119.013941495] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786010119.943803405] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 3.0330 Hz.
+[INFO] [1786010120.144546283] [controller_server]: Passing new path to controller.
+[INFO] [1786010121.344429376] [controller_server]: Passing new path to controller.
+[INFO] [1786010122.444033105] [controller_server]: Passing new path to controller.
+[INFO] [1786010123.443970806] [controller_server]: Passing new path to controller.
+[INFO] [1786010124.544259057] [controller_server]: Passing new path to controller.
+[ERROR] [1786010125.044215260] [controller_server]: Failed to make progress
+[INFO] [1786010125.045310895] [controller_server]: Optimizer reset
+[WARN] [1786010125.045353914] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010125.065727377] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010125.070085494] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786010125.172268998] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.7951 Hz.
+[INFO] [1786010125.672429776] [controller_server]: Passing new path to controller.
+[INFO] [1786010126.672424440] [controller_server]: Passing new path to controller.
+[INFO] [1786010127.772429412] [controller_server]: Passing new path to controller.
+[INFO] [1786010128.872430717] [controller_server]: Passing new path to controller.
+[INFO] [1786010129.972444096] [controller_server]: Passing new path to controller.
+[INFO] [1786010131.072434976] [controller_server]: Passing new path to controller.
+[ERROR] [1786010131.172547783] [controller_server]: Failed to make progress
+[INFO] [1786010131.172954915] [controller_server]: Optimizer reset
+[WARN] [1786010131.173005378] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010131.188422889] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010137.918710100] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010139.019240408] [controller_server]: Passing new path to controller.
+[INFO] [1786010140.119130083] [controller_server]: Passing new path to controller.
+[INFO] [1786010141.219206999] [controller_server]: Passing new path to controller.
+[INFO] [1786010142.319133137] [controller_server]: Passing new path to controller.
+[INFO] [1786010143.419591760] [controller_server]: Passing new path to controller.
+[ERROR] [1786010143.919027607] [controller_server]: Failed to make progress
+[INFO] [1786010143.919458610] [controller_server]: Optimizer reset
+[WARN] [1786010143.919505480] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010143.930585893] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010143.931310841] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010144.431471841] [controller_server]: Passing new path to controller.
+[INFO] [1786010145.531486091] [controller_server]: Passing new path to controller.
+[INFO] [1786010146.631493211] [controller_server]: Passing new path to controller.
+[INFO] [1786010147.731450312] [controller_server]: Passing new path to controller.
+[INFO] [1786010148.831478358] [controller_server]: Passing new path to controller.
+[INFO] [1786010149.931496959] [controller_server]: Passing new path to controller.
+[ERROR] [1786010150.031560044] [controller_server]: Failed to make progress
+[INFO] [1786010150.031984454] [controller_server]: Optimizer reset
+[WARN] [1786010150.032030899] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010150.047028889] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010155.991564609] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010157.093300331] [controller_server]: Passing new path to controller.
+[INFO] [1786010158.192514206] [controller_server]: Passing new path to controller.
+[INFO] [1786010159.292989032] [controller_server]: Passing new path to controller.
+[INFO] [1786010160.392427538] [controller_server]: Passing new path to controller.
+[INFO] [1786010161.493037494] [controller_server]: Passing new path to controller.
+[ERROR] [1786010161.992594342] [controller_server]: Failed to make progress
+[INFO] [1786010161.993141512] [controller_server]: Optimizer reset
+[WARN] [1786010161.993197049] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010162.006206343] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010162.007655981] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786010162.180270334] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.7970 Hz.
+[INFO] [1786010162.580444434] [controller_server]: Passing new path to controller.
+[INFO] [1786010163.680504573] [controller_server]: Passing new path to controller.
+[INFO] [1786010164.780501659] [controller_server]: Passing new path to controller.
+[INFO] [1786010165.880482567] [controller_server]: Passing new path to controller.
+[INFO] [1786010166.980513994] [controller_server]: Passing new path to controller.
+[INFO] [1786010168.080458476] [controller_server]: Passing new path to controller.
+[ERROR] [1786010168.180653758] [controller_server]: Failed to make progress
+[INFO] [1786010168.181517596] [controller_server]: Optimizer reset
+[WARN] [1786010168.181597726] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010168.196990596] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010174.568698735] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010175.668882552] [controller_server]: Passing new path to controller.
+[INFO] [1786010176.768868719] [controller_server]: Passing new path to controller.
+[INFO] [1786010177.868883776] [controller_server]: Passing new path to controller.
+[INFO] [1786010178.968844573] [controller_server]: Passing new path to controller.
+[INFO] [1786010180.068872203] [controller_server]: Passing new path to controller.
+[ERROR] [1786010180.568950906] [controller_server]: Failed to make progress
+[INFO] [1786010180.569358242] [controller_server]: Optimizer reset
+[WARN] [1786010180.569401427] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010180.581510949] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010180.582258600] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786010180.774170568] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2129 Hz.
+[INFO] [1786010181.174339823] [controller_server]: Passing new path to controller.
+[INFO] [1786010182.174338821] [controller_server]: Passing new path to controller.
+[INFO] [1786010183.274368488] [controller_server]: Passing new path to controller.
+[INFO] [1786010184.374343360] [controller_server]: Passing new path to controller.
+[INFO] [1786010185.474347823] [controller_server]: Passing new path to controller.
+[INFO] [1786010186.574344176] [controller_server]: Passing new path to controller.
+[ERROR] [1786010186.774434350] [controller_server]: Failed to make progress
+[INFO] [1786010186.774805574] [controller_server]: Optimizer reset
+[WARN] [1786010186.774847945] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010189.215487095] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010190.315691097] [controller_server]: Passing new path to controller.
+[INFO] [1786010191.415682931] [controller_server]: Passing new path to controller.
+[INFO] [1786010192.515690802] [controller_server]: Passing new path to controller.
+[INFO] [1786010193.615692877] [controller_server]: Passing new path to controller.
+[INFO] [1786010194.715686137] [controller_server]: Passing new path to controller.
+[ERROR] [1786010195.215783451] [controller_server]: Failed to make progress
+[INFO] [1786010195.216265213] [controller_server]: Optimizer reset
+[WARN] [1786010195.216333917] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010195.228918033] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010195.229793760] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786010195.371963097] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 7.0379 Hz.
+[INFO] [1786010195.772136038] [controller_server]: Passing new path to controller.
+[INFO] [1786010196.872135279] [controller_server]: Passing new path to controller.
+[INFO] [1786010197.972133762] [controller_server]: Passing new path to controller.
+[INFO] [1786010198.972129574] [controller_server]: Passing new path to controller.
+[INFO] [1786010200.072137464] [controller_server]: Passing new path to controller.
+[INFO] [1786010201.172222335] [controller_server]: Passing new path to controller.
+[ERROR] [1786010201.372222028] [controller_server]: Failed to make progress
+[INFO] [1786010201.372647974] [controller_server]: Optimizer reset
+[WARN] [1786010201.372693196] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010201.388451958] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010208.330693771] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010209.431768073] [controller_server]: Passing new path to controller.
+[INFO] [1786010210.531020422] [controller_server]: Passing new path to controller.
+[INFO] [1786010211.630839071] [controller_server]: Passing new path to controller.
+[INFO] [1786010212.731341481] [controller_server]: Passing new path to controller.
+[INFO] [1786010213.832114912] [controller_server]: Passing new path to controller.
+[ERROR] [1786010214.331657630] [controller_server]: Failed to make progress
+[INFO] [1786010214.332101707] [controller_server]: Optimizer reset
+[WARN] [1786010214.332149985] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010214.346117978] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010214.350738167] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010214.950966393] [controller_server]: Passing new path to controller.
+[INFO] [1786010216.051296229] [controller_server]: Passing new path to controller.
+[INFO] [1786010217.150964765] [controller_server]: Passing new path to controller.
+[INFO] [1786010218.251875974] [controller_server]: Passing new path to controller.
+[INFO] [1786010219.454863845] [controller_server]: Passing new path to controller.
+[INFO] [1786010220.451004916] [controller_server]: Passing new path to controller.
+[ERROR] [1786010220.451703290] [controller_server]: Failed to make progress
+[INFO] [1786010220.452196218] [controller_server]: Optimizer reset
+[WARN] [1786010220.452240866] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010220.477507619] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010235.616159974] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010236.716339495] [controller_server]: Passing new path to controller.
+[INFO] [1786010237.816337273] [controller_server]: Passing new path to controller.
+[INFO] [1786010238.916344033] [controller_server]: Passing new path to controller.
+[INFO] [1786010240.016352016] [controller_server]: Passing new path to controller.
+[INFO] [1786010241.116336553] [controller_server]: Passing new path to controller.
+[ERROR] [1786010241.616419090] [controller_server]: Failed to make progress
+[INFO] [1786010241.616791962] [controller_server]: Optimizer reset
+[WARN] [1786010241.616848666] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010241.635442089] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010241.636306834] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786010241.778296838] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 7.0469 Hz.
+[INFO] [1786010242.178472074] [controller_server]: Passing new path to controller.
+[INFO] [1786010243.278472501] [controller_server]: Passing new path to controller.
+[INFO] [1786010244.378469669] [controller_server]: Passing new path to controller.
+[INFO] [1786010245.478463021] [controller_server]: Passing new path to controller.
+[INFO] [1786010246.578438207] [controller_server]: Passing new path to controller.
+[INFO] [1786010247.678434301] [controller_server]: Passing new path to controller.
+[ERROR] [1786010247.778567231] [controller_server]: Failed to make progress
+[INFO] [1786010247.778986770] [controller_server]: Optimizer reset
+[WARN] [1786010247.779022511] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010247.799168386] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010262.953092390] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010264.053312633] [controller_server]: Passing new path to controller.
+[INFO] [1786010265.153321097] [controller_server]: Passing new path to controller.
+[INFO] [1786010265.977799169] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786010265.673 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786010266.253310986] [controller_server]: Passing new path to controller.
+[INFO] [1786010267.353329839] [controller_server]: Passing new path to controller.
+[INFO] [1786010268.453310895] [controller_server]: Passing new path to controller.
+[ERROR] [1786010268.953391524] [controller_server]: Failed to make progress
+[INFO] [1786010268.953726970] [controller_server]: Optimizer reset
+[WARN] [1786010268.953760452] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010268.967798576] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010268.971095795] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786010269.173352091] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 4.9467 Hz.
+[INFO] [1786010269.574155386] [controller_server]: Passing new path to controller.
+[INFO] [1786010270.574154328] [controller_server]: Passing new path to controller.
+[INFO] [1786010271.674155903] [controller_server]: Passing new path to controller.
+[INFO] [1786010272.774166737] [controller_server]: Passing new path to controller.
+[INFO] [1786010273.874156942] [controller_server]: Passing new path to controller.
+[INFO] [1786010274.974153220] [controller_server]: Passing new path to controller.
+[ERROR] [1786010275.174226302] [controller_server]: Failed to make progress
+[INFO] [1786010275.174634304] [controller_server]: Optimizer reset
+[WARN] [1786010275.174674267] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010275.194862235] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010280.714103185] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010281.814267594] [controller_server]: Passing new path to controller.
+[INFO] [1786010282.914277928] [controller_server]: Passing new path to controller.
+[INFO] [1786010284.014278318] [controller_server]: Passing new path to controller.
+[INFO] [1786010285.114279022] [controller_server]: Passing new path to controller.
+[INFO] [1786010285.262550167] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786010284.956 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786010286.214272616] [controller_server]: Passing new path to controller.
+[ERROR] [1786010286.714378226] [controller_server]: Failed to make progress
+[INFO] [1786010286.714755043] [controller_server]: Optimizer reset
+[WARN] [1786010286.714797172] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786010286.733930376] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786010286.735378143] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786010287.235760421] [controller_server]: Passing new path to controller.
+[INFO] [1786010288.335668866] [controller_server]: Passing new path to controller.
+[INFO] [1786010289.436450722] [controller_server]: Passing new path to controller.
+[INFO] [1786010290.535587460] [controller_server]: Passing new path to controller.
+[INFO] [1786010291.635574794] [controller_server]: Passing new path to controller.
+[INFO] [1786010292.735631869] [controller_server]: Passing new path to controller.
+[INFO] [1786010293.835559815] [controller_server]: Passing new path to controller.
+[INFO] [1786010294.835570541] [controller_server]: Passing new path to controller.
+[INFO] [1786010295.437439219] [controller_server]: Reached the goal!
+[INFO] [1786010295.437744980] [controller_server]: Optimizer reset
+[INFO] [1786010401.560981103] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786010401.257 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786010440.632200945] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786010440.325 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786010446.024936365] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786010445.721 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786010851.535156418] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786010851.231 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786011281.002963925] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786011280.699 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786011490.729294437] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786011490.424 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786011837.968696087] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786011843.709345370] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786011844.809663362] [controller_server]: Passing new path to controller.
+[INFO] [1786011845.909694537] [controller_server]: Passing new path to controller.
+[INFO] [1786011847.109696788] [controller_server]: Passing new path to controller.
+[INFO] [1786011848.209659185] [controller_server]: Passing new path to controller.
+[INFO] [1786011849.309701823] [controller_server]: Passing new path to controller.
+[INFO] [1786011850.409922592] [controller_server]: Passing new path to controller.
+[INFO] [1786011851.511926556] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786011851.512050167] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786011851.516184949] [controller_server]: Optimizer reset
+[INFO] [1786011854.103325017] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786011855.303716233] [controller_server]: Passing new path to controller.
+[INFO] [1786011856.506091423] [controller_server]: Passing new path to controller.
+[INFO] [1786011857.703726829] [controller_server]: Passing new path to controller.
+[INFO] [1786011858.803760263] [controller_server]: Passing new path to controller.
+[INFO] [1786011859.903710234] [controller_server]: Passing new path to controller.
+[INFO] [1786011861.003719113] [controller_server]: Passing new path to controller.
+[INFO] [1786011862.103751973] [controller_server]: Passing new path to controller.
+[INFO] [1786011863.203965612] [controller_server]: Passing new path to controller.
+[INFO] [1786011864.303734748] [controller_server]: Passing new path to controller.
+[INFO] [1786011865.503780352] [controller_server]: Passing new path to controller.
+[INFO] [1786011866.609081037] [controller_server]: Passing new path to controller.
+[INFO] [1786011867.703723479] [controller_server]: Passing new path to controller.
+[INFO] [1786011868.803687339] [controller_server]: Passing new path to controller.
+[INFO] [1786011869.903715422] [controller_server]: Passing new path to controller.
+[INFO] [1786011871.003714578] [controller_server]: Passing new path to controller.
+[INFO] [1786011872.104020384] [controller_server]: Passing new path to controller.
+[INFO] [1786011873.203722354] [controller_server]: Passing new path to controller.
+[INFO] [1786011874.303717529] [controller_server]: Passing new path to controller.
+[INFO] [1786011875.404069650] [controller_server]: Passing new path to controller.
+[INFO] [1786011876.503722045] [controller_server]: Passing new path to controller.
+[INFO] [1786011877.603723238] [controller_server]: Passing new path to controller.
+[INFO] [1786011878.703746747] [controller_server]: Passing new path to controller.
+[INFO] [1786011879.803714255] [controller_server]: Passing new path to controller.
+[INFO] [1786011880.903733115] [controller_server]: Passing new path to controller.
+[INFO] [1786011881.903711584] [controller_server]: Passing new path to controller.
+[INFO] [1786011883.103718280] [controller_server]: Passing new path to controller.
+[INFO] [1786011884.203712492] [controller_server]: Passing new path to controller.
+[INFO] [1786011885.303742407] [controller_server]: Passing new path to controller.
+[INFO] [1786011886.403716749] [controller_server]: Passing new path to controller.
+[INFO] [1786011887.403785403] [controller_server]: Passing new path to controller.
+[INFO] [1786011888.503722022] [controller_server]: Passing new path to controller.
+[INFO] [1786011889.603674160] [controller_server]: Passing new path to controller.
+[INFO] [1786011890.703887188] [controller_server]: Passing new path to controller.
+[INFO] [1786011891.803719713] [controller_server]: Passing new path to controller.
+[INFO] [1786011892.903730722] [controller_server]: Passing new path to controller.
+[INFO] [1786011894.003758434] [controller_server]: Passing new path to controller.
+[INFO] [1786011895.103716775] [controller_server]: Passing new path to controller.
+[INFO] [1786011896.203730598] [controller_server]: Passing new path to controller.
+[INFO] [1786011897.303679310] [controller_server]: Passing new path to controller.
+[INFO] [1786011898.403686244] [controller_server]: Passing new path to controller.
+[INFO] [1786011899.504221015] [controller_server]: Passing new path to controller.
+[INFO] [1786011900.604401264] [controller_server]: Passing new path to controller.
+[INFO] [1786011901.704321717] [controller_server]: Passing new path to controller.
+[INFO] [1786011902.803748185] [controller_server]: Passing new path to controller.
+[INFO] [1786011903.903727248] [controller_server]: Passing new path to controller.
+[INFO] [1786011904.397012317] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786011904.090 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786011905.103721055] [controller_server]: Passing new path to controller.
+[INFO] [1786011906.204370271] [controller_server]: Passing new path to controller.
+[INFO] [1786011907.303975777] [controller_server]: Passing new path to controller.
+[INFO] [1786011908.507789771] [controller_server]: Passing new path to controller.
+[INFO] [1786011909.603714480] [controller_server]: Passing new path to controller.
+[INFO] [1786011910.703735247] [controller_server]: Passing new path to controller.
+[INFO] [1786011911.803722941] [controller_server]: Passing new path to controller.
+[INFO] [1786011912.903720986] [controller_server]: Passing new path to controller.
+[INFO] [1786011914.003705346] [controller_server]: Passing new path to controller.
+[INFO] [1786011915.203723782] [controller_server]: Passing new path to controller.
+[INFO] [1786011916.204273458] [controller_server]: Passing new path to controller.
+[INFO] [1786011917.403692336] [controller_server]: Passing new path to controller.
+[INFO] [1786011918.503725437] [controller_server]: Passing new path to controller.
+[INFO] [1786011919.604388726] [controller_server]: Passing new path to controller.
+[INFO] [1786011920.703816954] [controller_server]: Passing new path to controller.
+[INFO] [1786011921.804108501] [controller_server]: Passing new path to controller.
+[INFO] [1786011922.903749118] [controller_server]: Passing new path to controller.
+[INFO] [1786011924.003738848] [controller_server]: Passing new path to controller.
+[INFO] [1786011925.103715912] [controller_server]: Passing new path to controller.
+[INFO] [1786011926.203756920] [controller_server]: Passing new path to controller.
+[INFO] [1786011927.303716780] [controller_server]: Passing new path to controller.
+[INFO] [1786011928.403715474] [controller_server]: Passing new path to controller.
+[INFO] [1786011929.503669389] [controller_server]: Passing new path to controller.
+[INFO] [1786011930.603686046] [controller_server]: Passing new path to controller.
+[INFO] [1786011931.703686998] [controller_server]: Passing new path to controller.
+[INFO] [1786011932.803717081] [controller_server]: Passing new path to controller.
+[INFO] [1786011933.903673570] [controller_server]: Passing new path to controller.
+[INFO] [1786011934.903728058] [controller_server]: Passing new path to controller.
+[INFO] [1786011936.003716733] [controller_server]: Passing new path to controller.
+[INFO] [1786011937.103713333] [controller_server]: Passing new path to controller.
+[INFO] [1786011938.203723249] [controller_server]: Passing new path to controller.
+[INFO] [1786011939.303715035] [controller_server]: Passing new path to controller.
+[INFO] [1786011940.403675821] [controller_server]: Passing new path to controller.
+[INFO] [1786011941.503683607] [controller_server]: Passing new path to controller.
+[INFO] [1786011942.603695171] [controller_server]: Passing new path to controller.
+[INFO] [1786011943.703756568] [controller_server]: Passing new path to controller.
+[INFO] [1786011944.803723002] [controller_server]: Passing new path to controller.
+[INFO] [1786011945.903716955] [controller_server]: Passing new path to controller.
+[INFO] [1786011947.003700426] [controller_server]: Passing new path to controller.
+[INFO] [1786011948.003710858] [controller_server]: Passing new path to controller.
+[INFO] [1786011949.103717940] [controller_server]: Passing new path to controller.
+[INFO] [1786011950.203710485] [controller_server]: Passing new path to controller.
+[INFO] [1786011951.304143903] [controller_server]: Passing new path to controller.
+[INFO] [1786011952.406082626] [controller_server]: Passing new path to controller.
+[INFO] [1786011953.503747788] [controller_server]: Passing new path to controller.
+[INFO] [1786011954.705235566] [controller_server]: Passing new path to controller.
+[ERROR] [1786011955.104151273] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786011955.104715499] [controller_server]: Optimizer reset
+[WARN] [1786011955.104784166] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786011955.841840864] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786011955.538 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786011957.558842442] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786011957.859826491] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786011957.860519032] [controller_server]: Optimizer reset
+[WARN] [1786011957.860561699] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786011960.421188383] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786011961.521492467] [controller_server]: Passing new path to controller.
+[INFO] [1786011962.622261739] [controller_server]: Passing new path to controller.
+[INFO] [1786011963.723301882] [controller_server]: Passing new path to controller.
+[INFO] [1786011965.022380316] [controller_server]: Passing new path to controller.
+[INFO] [1786011966.221714138] [controller_server]: Passing new path to controller.
+[INFO] [1786011967.322028259] [controller_server]: Passing new path to controller.
+[INFO] [1786011968.421710117] [controller_server]: Passing new path to controller.
+[INFO] [1786011969.522259777] [controller_server]: Passing new path to controller.
+[INFO] [1786011970.621938043] [controller_server]: Passing new path to controller.
+[INFO] [1786011971.721511511] [controller_server]: Passing new path to controller.
+[ERROR] [1786011972.321712860] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786011972.322156511] [controller_server]: Optimizer reset
+[WARN] [1786011972.322539772] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786011974.757464315] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786011975.857709399] [controller_server]: Passing new path to controller.
+[INFO] [1786011976.957709685] [controller_server]: Passing new path to controller.
+[INFO] [1786011978.057719897] [controller_server]: Passing new path to controller.
+[INFO] [1786011979.157710738] [controller_server]: Passing new path to controller.
+[INFO] [1786011980.257710006] [controller_server]: Passing new path to controller.
+[ERROR] [1786011980.757878223] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786011980.758283429] [controller_server]: Optimizer reset
+[WARN] [1786011980.758342262] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786011984.225336595] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786011991.585281504] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786011998.045403187] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012004.395528018] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012011.352256325] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012017.909414940] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012027.900990156] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012034.550670029] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012042.110912407] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012047.611182264] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012052.117352796] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012053.217973066] [controller_server]: Passing new path to controller.
+[INFO] [1786012054.317691092] [controller_server]: Passing new path to controller.
+[INFO] [1786012055.417675711] [controller_server]: Passing new path to controller.
+[INFO] [1786012056.617754222] [controller_server]: Passing new path to controller.
+[INFO] [1786012057.717728452] [controller_server]: Passing new path to controller.
+[INFO] [1786012058.817741664] [controller_server]: Passing new path to controller.
+[INFO] [1786012059.919317829] [controller_server]: Passing new path to controller.
+[INFO] [1786012062.052826802] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012062.118050098] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012062.118173580] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012062.118856436] [controller_server]: Optimizer reset
+[INFO] [1786012067.378629792] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012069.679505853] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012069.679603427] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012069.681734698] [controller_server]: Optimizer reset
+[INFO] [1786012069.682361757] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012073.547324070] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012075.747746256] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012075.747835441] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012075.748234721] [controller_server]: Optimizer reset
+[INFO] [1786012079.115966111] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012084.536053147] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012088.937359224] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012090.037666345] [controller_server]: Passing new path to controller.
+[INFO] [1786012091.137678650] [controller_server]: Passing new path to controller.
+[INFO] [1786012092.737668911] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012092.737722430] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012092.738223877] [controller_server]: Optimizer reset
+[INFO] [1786012092.738643898] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012098.553389618] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012104.073397675] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012107.938009023] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012116.429548110] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012117.629933364] [controller_server]: Passing new path to controller.
+[INFO] [1786012118.730207781] [controller_server]: Passing new path to controller.
+[INFO] [1786012119.830913793] [controller_server]: Passing new path to controller.
+[INFO] [1786012120.929880610] [controller_server]: Passing new path to controller.
+[INFO] [1786012122.030368269] [controller_server]: Passing new path to controller.
+[INFO] [1786012123.130572704] [controller_server]: Passing new path to controller.
+[INFO] [1786012124.229915061] [controller_server]: Passing new path to controller.
+[INFO] [1786012125.329881736] [controller_server]: Passing new path to controller.
+[INFO] [1786012126.093047834] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786012125.779 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786012127.425344096] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012127.430804366] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012127.430896070] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012127.431507721] [controller_server]: Optimizer reset
+[INFO] [1786012132.741501275] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012137.044734397] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012138.245017057] [controller_server]: Passing new path to controller.
+[INFO] [1786012139.245095045] [controller_server]: Passing new path to controller.
+[INFO] [1786012140.345045516] [controller_server]: Passing new path to controller.
+[INFO] [1786012142.473332423] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012142.545191162] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012142.545271663] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012142.545695350] [controller_server]: Optimizer reset
+[INFO] [1786012161.811232874] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012168.042380175] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012174.282525912] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012178.985614562] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012180.085839553] [controller_server]: Passing new path to controller.
+[INFO] [1786012181.185877376] [controller_server]: Passing new path to controller.
+[INFO] [1786012182.285881088] [controller_server]: Passing new path to controller.
+[INFO] [1786012183.385880504] [controller_server]: Passing new path to controller.
+[INFO] [1786012184.485882660] [controller_server]: Passing new path to controller.
+[INFO] [1786012185.585884205] [controller_server]: Passing new path to controller.
+[INFO] [1786012186.685882713] [controller_server]: Passing new path to controller.
+[INFO] [1786012188.785898691] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012188.785982321] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012188.786573676] [controller_server]: Optimizer reset
+[INFO] [1786012203.124562006] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012204.324999797] [controller_server]: Passing new path to controller.
+[INFO] [1786012205.324993284] [controller_server]: Passing new path to controller.
+[INFO] [1786012206.425002589] [controller_server]: Passing new path to controller.
+[INFO] [1786012207.624998099] [controller_server]: Passing new path to controller.
+[INFO] [1786012208.625026809] [controller_server]: Passing new path to controller.
+[INFO] [1786012209.724952983] [controller_server]: Passing new path to controller.
+[INFO] [1786012210.925002198] [controller_server]: Passing new path to controller.
+[INFO] [1786012212.024993354] [controller_server]: Passing new path to controller.
+[INFO] [1786012213.125485032] [controller_server]: Passing new path to controller.
+[INFO] [1786012214.224989037] [controller_server]: Passing new path to controller.
+[INFO] [1786012215.325276344] [controller_server]: Passing new path to controller.
+[INFO] [1786012216.425036906] [controller_server]: Passing new path to controller.
+[INFO] [1786012217.624990953] [controller_server]: Passing new path to controller.
+[INFO] [1786012218.725259945] [controller_server]: Passing new path to controller.
+[INFO] [1786012219.825266379] [controller_server]: Passing new path to controller.
+[INFO] [1786012220.924970756] [controller_server]: Passing new path to controller.
+[INFO] [1786012222.025280932] [controller_server]: Passing new path to controller.
+[INFO] [1786012223.225284147] [controller_server]: Passing new path to controller.
+[INFO] [1786012225.291072328] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012225.325020030] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012225.325120160] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012225.325609237] [controller_server]: Optimizer reset
+[INFO] [1786012228.094466155] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786012227.790 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786012231.435607791] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012235.937809894] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786012236.038207120] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786012236.038550974] [controller_server]: Optimizer reset
+[WARN] [1786012236.038582419] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012239.402973439] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012240.503235435] [controller_server]: Passing new path to controller.
+[INFO] [1786012241.603240118] [controller_server]: Passing new path to controller.
+[INFO] [1786012242.703238505] [controller_server]: Passing new path to controller.
+[INFO] [1786012243.803251947] [controller_server]: Passing new path to controller.
+[INFO] [1786012244.903246648] [controller_server]: Passing new path to controller.
+[ERROR] [1786012245.403340420] [controller_server]: Failed to make progress
+[INFO] [1786012245.403711496] [controller_server]: Optimizer reset
+[WARN] [1786012245.403760404] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012245.421966892] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012245.423114713] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786012245.575403287] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 6.5760 Hz.
+[INFO] [1786012245.975574957] [controller_server]: Passing new path to controller.
+[INFO] [1786012247.075555380] [controller_server]: Passing new path to controller.
+[INFO] [1786012249.175582884] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012249.175672292] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012249.176309110] [controller_server]: Optimizer reset
+[INFO] [1786012249.177453024] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012254.490638063] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012255.591652141] [controller_server]: Passing new path to controller.
+[INFO] [1786012256.791553870] [controller_server]: Passing new path to controller.
+[INFO] [1786012257.791548450] [controller_server]: Passing new path to controller.
+[INFO] [1786012258.891587984] [controller_server]: Passing new path to controller.
+[INFO] [1786012259.991544000] [controller_server]: Passing new path to controller.
+[INFO] [1786012261.191603471] [controller_server]: Passing new path to controller.
+[INFO] [1786012262.292004415] [controller_server]: Passing new path to controller.
+[INFO] [1786012263.391605503] [controller_server]: Passing new path to controller.
+[INFO] [1786012264.491812501] [controller_server]: Passing new path to controller.
+[INFO] [1786012265.591602831] [controller_server]: Passing new path to controller.
+[INFO] [1786012267.691607001] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012267.691832095] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012267.693309511] [controller_server]: Optimizer reset
+[INFO] [1786012267.694998631] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012274.321739484] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012275.522258495] [controller_server]: Passing new path to controller.
+[INFO] [1786012277.622089442] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012277.622163701] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012277.622963947] [controller_server]: Optimizer reset
+[INFO] [1786012277.624083545] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012281.081602288] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012282.772414387] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012282.781885883] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012282.781953328] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012282.782417090] [controller_server]: Optimizer reset
+[INFO] [1786012288.887233885] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012314.039173925] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012315.139425349] [controller_server]: Passing new path to controller.
+[INFO] [1786012316.239425810] [controller_server]: Passing new path to controller.
+[INFO] [1786012317.339433178] [controller_server]: Passing new path to controller.
+[INFO] [1786012318.440588608] [controller_server]: Passing new path to controller.
+[INFO] [1786012319.539691637] [controller_server]: Passing new path to controller.
+[ERROR] [1786012320.039555056] [controller_server]: Failed to make progress
+[INFO] [1786012320.040186541] [controller_server]: Optimizer reset
+[WARN] [1786012320.040259041] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012320.056216666] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012320.057970379] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786012320.181218479] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 8.1319 Hz.
+[INFO] [1786012320.681430881] [controller_server]: Passing new path to controller.
+[INFO] [1786012321.781432008] [controller_server]: Passing new path to controller.
+[INFO] [1786012322.881423210] [controller_server]: Passing new path to controller.
+[INFO] [1786012323.981479430] [controller_server]: Passing new path to controller.
+[INFO] [1786012325.081415686] [controller_server]: Passing new path to controller.
+[INFO] [1786012326.181421146] [controller_server]: Passing new path to controller.
+[ERROR] [1786012326.181964372] [controller_server]: Failed to make progress
+[INFO] [1786012326.182556912] [controller_server]: Optimizer reset
+[WARN] [1786012326.182609746] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012326.209480781] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012340.542992487] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012341.643329005] [controller_server]: Passing new path to controller.
+[INFO] [1786012343.743278231] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012343.743366824] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012343.743812623] [controller_server]: Optimizer reset
+[INFO] [1786012347.212422574] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012351.623092585] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012352.823351594] [controller_server]: Passing new path to controller.
+[INFO] [1786012354.851698854] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012354.923358709] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012354.923429209] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012354.924106102] [controller_server]: Optimizer reset
+[INFO] [1786012360.558765418] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012361.759175724] [controller_server]: Passing new path to controller.
+[INFO] [1786012362.859200314] [controller_server]: Passing new path to controller.
+[INFO] [1786012363.780220389] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786012363.476 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1786012363.860987923] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 3.3126 Hz.
+[INFO] [1786012363.961232601] [controller_server]: Passing new path to controller.
+[INFO] [1786012365.061301117] [controller_server]: Passing new path to controller.
+[INFO] [1786012366.162627918] [controller_server]: Passing new path to controller.
+[INFO] [1786012367.261219389] [controller_server]: Passing new path to controller.
+[INFO] [1786012368.361604352] [controller_server]: Passing new path to controller.
+[INFO] [1786012369.462351261] [controller_server]: Passing new path to controller.
+[INFO] [1786012370.561214382] [controller_server]: Passing new path to controller.
+[INFO] [1786012371.661243139] [controller_server]: Passing new path to controller.
+[INFO] [1786012372.761584360] [controller_server]: Passing new path to controller.
+[INFO] [1786012373.861796137] [controller_server]: Passing new path to controller.
+[INFO] [1786012375.062091349] [controller_server]: Passing new path to controller.
+[INFO] [1786012376.161177453] [controller_server]: Passing new path to controller.
+[INFO] [1786012377.261279118] [controller_server]: Passing new path to controller.
+[INFO] [1786012378.361188615] [controller_server]: Passing new path to controller.
+[INFO] [1786012380.491405172] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012380.561294573] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012380.561372962] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012380.561762316] [controller_server]: Optimizer reset
+[INFO] [1786012386.107443091] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012387.207713349] [controller_server]: Passing new path to controller.
+[INFO] [1786012387.262132517] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1786012386.956 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1786012388.307712976] [controller_server]: Passing new path to controller.
+[INFO] [1786012389.407711770] [controller_server]: Passing new path to controller.
+[INFO] [1786012390.507711619] [controller_server]: Passing new path to controller.
+[INFO] [1786012391.607711968] [controller_server]: Passing new path to controller.
+[INFO] [1786012392.707712114] [controller_server]: Passing new path to controller.
+[ERROR] [1786012393.307816803] [controller_server]: Failed to make progress
+[INFO] [1786012393.308170361] [controller_server]: Optimizer reset
+[WARN] [1786012393.308205695] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012393.320620651] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012393.321846288] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012393.822208987] [controller_server]: Passing new path to controller.
+[INFO] [1786012394.922207466] [controller_server]: Passing new path to controller.
+[INFO] [1786012395.922163694] [controller_server]: Passing new path to controller.
+[INFO] [1786012397.022208914] [controller_server]: Passing new path to controller.
+[INFO] [1786012398.122211671] [controller_server]: Passing new path to controller.
+[INFO] [1786012399.222213391] [controller_server]: Passing new path to controller.
+[ERROR] [1786012399.422318615] [controller_server]: Failed to make progress
+[INFO] [1786012399.422693913] [controller_server]: Optimizer reset
+[WARN] [1786012399.422727265] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012399.441546294] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012404.742391192] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012406.084990201] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012406.142687276] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012406.142792055] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012406.143724838] [controller_server]: Optimizer reset
+[INFO] [1786012410.420496839] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012419.394667975] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012425.728726172] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012431.769091151] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012436.741398994] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012437.942514914] [controller_server]: Passing new path to controller.
+[INFO] [1786012439.042495782] [controller_server]: Passing new path to controller.
+[ERROR] [1786012439.842679955] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786012439.843087327] [controller_server]: Optimizer reset
+[WARN] [1786012439.843138846] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012442.297430676] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012444.429774283] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012444.497743599] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012444.497820340] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012444.498270287] [controller_server]: Optimizer reset
+[INFO] [1786012447.857338251] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1786012449.357932754] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786012449.365600685] [controller_server]: Optimizer reset
+[WARN] [1786012449.365699852] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012452.731632242] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012458.141546385] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012462.654656030] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012463.756534297] [controller_server]: Passing new path to controller.
+[INFO] [1786012464.856538424] [controller_server]: Passing new path to controller.
+[INFO] [1786012465.956538737] [controller_server]: Passing new path to controller.
+[INFO] [1786012468.040896692] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012468.056729167] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012468.056821723] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012468.057426782] [controller_server]: Optimizer reset
+[INFO] [1786012474.691682806] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012480.513159941] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012486.095788269] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012487.196179120] [controller_server]: Passing new path to controller.
+[ERROR] [1786012487.996377978] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786012487.996777999] [controller_server]: Optimizer reset
+[WARN] [1786012487.996823221] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012490.455103944] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012491.555531943] [controller_server]: Passing new path to controller.
+[INFO] [1786012492.655461941] [controller_server]: Passing new path to controller.
+[INFO] [1786012493.755471790] [controller_server]: Passing new path to controller.
+[INFO] [1786012494.855438695] [controller_server]: Passing new path to controller.
+[INFO] [1786012495.955450007] [controller_server]: Passing new path to controller.
+[ERROR] [1786012496.255649353] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786012496.256027947] [controller_server]: Optimizer reset
+[WARN] [1786012496.256082188] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012499.386118140] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012503.746110356] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012508.347686281] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012510.448226269] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012510.448299584] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012510.448705994] [controller_server]: Optimizer reset
+[INFO] [1786012510.452035494] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012516.066901054] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012517.267413082] [controller_server]: Passing new path to controller.
+[INFO] [1786012518.367471673] [controller_server]: Passing new path to controller.
+[INFO] [1786012519.567456754] [controller_server]: Passing new path to controller.
+[INFO] [1786012520.667288603] [controller_server]: Passing new path to controller.
+[INFO] [1786012521.767281656] [controller_server]: Passing new path to controller.
+[INFO] [1786012522.867248616] [controller_server]: Passing new path to controller.
+[INFO] [1786012524.067278420] [controller_server]: Passing new path to controller.
+[INFO] [1786012525.167322732] [controller_server]: Passing new path to controller.
+[INFO] [1786012526.267297915] [controller_server]: Passing new path to controller.
+[INFO] [1786012527.367287764] [controller_server]: Passing new path to controller.
+[INFO] [1786012528.467357058] [controller_server]: Passing new path to controller.
+[INFO] [1786012529.568116893] [controller_server]: Passing new path to controller.
+[INFO] [1786012530.667313034] [controller_server]: Passing new path to controller.
+[INFO] [1786012531.867310634] [controller_server]: Passing new path to controller.
+[INFO] [1786012533.170005963] [controller_server]: Passing new path to controller.
+[INFO] [1786012534.267313612] [controller_server]: Passing new path to controller.
+[INFO] [1786012535.367286369] [controller_server]: Passing new path to controller.
+[INFO] [1786012536.367276375] [controller_server]: Passing new path to controller.
+[INFO] [1786012537.467305169] [controller_server]: Passing new path to controller.
+[INFO] [1786012539.407410538] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012539.467294884] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012539.467373348] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012539.467843424] [controller_server]: Optimizer reset
+[INFO] [1786012545.609442717] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012546.709960662] [controller_server]: Passing new path to controller.
+[INFO] [1786012547.810133660] [controller_server]: Passing new path to controller.
+[INFO] [1786012549.409303332] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012549.410009003] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012549.410131837] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012549.410706284] [controller_server]: Optimizer reset
+[INFO] [1786012555.307468627] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012556.507769006] [controller_server]: Passing new path to controller.
+[INFO] [1786012558.541796427] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012558.607754936] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012558.607819399] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012558.608464088] [controller_server]: Optimizer reset
+[INFO] [1786012562.164127182] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012564.364661106] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786012564.364796069] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786012564.365574240] [controller_server]: Optimizer reset
+[INFO] [1786012567.851876974] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012572.876496195] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786012574.077469356] [controller_server]: Passing new path to controller.
+[INFO] [1786012575.177898541] [controller_server]: Passing new path to controller.
+[INFO] [1786012576.177463600] [controller_server]: Passing new path to controller.
+[INFO] [1786012577.377465107] [controller_server]: Passing new path to controller.
+[INFO] [1786012578.477481290] [controller_server]: Passing new path to controller.
+[INFO] [1786012579.578032494] [controller_server]: Passing new path to controller.
+[INFO] [1786012580.677461600] [controller_server]: Passing new path to controller.
+[INFO] [1786012581.777479171] [controller_server]: Passing new path to controller.
+[INFO] [1786012582.877457650] [controller_server]: Passing new path to controller.
+[INFO] [1786012583.977411610] [controller_server]: Passing new path to controller.
+[INFO] [1786012585.077457923] [controller_server]: Passing new path to controller.
+[INFO] [1786012586.177457920] [controller_server]: Passing new path to controller.
+[ERROR] [1786012586.577541145] [controller_server]: Failed to make progress
+[INFO] [1786012586.577921185] [controller_server]: Optimizer reset
+[WARN] [1786012586.577968463] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786012586.590443235] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786012586.591669556] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786012586.774475482] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.4769 Hz.
+[INFO] [1786012587.274628921] [controller_server]: Passing new path to controller.
+[INFO] [1786012588.374631492] [controller_server]: Passing new path to controller.
+[INFO] [1786012589.474631082] [controller_server]: Passing new path to controller.
+[INFO] [1786012590.574645302] [controller_server]: Passing new path to controller.
+[INFO] [1786012591.574630364] [controller_server]: Passing new path to controller.
+[INFO] [1786012592.674652750] [controller_server]: Passing new path to controller.
+[ERROR] [1786012592.774747261] [controller_server]: Failed to make progress

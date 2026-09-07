@@ -1,0 +1,28 @@
+[INFO] [1784068154.521682013] [amcl]: 
+	amcl lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784068154.523873155] [amcl]: Creating
+[INFO] [1784068154.638527042] [amcl]: Configuring
+[INFO] [1784068154.639764197] [amcl]: initTransforms
+[INFO] [1784068154.660159534] [amcl]: initPubSub
+[INFO] [1784068154.683093997] [amcl]: Subscribed to map topic.
+[INFO] [1784068154.701976122] [amcl]: Received a 514 X 677 map @ 0.050 m/pix
+[INFO] [1784068154.824240589] [amcl]: Activating
+[INFO] [1784068154.824309830] [amcl]: Creating bond (amcl) to lifecycle manager.
+[INFO] [1784068154.882936920] [amcl]: createLaserObject
+[WARN] [1784068156.679771031] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[INFO] [1784068156.696379384] [amcl]: Message Filter dropping message: frame 'laser' at time 1784068154.583 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[WARN] [1784068158.779543906] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[WARN] [1784068160.876834989] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[WARN] [1784068162.976006917] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[WARN] [1784068165.073314537] [amcl]: AMCL cannot publish a pose or update the transform. Please set the initial pose...
+[INFO] [1784068165.528982939] [amcl]: initialPoseReceived
+[WARN] [1784068165.529148218] [amcl]: Failed to transform initial pose in time (Lookup would require extrapolation into the future.  Requested time 1784068165.529057 but the latest data is at time 1784068165.504215, when looking up transform from frame [base_footprint] to frame [odom])
+[INFO] [1784068165.529182181] [amcl]: Setting pose (1784068165.529180): -18.800 -44.444 1.698
+[INFO] [1784068791.500697985] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784068791.500865653] [amcl]: Running Nav2 LifecycleNode rcl preshutdown (amcl)
+[INFO] [1784068791.501009431] [amcl]: Deactivating
+[INFO] [1784068791.501082839] [amcl]: Destroying bond (amcl) to lifecycle manager.
+[INFO] [1784068791.530485116] [amcl]: Cleaning up
+[INFO] [1784068791.667239905] [amcl]: Destroying bond (amcl) to lifecycle manager.

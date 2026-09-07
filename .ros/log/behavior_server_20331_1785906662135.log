@@ -1,0 +1,43 @@
+[INFO] [1785906664.127310067] [behavior_server]: 
+	behavior_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785906667.766852045] [behavior_server]: Configuring
+[INFO] [1785906667.793277963] [behavior_server]: Creating behavior plugin spin of type nav2_behaviors::Spin
+[INFO] [1785906667.797326413] [behavior_server]: Creating behavior plugin backup of type nav2_behaviors::BackUp
+[INFO] [1785906667.801261029] [behavior_server]: Creating behavior plugin drive_on_heading of type nav2_behaviors::DriveOnHeading
+[INFO] [1785906667.804138491] [behavior_server]: Creating behavior plugin assisted_teleop of type nav2_behaviors::AssistedTeleop
+[INFO] [1785906667.809345485] [behavior_server]: Creating behavior plugin wait of type nav2_behaviors::Wait
+[INFO] [1785906667.835469586] [behavior_server]: Configuring spin
+[INFO] [1785906667.883241465] [behavior_server]: Configuring backup
+[INFO] [1785906667.920876579] [behavior_server]: Configuring drive_on_heading
+[INFO] [1785906667.957893172] [behavior_server]: Configuring assisted_teleop
+[INFO] [1785906668.009181257] [behavior_server]: Configuring wait
+[INFO] [1785906673.087464857] [behavior_server]: Activating
+[INFO] [1785906673.087513617] [behavior_server]: Activating spin
+[INFO] [1785906673.087538487] [behavior_server]: Activating backup
+[INFO] [1785906673.087556709] [behavior_server]: Activating drive_on_heading
+[INFO] [1785906673.087578006] [behavior_server]: Activating assisted_teleop
+[INFO] [1785906673.087596376] [behavior_server]: Activating wait
+[INFO] [1785906673.087623043] [behavior_server]: Creating bond (behavior_server) to lifecycle manager.
+[INFO] [1785907005.213128137] [behavior_server]: Running backup
+[WARN] [1785907006.814988496] [behavior_server]: Collision Ahead - Exiting DriveOnHeading
+[WARN] [1785907006.815631259] [behavior_server]: backup failed
+[WARN] [1785907006.815672518] [behavior_server]: [backup] [ActionServer] Aborting handle.
+[INFO] [1785907006.839935682] [behavior_server]: Running spin
+[INFO] [1785907006.840070942] [behavior_server]: Turning 1.57 for spin behavior.
+[WARN] [1785907009.240401568] [behavior_server]: Collision Ahead - Exiting Spin
+[WARN] [1785907009.240470568] [behavior_server]: spin failed
+[WARN] [1785907009.240506291] [behavior_server]: [spin] [ActionServer] Aborting handle.
+[INFO] [1785907009.259548998] [behavior_server]: Running wait
+[INFO] [1785907011.990533549] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1785907011.990671476] [behavior_server]: Running Nav2 LifecycleNode rcl preshutdown (behavior_server)
+[INFO] [1785907011.990804143] [behavior_server]: Deactivating
+[WARN] [1785907011.990877125] [behavior_server]: [wait] [ActionServer] Requested to deactivate server but goal is still executing. Should check if action server is running before deactivating.
+[INFO] [1785907012.062204219] [behavior_server]: Canceling wait
+[WARN] [1785907012.062332535] [LifecyclePublisher]: Trying to publish message on the topic '/cmd_vel_nav', but the publisher is not activated
+[INFO] [1785907012.062349943] [behavior_server]: [wait] [ActionServer] Client requested to cancel the goal. Cancelling.
+[WARN] [1785907012.062643796] [behavior_server]: [wait] [ActionServer] Stopping the thread per request.
+[INFO] [1785907012.080152457] [behavior_server]: Destroying bond (behavior_server) to lifecycle manager.
+[INFO] [1785907012.163497197] [behavior_server]: Cleaning up
+[INFO] [1785907012.324666515] [behavior_server]: Destroying bond (behavior_server) to lifecycle manager.

@@ -1,0 +1,22 @@
+[INFO] [1786084838.672629025] [collision_monitor]: 
+	collision_monitor lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786084840.951996872] [collision_monitor]: Configuring
+[INFO] [1786084840.981131803] [collision_monitor]: [scan]: Creating Scan
+[INFO] [1786084840.993787722] [collision_monitor]: [FootprintApproach]: Creating Polygon
+[INFO] [1786084840.996392865] [collision_monitor]: [FootprintApproach]: Polygon points are not defined. Using dynamic subscription instead.
+[INFO] [1786084841.006209917] [collision_monitor]: [FootprintApproach]: Making footprint subscriber on /local_costmap/published_footprint topic
+[INFO] [1786084852.685801974] [collision_monitor]: Activating
+[INFO] [1786084852.685878807] [collision_monitor]: Creating bond (collision_monitor) to lifecycle manager.
+[WARN] [1786085401.313537333] [collision_monitor]: [scan]: Latest source and current collision monitor node timestamps differ on 1.044552 seconds. Ignoring the source.
+[WARN] [1786085401.313668630] [collision_monitor]: Robot to stop due to invalid source. Either due to data not published yet, or to lack of new data received within the sensor timeout, or if impossible to transform data to base frame
+[INFO] [1786085401.404812111] [collision_monitor]: Robot to continue normal operation
+[INFO] [1786085798.141536407] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786085798.141654038] [collision_monitor]: Running Nav2 LifecycleNode rcl preshutdown (collision_monitor)
+[INFO] [1786085798.141768020] [collision_monitor]: Deactivating
+[INFO] [1786085798.141802557] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.
+[INFO] [1786085798.152543882] [collision_monitor]: Cleaning up
+[INFO] [1786085798.152628642] [collision_monitor]: [FootprintApproach]: Destroying Polygon
+[INFO] [1786085798.153260053] [collision_monitor]: [scan]: Destroying Scan
+[INFO] [1786085798.193133743] [collision_monitor]: Destroying bond (collision_monitor) to lifecycle manager.

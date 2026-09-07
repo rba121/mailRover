@@ -1,0 +1,366 @@
+[INFO] [1783991547.021820714] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1783991547.033029444] [controller_server]: Creating controller server
+[INFO] [1783991547.148219413] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1783991547.149868570] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1783991549.062949299] [controller_server]: Configuring controller interface
+[INFO] [1783991549.063854304] [controller_server]: getting progress checker plugins..
+[INFO] [1783991549.066902914] [controller_server]: getting goal checker plugins..
+[INFO] [1783991549.068701998] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1783991549.068853480] [local_costmap.local_costmap]: Configuring
+[INFO] [1783991549.116380250] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1783991549.131556818] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1783991549.202302034] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1783991549.202391034] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1783991549.208365217] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1783991549.306965202] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1783991549.313861352] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1783991549.318412934] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1783991549.321093467] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1783991549.326968408] [controller_server]: Created controller : FollowPath of type nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1783991549.372450666] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1783991551.646726852] [controller_server]: Activating
+[INFO] [1783991551.646795945] [local_costmap.local_costmap]: Activating
+[INFO] [1783991551.646821834] [local_costmap.local_costmap]: Checking transform
+[INFO] [1783991551.647057391] [local_costmap.local_costmap]: start
+[INFO] [1783991551.855052313] [controller_server]: Activating controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1783991551.855150239] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1783991582.764596284] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991582.764745544] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1783991582.764775378] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1783991583.864957604] [controller_server]: Passing new path to controller.
+[INFO] [1783991584.864979650] [controller_server]: Passing new path to controller.
+[INFO] [1783991585.865176994] [controller_server]: Passing new path to controller.
+[INFO] [1783991586.965339442] [controller_server]: Passing new path to controller.
+[WARN] [1783991587.866156777] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1783991587.965080523] [controller_server]: Passing new path to controller.
+[WARN] [1783991587.967427740] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991588.065998781] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991588.066154949] [controller_server]: Controller patience exceeded
+[WARN] [1783991588.066387487] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991588.083329620] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991588.086877252] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991588.257605387] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991588.257884463] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.8523 Hz.
+[WARN] [1783991588.258612282] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991588.458601195] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991588.558723800] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991588.658769497] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991588.658866387] [controller_server]: Controller patience exceeded
+[WARN] [1783991588.658982573] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991588.673881176] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991590.155053212] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991591.255286438] [controller_server]: Passing new path to controller.
+[INFO] [1783991592.255579690] [controller_server]: Passing new path to controller.
+[INFO] [1783991593.255713477] [controller_server]: Passing new path to controller.
+[WARN] [1783991593.656746161] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991593.756840766] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991593.856167089] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991593.856275960] [controller_server]: Controller patience exceeded
+[WARN] [1783991593.856588406] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991593.873859060] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991593.875139160] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991594.056402077] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.5207 Hz.
+[INFO] [1783991594.356564726] [controller_server]: Passing new path to controller.
+[INFO] [1783991595.356566735] [controller_server]: Passing new path to controller.
+[INFO] [1783991596.356567707] [controller_server]: Passing new path to controller.
+[INFO] [1783991597.356535123] [controller_server]: Passing new path to controller.
+[WARN] [1783991597.557060687] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991597.657240089] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991597.757090934] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991597.757191230] [controller_server]: Controller patience exceeded
+[WARN] [1783991597.757339620] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991604.233504303] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991605.333733511] [controller_server]: Passing new path to controller.
+[INFO] [1783991606.333734446] [controller_server]: Passing new path to controller.
+[INFO] [1783991607.333700566] [controller_server]: Passing new path to controller.
+[INFO] [1783991608.433737143] [controller_server]: Passing new path to controller.
+[INFO] [1783991609.433733263] [controller_server]: Passing new path to controller.
+[WARN] [1783991610.134187479] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991610.334280337] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1783991610.433732735] [controller_server]: Passing new path to controller.
+[WARN] [1783991610.434569499] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991610.534688919] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991610.534796808] [controller_server]: Controller patience exceeded
+[WARN] [1783991610.534998717] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991610.554927219] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991610.559920914] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991610.650930912] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991610.660935117] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991610.761146278] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991610.862104259] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991610.862220908] [controller_server]: Controller patience exceeded
+[WARN] [1783991610.862388742] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991610.893096805] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991612.143696792] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991613.243912759] [controller_server]: Passing new path to controller.
+[WARN] [1783991613.345601614] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991613.445030141] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991613.547007998] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991613.547160906] [controller_server]: Controller patience exceeded
+[WARN] [1783991613.547526704] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991613.563516758] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991613.565496788] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991613.656913251] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991613.667201902] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991613.766593522] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991613.866192476] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991613.866274013] [controller_server]: Controller patience exceeded
+[WARN] [1783991613.866428107] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991619.643541230] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991619.644343197] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991619.744734934] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991619.844283628] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991619.945002552] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991619.946288392] [controller_server]: Controller patience exceeded
+[WARN] [1783991619.947092804] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991619.963201007] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991619.964679182] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991620.056165053] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991620.065396809] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991620.165450284] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991620.265381796] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991620.265465371] [controller_server]: Controller patience exceeded
+[WARN] [1783991620.265621668] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991620.903446547] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991622.143448400] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991622.144768093] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991622.244251046] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991622.344247928] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991622.445880431] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991622.446010858] [controller_server]: Controller patience exceeded
+[WARN] [1783991622.446139859] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991622.463791292] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991622.467045366] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991622.657772467] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991622.658010339] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2403 Hz.
+[WARN] [1783991622.658528064] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991622.760183937] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991622.858696589] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991622.858811201] [controller_server]: Controller patience exceeded
+[WARN] [1783991622.858953591] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991629.924642434] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991631.025376793] [controller_server]: Passing new path to controller.
+[INFO] [1783991632.025232783] [controller_server]: Passing new path to controller.
+[INFO] [1783991633.024868530] [controller_server]: Passing new path to controller.
+[INFO] [1783991634.125337295] [controller_server]: Passing new path to controller.
+[INFO] [1783991635.125395230] [controller_server]: Passing new path to controller.
+[WARN] [1783991635.725403154] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991635.925901459] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991636.026638234] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1783991636.124863607] [controller_server]: Passing new path to controller.
+[WARN] [1783991636.127640696] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991636.127752790] [controller_server]: Controller patience exceeded
+[WARN] [1783991636.127937217] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991636.154244607] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991636.157917257] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991636.260427506] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991636.262106367] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.6066 Hz.
+[WARN] [1783991636.262815519] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991636.365906678] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991636.463412121] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991636.464066180] [controller_server]: Controller patience exceeded
+[WARN] [1783991636.464550127] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991649.043038316] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991650.143759545] [controller_server]: Passing new path to controller.
+[INFO] [1783991651.143764146] [controller_server]: Passing new path to controller.
+[INFO] [1783991652.143764118] [controller_server]: Passing new path to controller.
+[INFO] [1783991653.243761473] [controller_server]: Passing new path to controller.
+[INFO] [1783991654.243765315] [controller_server]: Passing new path to controller.
+[INFO] [1783991655.243765232] [controller_server]: Passing new path to controller.
+[INFO] [1783991656.243762704] [controller_server]: Passing new path to controller.
+[INFO] [1783991657.343843096] [controller_server]: Passing new path to controller.
+[INFO] [1783991658.343767678] [controller_server]: Passing new path to controller.
+[INFO] [1783991659.343758317] [controller_server]: Passing new path to controller.
+[INFO] [1783991660.343759697] [controller_server]: Passing new path to controller.
+[INFO] [1783991661.443814107] [controller_server]: Passing new path to controller.
+[INFO] [1783991662.443760523] [controller_server]: Passing new path to controller.
+[INFO] [1783991663.443764810] [controller_server]: Passing new path to controller.
+[INFO] [1783991664.543759609] [controller_server]: Passing new path to controller.
+[INFO] [1783991665.543800470] [controller_server]: Passing new path to controller.
+[INFO] [1783991666.543767331] [controller_server]: Passing new path to controller.
+[INFO] [1783991667.643764889] [controller_server]: Passing new path to controller.
+[INFO] [1783991668.643764453] [controller_server]: Passing new path to controller.
+[INFO] [1783991669.643764277] [controller_server]: Passing new path to controller.
+[INFO] [1783991670.743759910] [controller_server]: Passing new path to controller.
+[INFO] [1783991671.743790530] [controller_server]: Passing new path to controller.
+[INFO] [1783991672.743768391] [controller_server]: Passing new path to controller.
+[INFO] [1783991673.743771492] [controller_server]: Passing new path to controller.
+[INFO] [1783991674.843792403] [controller_server]: Passing new path to controller.
+[INFO] [1783991675.843766874] [controller_server]: Passing new path to controller.
+[INFO] [1783991676.843805421] [controller_server]: Passing new path to controller.
+[INFO] [1783991677.943800164] [controller_server]: Passing new path to controller.
+[INFO] [1783991678.944723234] [controller_server]: Passing new path to controller.
+[INFO] [1783991679.943963183] [controller_server]: Passing new path to controller.
+[INFO] [1783991680.945460534] [controller_server]: Passing new path to controller.
+[INFO] [1783991682.043761064] [controller_server]: Passing new path to controller.
+[INFO] [1783991683.045294526] [controller_server]: Passing new path to controller.
+[INFO] [1783991684.046560098] [controller_server]: Passing new path to controller.
+[INFO] [1783991685.143791622] [controller_server]: Passing new path to controller.
+[INFO] [1783991686.143781742] [controller_server]: Passing new path to controller.
+[INFO] [1783991687.243760356] [controller_server]: Passing new path to controller.
+[INFO] [1783991688.243761791] [controller_server]: Passing new path to controller.
+[INFO] [1783991689.343752275] [controller_server]: Passing new path to controller.
+[INFO] [1783991690.343765339] [controller_server]: Passing new path to controller.
+[WARN] [1783991691.244603563] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991691.344226333] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991691.445635538] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991691.445735742] [controller_server]: Controller patience exceeded
+[WARN] [1783991691.445871150] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991691.466307470] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991691.468819243] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1783991691.469239894] [controller_server]: Path is empty.
+[WARN] [1783991691.469747378] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991722.345747938] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991723.445954904] [controller_server]: Passing new path to controller.
+[INFO] [1783991724.445954080] [controller_server]: Passing new path to controller.
+[INFO] [1783991725.445962015] [controller_server]: Passing new path to controller.
+[WARN] [1783991725.846549918] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991725.946619134] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991726.046874129] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991726.047166150] [controller_server]: Controller patience exceeded
+[WARN] [1783991726.047360891] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991726.065300753] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991726.066737242] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991726.257593992] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2433 Hz.
+[INFO] [1783991726.457755647] [controller_server]: Passing new path to controller.
+[INFO] [1783991727.557755409] [controller_server]: Passing new path to controller.
+[INFO] [1783991728.557755584] [controller_server]: Passing new path to controller.
+[INFO] [1783991729.557756186] [controller_server]: Passing new path to controller.
+[INFO] [1783991730.557730806] [controller_server]: Passing new path to controller.
+[WARN] [1783991730.858325938] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991730.959077232] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991731.058240276] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991731.058464111] [controller_server]: Controller patience exceeded
+[WARN] [1783991731.058721316] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991731.075077039] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991732.146377249] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991732.147893109] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991732.247090783] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991732.347160166] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991732.447136715] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991732.447230604] [controller_server]: Controller patience exceeded
+[WARN] [1783991732.447363716] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991732.465347207] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991732.466268898] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991732.657036832] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2452 Hz.
+[INFO] [1783991733.257198498] [controller_server]: Passing new path to controller.
+[INFO] [1783991734.257262396] [controller_server]: Passing new path to controller.
+[INFO] [1783991735.257204868] [controller_server]: Passing new path to controller.
+[WARN] [1783991736.157725331] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1783991736.257226340] [controller_server]: Passing new path to controller.
+[WARN] [1783991736.258065345] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991736.357761614] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991736.357859911] [controller_server]: Controller patience exceeded
+[WARN] [1783991736.358056468] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991742.135127313] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991743.235305909] [controller_server]: Passing new path to controller.
+[INFO] [1783991744.235300325] [controller_server]: Passing new path to controller.
+[INFO] [1783991745.235346742] [controller_server]: Passing new path to controller.
+[WARN] [1783991745.735872972] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991745.835901243] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991745.935910478] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991745.936024793] [controller_server]: Controller patience exceeded
+[WARN] [1783991745.936285443] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991745.956327927] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991745.957476081] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991746.058187857] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991746.058537785] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.9046 Hz.
+[WARN] [1783991746.059826199] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1783991746.258796162] [controller_server]: Passing new path to controller.
+[INFO] [1783991747.358994036] [controller_server]: Passing new path to controller.
+[INFO] [1783991748.359028342] [controller_server]: Passing new path to controller.
+[INFO] [1783991749.359714799] [controller_server]: Passing new path to controller.
+[WARN] [1783991749.659238795] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991749.759512124] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991749.859959509] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991749.860064232] [controller_server]: Controller patience exceeded
+[WARN] [1783991749.860465178] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991749.895564063] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991750.146145763] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991751.246358618] [controller_server]: Passing new path to controller.
+[INFO] [1783991752.246355924] [controller_server]: Passing new path to controller.
+[INFO] [1783991753.246356081] [controller_server]: Passing new path to controller.
+[WARN] [1783991753.646890614] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991753.747022330] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991753.846957638] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991753.847063324] [controller_server]: Controller patience exceeded
+[WARN] [1783991753.847234788] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991753.866056450] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991753.867621255] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991754.059192583] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.2246 Hz.
+[INFO] [1783991754.359905975] [controller_server]: Passing new path to controller.
+[INFO] [1783991755.359947373] [controller_server]: Passing new path to controller.
+[INFO] [1783991756.359946660] [controller_server]: Passing new path to controller.
+[INFO] [1783991757.359977892] [controller_server]: Passing new path to controller.
+[WARN] [1783991757.562283318] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991757.661332491] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991757.761144780] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991757.761284744] [controller_server]: Controller patience exceeded
+[WARN] [1783991757.761476726] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991763.535120014] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991764.635349185] [controller_server]: Passing new path to controller.
+[INFO] [1783991765.635351750] [controller_server]: Passing new path to controller.
+[INFO] [1783991766.635368518] [controller_server]: Passing new path to controller.
+[WARN] [1783991767.635904938] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1783991767.735353391] [controller_server]: Passing new path to controller.
+[WARN] [1783991767.736235674] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991767.835914554] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991767.836025129] [controller_server]: Controller patience exceeded
+[WARN] [1783991767.836166074] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991767.857978717] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991767.861916165] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991768.054896779] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.1860 Hz.
+[INFO] [1783991768.756127870] [controller_server]: Passing new path to controller.
+[WARN] [1783991768.758667255] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991768.857935855] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991768.955668854] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991769.058720569] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991769.060057447] [controller_server]: Controller patience exceeded
+[WARN] [1783991769.061251009] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991769.087039359] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991770.146800318] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1783991770.149977077] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991770.248025023] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1783991771.247014859] [controller_server]: Passing new path to controller.
+[INFO] [1783991773.449181969] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1783991773.449257359] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1783991778.397618592] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1783991779.497818133] [controller_server]: Passing new path to controller.
+[INFO] [1783991780.497805864] [controller_server]: Passing new path to controller.
+[INFO] [1783991781.497865152] [controller_server]: Passing new path to controller.
+[INFO] [1783991782.597858654] [controller_server]: Passing new path to controller.
+[INFO] [1783991783.598294999] [controller_server]: Passing new path to controller.
+[INFO] [1783991784.598366620] [controller_server]: Passing new path to controller.
+[INFO] [1783991785.697879434] [controller_server]: Passing new path to controller.
+[WARN] [1783991786.299425404] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991786.498800221] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[WARN] [1783991786.598391879] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[INFO] [1783991786.697852295] [controller_server]: Passing new path to controller.
+[INFO] [1783991787.697834600] [controller_server]: Passing new path to controller.
+[INFO] [1783991788.697798220] [controller_server]: Passing new path to controller.
+[INFO] [1783991789.797866668] [controller_server]: Passing new path to controller.
+[INFO] [1783991790.797841214] [controller_server]: Passing new path to controller.
+[INFO] [1783991791.797849964] [controller_server]: Passing new path to controller.
+[WARN] [1783991792.999131078] [controller_server]: RegulatedPurePursuitController detected collision ahead!
+[ERROR] [1783991793.398180195] [controller_server]: Failed to make progress
+[WARN] [1783991793.398386752] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783991793.416435798] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1783991793.417455045] [controller_server]: Received a goal, begin computing control effort.
+[ERROR] [1783991793.417595675] [controller_server]: Path is empty.
+[WARN] [1783991793.417744491] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1783992406.447836394] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1783992406.447935783] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1783992406.448076062] [controller_server]: Deactivating
+[INFO] [1783992406.448112155] [controller_server]: Deactivating controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1783992406.448156396] [local_costmap.local_costmap]: Deactivating
+[INFO] [1783992406.650760366] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1783992406.665855579] [controller_server]: Cleaning up
+[INFO] [1783992406.665931653] [controller_server]: Cleaning up controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1783992406.667139437] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1783992407.328407235] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

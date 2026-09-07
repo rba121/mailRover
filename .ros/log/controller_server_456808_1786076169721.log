@@ -1,0 +1,596 @@
+[INFO] [1786076170.332033625] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786076170.351277711] [controller_server]: Creating controller server
+[INFO] [1786076170.954305237] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786076170.965133389] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1786076171.220515002] [controller_server]: Configuring controller interface
+[INFO] [1786076171.220585447] [controller_server]: getting progress checker plugins..
+[INFO] [1786076171.229943757] [controller_server]: getting goal checker plugins..
+[INFO] [1786076171.231594155] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1786076171.231739600] [local_costmap.local_costmap]: Configuring
+[INFO] [1786076171.293169972] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1786076171.306837917] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1786076171.360389227] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1786076171.360447561] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1786076171.364386286] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786076171.438434689] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1786076171.441462150] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1786076171.445762137] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1786076171.449762418] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1786076171.453356030] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1786076171.463044305] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1786076171.467033197] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1786076171.467131049] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1786076171.470184325] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1786076171.470254566] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1786076171.470286659] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1786076171.472497042] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1786076171.472617431] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1786076171.475548447] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1786076171.475620985] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1786076171.480805420] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1786076171.480883180] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1786076171.485984411] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1786076171.490428917] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1786076171.490546547] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1786076171.493603675] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1786076171.493751324] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1786076171.495051165] [controller_server]: Optimizer reset
+[INFO] [1786076171.513830822] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1786076171.513888100] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1786076173.432226089] [controller_server]: Activating
+[INFO] [1786076173.432286070] [local_costmap.local_costmap]: Activating
+[INFO] [1786076173.432303274] [local_costmap.local_costmap]: Checking transform
+[INFO] [1786076173.432543164] [local_costmap.local_costmap]: start
+[WARN] [1786076173.637477059] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1786076173.637768671] [controller_server]: Optimizer reset
+[INFO] [1786076173.639268439] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1786076173.639397088] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1786076221.065380498] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786076221.065491499] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1786076221.065642629] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1786076222.166042050] [controller_server]: Passing new path to controller.
+[INFO] [1786076223.266041321] [controller_server]: Passing new path to controller.
+[INFO] [1786076224.366047684] [controller_server]: Passing new path to controller.
+[INFO] [1786076225.466039491] [controller_server]: Passing new path to controller.
+[INFO] [1786076226.566043947] [controller_server]: Passing new path to controller.
+[INFO] [1786076227.566246377] [controller_server]: Passing new path to controller.
+[INFO] [1786076228.666040999] [controller_server]: Passing new path to controller.
+[INFO] [1786076229.766061473] [controller_server]: Passing new path to controller.
+[INFO] [1786076230.866044558] [controller_server]: Passing new path to controller.
+[INFO] [1786076231.966040106] [controller_server]: Passing new path to controller.
+[INFO] [1786076232.966039943] [controller_server]: Passing new path to controller.
+[INFO] [1786076234.066043547] [controller_server]: Passing new path to controller.
+[INFO] [1786076235.166046836] [controller_server]: Passing new path to controller.
+[INFO] [1786076236.266041959] [controller_server]: Passing new path to controller.
+[INFO] [1786076237.366042544] [controller_server]: Passing new path to controller.
+[INFO] [1786076238.366040158] [controller_server]: Passing new path to controller.
+[INFO] [1786076239.466040281] [controller_server]: Passing new path to controller.
+[INFO] [1786076240.566045440] [controller_server]: Passing new path to controller.
+[INFO] [1786076241.666068359] [controller_server]: Passing new path to controller.
+[INFO] [1786076242.666039399] [controller_server]: Passing new path to controller.
+[INFO] [1786076243.766039466] [controller_server]: Passing new path to controller.
+[INFO] [1786076244.866042922] [controller_server]: Passing new path to controller.
+[INFO] [1786076245.966043026] [controller_server]: Passing new path to controller.
+[INFO] [1786076247.066041167] [controller_server]: Passing new path to controller.
+[INFO] [1786076248.066042800] [controller_server]: Passing new path to controller.
+[INFO] [1786076249.166041848] [controller_server]: Passing new path to controller.
+[INFO] [1786076250.266044433] [controller_server]: Passing new path to controller.
+[INFO] [1786076251.366040556] [controller_server]: Passing new path to controller.
+[INFO] [1786076252.366040430] [controller_server]: Passing new path to controller.
+[INFO] [1786076253.466043348] [controller_server]: Passing new path to controller.
+[INFO] [1786076254.566039619] [controller_server]: Passing new path to controller.
+[INFO] [1786076255.666043315] [controller_server]: Passing new path to controller.
+[INFO] [1786076256.766016086] [controller_server]: Passing new path to controller.
+[INFO] [1786076257.766039256] [controller_server]: Passing new path to controller.
+[INFO] [1786076258.866040841] [controller_server]: Passing new path to controller.
+[INFO] [1786076259.966041649] [controller_server]: Passing new path to controller.
+[INFO] [1786076261.066047141] [controller_server]: Passing new path to controller.
+[INFO] [1786076262.166073060] [controller_server]: Passing new path to controller.
+[INFO] [1786076263.166047064] [controller_server]: Passing new path to controller.
+[INFO] [1786076264.266075001] [controller_server]: Passing new path to controller.
+[INFO] [1786076265.366553774] [controller_server]: Passing new path to controller.
+[INFO] [1786076266.466336043] [controller_server]: Passing new path to controller.
+[INFO] [1786076267.466109601] [controller_server]: Passing new path to controller.
+[INFO] [1786076268.566067223] [controller_server]: Passing new path to controller.
+[INFO] [1786076269.666042179] [controller_server]: Passing new path to controller.
+[INFO] [1786076270.766038838] [controller_server]: Passing new path to controller.
+[INFO] [1786076271.866041183] [controller_server]: Passing new path to controller.
+[INFO] [1786076272.866038890] [controller_server]: Passing new path to controller.
+[INFO] [1786076273.966052568] [controller_server]: Passing new path to controller.
+[INFO] [1786076275.066042320] [controller_server]: Passing new path to controller.
+[INFO] [1786076276.166037813] [controller_server]: Passing new path to controller.
+[INFO] [1786076277.166044242] [controller_server]: Passing new path to controller.
+[INFO] [1786076278.266041957] [controller_server]: Passing new path to controller.
+[INFO] [1786076279.366040042] [controller_server]: Passing new path to controller.
+[INFO] [1786076280.466041313] [controller_server]: Passing new path to controller.
+[INFO] [1786076281.466038946] [controller_server]: Passing new path to controller.
+[INFO] [1786076282.566036865] [controller_server]: Passing new path to controller.
+[INFO] [1786076283.666005431] [controller_server]: Passing new path to controller.
+[INFO] [1786076284.766037350] [controller_server]: Passing new path to controller.
+[INFO] [1786076285.866053287] [controller_server]: Passing new path to controller.
+[INFO] [1786076286.866038939] [controller_server]: Passing new path to controller.
+[INFO] [1786076287.966043358] [controller_server]: Passing new path to controller.
+[INFO] [1786076289.066046258] [controller_server]: Passing new path to controller.
+[INFO] [1786076290.166043806] [controller_server]: Passing new path to controller.
+[INFO] [1786076291.266035928] [controller_server]: Passing new path to controller.
+[INFO] [1786076292.266038265] [controller_server]: Passing new path to controller.
+[INFO] [1786076293.366041147] [controller_server]: Passing new path to controller.
+[INFO] [1786076294.466045547] [controller_server]: Passing new path to controller.
+[INFO] [1786076295.566040225] [controller_server]: Passing new path to controller.
+[INFO] [1786076296.666279108] [controller_server]: Passing new path to controller.
+[INFO] [1786076297.666049203] [controller_server]: Passing new path to controller.
+[INFO] [1786076298.766068529] [controller_server]: Passing new path to controller.
+[INFO] [1786076299.866078633] [controller_server]: Passing new path to controller.
+[INFO] [1786076300.966041718] [controller_server]: Passing new path to controller.
+[INFO] [1786076302.066041822] [controller_server]: Passing new path to controller.
+[INFO] [1786076303.066040973] [controller_server]: Passing new path to controller.
+[INFO] [1786076304.166040188] [controller_server]: Passing new path to controller.
+[INFO] [1786076305.266010459] [controller_server]: Passing new path to controller.
+[INFO] [1786076306.266033536] [controller_server]: Passing new path to controller.
+[INFO] [1786076307.366176400] [controller_server]: Passing new path to controller.
+[INFO] [1786076308.466039355] [controller_server]: Passing new path to controller.
+[INFO] [1786076309.566039255] [controller_server]: Passing new path to controller.
+[INFO] [1786076310.666034729] [controller_server]: Passing new path to controller.
+[INFO] [1786076311.666039492] [controller_server]: Passing new path to controller.
+[INFO] [1786076312.766069300] [controller_server]: Passing new path to controller.
+[INFO] [1786076313.866047867] [controller_server]: Passing new path to controller.
+[INFO] [1786076314.966041359] [controller_server]: Passing new path to controller.
+[INFO] [1786076315.966047363] [controller_server]: Passing new path to controller.
+[INFO] [1786076317.066040189] [controller_server]: Passing new path to controller.
+[INFO] [1786076318.166043533] [controller_server]: Passing new path to controller.
+[INFO] [1786076319.266039304] [controller_server]: Passing new path to controller.
+[INFO] [1786076320.266035122] [controller_server]: Passing new path to controller.
+[INFO] [1786076321.366038133] [controller_server]: Passing new path to controller.
+[INFO] [1786076322.466052923] [controller_server]: Passing new path to controller.
+[INFO] [1786076323.566039452] [controller_server]: Passing new path to controller.
+[INFO] [1786076324.766039249] [controller_server]: Passing new path to controller.
+[INFO] [1786076325.866038983] [controller_server]: Passing new path to controller.
+[INFO] [1786076326.866039727] [controller_server]: Passing new path to controller.
+[INFO] [1786076327.966043942] [controller_server]: Passing new path to controller.
+[INFO] [1786076329.066053138] [controller_server]: Passing new path to controller.
+[INFO] [1786076330.166040390] [controller_server]: Passing new path to controller.
+[INFO] [1786076331.166046246] [controller_server]: Passing new path to controller.
+[INFO] [1786076332.266039386] [controller_server]: Passing new path to controller.
+[INFO] [1786076333.366047824] [controller_server]: Passing new path to controller.
+[INFO] [1786076334.466027538] [controller_server]: Passing new path to controller.
+[INFO] [1786076335.566047957] [controller_server]: Passing new path to controller.
+[INFO] [1786076336.566045498] [controller_server]: Passing new path to controller.
+[INFO] [1786076337.666039972] [controller_server]: Passing new path to controller.
+[INFO] [1786076338.766037131] [controller_server]: Passing new path to controller.
+[INFO] [1786076339.866010624] [controller_server]: Passing new path to controller.
+[INFO] [1786076340.866040794] [controller_server]: Passing new path to controller.
+[INFO] [1786076341.966038713] [controller_server]: Passing new path to controller.
+[INFO] [1786076343.066039983] [controller_server]: Passing new path to controller.
+[INFO] [1786076344.166044143] [controller_server]: Passing new path to controller.
+[INFO] [1786076345.166039072] [controller_server]: Passing new path to controller.
+[INFO] [1786076346.266037009] [controller_server]: Passing new path to controller.
+[INFO] [1786076347.366047187] [controller_server]: Passing new path to controller.
+[INFO] [1786076348.466042680] [controller_server]: Passing new path to controller.
+[INFO] [1786076349.466039758] [controller_server]: Passing new path to controller.
+[INFO] [1786076350.566037750] [controller_server]: Passing new path to controller.
+[INFO] [1786076351.666038891] [controller_server]: Passing new path to controller.
+[INFO] [1786076352.766039347] [controller_server]: Passing new path to controller.
+[INFO] [1786076353.766039480] [controller_server]: Passing new path to controller.
+[INFO] [1786076354.866046306] [controller_server]: Passing new path to controller.
+[INFO] [1786076355.966040762] [controller_server]: Passing new path to controller.
+[INFO] [1786076357.066043421] [controller_server]: Passing new path to controller.
+[INFO] [1786076358.066040906] [controller_server]: Passing new path to controller.
+[INFO] [1786076359.466045163] [controller_server]: Passing new path to controller.
+[INFO] [1786076360.566041952] [controller_server]: Passing new path to controller.
+[INFO] [1786076361.666049426] [controller_server]: Passing new path to controller.
+[INFO] [1786076362.766042030] [controller_server]: Passing new path to controller.
+[INFO] [1786076363.766043441] [controller_server]: Passing new path to controller.
+[INFO] [1786076364.866036563] [controller_server]: Passing new path to controller.
+[INFO] [1786076365.966071112] [controller_server]: Passing new path to controller.
+[INFO] [1786076367.066046419] [controller_server]: Passing new path to controller.
+[INFO] [1786076368.066072867] [controller_server]: Passing new path to controller.
+[INFO] [1786076369.166040656] [controller_server]: Passing new path to controller.
+[INFO] [1786076370.266040982] [controller_server]: Passing new path to controller.
+[INFO] [1786076371.366043604] [controller_server]: Passing new path to controller.
+[INFO] [1786076372.466083634] [controller_server]: Passing new path to controller.
+[INFO] [1786076373.566041923] [controller_server]: Passing new path to controller.
+[INFO] [1786076374.566065371] [controller_server]: Passing new path to controller.
+[INFO] [1786076376.666035997] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786076376.666104775] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786076376.667007873] [controller_server]: Optimizer reset
+[INFO] [1786076376.667958489] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786076383.060689390] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786076384.160873921] [controller_server]: Passing new path to controller.
+[INFO] [1786076386.060867179] [controller_server]: Passing new path to controller.
+[INFO] [1786076388.060866816] [controller_server]: Passing new path to controller.
+[INFO] [1786076390.060870601] [controller_server]: Passing new path to controller.
+[INFO] [1786076391.960841507] [controller_server]: Passing new path to controller.
+[INFO] [1786076393.860843618] [controller_server]: Passing new path to controller.
+[INFO] [1786076395.660869794] [controller_server]: Passing new path to controller.
+[INFO] [1786076397.460843823] [controller_server]: Passing new path to controller.
+[INFO] [1786076398.460867049] [controller_server]: Passing new path to controller.
+[INFO] [1786076399.560841263] [controller_server]: Passing new path to controller.
+[INFO] [1786076400.660844478] [controller_server]: Passing new path to controller.
+[INFO] [1786076401.760869156] [controller_server]: Passing new path to controller.
+[INFO] [1786076402.760865086] [controller_server]: Passing new path to controller.
+[INFO] [1786076403.860873523] [controller_server]: Passing new path to controller.
+[INFO] [1786076404.960838534] [controller_server]: Passing new path to controller.
+[INFO] [1786076405.960863075] [controller_server]: Passing new path to controller.
+[ERROR] [1786076405.961265484] [controller_server]: Failed to make progress
+[INFO] [1786076405.961572838] [controller_server]: Optimizer reset
+[WARN] [1786076405.961611319] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786076405.988651800] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786076405.989504934] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786076407.089688391] [controller_server]: Passing new path to controller.
+[INFO] [1786076408.189688791] [controller_server]: Passing new path to controller.
+[INFO] [1786076409.189689295] [controller_server]: Passing new path to controller.
+[INFO] [1786076410.289692565] [controller_server]: Passing new path to controller.
+[INFO] [1786076411.389691373] [controller_server]: Passing new path to controller.
+[ERROR] [1786076412.089738483] [controller_server]: Failed to make progress
+[INFO] [1786076412.090127170] [controller_server]: Optimizer reset
+[WARN] [1786076412.090164337] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786076412.105855885] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786076417.495165153] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786076418.595390333] [controller_server]: Passing new path to controller.
+[INFO] [1786076419.695406400] [controller_server]: Passing new path to controller.
+[INFO] [1786076420.795368929] [controller_server]: Passing new path to controller.
+[INFO] [1786076421.895396144] [controller_server]: Passing new path to controller.
+[INFO] [1786076422.895394518] [controller_server]: Passing new path to controller.
+[INFO] [1786076423.995373677] [controller_server]: Passing new path to controller.
+[INFO] [1786076425.095395133] [controller_server]: Passing new path to controller.
+[INFO] [1786076426.195394144] [controller_server]: Passing new path to controller.
+[INFO] [1786076427.195393722] [controller_server]: Passing new path to controller.
+[INFO] [1786076428.295406363] [controller_server]: Passing new path to controller.
+[INFO] [1786076429.395393837] [controller_server]: Passing new path to controller.
+[INFO] [1786076430.495394274] [controller_server]: Passing new path to controller.
+[INFO] [1786076432.528087644] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786076432.595394733] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786076432.595461289] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786076432.596005681] [controller_server]: Optimizer reset
+[INFO] [1786076436.804451312] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786076437.904658362] [controller_server]: Passing new path to controller.
+[INFO] [1786076439.005234413] [controller_server]: Passing new path to controller.
+[INFO] [1786076440.104785089] [controller_server]: Passing new path to controller.
+[INFO] [1786076441.105657578] [controller_server]: Passing new path to controller.
+[INFO] [1786076442.204776751] [controller_server]: Passing new path to controller.
+[INFO] [1786076443.304681114] [controller_server]: Passing new path to controller.
+[INFO] [1786076444.404905904] [controller_server]: Passing new path to controller.
+[INFO] [1786076445.405045075] [controller_server]: Passing new path to controller.
+[INFO] [1786076446.504765603] [controller_server]: Passing new path to controller.
+[INFO] [1786076447.604701948] [controller_server]: Passing new path to controller.
+[INFO] [1786076448.705109276] [controller_server]: Passing new path to controller.
+[INFO] [1786076449.704750259] [controller_server]: Passing new path to controller.
+[INFO] [1786076450.804677788] [controller_server]: Passing new path to controller.
+[INFO] [1786076451.905336803] [controller_server]: Passing new path to controller.
+[INFO] [1786076452.905594956] [controller_server]: Passing new path to controller.
+[INFO] [1786076454.005103280] [controller_server]: Passing new path to controller.
+[INFO] [1786076455.105006420] [controller_server]: Passing new path to controller.
+[INFO] [1786076456.104698459] [controller_server]: Passing new path to controller.
+[INFO] [1786076457.205602845] [controller_server]: Passing new path to controller.
+[INFO] [1786076458.304703370] [controller_server]: Passing new path to controller.
+[INFO] [1786076459.404695770] [controller_server]: Passing new path to controller.
+[INFO] [1786076460.404669237] [controller_server]: Passing new path to controller.
+[INFO] [1786076461.504833989] [controller_server]: Passing new path to controller.
+[INFO] [1786076462.605340448] [controller_server]: Passing new path to controller.
+[INFO] [1786076463.704682567] [controller_server]: Passing new path to controller.
+[INFO] [1786076464.704757515] [controller_server]: Passing new path to controller.
+[INFO] [1786076465.804890694] [controller_server]: Passing new path to controller.
+[INFO] [1786076466.905418745] [controller_server]: Passing new path to controller.
+[INFO] [1786076467.707874968] [controller_server]: Reached the goal!
+[INFO] [1786076467.708312823] [controller_server]: Optimizer reset
+[INFO] [1786076492.680567518] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786076493.780911476] [controller_server]: Passing new path to controller.
+[INFO] [1786076494.880912579] [controller_server]: Passing new path to controller.
+[INFO] [1786076495.980861202] [controller_server]: Passing new path to controller.
+[INFO] [1786076497.080910565] [controller_server]: Passing new path to controller.
+[INFO] [1786076498.180915835] [controller_server]: Passing new path to controller.
+[INFO] [1786076499.180912246] [controller_server]: Passing new path to controller.
+[INFO] [1786076500.280876831] [controller_server]: Passing new path to controller.
+[INFO] [1786076501.380913028] [controller_server]: Passing new path to controller.
+[INFO] [1786076502.480911262] [controller_server]: Passing new path to controller.
+[INFO] [1786076503.580912514] [controller_server]: Passing new path to controller.
+[INFO] [1786076504.680909321] [controller_server]: Passing new path to controller.
+[INFO] [1786076505.680905195] [controller_server]: Passing new path to controller.
+[INFO] [1786076506.780876947] [controller_server]: Passing new path to controller.
+[INFO] [1786076507.880911217] [controller_server]: Passing new path to controller.
+[INFO] [1786076508.980922932] [controller_server]: Passing new path to controller.
+[INFO] [1786076510.080916221] [controller_server]: Passing new path to controller.
+[INFO] [1786076511.080910558] [controller_server]: Passing new path to controller.
+[INFO] [1786076512.180912125] [controller_server]: Passing new path to controller.
+[INFO] [1786076513.280913951] [controller_server]: Passing new path to controller.
+[INFO] [1786076514.380917388] [controller_server]: Passing new path to controller.
+[INFO] [1786076515.480876566] [controller_server]: Passing new path to controller.
+[INFO] [1786076516.480915533] [controller_server]: Passing new path to controller.
+[INFO] [1786076517.580898748] [controller_server]: Passing new path to controller.
+[INFO] [1786076518.680908611] [controller_server]: Passing new path to controller.
+[INFO] [1786076519.780878974] [controller_server]: Passing new path to controller.
+[INFO] [1786076520.780879607] [controller_server]: Passing new path to controller.
+[INFO] [1786076521.880881137] [controller_server]: Passing new path to controller.
+[INFO] [1786076522.980883740] [controller_server]: Passing new path to controller.
+[INFO] [1786076524.080917326] [controller_server]: Passing new path to controller.
+[INFO] [1786076525.180920096] [controller_server]: Passing new path to controller.
+[INFO] [1786076526.280906404] [controller_server]: Passing new path to controller.
+[INFO] [1786076527.380910711] [controller_server]: Passing new path to controller.
+[INFO] [1786076528.380920548] [controller_server]: Passing new path to controller.
+[INFO] [1786076529.480913152] [controller_server]: Passing new path to controller.
+[INFO] [1786076530.580879515] [controller_server]: Passing new path to controller.
+[INFO] [1786076531.680913249] [controller_server]: Passing new path to controller.
+[INFO] [1786076532.680911993] [controller_server]: Passing new path to controller.
+[INFO] [1786076533.780880319] [controller_server]: Passing new path to controller.
+[INFO] [1786076534.880912164] [controller_server]: Passing new path to controller.
+[INFO] [1786076535.980916508] [controller_server]: Passing new path to controller.
+[INFO] [1786076537.080886482] [controller_server]: Passing new path to controller.
+[INFO] [1786076538.080918319] [controller_server]: Passing new path to controller.
+[INFO] [1786076539.180909738] [controller_server]: Passing new path to controller.
+[INFO] [1786076540.280917953] [controller_server]: Passing new path to controller.
+[INFO] [1786076541.380912316] [controller_server]: Passing new path to controller.
+[INFO] [1786076542.480915735] [controller_server]: Passing new path to controller.
+[INFO] [1786076543.580911579] [controller_server]: Passing new path to controller.
+[INFO] [1786076544.580916620] [controller_server]: Passing new path to controller.
+[INFO] [1786076545.680913520] [controller_server]: Passing new path to controller.
+[INFO] [1786076546.780916642] [controller_server]: Passing new path to controller.
+[INFO] [1786076547.880913487] [controller_server]: Passing new path to controller.
+[INFO] [1786076548.980917072] [controller_server]: Passing new path to controller.
+[INFO] [1786076550.080887435] [controller_server]: Passing new path to controller.
+[INFO] [1786076551.080905513] [controller_server]: Passing new path to controller.
+[INFO] [1786076552.180909950] [controller_server]: Passing new path to controller.
+[INFO] [1786076553.280896887] [controller_server]: Passing new path to controller.
+[INFO] [1786076554.380907380] [controller_server]: Passing new path to controller.
+[INFO] [1786076555.480920706] [controller_server]: Passing new path to controller.
+[INFO] [1786076556.580908180] [controller_server]: Passing new path to controller.
+[INFO] [1786076557.580912313] [controller_server]: Passing new path to controller.
+[INFO] [1786076558.680918602] [controller_server]: Passing new path to controller.
+[INFO] [1786076559.780921169] [controller_server]: Passing new path to controller.
+[INFO] [1786076560.880913125] [controller_server]: Passing new path to controller.
+[INFO] [1786076561.980877895] [controller_server]: Passing new path to controller.
+[INFO] [1786076562.980910269] [controller_server]: Passing new path to controller.
+[INFO] [1786076564.085136377] [controller_server]: Passing new path to controller.
+[INFO] [1786076565.180915977] [controller_server]: Passing new path to controller.
+[INFO] [1786076566.181600058] [controller_server]: Passing new path to controller.
+[INFO] [1786076567.280916492] [controller_server]: Passing new path to controller.
+[INFO] [1786076568.380922188] [controller_server]: Passing new path to controller.
+[INFO] [1786076569.480879106] [controller_server]: Passing new path to controller.
+[INFO] [1786076570.580875821] [controller_server]: Passing new path to controller.
+[INFO] [1786076571.580932918] [controller_server]: Passing new path to controller.
+[INFO] [1786076572.680911966] [controller_server]: Passing new path to controller.
+[INFO] [1786076573.780914996] [controller_server]: Passing new path to controller.
+[INFO] [1786076574.880911433] [controller_server]: Passing new path to controller.
+[INFO] [1786076575.980909759] [controller_server]: Passing new path to controller.
+[INFO] [1786076577.080861788] [controller_server]: Passing new path to controller.
+[INFO] [1786076578.180910744] [controller_server]: Passing new path to controller.
+[INFO] [1786076579.180910637] [controller_server]: Passing new path to controller.
+[INFO] [1786076580.280923444] [controller_server]: Passing new path to controller.
+[INFO] [1786076581.380913252] [controller_server]: Passing new path to controller.
+[INFO] [1786076582.480911800] [controller_server]: Passing new path to controller.
+[INFO] [1786076583.480943711] [controller_server]: Passing new path to controller.
+[INFO] [1786076584.580932667] [controller_server]: Passing new path to controller.
+[INFO] [1786076585.680913919] [controller_server]: Passing new path to controller.
+[INFO] [1786076586.780878041] [controller_server]: Passing new path to controller.
+[INFO] [1786076587.780925081] [controller_server]: Passing new path to controller.
+[INFO] [1786076588.880912667] [controller_server]: Passing new path to controller.
+[INFO] [1786076590.980911089] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786076590.980975237] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786076590.981447444] [controller_server]: Optimizer reset
+[INFO] [1786076590.982639858] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786076596.990067475] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786076598.090330080] [controller_server]: Passing new path to controller.
+[INFO] [1786076599.190325147] [controller_server]: Passing new path to controller.
+[INFO] [1786076600.290327732] [controller_server]: Passing new path to controller.
+[INFO] [1786076601.390285428] [controller_server]: Passing new path to controller.
+[INFO] [1786076602.390326061] [controller_server]: Passing new path to controller.
+[INFO] [1786076603.490280943] [controller_server]: Passing new path to controller.
+[INFO] [1786076604.590326769] [controller_server]: Passing new path to controller.
+[INFO] [1786076605.690324447] [controller_server]: Passing new path to controller.
+[INFO] [1786076606.690322136] [controller_server]: Passing new path to controller.
+[INFO] [1786076607.790287628] [controller_server]: Passing new path to controller.
+[INFO] [1786076608.890333529] [controller_server]: Passing new path to controller.
+[INFO] [1786076609.990285910] [controller_server]: Passing new path to controller.
+[ERROR] [1786076610.390505627] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786076610.390931259] [controller_server]: Optimizer reset
+[WARN] [1786076610.390999371] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786076644.794619374] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786076645.895090591] [controller_server]: Passing new path to controller.
+[INFO] [1786076646.995076528] [controller_server]: Passing new path to controller.
+[INFO] [1786076648.095086151] [controller_server]: Passing new path to controller.
+[INFO] [1786076649.195086940] [controller_server]: Passing new path to controller.
+[ERROR] [1786076649.295230245] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786076649.295627302] [controller_server]: Optimizer reset
+[WARN] [1786076649.295676228] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786076665.655444411] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786076666.755668942] [controller_server]: Passing new path to controller.
+[INFO] [1786076667.855686953] [controller_server]: Passing new path to controller.
+[INFO] [1786076668.955695520] [controller_server]: Passing new path to controller.
+[INFO] [1786076670.055690531] [controller_server]: Passing new path to controller.
+[INFO] [1786076671.055690776] [controller_server]: Passing new path to controller.
+[INFO] [1786076672.155694028] [controller_server]: Passing new path to controller.
+[INFO] [1786076673.255691650] [controller_server]: Passing new path to controller.
+[INFO] [1786076674.255688746] [controller_server]: Passing new path to controller.
+[INFO] [1786076677.399623041] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786076677.455690142] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786076677.455756587] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786076677.456140571] [controller_server]: Optimizer reset
+[INFO] [1786076683.688679118] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786076684.789090928] [controller_server]: Passing new path to controller.
+[INFO] [1786076685.889105235] [controller_server]: Passing new path to controller.
+[INFO] [1786076686.989093209] [controller_server]: Passing new path to controller.
+[INFO] [1786076688.089089573] [controller_server]: Passing new path to controller.
+[INFO] [1786076689.089044187] [controller_server]: Passing new path to controller.
+[INFO] [1786076690.189091273] [controller_server]: Passing new path to controller.
+[INFO] [1786076691.289042987] [controller_server]: Passing new path to controller.
+[INFO] [1786076692.389043906] [controller_server]: Passing new path to controller.
+[INFO] [1786076693.389087798] [controller_server]: Passing new path to controller.
+[INFO] [1786076694.489088162] [controller_server]: Passing new path to controller.
+[INFO] [1786076695.589048765] [controller_server]: Passing new path to controller.
+[INFO] [1786076696.689041443] [controller_server]: Passing new path to controller.
+[INFO] [1786076697.689089706] [controller_server]: Passing new path to controller.
+[INFO] [1786076698.789096921] [controller_server]: Passing new path to controller.
+[INFO] [1786076699.889089932] [controller_server]: Passing new path to controller.
+[INFO] [1786076700.889086714] [controller_server]: Passing new path to controller.
+[INFO] [1786076701.989090706] [controller_server]: Passing new path to controller.
+[INFO] [1786076703.089093569] [controller_server]: Passing new path to controller.
+[INFO] [1786076704.189045599] [controller_server]: Passing new path to controller.
+[INFO] [1786076705.189086232] [controller_server]: Passing new path to controller.
+[INFO] [1786076706.289106947] [controller_server]: Passing new path to controller.
+[INFO] [1786076707.389090107] [controller_server]: Passing new path to controller.
+[INFO] [1786076708.489100211] [controller_server]: Passing new path to controller.
+[INFO] [1786076709.489089955] [controller_server]: Passing new path to controller.
+[INFO] [1786076710.589101781] [controller_server]: Passing new path to controller.
+[INFO] [1786076711.689042736] [controller_server]: Passing new path to controller.
+[INFO] [1786076712.689085444] [controller_server]: Passing new path to controller.
+[INFO] [1786076713.789096548] [controller_server]: Passing new path to controller.
+[INFO] [1786076714.889087837] [controller_server]: Passing new path to controller.
+[INFO] [1786076715.989089607] [controller_server]: Passing new path to controller.
+[INFO] [1786076717.089102081] [controller_server]: Passing new path to controller.
+[INFO] [1786076718.089105085] [controller_server]: Passing new path to controller.
+[INFO] [1786076719.189046559] [controller_server]: Passing new path to controller.
+[INFO] [1786076720.289091459] [controller_server]: Passing new path to controller.
+[INFO] [1786076721.389094693] [controller_server]: Passing new path to controller.
+[INFO] [1786076722.389093863] [controller_server]: Passing new path to controller.
+[INFO] [1786076723.489072448] [controller_server]: Passing new path to controller.
+[INFO] [1786076724.589127719] [controller_server]: Passing new path to controller.
+[INFO] [1786076725.689094915] [controller_server]: Passing new path to controller.
+[INFO] [1786076726.689072641] [controller_server]: Passing new path to controller.
+[INFO] [1786076727.789091782] [controller_server]: Passing new path to controller.
+[INFO] [1786076728.889090663] [controller_server]: Passing new path to controller.
+[INFO] [1786076729.889082778] [controller_server]: Passing new path to controller.
+[INFO] [1786076730.989088548] [controller_server]: Passing new path to controller.
+[INFO] [1786076732.089084726] [controller_server]: Passing new path to controller.
+[INFO] [1786076733.189090423] [controller_server]: Passing new path to controller.
+[INFO] [1786076734.289088138] [controller_server]: Passing new path to controller.
+[INFO] [1786076735.289089271] [controller_server]: Passing new path to controller.
+[INFO] [1786076736.389092597] [controller_server]: Passing new path to controller.
+[INFO] [1786076737.489090219] [controller_server]: Passing new path to controller.
+[INFO] [1786076738.589097064] [controller_server]: Passing new path to controller.
+[INFO] [1786076739.589088530] [controller_server]: Passing new path to controller.
+[INFO] [1786076740.689097653] [controller_server]: Passing new path to controller.
+[INFO] [1786076741.789098145] [controller_server]: Passing new path to controller.
+[INFO] [1786076742.889093453] [controller_server]: Passing new path to controller.
+[INFO] [1786076743.889044715] [controller_server]: Passing new path to controller.
+[INFO] [1786076744.989071708] [controller_server]: Passing new path to controller.
+[INFO] [1786076746.089046460] [controller_server]: Passing new path to controller.
+[INFO] [1786076747.189089064] [controller_server]: Passing new path to controller.
+[INFO] [1786076748.189050882] [controller_server]: Passing new path to controller.
+[INFO] [1786076748.691667158] [controller_server]: Reached the goal!
+[INFO] [1786076748.691946566] [controller_server]: Optimizer reset
+[WARN] [1786078153.033328451] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078153.232961899] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078153.432880941] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078153.633036336] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078153.832885766] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078154.033070588] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078154.232930518] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078154.432925486] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078154.633422717] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078154.833148406] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078155.032935150] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078155.233022804] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078155.432982143] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078155.633230612] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078155.833130265] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078156.033003029] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078156.233044590] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078156.432908687] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078156.632976415] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078156.833277552] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078157.032985315] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078157.232912246] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078157.433143011] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078157.633425815] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078157.833227060] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078158.033086305] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078158.233110088] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078158.432975722] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078158.633100358] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078158.832891066] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078159.033047794] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078159.232922373] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078159.432963693] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078159.632910531] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078159.832972074] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078160.033006783] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078160.233016011] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078160.433167684] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078160.632923984] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078160.833096638] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078161.032991310] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078161.233041778] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078161.433227340] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078161.633068326] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078161.833141665] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078162.032935706] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078162.233039842] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078162.433335163] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078162.632978241] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078162.832948079] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078163.032897695] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078163.233004127] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078163.432982244] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078163.633078953] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078163.833043477] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078164.032988074] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078164.232960079] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078164.432926270] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078164.633103776] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078164.833050670] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078165.032910600] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078165.233117551] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078165.432945796] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078165.632939542] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078165.833111289] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078166.032995294] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078166.233115226] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078166.433218028] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078166.633046884] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078166.833090445] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078167.033069710] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078167.232940733] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078167.433257073] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078167.632918929] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078167.832896230] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078168.032940791] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078168.233010815] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078168.433346711] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078168.633172549] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078168.832912090] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078169.033023948] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078169.232915397] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078169.433215385] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078169.632910778] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078169.833068136] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078170.032885325] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078170.233035054] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078170.432911077] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078170.633045620] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078170.833001310] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078171.033008482] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078171.233075636] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078171.433352124] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078171.633243073] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078171.833050300] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078172.033027935] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078172.233168107] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078172.433008260] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078172.633042451] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078172.833037011] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078173.033085610] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078173.233116578] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078173.433169954] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078173.633032366] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078173.833175613] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078174.032986895] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078174.233146938] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078174.433081313] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078174.632999170] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078174.832989860] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[WARN] [1786078175.032904328] [local_costmap.local_costmap]: Sensor origin at (-12.29, 9.78 0.72) is out of map bounds (-1.50, -1.42, 0.00) to (1.46, 1.54, 0.78). The costmap cannot raytrace for it.
+[INFO] [1786078175.220163560] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786078175.220242171] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1786078175.220336820] [controller_server]: Deactivating
+[INFO] [1786078175.220396820] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[INFO] [1786078175.220431265] [local_costmap.local_costmap]: Deactivating
+[INFO] [1786078175.235052123] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1786078175.257294819] [controller_server]: Cleaning up
+[INFO] [1786078175.262944202] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[INFO] [1786078175.266544629] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1786078175.898898415] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

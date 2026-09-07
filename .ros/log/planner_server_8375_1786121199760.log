@@ -1,0 +1,43 @@
+[INFO] [1786121200.990902780] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786121201.032904333] [planner_server]: Creating
+[INFO] [1786121201.395843111] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786121201.399274001] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1786121202.278835428] [planner_server]: Configuring
+[INFO] [1786121202.278906039] [global_costmap.global_costmap]: Configuring
+[INFO] [1786121202.311385853] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1786121202.318772802] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1786121202.324357630] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1786121202.324452797] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1786121202.327473444] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1786121202.350255869] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1786121202.350392500] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1786121202.352538345] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786121202.458104851] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1786121202.458316778] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1786121202.462500672] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1786121202.464817314] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 1552 X 2299 at 0.050000 m/pix
+[INFO] [1786121203.529897663] [planner_server]: Activating
+[INFO] [1786121203.529966867] [global_costmap.global_costmap]: Activating
+[INFO] [1786121203.529988459] [global_costmap.global_costmap]: Checking transform
+[INFO] [1786121203.530147183] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786121203.499508 but the earliest data is at time 1786121204.247796, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786121204.030174552] [global_costmap.global_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 1786121203.999485 but the earliest data is at time 1786121204.247796, when looking up transform from frame [base_footprint] to frame [map]
+[INFO] [1786121204.530247329] [global_costmap.global_costmap]: start
+[INFO] [1786121204.782671204] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1786121204.786333632] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[WARN] [1786121274.145068476] [planner_server]: GridBased plugin failed to plan from (24.26, -45.68) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786121274.145154958] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786121274.159944286] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[ERROR] [1786121278.835660438] [planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.
+[WARN] [1786121278.835870606] [planner_server]: GridBased plugin failed to plan from (24.84, -45.60) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786121278.835937902] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786121278.851947479] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[ERROR] [1786121279.053102336] [planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.
+[WARN] [1786121279.053361486] [planner_server]: GridBased plugin failed to plan from (24.86, -45.59) to (37.98, -57.96): "Failed to create plan with tolerance of: 1.000000"
+[WARN] [1786121279.053414949] [planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.
+[INFO] [1786121279.086010179] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap

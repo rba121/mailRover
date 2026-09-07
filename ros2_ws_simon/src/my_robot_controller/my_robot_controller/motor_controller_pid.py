@@ -13,12 +13,12 @@ PWM2_PIN = 13
 INA2_PIN = 23
 INB2_PIN = 24
 
-DEFAULT_TRACK_WIDTH_M       = 0.4572
+DEFAULT_TRACK_WIDTH_M       = 0.403225 #0.4572, 0.3937
 DEFAULT_WHEEL_RADIUS_M      = 0.0635
 DEFAULT_MAX_LINEAR_MPS      = 0.30
-DEFAULT_MIN_EFFECTIVE_PWM   = 0.15
-DEFAULT_MAX_PWM             = 0.45
-DEFAULT_DEADBAND            = 0.02
+DEFAULT_MIN_EFFECTIVE_PWM   = 0.01
+DEFAULT_MAX_PWM             = 0.95
+DEFAULT_DEADBAND            = 0.01
 DEFAULT_COMMAND_TIMEOUT_SEC = 0.5
 DEFAULT_FEEDBACK_TIMEOUT_SEC = 0.5
 DEFAULT_PWM_SLEW_PER_SEC    = 0.35
@@ -66,10 +66,8 @@ class MotorControllerPIDNode(Node):
         self.declare_parameter('feedback_timeout_sec',  DEFAULT_FEEDBACK_TIMEOUT_SEC)
         self.declare_parameter('pwm_slew_per_sec',      DEFAULT_PWM_SLEW_PER_SEC)
         self.declare_parameter('cmd_vel_topic',         'cmd_vel')
-        self.declare_parameter('left_motor_direction',  1.0)
+        self.declare_parameter('left_motor_direction',  -1.0)
         self.declare_parameter('right_motor_direction', 1.0)
-        self.declare_parameter('left_feedback_direction',  1.0)
-        self.declare_parameter('right_feedback_direction', 1.0)
         self.declare_parameter('pwm_frequency',         10000)
         self.declare_parameter('kp',      DEFAULT_KP)
         self.declare_parameter('ki',      DEFAULT_KI)
@@ -88,12 +86,8 @@ class MotorControllerPIDNode(Node):
         cmd_vel_topic              = self.get_parameter('cmd_vel_topic').value
         self.left_motor_direction  = float(self.get_parameter('left_motor_direction').value)
         self.right_motor_direction = float(self.get_parameter('right_motor_direction').value)
-        self.left_feedback_direction = float(
-            self.get_parameter('left_feedback_direction').value
-        )
-        self.right_feedback_direction = float(
-            self.get_parameter('right_feedback_direction').value
-        )
+        self.left_feedback_direction = self.left_motor_direction
+        self.right_feedback_direction = self.right_motor_direction
         pwm_frequency              = int(self.get_parameter('pwm_frequency').value)
 
         kp      = float(self.get_parameter('kp').value)
@@ -166,6 +160,8 @@ class MotorControllerPIDNode(Node):
                 * self.wheel_radius_m
                 * self.right_feedback_direction
             )
+#            if abs(self.actual_right_mps) > 0 or abs(self.actual_left_mps) > 0:
+#                print(f'{self.actual_left_mps} {self.actual_right_mps}')
             self.last_feedback_time = self.get_clock().now()
             self.feedback_received = True
             self.feedback_timeout_logged = False
@@ -217,20 +213,30 @@ class MotorControllerPIDNode(Node):
             )
             self.set_left_motor(self.applied_left_pwm)
             self.set_right_motor(self.applied_right_pwm)
+            #self.get_logger().warn(f'{self.target_left_mps} {self.target_right_mps}')
             return
 
         # PID computes target PWM from speed error
         left_error  = self.target_left_mps  - self.actual_left_mps
         right_error = self.target_right_mps - self.actual_right_mps
 
+        left_target_desired = self.applied_left_pwm + self.left_pid.compute(left_error, dt)
+        right_target_desired = self.applied_right_pwm + self.right_pid.compute(right_error, dt)
+
         left_target_pwm  = self.clamp(
-            self.applied_left_pwm  + self.left_pid.compute(left_error,  dt),
+            left_target_desired,
             -self.max_pwm, self.max_pwm
         )
         right_target_pwm = self.clamp(
-            self.applied_right_pwm + self.right_pid.compute(right_error, dt),
+            right_target_desired,
             -self.max_pwm, self.max_pwm
         )
+
+        if abs(left_target_pwm) + 0.0001 >= self.max_pwm:
+            self.get_logger().warn(f'Left motor is saturated: target spd {self.target_left_mps}')
+
+        if abs(right_target_pwm) + 0.0001 >= self.max_pwm:
+            self.get_logger().warn(f'Right motor is saturated: target spd {self.target_right_mps}')
 
         # Slew-limit for smooth acceleration
         self.applied_left_pwm  = self.slew_toward(
@@ -276,16 +282,16 @@ class MotorControllerPIDNode(Node):
         self.set_left_motor(0.0)
         self.set_right_motor(0.0)
 
-    def set_right_motor(self, speed):
+    def set_left_motor(self, speed):
         speed = self.clamp(speed, -self.max_pwm, self.max_pwm)
         if speed > 0:
-            self.ina1.on();  self.inb1.off(); self.pwm1.value = speed
+            self.ina1.off();  self.inb1.on(); self.pwm1.value = speed
         elif speed < 0:
-            self.ina1.off(); self.inb1.on();  self.pwm1.value = abs(speed)
+            self.ina1.on(); self.inb1.off();  self.pwm1.value = abs(speed)
         else:
             self.ina1.off(); self.inb1.off(); self.pwm1.value = 0.0
 
-    def set_left_motor(self, speed):
+    def set_right_motor(self, speed):
         speed = self.clamp(speed, -self.max_pwm, self.max_pwm)
         if speed > 0:
             self.ina2.off(); self.inb2.on();  self.pwm2.value = speed

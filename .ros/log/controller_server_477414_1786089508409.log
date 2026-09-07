@@ -1,0 +1,1291 @@
+[INFO] [1786089510.352191622] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786089510.372419827] [controller_server]: Creating controller server
+[INFO] [1786089510.460120904] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786089510.462632715] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1786089511.156817981] [controller_server]: Configuring controller interface
+[INFO] [1786089511.156865963] [controller_server]: getting progress checker plugins..
+[INFO] [1786089511.176132866] [controller_server]: getting goal checker plugins..
+[INFO] [1786089511.180660020] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1786089511.180782095] [local_costmap.local_costmap]: Configuring
+[INFO] [1786089511.340810851] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1786089511.378950951] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1786089511.452848952] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1786089511.453036138] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1786089511.462563432] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786089511.641557440] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1786089511.646889211] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1786089511.651303383] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1786089511.659563521] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1786089511.667555825] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1786089511.703264800] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1786089511.719226574] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1786089511.719331778] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1786089511.750735618] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1786089511.750813804] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1786089511.751403715] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1786089511.758705977] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1786089511.758803570] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1786089511.762692259] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1786089511.762798685] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1786089511.764957401] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1786089511.765026401] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1786089511.776845744] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1786089511.789840446] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1786089511.789928798] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1786089511.797536451] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1786089511.799556518] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1786089511.811318028] [controller_server]: Optimizer reset
+[INFO] [1786089512.060909020] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1786089512.060965075] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1786089513.461077229] [controller_server]: Activating
+[INFO] [1786089513.461331989] [local_costmap.local_costmap]: Activating
+[INFO] [1786089513.461356489] [local_costmap.local_costmap]: Checking transform
+[INFO] [1786089513.461584028] [local_costmap.local_costmap]: start
+[WARN] [1786089513.667144980] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1786089513.667384148] [controller_server]: Optimizer reset
+[INFO] [1786089513.667811409] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1786089513.667863336] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1786089629.269440895] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786089629.269540099] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1786089629.269567285] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1786089630.369877613] [controller_server]: Passing new path to controller.
+[INFO] [1786089631.469844513] [controller_server]: Passing new path to controller.
+[INFO] [1786089632.569843654] [controller_server]: Passing new path to controller.
+[INFO] [1786089633.669962907] [controller_server]: Passing new path to controller.
+[INFO] [1786089634.669838938] [controller_server]: Passing new path to controller.
+[INFO] [1786089635.769882895] [controller_server]: Passing new path to controller.
+[INFO] [1786089636.869965925] [controller_server]: Passing new path to controller.
+[INFO] [1786089637.969843510] [controller_server]: Passing new path to controller.
+[INFO] [1786089639.069880503] [controller_server]: Passing new path to controller.
+[INFO] [1786089640.169873940] [controller_server]: Passing new path to controller.
+[INFO] [1786089641.169867787] [controller_server]: Passing new path to controller.
+[INFO] [1786089642.269868225] [controller_server]: Passing new path to controller.
+[INFO] [1786089643.369837384] [controller_server]: Passing new path to controller.
+[INFO] [1786089644.469950507] [controller_server]: Passing new path to controller.
+[INFO] [1786089645.569849889] [controller_server]: Passing new path to controller.
+[INFO] [1786089646.569873532] [controller_server]: Passing new path to controller.
+[INFO] [1786089647.670235268] [controller_server]: Passing new path to controller.
+[INFO] [1786089648.769842555] [controller_server]: Passing new path to controller.
+[INFO] [1786089649.869880511] [controller_server]: Passing new path to controller.
+[INFO] [1786089650.969874245] [controller_server]: Passing new path to controller.
+[INFO] [1786089651.969877629] [controller_server]: Passing new path to controller.
+[INFO] [1786089653.069868640] [controller_server]: Passing new path to controller.
+[INFO] [1786089654.169873559] [controller_server]: Passing new path to controller.
+[INFO] [1786089655.269925756] [controller_server]: Passing new path to controller.
+[INFO] [1786089656.269864325] [controller_server]: Passing new path to controller.
+[INFO] [1786089657.369876373] [controller_server]: Passing new path to controller.
+[INFO] [1786089658.470202868] [controller_server]: Passing new path to controller.
+[INFO] [1786089659.569871489] [controller_server]: Passing new path to controller.
+[INFO] [1786089660.669867445] [controller_server]: Passing new path to controller.
+[INFO] [1786089661.769927660] [controller_server]: Passing new path to controller.
+[INFO] [1786089662.869867190] [controller_server]: Passing new path to controller.
+[INFO] [1786089663.869841074] [controller_server]: Passing new path to controller.
+[INFO] [1786089664.969973993] [controller_server]: Passing new path to controller.
+[INFO] [1786089666.069875819] [controller_server]: Passing new path to controller.
+[INFO] [1786089667.169863108] [controller_server]: Passing new path to controller.
+[INFO] [1786089668.269942398] [controller_server]: Passing new path to controller.
+[INFO] [1786089669.269869948] [controller_server]: Passing new path to controller.
+[INFO] [1786089670.369838700] [controller_server]: Passing new path to controller.
+[INFO] [1786089671.469884953] [controller_server]: Passing new path to controller.
+[INFO] [1786089672.569877649] [controller_server]: Passing new path to controller.
+[INFO] [1786089673.670159218] [controller_server]: Passing new path to controller.
+[INFO] [1786089674.669902082] [controller_server]: Passing new path to controller.
+[INFO] [1786089675.769884093] [controller_server]: Passing new path to controller.
+[INFO] [1786089676.869878586] [controller_server]: Passing new path to controller.
+[INFO] [1786089677.969875838] [controller_server]: Passing new path to controller.
+[INFO] [1786089678.969868723] [controller_server]: Passing new path to controller.
+[INFO] [1786089680.069842123] [controller_server]: Passing new path to controller.
+[INFO] [1786089681.169863820] [controller_server]: Passing new path to controller.
+[INFO] [1786089682.269899313] [controller_server]: Passing new path to controller.
+[INFO] [1786089683.370380419] [controller_server]: Passing new path to controller.
+[INFO] [1786089684.669877294] [controller_server]: Passing new path to controller.
+[INFO] [1786089685.769879768] [controller_server]: Passing new path to controller.
+[INFO] [1786089687.017266206] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089687.069883701] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786089687.069973590] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786089687.070941410] [controller_server]: Optimizer reset
+[INFO] [1786089690.608232424] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089696.990586511] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786089698.090802412] [controller_server]: Passing new path to controller.
+[INFO] [1786089699.190747238] [controller_server]: Passing new path to controller.
+[INFO] [1786089700.290787546] [controller_server]: Passing new path to controller.
+[INFO] [1786089701.290778412] [controller_server]: Passing new path to controller.
+[INFO] [1786089702.390781201] [controller_server]: Passing new path to controller.
+[INFO] [1786089703.490811398] [controller_server]: Passing new path to controller.
+[INFO] [1786089704.590784169] [controller_server]: Passing new path to controller.
+[INFO] [1786089705.590785608] [controller_server]: Passing new path to controller.
+[INFO] [1786089706.690747805] [controller_server]: Passing new path to controller.
+[INFO] [1786089707.790909558] [controller_server]: Passing new path to controller.
+[INFO] [1786089709.790842344] [controller_server]: Passing new path to controller.
+[INFO] [1786089711.891038222] [controller_server]: Passing new path to controller.
+[INFO] [1786089714.090766836] [controller_server]: Passing new path to controller.
+[INFO] [1786089715.190872145] [controller_server]: Passing new path to controller.
+[INFO] [1786089717.290767317] [controller_server]: Passing new path to controller.
+[INFO] [1786089718.390779773] [controller_server]: Passing new path to controller.
+[INFO] [1786089720.490782965] [controller_server]: Passing new path to controller.
+[INFO] [1786089721.590758125] [controller_server]: Passing new path to controller.
+[INFO] [1786089722.690782210] [controller_server]: Passing new path to controller.
+[INFO] [1786089723.690740298] [controller_server]: Passing new path to controller.
+[INFO] [1786089725.590782421] [controller_server]: Passing new path to controller.
+[INFO] [1786089727.390747416] [controller_server]: Passing new path to controller.
+[ERROR] [1786089727.991009829] [controller_server]: Failed to make progress
+[INFO] [1786089727.992156150] [controller_server]: Optimizer reset
+[WARN] [1786089727.992230373] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786089728.005791411] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089728.006802805] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786089729.207032797] [controller_server]: Passing new path to controller.
+[INFO] [1786089731.006939884] [controller_server]: Passing new path to controller.
+[INFO] [1786089732.806987972] [controller_server]: Passing new path to controller.
+[ERROR] [1786089734.107251073] [controller_server]: Failed to make progress
+[INFO] [1786089734.109071009] [controller_server]: Optimizer reset
+[WARN] [1786089734.109153639] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786089734.150268904] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089739.552767977] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786089740.652967379] [controller_server]: Passing new path to controller.
+[INFO] [1786089742.852955550] [controller_server]: Passing new path to controller.
+[INFO] [1786089743.952960543] [controller_server]: Passing new path to controller.
+[INFO] [1786089745.052958591] [controller_server]: Passing new path to controller.
+[INFO] [1786089746.152946232] [controller_server]: Passing new path to controller.
+[INFO] [1786089747.152963598] [controller_server]: Passing new path to controller.
+[INFO] [1786089749.252962660] [controller_server]: Passing new path to controller.
+[INFO] [1786089751.352951352] [controller_server]: Passing new path to controller.
+[INFO] [1786089753.452958266] [controller_server]: Passing new path to controller.
+[INFO] [1786089755.452929590] [controller_server]: Passing new path to controller.
+[INFO] [1786089757.352948712] [controller_server]: Passing new path to controller.
+[INFO] [1786089759.352959425] [controller_server]: Passing new path to controller.
+[ERROR] [1786089759.353395538] [controller_server]: Failed to make progress
+[INFO] [1786089759.353833596] [controller_server]: Optimizer reset
+[WARN] [1786089759.353882189] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786089759.383538427] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089759.384842953] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786089761.185031857] [controller_server]: Passing new path to controller.
+[INFO] [1786089763.085040405] [controller_server]: Passing new path to controller.
+[INFO] [1786089764.685068572] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786089764.685172406] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786089764.685673149] [controller_server]: Optimizer reset
+[INFO] [1786089765.415071592] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786089766.515273401] [controller_server]: Passing new path to controller.
+[INFO] [1786089767.806504285] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089767.815893115] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786089767.816874842] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786089767.818719927] [controller_server]: Optimizer reset
+[INFO] [1786089774.184289754] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089781.394221956] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089785.785274249] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786089786.885547150] [controller_server]: Passing new path to controller.
+[INFO] [1786089787.985554662] [controller_server]: Passing new path to controller.
+[INFO] [1786089789.085554396] [controller_server]: Passing new path to controller.
+[INFO] [1786089790.185549222] [controller_server]: Passing new path to controller.
+[INFO] [1786089791.285542900] [controller_server]: Passing new path to controller.
+[INFO] [1786089792.385540708] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786089792.385593393] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786089792.385937062] [controller_server]: Optimizer reset
+[INFO] [1786089792.386344694] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089798.609471862] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786089799.709715264] [controller_server]: Passing new path to controller.
+[INFO] [1786089800.809711220] [controller_server]: Passing new path to controller.
+[INFO] [1786089801.909702139] [controller_server]: Passing new path to controller.
+[INFO] [1786089803.009728650] [controller_server]: Passing new path to controller.
+[INFO] [1786089804.109676976] [controller_server]: Passing new path to controller.
+[INFO] [1786089805.209701692] [controller_server]: Passing new path to controller.
+[INFO] [1786089806.310011131] [controller_server]: Passing new path to controller.
+[INFO] [1786089807.309711476] [controller_server]: Passing new path to controller.
+[INFO] [1786089808.409722654] [controller_server]: Passing new path to controller.
+[INFO] [1786089809.509707332] [controller_server]: Passing new path to controller.
+[INFO] [1786089810.609712325] [controller_server]: Passing new path to controller.
+[INFO] [1786089811.709708152] [controller_server]: Passing new path to controller.
+[INFO] [1786089812.709714517] [controller_server]: Passing new path to controller.
+[INFO] [1786089813.809724640] [controller_server]: Passing new path to controller.
+[INFO] [1786089814.909717614] [controller_server]: Passing new path to controller.
+[INFO] [1786089815.909710609] [controller_server]: Passing new path to controller.
+[INFO] [1786089817.010149586] [controller_server]: Passing new path to controller.
+[INFO] [1786089818.109739929] [controller_server]: Passing new path to controller.
+[INFO] [1786089819.209794496] [controller_server]: Passing new path to controller.
+[INFO] [1786089820.209670120] [controller_server]: Passing new path to controller.
+[INFO] [1786089821.309709465] [controller_server]: Passing new path to controller.
+[INFO] [1786089822.409711328] [controller_server]: Passing new path to controller.
+[INFO] [1786089823.509710784] [controller_server]: Passing new path to controller.
+[INFO] [1786089824.609711607] [controller_server]: Passing new path to controller.
+[INFO] [1786089825.609709483] [controller_server]: Passing new path to controller.
+[INFO] [1786089826.709708878] [controller_server]: Passing new path to controller.
+[INFO] [1786089827.809714717] [controller_server]: Passing new path to controller.
+[INFO] [1786089828.909709168] [controller_server]: Passing new path to controller.
+[INFO] [1786089830.009714285] [controller_server]: Passing new path to controller.
+[INFO] [1786089831.009678457] [controller_server]: Passing new path to controller.
+[INFO] [1786089832.109709593] [controller_server]: Passing new path to controller.
+[INFO] [1786089833.209715525] [controller_server]: Passing new path to controller.
+[INFO] [1786089834.309696717] [controller_server]: Passing new path to controller.
+[INFO] [1786089835.409864909] [controller_server]: Passing new path to controller.
+[INFO] [1786089836.509804563] [controller_server]: Passing new path to controller.
+[INFO] [1786089837.509673882] [controller_server]: Passing new path to controller.
+[INFO] [1786089838.609848482] [controller_server]: Passing new path to controller.
+[INFO] [1786089839.709701450] [controller_server]: Passing new path to controller.
+[INFO] [1786089840.809876976] [controller_server]: Passing new path to controller.
+[INFO] [1786089841.909730000] [controller_server]: Passing new path to controller.
+[INFO] [1786089843.209718618] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786089843.209794045] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786089843.210278269] [controller_server]: Optimizer reset
+[INFO] [1786089843.210994662] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089848.197368355] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786089849.297647307] [controller_server]: Passing new path to controller.
+[INFO] [1786089850.397642851] [controller_server]: Passing new path to controller.
+[INFO] [1786089851.497660542] [controller_server]: Passing new path to controller.
+[INFO] [1786089852.597642529] [controller_server]: Passing new path to controller.
+[INFO] [1786089853.597642461] [controller_server]: Passing new path to controller.
+[INFO] [1786089854.697648319] [controller_server]: Passing new path to controller.
+[INFO] [1786089855.797646140] [controller_server]: Passing new path to controller.
+[INFO] [1786089856.897643239] [controller_server]: Passing new path to controller.
+[INFO] [1786089857.997672801] [controller_server]: Passing new path to controller.
+[INFO] [1786089858.997641102] [controller_server]: Passing new path to controller.
+[INFO] [1786089860.097639775] [controller_server]: Passing new path to controller.
+[INFO] [1786089861.197645540] [controller_server]: Passing new path to controller.
+[INFO] [1786089862.297646436] [controller_server]: Passing new path to controller.
+[INFO] [1786089863.397613016] [controller_server]: Passing new path to controller.
+[INFO] [1786089864.497646744] [controller_server]: Passing new path to controller.
+[INFO] [1786089865.497653287] [controller_server]: Passing new path to controller.
+[INFO] [1786089866.597674756] [controller_server]: Passing new path to controller.
+[INFO] [1786089867.697644780] [controller_server]: Passing new path to controller.
+[INFO] [1786089868.797646046] [controller_server]: Passing new path to controller.
+[INFO] [1786089869.897644274] [controller_server]: Passing new path to controller.
+[INFO] [1786089870.897648984] [controller_server]: Passing new path to controller.
+[INFO] [1786089871.997669008] [controller_server]: Passing new path to controller.
+[INFO] [1786089873.097645125] [controller_server]: Passing new path to controller.
+[INFO] [1786089874.197655872] [controller_server]: Passing new path to controller.
+[INFO] [1786089875.297649027] [controller_server]: Passing new path to controller.
+[INFO] [1786089876.297638884] [controller_server]: Passing new path to controller.
+[INFO] [1786089877.397641890] [controller_server]: Passing new path to controller.
+[INFO] [1786089878.497644267] [controller_server]: Passing new path to controller.
+[INFO] [1786089879.597661273] [controller_server]: Passing new path to controller.
+[INFO] [1786089880.697645112] [controller_server]: Passing new path to controller.
+[INFO] [1786089881.697643562] [controller_server]: Passing new path to controller.
+[INFO] [1786089882.797648680] [controller_server]: Passing new path to controller.
+[INFO] [1786089883.897643056] [controller_server]: Passing new path to controller.
+[INFO] [1786089884.997642840] [controller_server]: Passing new path to controller.
+[INFO] [1786089886.097636346] [controller_server]: Passing new path to controller.
+[INFO] [1786089887.097646981] [controller_server]: Passing new path to controller.
+[INFO] [1786089888.197653562] [controller_server]: Passing new path to controller.
+[INFO] [1786089889.297655660] [controller_server]: Passing new path to controller.
+[INFO] [1786089890.397675463] [controller_server]: Passing new path to controller.
+[INFO] [1786089891.397644746] [controller_server]: Passing new path to controller.
+[INFO] [1786089892.497645363] [controller_server]: Passing new path to controller.
+[INFO] [1786089893.597644055] [controller_server]: Passing new path to controller.
+[INFO] [1786089894.697643153] [controller_server]: Passing new path to controller.
+[INFO] [1786089895.697843919] [controller_server]: Passing new path to controller.
+[INFO] [1786089896.797643554] [controller_server]: Passing new path to controller.
+[INFO] [1786089897.897649153] [controller_server]: Passing new path to controller.
+[INFO] [1786089898.997644622] [controller_server]: Passing new path to controller.
+[INFO] [1786089900.097643628] [controller_server]: Passing new path to controller.
+[INFO] [1786089901.225304344] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089901.297649413] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786089901.297722746] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786089901.298102452] [controller_server]: Optimizer reset
+[INFO] [1786089907.229516493] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786089908.329740463] [controller_server]: Passing new path to controller.
+[INFO] [1786089909.429764285] [controller_server]: Passing new path to controller.
+[INFO] [1786089910.529753735] [controller_server]: Passing new path to controller.
+[INFO] [1786089911.629752315] [controller_server]: Passing new path to controller.
+[INFO] [1786089912.629750710] [controller_server]: Passing new path to controller.
+[INFO] [1786089913.729742846] [controller_server]: Passing new path to controller.
+[INFO] [1786089914.829757926] [controller_server]: Passing new path to controller.
+[INFO] [1786089916.024549144] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786089916.029737747] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786089916.029853192] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786089916.032871857] [controller_server]: Optimizer reset
+[WARN] [1786090388.211305171] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090377.707954 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090388.211356856] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090377.707954 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090388.211369727] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090377.707954 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090388.211381097] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090377.707954 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.593493178] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090514.907986 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.593529345] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090514.907986 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.593541993] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090514.907986 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.593552623] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090514.907986 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.594975112] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090515.007941 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595010094] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090515.007941 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595021464] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090515.007941 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595031816] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090515.007941 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595112743] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090515.107976 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595130391] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090515.107976 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595139891] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090515.107976 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595149243] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090515.107976 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595174521] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090515.207943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595189984] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090515.207943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595199725] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090515.207943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595209762] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090515.207943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595238780] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090515.308096 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595317077] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090515.308096 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595331688] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090515.308096 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595342077] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090515.308096 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595383707] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090515.408220 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595401855] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090515.408220 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595411429] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090515.408220 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595421300] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090515.408220 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595450189] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090515.507968 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595464800] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090515.507968 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595474800] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090515.507968 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595484134] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090515.507968 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595510856] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090515.607959 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595525856] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090515.607959 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595535449] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090515.607959 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595544986] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090515.607959 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595573764] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090515.707982 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595593986] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090515.707982 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595640727] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090515.707982 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595652727] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090515.707982 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595684375] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090515.807938 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595699857] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090515.807938 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595712450] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090515.807938 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595721987] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090515.807938 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595746783] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090516.007939 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595760005] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090516.007939 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595770043] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090516.007939 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595779283] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090516.007939 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595808784] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090516.107957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595822117] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090516.107957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595831969] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090516.107957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595841358] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090516.107957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595869284] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090516.207957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595887062] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090516.207957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595917210] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090516.207957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090526.595929377] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090516.207957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137400239] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090536.508008 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137455091] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090536.508008 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137467795] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090536.508008 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137477424] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090536.508008 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137528554] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090536.707944 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137545332] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090536.707944 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137554573] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090536.707944 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137562591] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090536.707944 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137590777] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090536.807939 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137602221] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090536.807939 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137610073] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090536.807939 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137617610] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090536.807939 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137642129] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090536.907949 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137652629] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090536.907949 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137665129] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090536.907949 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137673759] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090536.907949 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137697018] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.008006 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137771444] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.008006 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137782315] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.008006 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137789982] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.008006 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.137826945] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.107926 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.138752820] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.107926 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.138772746] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.107926 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.138782357] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.107926 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.138849432] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.207934 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.138862617] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.207934 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139300805] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.207934 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139328898] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.207934 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139387305] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.307918 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139400953] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.307918 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139410787] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.307918 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139420472] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.307918 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139450565] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.407960 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139463083] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.407960 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139502010] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.407960 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139512602] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.407960 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139540899] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.507986 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139552991] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.507986 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139564362] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.507986 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139573103] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.507986 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139597343] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.607934 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139609381] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.607934 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139618677] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.607934 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139627418] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.607934 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139650288] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.707983 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139661585] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.707983 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139670399] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.707983 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139679066] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.707983 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139700937] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.807943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139715159] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.807943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139737992] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.807943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139747696] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.807943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139777085] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090537.907922 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139790048] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090537.907922 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139799826] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090537.907922 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139811141] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090537.907922 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139837104] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090538.007982 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139851900] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090538.007982 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139861012] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090538.007982 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139869993] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090538.007982 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139896623] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090538.107957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139909456] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090538.107957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139918308] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090538.107957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139927179] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090538.107957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139954549] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090538.207938 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139967790] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090538.207938 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.139976994] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090538.207938 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140004253] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090538.207938 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140031364] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090538.307935 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140045902] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090538.307935 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140065846] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090538.307935 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140079754] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090538.307935 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140107346] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090538.407957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140120624] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090538.407957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140129754] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090538.407957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140138698] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090538.407957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140162995] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090538.707957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140175254] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090538.707957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140184310] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090538.707957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140192958] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090538.707957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140215180] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090538.807941 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140228625] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090538.807941 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140237403] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090538.807941 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140246125] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090538.807941 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140293347] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090538.907932 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140305792] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090538.907932 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140314699] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090538.907932 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140323477] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090538.907932 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140347681] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090539.007970 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140360107] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090539.007970 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140368922] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090539.007970 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140377903] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090539.007970 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140401107] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090539.107955 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140414663] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090539.107955 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140423496] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090539.107955 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140432237] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090539.107955 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140455589] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090539.207957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140468959] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090539.207957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140477682] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090539.207957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140486534] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090539.207957 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140526904] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090539.307937 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140540701] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090539.307937 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140549497] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090539.307937 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140558330] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090539.307937 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140584256] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090539.407935 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140598534] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090539.407935 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140607182] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090539.407935 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140615997] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090539.407935 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140639571] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090539.507959 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140652127] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090539.507959 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140661072] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090539.507959 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140669849] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090539.507959 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140692646] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090539.707943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140704498] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090539.707943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140713313] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090539.707943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140722053] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090539.707943 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140743961] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090539.807958 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140768591] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090539.807958 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140778350] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090539.807958 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140787091] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090539.807958 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140812350] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090540.007995 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140827165] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090540.007995 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140836147] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090540.007995 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140844887] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090540.007995 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140866684] []: TF_OLD_DATA ignoring data from the past for frame front_left_wheel at time 1786090540.107952 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140878851] []: TF_OLD_DATA ignoring data from the past for frame front_right_wheel at time 1786090540.107952 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140887610] []: TF_OLD_DATA ignoring data from the past for frame rear_left_wheel at time 1786090540.107952 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[WARN] [1786090550.140896277] []: TF_OLD_DATA ignoring data from the past for frame rear_right_wheel at time 1786090540.107952 according to authority Authority undetectable
+Possible reasons are listed at http://wiki.ros.org/tf/Errors%20explained
+[INFO] [1786090685.986205528] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786090687.086584517] [controller_server]: Passing new path to controller.
+[INFO] [1786090688.186465227] [controller_server]: Passing new path to controller.
+[INFO] [1786090689.286536363] [controller_server]: Passing new path to controller.
+[INFO] [1786090690.386459646] [controller_server]: Passing new path to controller.
+[INFO] [1786090691.386551023] [controller_server]: Passing new path to controller.
+[INFO] [1786090692.487206829] [controller_server]: Passing new path to controller.
+[INFO] [1786090693.586486109] [controller_server]: Passing new path to controller.
+[INFO] [1786090694.688049383] [controller_server]: Passing new path to controller.
+[INFO] [1786090695.786643066] [controller_server]: Passing new path to controller.
+[INFO] [1786090696.786799906] [controller_server]: Passing new path to controller.
+[INFO] [1786090697.886707504] [controller_server]: Passing new path to controller.
+[INFO] [1786090698.986479750] [controller_server]: Passing new path to controller.
+[INFO] [1786090700.086459126] [controller_server]: Passing new path to controller.
+[INFO] [1786090701.086610133] [controller_server]: Passing new path to controller.
+[INFO] [1786090702.186683695] [controller_server]: Passing new path to controller.
+[INFO] [1786090703.286757813] [controller_server]: Passing new path to controller.
+[INFO] [1786090704.386722059] [controller_server]: Passing new path to controller.
+[INFO] [1786090705.486982252] [controller_server]: Passing new path to controller.
+[INFO] [1786090706.486488903] [controller_server]: Passing new path to controller.
+[INFO] [1786090707.586500465] [controller_server]: Passing new path to controller.
+[INFO] [1786090708.687026918] [controller_server]: Passing new path to controller.
+[INFO] [1786090709.786748775] [controller_server]: Passing new path to controller.
+[INFO] [1786090710.786500520] [controller_server]: Passing new path to controller.
+[INFO] [1786090711.886844935] [controller_server]: Passing new path to controller.
+[INFO] [1786090712.986868590] [controller_server]: Passing new path to controller.
+[INFO] [1786090714.086561520] [controller_server]: Passing new path to controller.
+[INFO] [1786090715.087016139] [controller_server]: Passing new path to controller.
+[INFO] [1786090716.186672347] [controller_server]: Passing new path to controller.
+[INFO] [1786090717.286634686] [controller_server]: Passing new path to controller.
+[INFO] [1786090718.386469877] [controller_server]: Passing new path to controller.
+[INFO] [1786090719.386486197] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786090719.386560327] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786090719.386909718] [controller_server]: Optimizer reset
+[INFO] [1786090731.805842133] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786090732.906046289] [controller_server]: Passing new path to controller.
+[INFO] [1786090734.006051499] [controller_server]: Passing new path to controller.
+[INFO] [1786090734.406050964] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786090734.406132076] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786090734.406645745] [controller_server]: Optimizer reset
+[INFO] [1786091022.172579704] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091025.072924302] [controller_server]: Passing new path to controller.
+[INFO] [1786091026.173146764] [controller_server]: Passing new path to controller.
+[INFO] [1786091027.273520117] [controller_server]: Passing new path to controller.
+[INFO] [1786091028.373242021] [controller_server]: Passing new path to controller.
+[INFO] [1786091029.473607151] [controller_server]: Passing new path to controller.
+[INFO] [1786091030.472966037] [controller_server]: Passing new path to controller.
+[INFO] [1786091031.573169629] [controller_server]: Passing new path to controller.
+[INFO] [1786091032.673134128] [controller_server]: Passing new path to controller.
+[INFO] [1786091033.773047552] [controller_server]: Passing new path to controller.
+[INFO] [1786091034.872908123] [controller_server]: Passing new path to controller.
+[INFO] [1786091035.873212959] [controller_server]: Passing new path to controller.
+[INFO] [1786091036.973130309] [controller_server]: Passing new path to controller.
+[INFO] [1786091038.073543828] [controller_server]: Passing new path to controller.
+[INFO] [1786091039.173156861] [controller_server]: Passing new path to controller.
+[INFO] [1786091040.273044063] [controller_server]: Passing new path to controller.
+[INFO] [1786091041.373002543] [controller_server]: Passing new path to controller.
+[INFO] [1786091042.373038358] [controller_server]: Passing new path to controller.
+[INFO] [1786091043.472948930] [controller_server]: Passing new path to controller.
+[INFO] [1786091044.573773526] [controller_server]: Passing new path to controller.
+[INFO] [1786091045.672997205] [controller_server]: Passing new path to controller.
+[INFO] [1786091046.674142953] [controller_server]: Passing new path to controller.
+[ERROR] [1786091047.673107929] [controller_server]: Failed to make progress
+[INFO] [1786091047.675298478] [controller_server]: Optimizer reset
+[WARN] [1786091047.675416201] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091047.714952327] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091047.725804758] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091047.867780562] [controller_server]: Passing new path to controller.
+[WARN] [1786091047.872294328] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 6.8619 Hz.
+[INFO] [1786091048.872466941] [controller_server]: Passing new path to controller.
+[INFO] [1786091049.972541069] [controller_server]: Passing new path to controller.
+[INFO] [1786091051.072461752] [controller_server]: Passing new path to controller.
+[INFO] [1786091052.172446825] [controller_server]: Passing new path to controller.
+[INFO] [1786091053.172457751] [controller_server]: Passing new path to controller.
+[ERROR] [1786091053.872544017] [controller_server]: Failed to make progress
+[INFO] [1786091053.872931926] [controller_server]: Optimizer reset
+[WARN] [1786091053.872970556] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091053.890895804] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091059.193593389] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091060.495640840] [controller_server]: Passing new path to controller.
+[INFO] [1786091061.593850143] [controller_server]: Passing new path to controller.
+[INFO] [1786091062.693815623] [controller_server]: Passing new path to controller.
+[INFO] [1786091063.993831636] [controller_server]: Passing new path to controller.
+[INFO] [1786091064.993838229] [controller_server]: Passing new path to controller.
+[INFO] [1786091066.093841783] [controller_server]: Passing new path to controller.
+[INFO] [1786091067.193839893] [controller_server]: Passing new path to controller.
+[INFO] [1786091068.293857873] [controller_server]: Passing new path to controller.
+[INFO] [1786091069.296748390] [controller_server]: Passing new path to controller.
+[INFO] [1786091070.393840520] [controller_server]: Passing new path to controller.
+[INFO] [1786091071.493845408] [controller_server]: Passing new path to controller.
+[INFO] [1786091072.593849739] [controller_server]: Passing new path to controller.
+[INFO] [1786091073.695220542] [controller_server]: Passing new path to controller.
+[INFO] [1786091074.793882570] [controller_server]: Passing new path to controller.
+[INFO] [1786091075.893838642] [controller_server]: Passing new path to controller.
+[INFO] [1786091076.893915236] [controller_server]: Passing new path to controller.
+[INFO] [1786091077.993847160] [controller_server]: Passing new path to controller.
+[INFO] [1786091079.093845455] [controller_server]: Passing new path to controller.
+[INFO] [1786091080.193841638] [controller_server]: Passing new path to controller.
+[INFO] [1786091081.293834970] [controller_server]: Passing new path to controller.
+[INFO] [1786091082.393848543] [controller_server]: Passing new path to controller.
+[INFO] [1786091083.393862136] [controller_server]: Passing new path to controller.
+[INFO] [1786091084.493841653] [controller_server]: Passing new path to controller.
+[INFO] [1786091085.593843170] [controller_server]: Passing new path to controller.
+[INFO] [1786091086.693849280] [controller_server]: Passing new path to controller.
+[INFO] [1786091087.793840982] [controller_server]: Passing new path to controller.
+[INFO] [1786091088.894405687] [controller_server]: Passing new path to controller.
+[INFO] [1786091089.993852720] [controller_server]: Passing new path to controller.
+[INFO] [1786091090.993850905] [controller_server]: Passing new path to controller.
+[INFO] [1786091092.093859774] [controller_server]: Passing new path to controller.
+[INFO] [1786091093.193855347] [controller_server]: Passing new path to controller.
+[INFO] [1786091094.293837901] [controller_server]: Passing new path to controller.
+[INFO] [1786091095.393836399] [controller_server]: Passing new path to controller.
+[INFO] [1786091096.393801918] [controller_server]: Passing new path to controller.
+[INFO] [1786091097.493876898] [controller_server]: Passing new path to controller.
+[INFO] [1786091098.593843471] [controller_server]: Passing new path to controller.
+[INFO] [1786091099.693849673] [controller_server]: Passing new path to controller.
+[INFO] [1786091100.793815171] [controller_server]: Passing new path to controller.
+[INFO] [1786091101.893848892] [controller_server]: Passing new path to controller.
+[INFO] [1786091102.993855169] [controller_server]: Passing new path to controller.
+[INFO] [1786091103.993837687] [controller_server]: Passing new path to controller.
+[INFO] [1786091105.093845075] [controller_server]: Passing new path to controller.
+[INFO] [1786091106.193853296] [controller_server]: Passing new path to controller.
+[INFO] [1786091107.293969535] [controller_server]: Passing new path to controller.
+[INFO] [1786091108.394337443] [controller_server]: Passing new path to controller.
+[INFO] [1786091109.493838550] [controller_server]: Passing new path to controller.
+[INFO] [1786091110.593841716] [controller_server]: Passing new path to controller.
+[INFO] [1786091111.593842327] [controller_server]: Passing new path to controller.
+[INFO] [1786091112.693882474] [controller_server]: Passing new path to controller.
+[INFO] [1786091113.793843954] [controller_server]: Passing new path to controller.
+[INFO] [1786091114.893886915] [controller_server]: Passing new path to controller.
+[INFO] [1786091115.993851358] [controller_server]: Passing new path to controller.
+[INFO] [1786091116.994141453] [controller_server]: Passing new path to controller.
+[INFO] [1786091118.093843246] [controller_server]: Passing new path to controller.
+[INFO] [1786091119.193860578] [controller_server]: Passing new path to controller.
+[INFO] [1786091120.293851928] [controller_server]: Passing new path to controller.
+[INFO] [1786091121.294239375] [controller_server]: Passing new path to controller.
+[INFO] [1786091122.393819927] [controller_server]: Passing new path to controller.
+[INFO] [1786091123.493838055] [controller_server]: Passing new path to controller.
+[INFO] [1786091124.594284056] [controller_server]: Passing new path to controller.
+[INFO] [1786091125.693855404] [controller_server]: Passing new path to controller.
+[INFO] [1786091126.693842404] [controller_server]: Passing new path to controller.
+[INFO] [1786091127.793861366] [controller_server]: Passing new path to controller.
+[INFO] [1786091128.893850290] [controller_server]: Passing new path to controller.
+[INFO] [1786091129.993835344] [controller_server]: Passing new path to controller.
+[INFO] [1786091131.093838824] [controller_server]: Passing new path to controller.
+[INFO] [1786091132.193840619] [controller_server]: Passing new path to controller.
+[INFO] [1786091133.193892212] [controller_server]: Passing new path to controller.
+[INFO] [1786091134.293871711] [controller_server]: Passing new path to controller.
+[INFO] [1786091135.393841728] [controller_server]: Passing new path to controller.
+[INFO] [1786091136.493834004] [controller_server]: Passing new path to controller.
+[INFO] [1786091137.493921227] [controller_server]: Passing new path to controller.
+[INFO] [1786091138.593897651] [controller_server]: Passing new path to controller.
+[INFO] [1786091139.693841187] [controller_server]: Passing new path to controller.
+[INFO] [1786091140.793888352] [controller_server]: Passing new path to controller.
+[INFO] [1786091141.893837443] [controller_server]: Passing new path to controller.
+[INFO] [1786091142.993840497] [controller_server]: Passing new path to controller.
+[INFO] [1786091143.994436075] [controller_server]: Passing new path to controller.
+[INFO] [1786091145.093844366] [controller_server]: Passing new path to controller.
+[INFO] [1786091146.193844957] [controller_server]: Passing new path to controller.
+[INFO] [1786091147.293844104] [controller_server]: Passing new path to controller.
+[INFO] [1786091148.693850616] [controller_server]: Passing new path to controller.
+[INFO] [1786091149.794815342] [controller_server]: Passing new path to controller.
+[INFO] [1786091150.793896078] [controller_server]: Passing new path to controller.
+[INFO] [1786091151.893837002] [controller_server]: Passing new path to controller.
+[INFO] [1786091152.993840334] [controller_server]: Passing new path to controller.
+[ERROR] [1786091153.694006415] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786091153.694381880] [controller_server]: Optimizer reset
+[WARN] [1786091153.694461899] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091180.459047789] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091181.559280641] [controller_server]: Passing new path to controller.
+[INFO] [1786091182.659282251] [controller_server]: Passing new path to controller.
+[INFO] [1786091183.759275453] [controller_server]: Passing new path to controller.
+[INFO] [1786091184.859250988] [controller_server]: Passing new path to controller.
+[INFO] [1786091185.959274820] [controller_server]: Passing new path to controller.
+[INFO] [1786091186.959274839] [controller_server]: Passing new path to controller.
+[INFO] [1786091188.059275541] [controller_server]: Passing new path to controller.
+[INFO] [1786091189.159279262] [controller_server]: Passing new path to controller.
+[INFO] [1786091190.259276668] [controller_server]: Passing new path to controller.
+[INFO] [1786091191.359280019] [controller_server]: Passing new path to controller.
+[INFO] [1786091192.359292630] [controller_server]: Passing new path to controller.
+[INFO] [1786091193.459282240] [controller_server]: Passing new path to controller.
+[INFO] [1786091194.559247645] [controller_server]: Passing new path to controller.
+[INFO] [1786091195.659277200] [controller_server]: Passing new path to controller.
+[INFO] [1786091196.759249087] [controller_server]: Passing new path to controller.
+[ERROR] [1786091197.259424819] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786091197.259786562] [controller_server]: Optimizer reset
+[WARN] [1786091197.260857272] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091211.998694085] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091216.470948960] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091217.571143923] [controller_server]: Passing new path to controller.
+[INFO] [1786091218.671149940] [controller_server]: Passing new path to controller.
+[INFO] [1786091219.771111123] [controller_server]: Passing new path to controller.
+[INFO] [1786091220.771139828] [controller_server]: Passing new path to controller.
+[INFO] [1786091221.871136808] [controller_server]: Passing new path to controller.
+[INFO] [1786091222.971214733] [controller_server]: Passing new path to controller.
+[INFO] [1786091224.071139045] [controller_server]: Passing new path to controller.
+[INFO] [1786091225.171119692] [controller_server]: Passing new path to controller.
+[INFO] [1786091226.171142933] [controller_server]: Passing new path to controller.
+[INFO] [1786091227.271314914] [controller_server]: Passing new path to controller.
+[INFO] [1786091228.371127671] [controller_server]: Passing new path to controller.
+[INFO] [1786091229.471117429] [controller_server]: Passing new path to controller.
+[INFO] [1786091230.571131242] [controller_server]: Passing new path to controller.
+[INFO] [1786091231.571140465] [controller_server]: Passing new path to controller.
+[INFO] [1786091232.671142389] [controller_server]: Passing new path to controller.
+[INFO] [1786091233.771140721] [controller_server]: Passing new path to controller.
+[INFO] [1786091234.871134627] [controller_server]: Passing new path to controller.
+[INFO] [1786091235.871139683] [controller_server]: Passing new path to controller.
+[INFO] [1786091236.971110978] [controller_server]: Passing new path to controller.
+[INFO] [1786091238.072175056] [controller_server]: Passing new path to controller.
+[INFO] [1786091239.171140882] [controller_server]: Passing new path to controller.
+[INFO] [1786091240.171097827] [controller_server]: Passing new path to controller.
+[INFO] [1786091241.271139140] [controller_server]: Passing new path to controller.
+[INFO] [1786091242.371106398] [controller_server]: Passing new path to controller.
+[INFO] [1786091243.471117582] [controller_server]: Passing new path to controller.
+[INFO] [1786091244.571150451] [controller_server]: Passing new path to controller.
+[INFO] [1786091245.571168266] [controller_server]: Passing new path to controller.
+[INFO] [1786091246.671136820] [controller_server]: Passing new path to controller.
+[INFO] [1786091247.771168726] [controller_server]: Passing new path to controller.
+[INFO] [1786091248.871610171] [controller_server]: Passing new path to controller.
+[INFO] [1786091249.871140262] [controller_server]: Passing new path to controller.
+[INFO] [1786091250.971153297] [controller_server]: Passing new path to controller.
+[INFO] [1786091252.071171222] [controller_server]: Passing new path to controller.
+[INFO] [1786091253.171164128] [controller_server]: Passing new path to controller.
+[INFO] [1786091254.171146850] [controller_server]: Passing new path to controller.
+[INFO] [1786091255.271208071] [controller_server]: Passing new path to controller.
+[INFO] [1786091256.371091458] [controller_server]: Passing new path to controller.
+[INFO] [1786091257.471106864] [controller_server]: Passing new path to controller.
+[INFO] [1786091258.571143474] [controller_server]: Passing new path to controller.
+[INFO] [1786091259.671116639] [controller_server]: Passing new path to controller.
+[INFO] [1786091260.671141603] [controller_server]: Passing new path to controller.
+[INFO] [1786091261.771361788] [controller_server]: Passing new path to controller.
+[INFO] [1786091262.871173007] [controller_server]: Passing new path to controller.
+[INFO] [1786091263.871140248] [controller_server]: Passing new path to controller.
+[INFO] [1786091264.971158673] [controller_server]: Passing new path to controller.
+[INFO] [1786091266.071137986] [controller_server]: Passing new path to controller.
+[INFO] [1786091267.171374652] [controller_server]: Passing new path to controller.
+[INFO] [1786091268.171144411] [controller_server]: Passing new path to controller.
+[ERROR] [1786091269.171325134] [controller_server]: Failed to make progress
+[INFO] [1786091269.172104046] [controller_server]: Optimizer reset
+[WARN] [1786091269.172194621] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091269.196855868] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091269.215169970] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091269.265330951] [controller_server]: Passing new path to controller.
+[INFO] [1786091270.017842155] [controller_server]: Reached the goal!
+[INFO] [1786091270.018137083] [controller_server]: Optimizer reset
+[INFO] [1786091395.407591116] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091396.507918523] [controller_server]: Passing new path to controller.
+[INFO] [1786091397.607880744] [controller_server]: Passing new path to controller.
+[INFO] [1786091398.707843538] [controller_server]: Passing new path to controller.
+[INFO] [1786091399.808123316] [controller_server]: Passing new path to controller.
+[INFO] [1786091400.907884925] [controller_server]: Passing new path to controller.
+[INFO] [1786091402.007887627] [controller_server]: Passing new path to controller.
+[INFO] [1786091403.007843794] [controller_server]: Passing new path to controller.
+[INFO] [1786091404.107953515] [controller_server]: Passing new path to controller.
+[INFO] [1786091405.207896828] [controller_server]: Passing new path to controller.
+[INFO] [1786091406.307892975] [controller_server]: Passing new path to controller.
+[INFO] [1786091407.408121289] [controller_server]: Passing new path to controller.
+[INFO] [1786091408.507884231] [controller_server]: Passing new path to controller.
+[INFO] [1786091409.607929156] [controller_server]: Passing new path to controller.
+[INFO] [1786091410.607892415] [controller_server]: Passing new path to controller.
+[INFO] [1786091411.707889247] [controller_server]: Passing new path to controller.
+[INFO] [1786091412.807838708] [controller_server]: Passing new path to controller.
+[INFO] [1786091413.908427599] [controller_server]: Passing new path to controller.
+[INFO] [1786091415.007846576] [controller_server]: Passing new path to controller.
+[INFO] [1786091416.107887130] [controller_server]: Passing new path to controller.
+[INFO] [1786091417.207930869] [controller_server]: Passing new path to controller.
+[INFO] [1786091418.307891738] [controller_server]: Passing new path to controller.
+[INFO] [1786091419.307919350] [controller_server]: Passing new path to controller.
+[INFO] [1786091420.407888089] [controller_server]: Passing new path to controller.
+[INFO] [1786091421.507880606] [controller_server]: Passing new path to controller.
+[INFO] [1786091422.607889327] [controller_server]: Passing new path to controller.
+[INFO] [1786091423.707842121] [controller_server]: Passing new path to controller.
+[INFO] [1786091424.807884324] [controller_server]: Passing new path to controller.
+[INFO] [1786091425.907985415] [controller_server]: Passing new path to controller.
+[INFO] [1786091426.907841507] [controller_server]: Passing new path to controller.
+[INFO] [1786091428.007880432] [controller_server]: Passing new path to controller.
+[INFO] [1786091429.108120821] [controller_server]: Passing new path to controller.
+[INFO] [1786091430.207881318] [controller_server]: Passing new path to controller.
+[INFO] [1786091431.307835150] [controller_server]: Passing new path to controller.
+[INFO] [1786091432.408199391] [controller_server]: Passing new path to controller.
+[INFO] [1786091433.507887943] [controller_server]: Passing new path to controller.
+[INFO] [1786091434.607909979] [controller_server]: Passing new path to controller.
+[INFO] [1786091435.707886144] [controller_server]: Passing new path to controller.
+[INFO] [1786091436.707856255] [controller_server]: Passing new path to controller.
+[INFO] [1786091437.807883347] [controller_server]: Passing new path to controller.
+[INFO] [1786091438.907840641] [controller_server]: Passing new path to controller.
+[INFO] [1786091440.007888510] [controller_server]: Passing new path to controller.
+[INFO] [1786091441.107887898] [controller_server]: Passing new path to controller.
+[INFO] [1786091442.207884804] [controller_server]: Passing new path to controller.
+[INFO] [1786091443.307882876] [controller_server]: Passing new path to controller.
+[INFO] [1786091444.407881653] [controller_server]: Passing new path to controller.
+[INFO] [1786091445.407882579] [controller_server]: Passing new path to controller.
+[INFO] [1786091446.507883059] [controller_server]: Passing new path to controller.
+[INFO] [1786091447.607887854] [controller_server]: Passing new path to controller.
+[INFO] [1786091448.707850815] [controller_server]: Passing new path to controller.
+[INFO] [1786091449.808219945] [controller_server]: Passing new path to controller.
+[INFO] [1786091450.907884386] [controller_server]: Passing new path to controller.
+[INFO] [1786091451.907861775] [controller_server]: Passing new path to controller.
+[INFO] [1786091453.007869052] [controller_server]: Passing new path to controller.
+[INFO] [1786091454.107890143] [controller_server]: Passing new path to controller.
+[INFO] [1786091455.207885679] [controller_server]: Passing new path to controller.
+[INFO] [1786091456.308164290] [controller_server]: Passing new path to controller.
+[INFO] [1786091457.407885879] [controller_server]: Passing new path to controller.
+[INFO] [1786091458.507884433] [controller_server]: Passing new path to controller.
+[INFO] [1786091459.507883175] [controller_server]: Passing new path to controller.
+[INFO] [1786091460.607884340] [controller_server]: Passing new path to controller.
+[INFO] [1786091461.707906987] [controller_server]: Passing new path to controller.
+[INFO] [1786091462.807845040] [controller_server]: Passing new path to controller.
+[INFO] [1786091463.807888022] [controller_server]: Passing new path to controller.
+[INFO] [1786091464.907886984] [controller_server]: Passing new path to controller.
+[INFO] [1786091466.007881371] [controller_server]: Passing new path to controller.
+[INFO] [1786091467.107882833] [controller_server]: Passing new path to controller.
+[INFO] [1786091468.207848257] [controller_server]: Passing new path to controller.
+[INFO] [1786091469.307844663] [controller_server]: Passing new path to controller.
+[INFO] [1786091470.407883717] [controller_server]: Passing new path to controller.
+[INFO] [1786091471.507890771] [controller_server]: Passing new path to controller.
+[INFO] [1786091472.507892809] [controller_server]: Passing new path to controller.
+[INFO] [1786091473.607884122] [controller_server]: Passing new path to controller.
+[INFO] [1786091474.707893954] [controller_server]: Passing new path to controller.
+[INFO] [1786091475.707883899] [controller_server]: Passing new path to controller.
+[INFO] [1786091476.807884953] [controller_server]: Passing new path to controller.
+[INFO] [1786091477.907847192] [controller_server]: Passing new path to controller.
+[INFO] [1786091478.907873803] [controller_server]: Passing new path to controller.
+[INFO] [1786091480.007848394] [controller_server]: Passing new path to controller.
+[INFO] [1786091481.107886282] [controller_server]: Passing new path to controller.
+[INFO] [1786091482.207898855] [controller_server]: Passing new path to controller.
+[INFO] [1786091483.308153188] [controller_server]: Passing new path to controller.
+[INFO] [1786091484.407844314] [controller_server]: Passing new path to controller.
+[INFO] [1786091485.407877130] [controller_server]: Passing new path to controller.
+[INFO] [1786091486.507882536] [controller_server]: Passing new path to controller.
+[INFO] [1786091487.607882627] [controller_server]: Passing new path to controller.
+[INFO] [1786091488.707884496] [controller_server]: Passing new path to controller.
+[INFO] [1786091489.807884309] [controller_server]: Passing new path to controller.
+[INFO] [1786091490.807934217] [controller_server]: Passing new path to controller.
+[INFO] [1786091491.907856697] [controller_server]: Passing new path to controller.
+[INFO] [1786091493.007844806] [controller_server]: Passing new path to controller.
+[INFO] [1786091494.107891101] [controller_server]: Passing new path to controller.
+[INFO] [1786091495.107881861] [controller_server]: Passing new path to controller.
+[INFO] [1786091496.207954693] [controller_server]: Passing new path to controller.
+[INFO] [1786091497.307881969] [controller_server]: Passing new path to controller.
+[INFO] [1786091498.407885449] [controller_server]: Passing new path to controller.
+[INFO] [1786091499.407849875] [controller_server]: Passing new path to controller.
+[INFO] [1786091500.507879355] [controller_server]: Passing new path to controller.
+[INFO] [1786091501.607895298] [controller_server]: Passing new path to controller.
+[INFO] [1786091502.707934556] [controller_server]: Passing new path to controller.
+[INFO] [1786091503.707925853] [controller_server]: Passing new path to controller.
+[INFO] [1786091504.807883092] [controller_server]: Passing new path to controller.
+[INFO] [1786091505.907846572] [controller_server]: Passing new path to controller.
+[INFO] [1786091507.008121220] [controller_server]: Passing new path to controller.
+[INFO] [1786091508.007845460] [controller_server]: Passing new path to controller.
+[INFO] [1786091509.107895310] [controller_server]: Passing new path to controller.
+[INFO] [1786091510.207896938] [controller_server]: Passing new path to controller.
+[INFO] [1786091511.307855233] [controller_server]: Passing new path to controller.
+[INFO] [1786091512.307881919] [controller_server]: Passing new path to controller.
+[INFO] [1786091513.407885380] [controller_server]: Passing new path to controller.
+[INFO] [1786091514.508037954] [controller_server]: Passing new path to controller.
+[INFO] [1786091515.607893285] [controller_server]: Passing new path to controller.
+[INFO] [1786091516.707890154] [controller_server]: Passing new path to controller.
+[INFO] [1786091517.707881117] [controller_server]: Passing new path to controller.
+[INFO] [1786091518.807940153] [controller_server]: Passing new path to controller.
+[INFO] [1786091519.907894929] [controller_server]: Passing new path to controller.
+[INFO] [1786091521.007888224] [controller_server]: Passing new path to controller.
+[INFO] [1786091522.007885150] [controller_server]: Passing new path to controller.
+[INFO] [1786091523.107894000] [controller_server]: Passing new path to controller.
+[INFO] [1786091524.207887554] [controller_server]: Passing new path to controller.
+[INFO] [1786091525.307887942] [controller_server]: Passing new path to controller.
+[INFO] [1786091526.308127721] [controller_server]: Passing new path to controller.
+[INFO] [1786091527.407885755] [controller_server]: Passing new path to controller.
+[INFO] [1786091528.507908550] [controller_server]: Passing new path to controller.
+[INFO] [1786091529.607884345] [controller_server]: Passing new path to controller.
+[INFO] [1786091530.707888103] [controller_server]: Passing new path to controller.
+[INFO] [1786091531.707881862] [controller_server]: Passing new path to controller.
+[INFO] [1786091532.807890324] [controller_server]: Passing new path to controller.
+[INFO] [1786091533.907890452] [controller_server]: Passing new path to controller.
+[INFO] [1786091534.907884804] [controller_server]: Passing new path to controller.
+[INFO] [1786091536.007884951] [controller_server]: Passing new path to controller.
+[INFO] [1786091537.107891579] [controller_server]: Passing new path to controller.
+[INFO] [1786091538.207885670] [controller_server]: Passing new path to controller.
+[INFO] [1786091539.207844152] [controller_server]: Passing new path to controller.
+[INFO] [1786091540.307871614] [controller_server]: Passing new path to controller.
+[INFO] [1786091541.407885668] [controller_server]: Passing new path to controller.
+[INFO] [1786091542.507847573] [controller_server]: Passing new path to controller.
+[INFO] [1786091543.607891406] [controller_server]: Passing new path to controller.
+[INFO] [1786091544.607852758] [controller_server]: Passing new path to controller.
+[INFO] [1786091545.707900460] [controller_server]: Passing new path to controller.
+[INFO] [1786091546.807883347] [controller_server]: Passing new path to controller.
+[INFO] [1786091547.907882624] [controller_server]: Passing new path to controller.
+[INFO] [1786091549.007845252] [controller_server]: Passing new path to controller.
+[INFO] [1786091550.007884734] [controller_server]: Passing new path to controller.
+[INFO] [1786091551.107887825] [controller_server]: Passing new path to controller.
+[INFO] [1786091552.207865638] [controller_server]: Passing new path to controller.
+[ERROR] [1786091552.508100393] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786091552.508530210] [controller_server]: Optimizer reset
+[WARN] [1786091552.508585637] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091563.957088161] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091565.057294383] [controller_server]: Passing new path to controller.
+[INFO] [1786091566.157275918] [controller_server]: Passing new path to controller.
+[INFO] [1786091567.257244083] [controller_server]: Passing new path to controller.
+[ERROR] [1786091567.857919521] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786091567.858910545] [controller_server]: Optimizer reset
+[WARN] [1786091567.858993786] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091579.789660813] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091584.396537823] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091588.689389521] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091589.791541179] [controller_server]: Passing new path to controller.
+[INFO] [1786091590.891539159] [controller_server]: Passing new path to controller.
+[INFO] [1786091591.992404403] [controller_server]: Passing new path to controller.
+[INFO] [1786091593.091690879] [controller_server]: Passing new path to controller.
+[INFO] [1786091594.191979250] [controller_server]: Passing new path to controller.
+[INFO] [1786091596.091539768] [controller_server]: Passing new path to controller.
+[INFO] [1786091597.192867071] [controller_server]: Passing new path to controller.
+[INFO] [1786091598.291550988] [controller_server]: Passing new path to controller.
+[INFO] [1786091599.291566266] [controller_server]: Passing new path to controller.
+[ERROR] [1786091600.591741114] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786091600.593464216] [controller_server]: Optimizer reset
+[WARN] [1786091600.594441462] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091612.377536709] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091619.208515591] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091620.309835578] [controller_server]: Passing new path to controller.
+[INFO] [1786091621.408770848] [controller_server]: Passing new path to controller.
+[INFO] [1786091622.508994867] [controller_server]: Passing new path to controller.
+[INFO] [1786091623.608812494] [controller_server]: Passing new path to controller.
+[INFO] [1786091624.708842381] [controller_server]: Passing new path to controller.
+[INFO] [1786091626.008767913] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786091626.008846562] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786091626.009853215] [controller_server]: Optimizer reset
+[INFO] [1786091626.010997481] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091629.117782166] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091630.218088073] [controller_server]: Passing new path to controller.
+[INFO] [1786091631.418042496] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786091631.418123404] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786091631.418604499] [controller_server]: Optimizer reset
+[INFO] [1786091631.419367614] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091636.594015731] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091640.984729822] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091645.403919163] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091651.574321368] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091658.584411723] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091661.399436051] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091663.397111002] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091682.979213602] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091687.589187444] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091692.000099036] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091693.100332869] [controller_server]: Passing new path to controller.
+[INFO] [1786091694.428892059] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091694.500330751] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786091694.500477326] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786091694.500906606] [controller_server]: Optimizer reset
+[INFO] [1786091699.119973332] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091700.220237887] [controller_server]: Passing new path to controller.
+[INFO] [1786091701.320192293] [controller_server]: Passing new path to controller.
+[INFO] [1786091702.420187699] [controller_server]: Passing new path to controller.
+[ERROR] [1786091703.120376169] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786091703.120766338] [controller_server]: Optimizer reset
+[WARN] [1786091703.120810004] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091714.637800927] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091715.738049464] [controller_server]: Passing new path to controller.
+[INFO] [1786091716.838093185] [controller_server]: Passing new path to controller.
+[INFO] [1786091717.938098109] [controller_server]: Passing new path to controller.
+[INFO] [1786091719.038096774] [controller_server]: Passing new path to controller.
+[INFO] [1786091720.216943117] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091720.238043604] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786091720.238137456] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786091720.238534829] [controller_server]: Optimizer reset
+[INFO] [1786091725.212164888] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091726.312414722] [controller_server]: Passing new path to controller.
+[INFO] [1786091727.412409572] [controller_server]: Passing new path to controller.
+[INFO] [1786091728.512373829] [controller_server]: Passing new path to controller.
+[INFO] [1786091729.612365254] [controller_server]: Passing new path to controller.
+[INFO] [1786091730.612410143] [controller_server]: Passing new path to controller.
+[INFO] [1786091731.712422605] [controller_server]: Passing new path to controller.
+[INFO] [1786091732.812407177] [controller_server]: Passing new path to controller.
+[INFO] [1786091733.912410565] [controller_server]: Passing new path to controller.
+[INFO] [1786091734.912421713] [controller_server]: Passing new path to controller.
+[INFO] [1786091736.012409416] [controller_server]: Passing new path to controller.
+[INFO] [1786091737.112408470] [controller_server]: Passing new path to controller.
+[INFO] [1786091738.212367283] [controller_server]: Passing new path to controller.
+[ERROR] [1786091739.012589121] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786091739.013007976] [controller_server]: Optimizer reset
+[WARN] [1786091739.013053346] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091750.910981100] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091752.011246674] [controller_server]: Passing new path to controller.
+[INFO] [1786091753.111244654] [controller_server]: Passing new path to controller.
+[INFO] [1786091754.211314208] [controller_server]: Passing new path to controller.
+[INFO] [1786091755.311248707] [controller_server]: Passing new path to controller.
+[INFO] [1786091756.411246150] [controller_server]: Passing new path to controller.
+[INFO] [1786091757.511240704] [controller_server]: Passing new path to controller.
+[INFO] [1786091758.611281388] [controller_server]: Passing new path to controller.
+[INFO] [1786091759.711270349] [controller_server]: Passing new path to controller.
+[INFO] [1786091760.711284090] [controller_server]: Passing new path to controller.
+[INFO] [1786091761.811245459] [controller_server]: Passing new path to controller.
+[INFO] [1786091762.911243846] [controller_server]: Passing new path to controller.
+[INFO] [1786091764.011274123] [controller_server]: Passing new path to controller.
+[INFO] [1786091765.111275547] [controller_server]: Passing new path to controller.
+[INFO] [1786091766.211274583] [controller_server]: Passing new path to controller.
+[INFO] [1786091767.311269507] [controller_server]: Passing new path to controller.
+[INFO] [1786091768.411266950] [controller_server]: Passing new path to controller.
+[INFO] [1786091769.411266747] [controller_server]: Passing new path to controller.
+[INFO] [1786091770.511269819] [controller_server]: Passing new path to controller.
+[INFO] [1786091771.611277799] [controller_server]: Passing new path to controller.
+[INFO] [1786091772.711240335] [controller_server]: Passing new path to controller.
+[INFO] [1786091773.811271463] [controller_server]: Passing new path to controller.
+[INFO] [1786091774.911268499] [controller_server]: Passing new path to controller.
+[INFO] [1786091775.911284518] [controller_server]: Passing new path to controller.
+[INFO] [1786091777.011266460] [controller_server]: Passing new path to controller.
+[INFO] [1786091778.111260866] [controller_server]: Passing new path to controller.
+[INFO] [1786091779.211270754] [controller_server]: Passing new path to controller.
+[INFO] [1786091780.311265104] [controller_server]: Passing new path to controller.
+[INFO] [1786091782.111271942] [controller_server]: Passing new path to controller.
+[INFO] [1786091784.011273870] [controller_server]: Passing new path to controller.
+[INFO] [1786091785.911280725] [controller_server]: Passing new path to controller.
+[INFO] [1786091787.911277577] [controller_server]: Passing new path to controller.
+[INFO] [1786091790.011268724] [controller_server]: Passing new path to controller.
+[INFO] [1786091792.111501336] [controller_server]: Passing new path to controller.
+[INFO] [1786091794.111272761] [controller_server]: Passing new path to controller.
+[INFO] [1786091796.311272776] [controller_server]: Passing new path to controller.
+[INFO] [1786091798.711742272] [controller_server]: Passing new path to controller.
+[ERROR] [1786091798.811447713] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786091798.811794975] [controller_server]: Optimizer reset
+[WARN] [1786091798.811843012] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091813.268193081] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091814.468863748] [controller_server]: Passing new path to controller.
+[INFO] [1786091815.568719690] [controller_server]: Passing new path to controller.
+[INFO] [1786091816.568818210] [controller_server]: Passing new path to controller.
+[INFO] [1786091817.668708633] [controller_server]: Passing new path to controller.
+[INFO] [1786091819.006032983] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091819.068853720] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786091819.068955794] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786091819.069834985] [controller_server]: Optimizer reset
+[INFO] [1786091823.891241942] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091824.991538646] [controller_server]: Passing new path to controller.
+[INFO] [1786091826.092194277] [controller_server]: Passing new path to controller.
+[INFO] [1786091827.425017010] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091827.494568432] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1786091827.494642506] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1786091827.498474157] [controller_server]: Optimizer reset
+[INFO] [1786091837.250163323] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091838.350415748] [controller_server]: Passing new path to controller.
+[INFO] [1786091839.450410840] [controller_server]: Passing new path to controller.
+[ERROR] [1786091840.458425644] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1786091840.468731497] [controller_server]: Optimizer reset
+[WARN] [1786091840.468824979] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091851.974357115] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1786091853.074615393] [controller_server]: Passing new path to controller.
+[INFO] [1786091854.174575854] [controller_server]: Passing new path to controller.
+[INFO] [1786091855.274598853] [controller_server]: Passing new path to controller.
+[INFO] [1786091856.374541796] [controller_server]: Passing new path to controller.
+[INFO] [1786091857.474541979] [controller_server]: Passing new path to controller.
+[INFO] [1786091858.474579184] [controller_server]: Passing new path to controller.
+[INFO] [1786091859.574579830] [controller_server]: Passing new path to controller.
+[INFO] [1786091860.674583977] [controller_server]: Passing new path to controller.
+[INFO] [1786091861.774552327] [controller_server]: Passing new path to controller.
+[INFO] [1786091862.774975274] [controller_server]: Passing new path to controller.
+[INFO] [1786091863.874589345] [controller_server]: Passing new path to controller.
+[INFO] [1786091864.974585103] [controller_server]: Passing new path to controller.
+[INFO] [1786091865.974543751] [controller_server]: Passing new path to controller.
+[INFO] [1786091867.074598139] [controller_server]: Passing new path to controller.
+[INFO] [1786091868.174664971] [controller_server]: Passing new path to controller.
+[INFO] [1786091869.274917100] [controller_server]: Passing new path to controller.
+[INFO] [1786091870.274595858] [controller_server]: Passing new path to controller.
+[INFO] [1786091871.374583597] [controller_server]: Passing new path to controller.
+[INFO] [1786091872.474552633] [controller_server]: Passing new path to controller.
+[INFO] [1786091873.574579891] [controller_server]: Passing new path to controller.
+[INFO] [1786091874.674568124] [controller_server]: Passing new path to controller.
+[INFO] [1786091875.674603705] [controller_server]: Passing new path to controller.
+[INFO] [1786091876.774579079] [controller_server]: Passing new path to controller.
+[INFO] [1786091877.874579619] [controller_server]: Passing new path to controller.
+[INFO] [1786091878.974575382] [controller_server]: Passing new path to controller.
+[ERROR] [1786091879.274654929] [controller_server]: Failed to make progress
+[INFO] [1786091879.275110376] [controller_server]: Optimizer reset
+[WARN] [1786091879.275167061] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1786091879.291185150] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1786091879.293688812] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1786091879.476007023] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.4882 Hz.
+[INFO] [1786091879.976675808] [controller_server]: Passing new path to controller.
+[INFO] [1786091881.076643829] [controller_server]: Passing new path to controller.
+[INFO] [1786091882.176645888] [controller_server]: Passing new path to controller.
+[INFO] [1786091883.276638132] [controller_server]: Passing new path to controller.
+[INFO] [1786091884.276668843] [controller_server]: Passing new path to controller.
+[INFO] [1786091885.376655291] [controller_server]: Passing new path to controller.
+[INFO] [1786091886.476654794] [controller_server]: Passing new path to controller.
+[INFO] [1786091887.576644223] [controller_server]: Passing new path to controller.
+[INFO] [1786091888.576639804] [controller_server]: Passing new path to controller.
+[INFO] [1786091889.676639196] [controller_server]: Passing new path to controller.
+[INFO] [1786091890.776639625] [controller_server]: Passing new path to controller.
+[INFO] [1786091891.876614758] [controller_server]: Passing new path to controller.
+[INFO] [1786091892.876640839] [controller_server]: Passing new path to controller.
+[INFO] [1786091893.976649305] [controller_server]: Passing new path to controller.
+[INFO] [1786091895.076642568] [controller_server]: Passing new path to controller.
+[INFO] [1786091896.176645942] [controller_server]: Passing new path to controller.
+[INFO] [1786091897.276640649] [controller_server]: Passing new path to controller.
+[INFO] [1786091898.276764878] [controller_server]: Passing new path to controller.
+[INFO] [1786091899.376643678] [controller_server]: Passing new path to controller.
+[INFO] [1786091900.476639070] [controller_server]: Passing new path to controller.
+[INFO] [1786091901.576594869] [controller_server]: Passing new path to controller.
+[INFO] [1786091902.576639932] [controller_server]: Passing new path to controller.
+[INFO] [1786091903.676647768] [controller_server]: Passing new path to controller.
+[INFO] [1786091904.676635775] [controller_server]: Passing new path to controller.
+[INFO] [1786091905.776648538] [controller_server]: Passing new path to controller.
+[INFO] [1786091906.876646078] [controller_server]: Passing new path to controller.
+[INFO] [1786091907.976641970] [controller_server]: Passing new path to controller.
+[INFO] [1786091909.076662141] [controller_server]: Passing new path to controller.
+[INFO] [1786091910.076644943] [controller_server]: Passing new path to controller.
+[INFO] [1786091911.176644762] [controller_server]: Passing new path to controller.
+[INFO] [1786091912.276645932] [controller_server]: Passing new path to controller.
+[INFO] [1786091913.276677809] [controller_server]: Passing new path to controller.
+[INFO] [1786091914.376678682] [controller_server]: Passing new path to controller.
+[INFO] [1786091915.476634760] [controller_server]: Passing new path to controller.
+[INFO] [1786091916.576715301] [controller_server]: Passing new path to controller.
+[INFO] [1786091917.576637955] [controller_server]: Passing new path to controller.
+[INFO] [1786091918.676636810] [controller_server]: Passing new path to controller.
+[INFO] [1786091919.776646684] [controller_server]: Passing new path to controller.
+[INFO] [1786091919.978647152] [controller_server]: Reached the goal!
+[INFO] [1786091919.979529657] [controller_server]: Optimizer reset
+[INFO] [1786093568.550124521] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1786093568.550193114] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1786093568.550297559] [controller_server]: Deactivating
+[INFO] [1786093568.550357115] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[INFO] [1786093568.550391096] [local_costmap.local_costmap]: Deactivating
+[INFO] [1786093568.664443588] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1786093568.677578326] [controller_server]: Cleaning up
+[INFO] [1786093568.783777700] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[INFO] [1786093568.790663849] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1786093569.246478923] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

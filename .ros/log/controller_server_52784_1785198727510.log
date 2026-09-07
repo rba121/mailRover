@@ -1,0 +1,104 @@
+[INFO] [1785198727.576853640] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785198727.592996479] [controller_server]: Creating controller server
+[INFO] [1785198727.634714075] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785198727.647031450] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1785198730.293232599] [controller_server]: Configuring controller interface
+[INFO] [1785198730.293280155] [controller_server]: getting progress checker plugins..
+[INFO] [1785198730.294012085] [controller_server]: getting goal checker plugins..
+[INFO] [1785198730.295100961] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1785198730.295226498] [local_costmap.local_costmap]: Configuring
+[INFO] [1785198730.333139742] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1785198730.347113478] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1785198730.395240975] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1785198730.395337105] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1785198730.400073981] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1785198730.537144993] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1785198730.539162003] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1785198730.545124903] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1785198730.566535620] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1785198730.576509503] [controller_server]: Created controller : FollowPath of type nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1785198730.653022975] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1785198732.650832337] [controller_server]: Activating
+[INFO] [1785198732.651000616] [local_costmap.local_costmap]: Activating
+[INFO] [1785198732.651018875] [local_costmap.local_costmap]: Checking transform
+[INFO] [1785198732.651322506] [local_costmap.local_costmap]: start
+[INFO] [1785198732.857308934] [controller_server]: Activating controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1785198732.857401527] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1785198800.680452129] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1785198800.680562851] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1785198800.680595037] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1785198801.780782099] [controller_server]: Passing new path to controller.
+[INFO] [1785198802.880795865] [controller_server]: Passing new path to controller.
+[INFO] [1785198803.980837352] [controller_server]: Passing new path to controller.
+[INFO] [1785198805.080843470] [controller_server]: Passing new path to controller.
+[INFO] [1785198806.180781068] [controller_server]: Passing new path to controller.
+[INFO] [1785198807.280828445] [controller_server]: Passing new path to controller.
+[INFO] [1785198808.380782413] [controller_server]: Passing new path to controller.
+[INFO] [1785198809.480845901] [controller_server]: Passing new path to controller.
+[INFO] [1785198810.480854116] [controller_server]: Passing new path to controller.
+[INFO] [1785198811.580779270] [controller_server]: Passing new path to controller.
+[INFO] [1785198812.680951591] [controller_server]: Passing new path to controller.
+[INFO] [1785198813.780826708] [controller_server]: Passing new path to controller.
+[INFO] [1785198814.880890473] [controller_server]: Passing new path to controller.
+[INFO] [1785198815.980820220] [controller_server]: Passing new path to controller.
+[INFO] [1785198816.980820897] [controller_server]: Passing new path to controller.
+[INFO] [1785198818.080822700] [controller_server]: Passing new path to controller.
+[INFO] [1785198819.180845391] [controller_server]: Passing new path to controller.
+[INFO] [1785198820.280894008] [controller_server]: Passing new path to controller.
+[INFO] [1785198821.381278442] [controller_server]: Passing new path to controller.
+[INFO] [1785198822.480829724] [controller_server]: Passing new path to controller.
+[INFO] [1785198823.580825563] [controller_server]: Passing new path to controller.
+[INFO] [1785198824.680838255] [controller_server]: Passing new path to controller.
+[INFO] [1785198825.680816913] [controller_server]: Passing new path to controller.
+[INFO] [1785198826.780841160] [controller_server]: Passing new path to controller.
+[INFO] [1785198827.880820963] [controller_server]: Passing new path to controller.
+[INFO] [1785198828.980781709] [controller_server]: Passing new path to controller.
+[INFO] [1785198830.080876475] [controller_server]: Passing new path to controller.
+[INFO] [1785198831.180822796] [controller_server]: Passing new path to controller.
+[INFO] [1785198832.180818121] [controller_server]: Passing new path to controller.
+[INFO] [1785198833.280944702] [controller_server]: Passing new path to controller.
+[INFO] [1785198834.380839596] [controller_server]: Passing new path to controller.
+[INFO] [1785198835.480829361] [controller_server]: Passing new path to controller.
+[INFO] [1785198836.580792015] [controller_server]: Passing new path to controller.
+[INFO] [1785198837.680777429] [controller_server]: Passing new path to controller.
+[INFO] [1785198839.717029056] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1785198839.780829094] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1785198839.780902483] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1785198845.810360748] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785198846.910574329] [controller_server]: Passing new path to controller.
+[INFO] [1785198848.010580613] [controller_server]: Passing new path to controller.
+[INFO] [1785198849.110579230] [controller_server]: Passing new path to controller.
+[INFO] [1785198850.110534685] [controller_server]: Passing new path to controller.
+[INFO] [1785198851.210582710] [controller_server]: Passing new path to controller.
+[INFO] [1785198852.310571327] [controller_server]: Passing new path to controller.
+[INFO] [1785198853.410577130] [controller_server]: Passing new path to controller.
+[INFO] [1785198854.410694326] [controller_server]: Passing new path to controller.
+[INFO] [1785198855.510543609] [controller_server]: Passing new path to controller.
+[INFO] [1785198856.610586356] [controller_server]: Passing new path to controller.
+[INFO] [1785198857.710575158] [controller_server]: Passing new path to controller.
+[INFO] [1785198858.810576553] [controller_server]: Passing new path to controller.
+[INFO] [1785198859.810585749] [controller_server]: Passing new path to controller.
+[INFO] [1785198860.910577459] [controller_server]: Passing new path to controller.
+[INFO] [1785198862.010574132] [controller_server]: Passing new path to controller.
+[INFO] [1785198863.110586249] [controller_server]: Passing new path to controller.
+[INFO] [1785198864.110533519] [controller_server]: Passing new path to controller.
+[INFO] [1785198865.210591358] [controller_server]: Passing new path to controller.
+[INFO] [1785198866.310587272] [controller_server]: Passing new path to controller.
+[INFO] [1785198867.410603741] [controller_server]: Passing new path to controller.
+[INFO] [1785198868.010948919] [controller_server]: Reached the goal!
+[INFO] [1785198988.734314513] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1785198988.734408143] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1785198988.734579478] [controller_server]: Deactivating
+[INFO] [1785198988.734626015] [controller_server]: Deactivating controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1785198988.734680460] [local_costmap.local_costmap]: Deactivating
+[INFO] [1785198988.858215016] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1785198988.949991656] [controller_server]: Cleaning up
+[INFO] [1785198988.950059619] [controller_server]: Cleaning up controller: FollowPath of type regulated_pure_pursuit_controller::RegulatedPurePursuitController
+[INFO] [1785198988.950170509] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1785198990.003883434] [controller_server]: Destroying bond (controller_server) to lifecycle manager.

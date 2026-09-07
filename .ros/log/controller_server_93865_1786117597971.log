@@ -1,0 +1,53 @@
+[INFO] [1786117598.617328194] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786117598.652048279] [controller_server]: Creating controller server
+[INFO] [1786117598.707501415] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1786117598.712132402] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1786117599.353780043] [controller_server]: Configuring controller interface
+[INFO] [1786117599.353822691] [controller_server]: getting progress checker plugins..
+[INFO] [1786117599.354049859] [controller_server]: getting goal checker plugins..
+[INFO] [1786117599.354164304] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1786117599.354228082] [local_costmap.local_costmap]: Configuring
+[INFO] [1786117599.374485260] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1786117599.380449884] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1786117599.402950277] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1786117599.403634317] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1786117599.405628272] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1786117599.460730980] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1786117599.462068376] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1786117599.464226757] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1786117599.467135198] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1786117599.470019121] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1786117599.474815849] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1786117599.480031487] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1786117599.480128061] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1786117599.483247114] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1786117599.483316855] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1786117599.483347800] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1786117599.483727709] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1786117599.483766524] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1786117599.488052009] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1786117599.488148584] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1786117599.488965384] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1786117599.489012107] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1786117599.489476072] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1786117599.493681483] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1786117599.493761964] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1786117599.496474089] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1786117599.496597016] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1786117599.498187728] [controller_server]: Optimizer reset
+[INFO] [1786117599.510110308] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1786117599.510162678] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1786117600.126735469] [controller_server]: Activating
+[INFO] [1786117600.126798839] [local_costmap.local_costmap]: Activating
+[INFO] [1786117600.126815691] [local_costmap.local_costmap]: Checking transform
+[INFO] [1786117600.127182693] [local_costmap.local_costmap]: start
+[WARN] [1786117600.332059058] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1786117600.332296967] [controller_server]: Optimizer reset
+[INFO] [1786117600.332841248] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1786117600.332919970] [controller_server]: Creating bond (controller_server) to lifecycle manager.

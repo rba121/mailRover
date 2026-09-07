@@ -1,0 +1,242 @@
+#!/usr/bin/env python3
+
+import json
+import math
+import os
+import re
+import threading
+import urllib.error
+import urllib.request
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+
+import yaml
+
+import rclpy
+from action_msgs.msg import GoalStatus
+from geometry_msgs.msg import PoseStamped
+from nav2_msgs.action import NavigateToPose
+from rclpy.action import ActionClient
+from rclpy.node import Node
+
+
+DEFAULT_ROOM_MAP = Path(__file__).resolve().parents[1] / "maps" / "room_map.yaml"
+
+
+def yaw_to_quaternion(yaw: float):
+    half = yaw / 2.0
+    return {
+        "x": 0.0,
+        "y": 0.0,
+        "z": math.sin(half),
+        "w": math.cos(half),
+    }
+
+
+def normalize_room(value: str) -> str:
+    value = (value or "").strip()
+    match = re.search(r"\d+", value)
+    return match.group(0) if match else value
+
+
+def normalize_alias(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", (value or "").strip().lower()).strip("_")
+
+
+class MailRoverNavBridge(Node):
+    def __init__(self):
+        super().__init__("mailrover_nav_bridge")
+        self._action_client = ActionClient(self, NavigateToPose, "navigate_to_pose")
+        self._active_task_id = None
+        self._lock = threading.Lock()
+        self._room_map = self._load_room_map()
+        self._rooms = self._room_map.get("rooms", {})
+        self._app_status_url = os.environ.get(
+            "MAILROVER_STATUS_URL",
+            "http://127.0.0.1:8000/navigation/status",
+        )
+        self._service_key = os.environ.get("SERVICE_KEY", "")
+
+    def _load_room_map(self):
+        map_path = Path(os.environ.get("ROOM_MAP_PATH", str(DEFAULT_ROOM_MAP)))
+        with map_path.open("r", encoding="utf-8") as f:
+            room_map = yaml.safe_load(f)
+
+        rooms = room_map.get("rooms", {})
+        self.get_logger().info(f"Loaded {len(rooms)} room navigation targets from {map_path}")
+        return room_map
+
+    def target_for_destination(self, destination: str):
+        room = normalize_room(destination)
+        target = self._rooms.get(room)
+        if target:
+            return room, target
+
+        alias = normalize_alias(destination)
+        loading_aliases = {"loading", "loading_station", "loading_bay", "load_station", "load_bay"}
+        if alias in loading_aliases:
+            return "loading_station", self._room_map.get("loading_station")
+
+        return room, None
+
+    def dispatch_task(self, task_id: str, destination: str, drawer_id: str):
+        room, target = self.target_for_destination(destination)
+        if not target:
+            self.get_logger().error(f"No navigation target for destination={destination!r} room={room!r}")
+            self.report_status(task_id, "FAULT")
+            return False, f"ROOM_NOT_MAPPED:{room}"
+
+        with self._lock:
+            self._active_task_id = task_id
+
+        self.get_logger().info(
+            f"Dispatching task={task_id} drawer={drawer_id} destination={destination} room={room}"
+        )
+        self.report_status(task_id, "MOVING")
+
+        if not self._action_client.wait_for_server(timeout_sec=5.0):
+            self.get_logger().error("Nav2 navigate_to_pose action server is not available")
+            self.report_status(task_id, "FAULT")
+            return False, "NAV2_ACTION_SERVER_UNAVAILABLE"
+
+        goal = NavigateToPose.Goal()
+        goal.pose = self._target_pose(target)
+
+        future = self._action_client.send_goal_async(goal)
+        future.add_done_callback(lambda result: self._goal_response_callback(task_id, result))
+        return True, "GOAL_SENT"
+
+    def _target_pose(self, target: dict) -> PoseStamped:
+        pose = PoseStamped()
+        pose.header.frame_id = os.environ.get("NAV_FRAME_ID", "map")
+        pose.header.stamp = self.get_clock().now().to_msg()
+        pose.pose.position.x = float(target["x"])
+        pose.pose.position.y = float(target["y"])
+        pose.pose.position.z = 0.0
+
+        quat = yaw_to_quaternion(float(target["yaw"]))
+        pose.pose.orientation.x = quat["x"]
+        pose.pose.orientation.y = quat["y"]
+        pose.pose.orientation.z = quat["z"]
+        pose.pose.orientation.w = quat["w"]
+        return pose
+
+    def _goal_response_callback(self, task_id: str, future):
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            self.get_logger().error(f"Nav2 rejected goal for task={task_id}")
+            self.report_status(task_id, "FAULT")
+            return
+
+        self.get_logger().info(f"Nav2 accepted goal for task={task_id}")
+        result_future = goal_handle.get_result_async()
+        result_future.add_done_callback(lambda result: self._result_callback(task_id, result))
+
+    def _result_callback(self, task_id: str, future):
+        result = future.result()
+        if result.status == GoalStatus.STATUS_SUCCEEDED:
+            self.get_logger().info(f"Task arrived: {task_id}")
+            self.report_status(task_id, "ARRIVED")
+            return
+
+        self.get_logger().error(f"Navigation failed for task={task_id} status={result.status}")
+        self.report_status(task_id, "FAULT")
+
+    def report_status(self, task_id: str, status: str):
+        payload = json.dumps({
+            "task_id": task_id,
+            "status": status,
+        }).encode("utf-8")
+        headers = {
+            "Content-Type": "application/json",
+            "X-MailRover-Service-Key": self._service_key,
+        }
+        req = urllib.request.Request(
+            self._app_status_url,
+            data=payload,
+            headers=headers,
+            method="POST",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=2.0) as response:
+                self.get_logger().info(f"Reported {status} for task={task_id}: HTTP {response.status}")
+        except (urllib.error.URLError, TimeoutError) as exc:
+            self.get_logger().error(f"Could not report {status} for task={task_id}: {exc}")
+
+
+class BridgeRequestHandler(BaseHTTPRequestHandler):
+    bridge_node = None
+    service_key = ""
+
+    def do_POST(self):
+        if self.path != "/task":
+            self._send_json(404, {"ok": False, "error": "NOT_FOUND"})
+            return
+
+        if self.service_key:
+            provided = self.headers.get("X-MailRover-Service-Key", "")
+            if provided != self.service_key:
+                self._send_json(401, {"ok": False, "error": "SERVICE_KEY_REQUIRED"})
+                return
+
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            data = json.loads(self.rfile.read(length).decode("utf-8"))
+        except Exception:
+            self._send_json(400, {"ok": False, "error": "INVALID_JSON"})
+            return
+
+        task_id = (data.get("task_id") or "").strip()
+        destination = (data.get("destination") or "").strip()
+        drawer_id = (data.get("drawer_id") or "").strip()
+        if not task_id or not destination:
+            self._send_json(400, {"ok": False, "error": "TASK_ID_AND_DESTINATION_REQUIRED"})
+            return
+
+        thread = threading.Thread(
+            target=self.bridge_node.dispatch_task,
+            args=(task_id, destination, drawer_id),
+            daemon=True,
+        )
+        thread.start()
+        self._send_json(202, {"ok": True, "message": "TASK_ACCEPTED"})
+
+    def log_message(self, fmt, *args):
+        return
+
+    def _send_json(self, status: int, payload: dict):
+        body = json.dumps(payload).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        try:
+            self.wfile.write(body)
+        except BrokenPipeError:
+            pass
+
+
+def main():
+    rclpy.init()
+    node = MailRoverNavBridge()
+
+    BridgeRequestHandler.bridge_node = node
+    BridgeRequestHandler.service_key = os.environ.get("SERVICE_KEY", "")
+
+    host = os.environ.get("NAV_BRIDGE_HOST", "127.0.0.1")
+    port = int(os.environ.get("NAV_BRIDGE_PORT", "8765"))
+    server = ThreadingHTTPServer((host, port), BridgeRequestHandler)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+
+    node.get_logger().info(f"MailRover navigation bridge listening on http://{host}:{port}/task")
+    try:
+        rclpy.spin(node)
+    finally:
+        server.shutdown()
+        node.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

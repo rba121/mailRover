@@ -1,0 +1,25 @@
+1786033104.8032877 [INFO] [launch]: All log files can be found below /home/mypi/.ros/log/2026-08-06-09-18-24-801777-pi5-171169
+1786033104.8035114 [INFO] [launch]: Default logging verbosity is set to INFO
+1786033105.1294374 [INFO] [controller_server-1]: process started with pid [171172]
+1786033105.1298091 [INFO] [planner_server-2]: process started with pid [171173]
+1786033105.1299520 [INFO] [behavior_server-3]: process started with pid [171174]
+1786033105.1328785 [INFO] [bt_navigator-4]: process started with pid [171175]
+1786033105.1332734 [INFO] [velocity_smoother-5]: process started with pid [171176]
+1786033105.1334672 [INFO] [collision_monitor-6]: process started with pid [171177]
+1786033105.1336124 [INFO] [lifecycle_manager-7]: process started with pid [171178]
+1786033240.6247563 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+1786033241.5724025 [INFO] [velocity_smoother-5]: process has finished cleanly [pid 171176]
+1786033242.4297731 [INFO] [collision_monitor-6]: process has finished cleanly [pid 171177]
+1786033243.0644228 [INFO] [lifecycle_manager-7]: process has finished cleanly [pid 171178]
+1786033244.5584879 [INFO] [behavior_server-3]: process has finished cleanly [pid 171174]
+1786033245.6391845 [ERROR] [bt_navigator-4]: process[bt_navigator-4] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+1786033245.6400769 [ERROR] [planner_server-2]: process[planner_server-2] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+1786033245.6417994 [ERROR] [controller_server-1]: process[controller_server-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+1786033245.6425364 [INFO] [bt_navigator-4]: sending signal 'SIGTERM' to process[bt_navigator-4]
+1786033245.6435244 [INFO] [planner_server-2]: sending signal 'SIGTERM' to process[planner_server-2]
+1786033245.6443872 [INFO] [controller_server-1]: sending signal 'SIGTERM' to process[controller_server-1]
+1786033245.6528974 [ERROR] [controller_server-1]: process has died [pid 171172, exit code -15, cmd '/opt/ros/jazzy/lib/nav2_controller/controller_server --ros-args --log-level info --ros-args --params-file /tmp/launch_params_nkjtnw46 -r cmd_vel:=cmd_vel_nav'].
+1786033250.2104607 [INFO] [planner_server-2]: process has finished cleanly [pid 171173]
+1786033250.6388626 [ERROR] [bt_navigator-4]: process[bt_navigator-4] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'
+1786033250.6398232 [INFO] [bt_navigator-4]: sending signal 'SIGKILL' to process[bt_navigator-4]
+1786033250.6522498 [ERROR] [bt_navigator-4]: process has died [pid 171175, exit code -9, cmd '/opt/ros/jazzy/lib/nav2_bt_navigator/bt_navigator --ros-args --log-level info --ros-args -r __node:=bt_navigator --params-file /tmp/launch_params_nkjtnw46'].

@@ -1,0 +1,68 @@
+[INFO] [1784069359.173738497] [planner_server]: 
+	planner_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784069359.200912817] [planner_server]: Creating
+[INFO] [1784069359.569871563] [global_costmap.global_costmap]: 
+	global_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1784069359.577737145] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [1784069363.278943653] [planner_server]: Configuring
+[INFO] [1784069363.279039191] [global_costmap.global_costmap]: Configuring
+[INFO] [1784069363.357697282] [global_costmap.global_costmap]: Using plugin "static_layer"
+[INFO] [1784069363.384995899] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[INFO] [1784069363.405740831] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[INFO] [1784069363.405818683] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[INFO] [1784069363.439892653] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[INFO] [1784069363.490212196] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[INFO] [1784069363.490317845] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[INFO] [1784069363.505115446] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[ERROR] [1784069363.675860168] [global_costmap.global_costmap]: The configured inflation radius (0.200) is smaller than the computed inscribed radius (0.235) of your footprint, it is highly recommended to set inflation radius to be at least as big as the inscribed radius to avoid collisions
+[INFO] [1784069363.780787852] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 514 X 677 at 0.050000 m/pix
+[INFO] [1784069363.781217243] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner::NavfnPlanner
+[INFO] [1784069363.781311244] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[INFO] [1784069363.791287263] [planner_server]: Planner Server has GridBased  planners available.
+[INFO] [1784069365.760132897] [planner_server]: Activating
+[INFO] [1784069365.760198805] [global_costmap.global_costmap]: Activating
+[INFO] [1784069365.760217990] [global_costmap.global_costmap]: Checking transform
+[INFO] [1784069365.760446269] [global_costmap.global_costmap]: start
+[INFO] [1784069367.815801724] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[INFO] [1784069367.825095202] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[ERROR] [1784069422.067307253] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784069379.028764 but the earliest data is at time 1784069420.177119, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784069424.067751231] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784069379.028764 but the earliest data is at time 1784069420.177119, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784069426.068336655] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784069379.028764 but the earliest data is at time 1784069420.177119, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784069428.070572625] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784069379.028764 but the earliest data is at time 1784069420.177119, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784069430.066846303] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784069379.028764 but the earliest data is at time 1784069420.177119, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784069432.069129069] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784069379.028764 but the earliest data is at time 1784069422.010496, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784069434.061482187] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784069379.028764 but the earliest data is at time 1784069424.010370, when looking up transform from frame [base_footprint] to frame [map]
+
+[ERROR] [1784069436.067129028] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784069379.028764 but the earliest data is at time 1784069426.043686, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784069437.775701084] [global_costmap.global_costmap]: Message Filter dropping message: frame 'laser' at time 1784069437.371 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[ERROR] [1784069438.068141714] [transformPoseInTargetFrame]: Extrapolation Error looking up target frame: Lookup would require extrapolation into the past.  Requested time 1784069438.043685 but the earliest data is at time 1784069439.171288, when looking up transform from frame [base_footprint] to frame [map]
+
+[INFO] [1784069491.557274316] [planner_server]: Goal was canceled. Canceling planning action.
+[INFO] [1784069491.557598281] [planner_server]: [compute_path_to_pose] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1784069491.563985873] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1784069556.942829876] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1784069659.548783531] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1784069724.782719856] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1784069790.009114914] [global_costmap.global_costmap]: Received request to clear entirely the global_costmap
+[INFO] [1784069797.376831386] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1784069797.377021868] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[INFO] [1784069797.379735069] [planner_server]: Deactivating
+[INFO] [1784069797.385866825] [global_costmap.global_costmap]: Deactivating
+[INFO] [1784069797.764546029] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[INFO] [1784069797.766764949] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[INFO] [1784069797.806460672] [planner_server]: Cleaning up
+[INFO] [1784069798.351086920] [global_costmap.global_costmap]: Cleaning up
+[INFO] [1784069798.431612262] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[INFO] [1784069798.438812506] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[INFO] [1784069798.697284015] [planner_server]: Destroying bond (planner_server) to lifecycle manager.

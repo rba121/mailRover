@@ -1,0 +1,187 @@
+[INFO] [1785903438.215160798] [controller_server]: 
+	controller_server lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785903438.258063637] [controller_server]: Creating controller server
+[INFO] [1785903439.423340398] [local_costmap.local_costmap]: 
+	local_costmap lifecycle node launched. 
+	Waiting on external lifecycle transitions to activate
+	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [1785903439.449621767] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [1785903440.697576747] [controller_server]: Configuring controller interface
+[INFO] [1785903440.697665062] [controller_server]: getting progress checker plugins..
+[INFO] [1785903440.717950142] [controller_server]: getting goal checker plugins..
+[INFO] [1785903440.730749557] [controller_server]: Controller frequency set to 10.0000Hz
+[INFO] [1785903440.730914057] [local_costmap.local_costmap]: Configuring
+[INFO] [1785903440.902129115] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[INFO] [1785903440.944338580] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[INFO] [1785903441.127624882] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[INFO] [1785903441.127713772] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[INFO] [1785903441.136496907] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[INFO] [1785903441.360343870] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[INFO] [1785903441.364418112] [controller_server]: Controller Server has progress_checker  progress checkers available.
+[INFO] [1785903441.369468229] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[INFO] [1785903441.382897850] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[INFO] [1785903441.392090673] [controller_server]: Created controller : FollowPath of type nav2_mppi_controller::MPPIController
+[INFO] [1785903441.426618971] [controller_server]: Controller period is equal to model dt. Control sequence shifting is ON
+[INFO] [1785903441.453462417] [controller_server]: ConstraintCritic instantiated with 1 power and 4.000000 weight.
+[INFO] [1785903441.453650751] [controller_server]: Critic loaded : mppi::critics::ConstraintCritic
+[WARN] [1785903441.484652088] [controller_server]: Inconsistent configuration in collision checking. Please verify the robot's shape settings in both the costmap and the cost critic.
+[INFO] [1785903441.485500555] [controller_server]: InflationCostCritic instantiated with 1 power and 300.000000 / 0.031496 weights. Critic will collision check based on circular cost.
+[INFO] [1785903441.485547314] [controller_server]: Critic loaded : mppi::critics::CostCritic
+[INFO] [1785903441.495107472] [controller_server]: GoalCritic instantiated with 1 power and 5.000000 weight.
+[INFO] [1785903441.495210028] [controller_server]: Critic loaded : mppi::critics::GoalCritic
+[INFO] [1785903441.518843236] [controller_server]: GoalAngleCritic instantiated with 1 power, 3.000000 weight, 0.500000 angular threshold and symmetric_yaw_tolerance disabled
+[INFO] [1785903441.518956385] [controller_server]: Critic loaded : mppi::critics::GoalAngleCritic
+[INFO] [1785903441.564498663] [controller_server]: ReferenceTrajectoryCritic instantiated with 1 power and 8.000000 weight
+[INFO] [1785903441.564578108] [controller_server]: Critic loaded : mppi::critics::PathAlignCritic
+[INFO] [1785903441.575705810] [controller_server]: Critic loaded : mppi::critics::PathFollowCritic
+[INFO] [1785903441.581654135] [controller_server]: PathAngleCritic instantiated with 1 power and 2.000000 weight. Mode set to: Forward Preference
+[INFO] [1785903441.581749599] [controller_server]: Critic loaded : mppi::critics::PathAngleCritic
+[INFO] [1785903441.587853684] [controller_server]: PreferForwardCritic instantiated with 1 power and 3.000000 weight.
+[INFO] [1785903441.588018796] [controller_server]: Critic loaded : mppi::critics::PreferForwardCritic
+[INFO] [1785903441.596238095] [controller_server]: Optimizer reset
+[INFO] [1785903441.661838656] [MPPIController]: Configured MPPI Controller: FollowPath
+[INFO] [1785903441.661912694] [controller_server]: Controller Server has FollowPath  controllers available.
+[INFO] [1785903444.410544534] [controller_server]: Activating
+[INFO] [1785903444.410627535] [local_costmap.local_costmap]: Activating
+[INFO] [1785903444.410648442] [local_costmap.local_costmap]: Checking transform
+[INFO] [1785903444.410905240] [local_costmap.local_costmap]: start
+[WARN] [1785903444.616674318] [controller_server]: Parameter controller_server.verbose not found
+[INFO] [1785903444.616966690] [controller_server]: Optimizer reset
+[INFO] [1785903444.617601823] [MPPIController]: Activated MPPI Controller: FollowPath
+[INFO] [1785903444.617725008] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[INFO] [1785903484.147628470] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1785903484.147743693] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[WARN] [1785903484.147776934] [controller_server]: No progress checker was specified in parameter 'current_progress_checker'. Server will use only plugin loaded progress_checker . This warning will appear once.
+[INFO] [1785903485.348052237] [controller_server]: Passing new path to controller.
+[INFO] [1785903486.447973845] [controller_server]: Passing new path to controller.
+[INFO] [1785903487.547965788] [controller_server]: Passing new path to controller.
+[INFO] [1785903488.647969879] [controller_server]: Passing new path to controller.
+[INFO] [1785903489.749743052] [controller_server]: Passing new path to controller.
+[INFO] [1785903490.947965345] [controller_server]: Passing new path to controller.
+[INFO] [1785903492.049777574] [controller_server]: Passing new path to controller.
+[INFO] [1785903493.147979822] [controller_server]: Passing new path to controller.
+[INFO] [1785903494.348060902] [controller_server]: Passing new path to controller.
+[INFO] [1785903495.447965899] [controller_server]: Passing new path to controller.
+[INFO] [1785903496.547962694] [controller_server]: Passing new path to controller.
+[INFO] [1785903497.647964933] [controller_server]: Passing new path to controller.
+[INFO] [1785903498.747962838] [controller_server]: Passing new path to controller.
+[INFO] [1785903499.847984077] [controller_server]: Passing new path to controller.
+[INFO] [1785903500.948254410] [controller_server]: Passing new path to controller.
+[INFO] [1785903502.048652781] [controller_server]: Passing new path to controller.
+[INFO] [1785903503.149187448] [controller_server]: Passing new path to controller.
+[INFO] [1785903504.247991940] [controller_server]: Passing new path to controller.
+[INFO] [1785903505.347968438] [controller_server]: Passing new path to controller.
+[INFO] [1785903506.449924909] [controller_server]: Passing new path to controller.
+[INFO] [1785903507.647965793] [controller_server]: Passing new path to controller.
+[INFO] [1785903508.747963680] [controller_server]: Passing new path to controller.
+[INFO] [1785903509.847966363] [controller_server]: Passing new path to controller.
+[INFO] [1785903510.947961973] [controller_server]: Passing new path to controller.
+[INFO] [1785903512.047965545] [controller_server]: Passing new path to controller.
+[INFO] [1785903513.147964451] [controller_server]: Passing new path to controller.
+[INFO] [1785903514.247964856] [controller_server]: Passing new path to controller.
+[INFO] [1785903515.347994188] [controller_server]: Passing new path to controller.
+[INFO] [1785903516.447970371] [controller_server]: Passing new path to controller.
+[ERROR] [1785903517.451094915] [controller_server]: Failed to make progress
+[INFO] [1785903517.451763233] [controller_server]: Optimizer reset
+[WARN] [1785903517.451837400] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1785903517.457107129] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785903518.658547067] [controller_server]: Passing new path to controller.
+[INFO] [1785903519.758551825] [controller_server]: Passing new path to controller.
+[INFO] [1785903520.858551693] [controller_server]: Passing new path to controller.
+[INFO] [1785903521.858550203] [controller_server]: Passing new path to controller.
+[INFO] [1785903522.958552849] [controller_server]: Passing new path to controller.
+[ERROR] [1785903523.558641019] [controller_server]: Failed to make progress
+[INFO] [1785903523.559093132] [controller_server]: Optimizer reset
+[WARN] [1785903523.559139355] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1785903523.570109779] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1785903523.574241354] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785903524.076366694] [controller_server]: Passing new path to controller.
+[INFO] [1785903525.174443257] [controller_server]: Passing new path to controller.
+[INFO] [1785903527.303643389] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1785903527.374981367] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1785903527.375055089] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1785903527.375507684] [controller_server]: Optimizer reset
+[INFO] [1785903535.960872585] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785903537.161254999] [controller_server]: Passing new path to controller.
+[INFO] [1785903539.261449582] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1785903539.261536157] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1785903539.263468518] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1785903539.263789464] [controller_server]: Optimizer reset
+[INFO] [1785903546.012039880] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785903547.112299731] [controller_server]: Passing new path to controller.
+[INFO] [1785903548.212243451] [controller_server]: Passing new path to controller.
+[INFO] [1785903549.312229709] [controller_server]: Passing new path to controller.
+[INFO] [1785903550.412462616] [controller_server]: Passing new path to controller.
+[INFO] [1785903551.512241798] [controller_server]: Passing new path to controller.
+[INFO] [1785903552.712232340] [controller_server]: Passing new path to controller.
+[INFO] [1785903553.812226523] [controller_server]: Passing new path to controller.
+[INFO] [1785903554.912355114] [controller_server]: Passing new path to controller.
+[INFO] [1785903556.012700484] [controller_server]: Passing new path to controller.
+[INFO] [1785903557.112635797] [controller_server]: Passing new path to controller.
+[INFO] [1785903558.212360757] [controller_server]: Passing new path to controller.
+[WARN] [1785903559.515153967] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.8067 Hz.
+[WARN] [1785903560.767451783] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 6.6140 Hz.
+[INFO] [1785903561.168266294] [controller_server]: Passing new path to controller.
+[INFO] [1785903562.268178996] [controller_server]: Passing new path to controller.
+[INFO] [1785903563.368534718] [controller_server]: Passing new path to controller.
+[INFO] [1785903564.468393993] [controller_server]: Passing new path to controller.
+[INFO] [1785903567.067732253] [controller_server]: Passing new path to controller.
+[INFO] [1785903568.448481862] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1785903568.468762369] [controller_server]: Cancellation was successful. Stopping the robot.
+[INFO] [1785903568.468871758] [controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.
+[INFO] [1785903568.469972763] [controller_server]: Optimizer reset
+[INFO] [1785903573.702261151] [controller_server]: Received a goal, begin computing control effort.
+[INFO] [1785903574.903514866] [controller_server]: Passing new path to controller.
+[INFO] [1785903576.003441271] [controller_server]: Passing new path to controller.
+[INFO] [1785903577.103020212] [controller_server]: Passing new path to controller.
+[INFO] [1785903578.103371520] [controller_server]: Passing new path to controller.
+[INFO] [1785903580.903015795] [controller_server]: Passing new path to controller.
+[WARN] [1785903583.307401603] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 10.8867 Hz.
+[INFO] [1785903583.508114268] [controller_server]: Passing new path to controller.
+[ERROR] [1785903583.608833667] [controller_server]: Failed to make progress
+[INFO] [1785903583.613738635] [controller_server]: Optimizer reset
+[WARN] [1785903583.613831876] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1785903583.640892675] [local_costmap.local_costmap]: Received request to clear entirely the local_costmap
+[INFO] [1785903583.647195391] [controller_server]: Received a goal, begin computing control effort.
+[WARN] [1785903583.820085365] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 5.7915 Hz.
+[INFO] [1785903586.620322068] [controller_server]: Passing new path to controller.
+[INFO] [1785903587.720596679] [controller_server]: Passing new path to controller.
+[INFO] [1785903588.820264305] [controller_server]: Passing new path to controller.
+[INFO] [1785903589.920267359] [controller_server]: Passing new path to controller.
+[INFO] [1785903591.020225079] [controller_server]: Passing new path to controller.
+[INFO] [1785903592.120276448] [controller_server]: Passing new path to controller.
+[INFO] [1785903593.220247372] [controller_server]: Passing new path to controller.
+[INFO] [1785903594.320266499] [controller_server]: Passing new path to controller.
+[INFO] [1785903595.420277849] [controller_server]: Passing new path to controller.
+[INFO] [1785903596.520317459] [controller_server]: Passing new path to controller.
+[INFO] [1785903597.620264198] [controller_server]: Passing new path to controller.
+[WARN] [1785903599.534841764] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.0648 Hz.
+[WARN] [1785903599.787821054] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 7.1973 Hz.
+[INFO] [1785903600.501706335] [controller_server]: Passing new path to controller.
+[WARN] [1785903603.507356429] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 10.3631 Hz.
+[INFO] [1785903604.009131434] [controller_server]: Passing new path to controller.
+[INFO] [1785903605.107607277] [controller_server]: Passing new path to controller.
+[INFO] [1785903606.207645238] [controller_server]: Passing new path to controller.
+[INFO] [1785903607.307606365] [controller_server]: Passing new path to controller.
+[WARN] [1785903609.011391921] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 10.2877 Hz.
+[WARN] [1785903609.345285088] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.2896 Hz.
+[WARN] [1785903609.450354230] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.5324 Hz.
+[WARN] [1785903609.559649708] [controller_server]: Control loop missed its desired rate of 10.0000 Hz. Current loop rate is 9.1621 Hz.
+[INFO] [1785903610.064817600] [controller_server]: Passing new path to controller.
+[INFO] [1785903611.823959593] [local_costmap.local_costmap]: Message Filter dropping message: frame 'laser' at time 1785903611.492 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [1785903613.264749143] [controller_server]: Passing new path to controller.
+[ERROR] [1785903613.964364409] [controller_server]: Resulting plan has 0 poses in it.
+[INFO] [1785903613.965844676] [controller_server]: Optimizer reset
+[WARN] [1785903613.965933991] [controller_server]: [follow_path] [ActionServer] Aborting handle.
+[INFO] [1785903615.161183917] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1785903615.161296640] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[INFO] [1785903615.161409566] [controller_server]: Deactivating
+[INFO] [1785903615.161485178] [MPPIController]: Deactivated MPPI Controller: FollowPath
+[INFO] [1785903615.161528048] [local_costmap.local_costmap]: Deactivating
+[INFO] [1785903615.217864249] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[INFO] [1785903615.319502115] [controller_server]: Cleaning up
+[INFO] [1785903615.572181201] [MPPIController]: Cleaned up MPPI Controller: FollowPath
+[INFO] [1785903615.581522913] [local_costmap.local_costmap]: Cleaning up
+[INFO] [1785903616.809259034] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
