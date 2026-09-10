@@ -1,0 +1,103 @@
+from gpiozero import PWMOutputDevice, DigitalOutputDevice, LED, DistanceSensor
+from time import sleep, monotonic
+
+# ---- Motor driver (DFR0601 channel 1) ----
+PWM_PIN = 18
+INA_PIN = 23
+INB_PIN = 24
+
+# ---- HC-SR04 ----
+TRIG_PIN = 17
+ECHO_PIN = 27
+
+# ---- LED ----
+LED_PIN = 22
+
+STOP_DISTANCE_CM = 50.0
+MOTOR_SPEED = 160 / 255.0   # convert Arduino PWM 160 to 0~1 range
+
+RUNNING = 0
+STOPPED_WAIT_CLEAR = 1
+CLEARING_DELAY = 2
+
+state = RUNNING
+clear_start_time = 0.0
+
+# Motor setup
+pwm = PWMOutputDevice(PWM_PIN, frequency=1000, initial_value=0)
+ina = DigitalOutputDevice(INA_PIN)
+inb = DigitalOutputDevice(INB_PIN)
+
+# Ultrasonic setup
+sensor = DistanceSensor(
+    echo=ECHO_PIN,
+    trigger=TRIG_PIN,
+    max_distance=2.0,      # meters
+    threshold_distance=0.5
+)
+
+# LED setup
+led = LED(LED_PIN)
+
+def read_distance_cm():
+    try:
+        d = sensor.distance * 100.0
+        if d <= 0:
+            return -1
+        return d
+    except Exception:
+        return -1
+
+def motor_forward(speed):
+    # Match your old logic:
+    # INA = HIGH, INB = LOW
+    ina.on()
+    inb.off()
+    pwm.value = speed
+
+def motor_stop():
+    pwm.value = 0
+
+def main():
+    global state, clear_start_time
+
+    motor_forward(MOTOR_SPEED)
+    led.off()
+
+    while True:
+        d = read_distance_cm()
+
+        # Treat "no echo" as "far away"
+        obstacle = (d > 0 and d < STOP_DISTANCE_CM)
+
+        # Optional debug
+        print(f"d={d:.1f} cm, state={state}")
+
+        if state == RUNNING:
+            if obstacle:
+                motor_stop()
+                led.on()
+                state = STOPPED_WAIT_CLEAR
+
+        elif state == STOPPED_WAIT_CLEAR:
+            if not obstacle:
+                clear_start_time = monotonic()
+                state = CLEARING_DELAY
+
+        elif state == CLEARING_DELAY:
+            if obstacle:
+                state = STOPPED_WAIT_CLEAR
+            elif monotonic() - clear_start_time >= 2.0:
+                motor_forward(MOTOR_SPEED)
+                led.off()
+                state = RUNNING
+
+        sleep(0.05)
+
+try:
+    main()
+finally:
+    motor_stop()
+    led.off()
+    ina.off()
+    inb.off()
