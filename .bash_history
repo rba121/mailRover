@@ -1,133 +1,3 @@
-            self.report_status(
-                task_id,
-                "FAULT",
-                reason="RESULT_READ_FAILED",
-            )
-            self._clear_active_task()
-            return
-""",
-    """        except Exception as exc:
-            self.get_logger().error(
-                f"Could not read Nav2 result: {exc}"
-            )
-            self._retry_active_goal(
-                task_id,
-                mission_type,
-                "RESULT_READ_FAILED",
-            )
-            return
-""",
-    "result read failure retry",
-)
-
-replace_once(
-    """        if result_status == GoalStatus.STATUS_CANCELED:
-            self.report_status(
-                task_id,
-                "CANCELED",
-                reason="GOAL_CANCELED",
-                **details,
-            )
-        else:
-            failure_status = (
-                "RETURN_ABORTED"
-                if mission_type == "return"
-                else "FAULT"
-            )
-
-            self.report_status(
-                task_id,
-                failure_status,
-                reason=f"NAV2_STATUS_{result_status}",
-                **details,
-            )
-
-        self._clear_active_task()
-""",
-    """        if result_status == GoalStatus.STATUS_CANCELED:
-            self.report_status(
-                task_id,
-                "CANCELED",
-                reason="GOAL_CANCELED",
-                **details,
-            )
-            self._clear_active_task()
-            return
-
-        self._retry_active_goal(
-            task_id,
-            mission_type,
-            f"NAV2_STATUS_{result_status}",
-        )
-""",
-    "terminal goal failure retry",
-)
-
-replace_once(
-    """    def _clear_active_task(self) -> None:
-""",
-    """    def _retry_active_goal(
-        self,
-        task_id: str,
-        mission_type: str,
-        reason: str,
-    ) -> None:
-        with self._lock:
-            if task_id != self._active_task_id:
-                return
-
-            retry_count = min(
-                self._recovery_count + 1,
-                self._maximum_recoveries,
-            )
-
-            target = dict(self._active_target or {})
-            current_pose = dict(self._last_pose or {})
-
-            self._recovery_count = retry_count
-            self._goal_recovery_base = retry_count
-            self._active_goal_handle = None
-
-        details = {
-            "recovery_count": retry_count,
-            "recovery_limit": self._maximum_recoveries,
-            "mission_type": mission_type,
-            **current_pose,
-        }
-
-        if (
-            retry_count >= self._maximum_recoveries
-            or not target
-        ):
-            final_status = (
-                "RETURN_ABORTED"
-                if mission_type == "return"
-                else "ABORTED"
-            )
-
-            final_reason = (
-                "RECOVERY_LIMIT"
-                if retry_count >= self._maximum_recoveries
-                else "TARGET_MISSING"
-            )
-
-            self.get_logger().error(
-                f"{final_status} task={task_id}: "
-                f"{final_reason}, recoveries="
-                f"{retry_count}/{self._maximum_recoveries}"
-            )
-
-            self.report_status(
-                task_id,
-                final_status,
-                reason=final_reason,
-                **details,
-            )
-
-            self._clear_active_task()
-            return
-
-        retry_status = (
             "RETURN_RECOVERING"
             if mission_type == "return"
             else "RECOVERING"
@@ -1998,3 +1868,133 @@ ls
 cd ..
 p
 sudo poweroff
+ls
+nmcli wifi list
+nmcli device show
+nmcli wifishow
+nmcli wifi show
+nmcli wifi 
+nmcli connection
+nmcli device show
+ip addr
+ip - a
+ip
+ip addres
+nmcli device wifi list
+nmcli device wifi connect "TELUSWiFi7275" password "zvGtK6t5b8"
+nmcli device wifi list
+nmcli device show
+nmcli device wifi list
+nmcli device show
+nmcli device wifi list
+nmcli device show
+nmcli connection
+ip addr
+sudo raspi-config
+clear
+sudo systemclt enable sssh --now
+sudo systemctl enable sssh --now
+sudo systemctl enable ssh --now
+sudo ufw status
+sudo systemctl status ssh
+hostname -I
+iwconfig
+nmcli connection show --active
+sudo apt install wireless-tools
+iwconfig
+nmcli connection show --active
+iwconfig
+ip addr
+ip route
+ip route 
+ip addr
+ls
+git status
+ls
+cd mailrover
+ls
+cd data 
+ls
+cd ..
+ls
+cd ..
+git add ,
+git add .
+git commit -m "Project backup"
+git remote add origin https://github.com/rba121/mailrover.git
+git branch -M main
+git push -u origin main
+git status
+git push -u origin main
+git push -u origin main:pi-home-backup
+ls
+cd motor_ws
+ls
+cd ..
+find ~/motor_ws -name ".git"
+ls
+cd robot_update/
+ls
+cd scripts
+cd ..
+cd scripts
+ls
+cs ros2_ws_simon
+ls
+cd ..
+cd ros2_ws_simon
+ls
+cd src
+ls
+cd my_robot_controller/
+ls
+cd my_robot_controller/
+ls
+cd ..
+ls
+cd ..
+ls
+sudo poweroff
+ls
+hostname -I
+sudo poweroff
+ls
+rm frames_2026-06-30_19.07.23.*
+ls
+mv machineshop_map.* /maps
+mv machineshop_map.* ~/maps
+ls
+cd maps
+ls
+cd ..
+ls
+cd debs
+ls
+cd ..
+nmcli wifi
+nmcli device show
+ping localhost
+ping 192.168.1.108
+hostname -I
+ping 192.168.68.96
+clear
+ls
+cd ~
+tar --exclude='*/build' --exclude='*/install' --exclude='*/log'   -czvf pi_backup_$(date +%Y%m%d).tar.gz   config Desktop debs mailrover maps motor_driver.sh motor_ws odom.py   pid.py piper_models robot_update ros2_ws ros2_ws_backups ros2_ws_simon   ros2_ws_wendy scripts start_robot.sh test_script.py
+ls -lh pi_backup_*.tar.gz
+hostname -I
+scp mypi@192.198.68.96:~/pi_backup_20260908.tar.gz ~/D/pi
+clear
+ls
+cd ros2_ws
+nano commands 
+cat commands
+ls
+cd src
+ls
+cd ..
+clea
+clear
+ls
+git checkout main
+git pull origin main
