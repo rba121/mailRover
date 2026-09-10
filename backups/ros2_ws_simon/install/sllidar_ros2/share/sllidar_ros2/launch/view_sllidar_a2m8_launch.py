@@ -1,0 +1,1 @@
+/home/mypi/ros2_ws_simon/src/sllidar_ros2/launch/view_sllidar_a2m8_launch.py

@@ -1,0 +1,1 @@
+/home/mypi/ros2_ws_simon/build/mailrover_urdf/ament_cmake_environment_hooks/local_setup.bash

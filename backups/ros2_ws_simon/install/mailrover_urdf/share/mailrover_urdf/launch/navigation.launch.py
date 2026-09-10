@@ -1,0 +1,1 @@
+/home/mypi/ros2_ws_simon/src/mailrover_urdf/launch/navigation.launch.py
